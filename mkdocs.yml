@@ -2,10 +2,9 @@ site_name: ENME480 - Robotics & Control
 site_description: Course website for ENME480
 site_url: https://enme480.github.io/
 repo_url: https://github.com/ENME480/enme480.github.io
+
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/logo.png
   features:
     - navigation.instant
     - navigation.tabs
@@ -13,6 +12,7 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.tabs.link
+
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -30,6 +30,7 @@ theme:
         name: Switch to system preference
 
 extra:
+  # Enables Material's mike integration (version switcher)
   version:
     provider: mike
 
