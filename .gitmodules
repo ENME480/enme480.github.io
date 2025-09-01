@@ -1,0 +1,3 @@
+[submodule "labs/Lab-Code"]
+	path = labs/Lab-Code
+	url = https://github.com/ENME480/Lab-Code
