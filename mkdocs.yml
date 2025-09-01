@@ -1,0 +1,73 @@
+site_name: ENME480 - Robotics & Control
+site_description: Course website for ENME480
+site_url: https://enme480.github.io/
+repo_url: https://github.com/ENME480/enme480.github.io
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+extra:
+  version:
+    provider: mike
+
+plugins:
+  - search
+  - blog
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+  - javascripts/math.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+
+nav:
+  - Home: index.md
+  - Syllabus: syllabus.md
+  - Schedule: schedule.md
+  - Labs:
+      - labs/index.md
+      - Week 01: labs/week-01.md
+  - Resources: resources.md
+  - Policies: policies.md
+  - Help: help.md
+  - Blog: blog/index.md
