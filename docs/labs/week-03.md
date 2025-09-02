@@ -12,4 +12,3 @@
 
 {% include-markdown "../_labcode/Week 3 - ROS/README.md" heading-offset=1 %}
 <!-- END:AUTO-INCLUDE-README -->
-

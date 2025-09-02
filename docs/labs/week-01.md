@@ -21,4 +21,3 @@ Location: **KEB 2111**
 
 {% include-markdown "../_labcode/Week 1 Materials/README.md" heading-offset=1 %}
 <!-- END:AUTO-INCLUDE-README -->
-
