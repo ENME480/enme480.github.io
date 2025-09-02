@@ -1,6 +1,7 @@
 # Resources
 
-- ENME480 Lab Code repository (submodule): `labs/Lab-Code`
-- ROS2, Python, and control references (add department links, safety docs, etc.)
+- **Lab code (submodule):** `labs/Lab-Code/` → upstream: https://github.com/ENME480/Lab-Code
+- **ROS 2 (Humble) tutorials & docs:** installation, nodes, topics, tf2, URDF, Gazebo, etc.
+- **Textbook:** Spong, Hutchinson, Vidyasagar — *Robot Modeling and Control* (2e, 2020).
 
-> **TODO (you):** Add specific setup links (ROS2 Humble, UR3e notes, camera calibration, etc.)
+> **TODO:** Add department/proctoring links, UR3e datasheets, safety docs, camera calibration notes, lab-specific setup scripts.

@@ -1,37 +1,11 @@
-# Lab 1 — Setup & First Motion
+# Week 01 — Lab Intro
 
-## Objectives
-- Verify environment setup
-- Run a minimal control loop
+**Focus:** course/lab onboarding, environments, safety overview, space orientation (KEB 2111 & EAF 3119).
 
-## Setup
-!!! note "Pre-reqs"
-    - Clone the lab submodule (automatically checked out by CI)
-    - Install Python 3.10+ and required packages
+- 📁 Lab materials (if present): [`labs/Lab-Code/Week 1 Materials/`](../Lab-Code/Week%201%20Materials/)
+- ✅ Deliverables: confirm environment + accounts; complete safety training checkpoint (details in Canvas/Piazza).
+- 🧭 Rooms: programming in **KEB 2111**; robot lab in **EAF 3119**.
 
-## Steps
-=== "Python"
-    ```py title="hello_control.py"
-    import time
-    print("Starting control loop...")
-    for i in range(3):
-        print(f"tick {i}")
-        time.sleep(0.5)
-    ```
-
-=== "CLI"
-    ```bash
-    python hello_control.py
-    ```
-
-## Math check
-Inline: $\dot{x} = J(q)\,\dot{q}$
-
-Block:
-
-$$
-\tau = J^T(q)\,F
-$$
-
-## Deliverables
-- Short report with results and questions
+<!-- Inline README later:
+--8<-- "labs/Lab-Code/Week 1 Materials/README.md"
+-->

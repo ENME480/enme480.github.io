@@ -1,5 +1,5 @@
-site_name: ENME480 - Robotics & Control
-site_description: Course website for ENME480
+site_name: ENME480: Introduction to Robotics (Fall 2025)
+site_description: University of Maryland — ENME480 course website (lectures, labs, resources, policies)
 site_url: https://enme480.github.io/
 repo_url: https://github.com/ENME480/enme480.github.io
 
@@ -12,7 +12,6 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.tabs.link
-
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -30,7 +29,6 @@ theme:
         name: Switch to system preference
 
 extra:
-  # Enables Material's mike integration (version switcher)
   version:
     provider: mike
 
@@ -66,8 +64,23 @@ nav:
   - Syllabus: syllabus.md
   - Schedule: schedule.md
   - Labs:
-      - labs/index.md
+      - Overview: labs/index.md
       - Week 01: labs/week-01.md
+      - Week 02: labs/week-02.md
+      - Week 03: labs/week-03.md
+      - Week 04: labs/week-04.md
+      - Week 05: labs/week-05.md
+      - Week 06: labs/week-06.md
+      - Week 07: labs/week-07.md
+      - Week 08: labs/week-08.md
+      - Week 09: labs/week-09.md
+      - Week 10: labs/week-10.md
+      - Week 11: labs/week-11.md
+      - Week 12: labs/week-12.md
+      - Week 13: labs/week-13.md
+      - Week 14: labs/week-14.md
+      - Week 15: labs/week-15.md
+      - Final Project: labs/final-project.md
   - Resources: resources.md
   - Policies: policies.md
   - Help: help.md

@@ -1,6 +1,6 @@
-# ENME480 — Robotics & Control
+# ENME480 — Introduction to Robotics (Fall 2025)
 
-Welcome to the course hub. Use the left sidebar to find **Labs**, **Schedule**, **Resources**, and more.
+Welcome to the course hub. Use the sidebar to find **Labs**, **Schedule**, **Resources**, and more.
 
 > **Quick links**
 >
