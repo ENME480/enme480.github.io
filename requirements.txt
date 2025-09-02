@@ -2,3 +2,4 @@ mkdocs>=1.5
 mkdocs-material>=9.5
 mike>=2.1.0
 pymdown-extensions>=10.8
+mkdocs-include-markdown-plugin

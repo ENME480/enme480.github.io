@@ -35,7 +35,7 @@ extra:
 plugins:
   - search
   - blog
-
+  - include-markdown
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -85,3 +85,6 @@ nav:
   - Policies: policies.md
   - Help: help.md
   - Blog: blog/index.md
+
+# Note: _labcode files are automatically hidden from navigation
+# as they are included via the include-markdown plugin

@@ -4,3 +4,13 @@
 <!--
 --8<-- "labs/Lab-Code/Week 5 - UR3e Intro/README.md"
 -->
+
+<!-- BEGIN:AUTO-INCLUDE-README -->
+## Lab handout (from Lab-Code)
+
+[View this lab folder on GitHub](https://github.com/ENME480/Lab-Code/tree/main/Week%205%20-%20UR3e%20Intro)
+
+{% include-markdown "../_labcode/Week 5 - UR3e Intro/UR3eOperation.md" heading-offset=1 %}
+<!-- END:AUTO-INCLUDE-README -->
+
+

@@ -25,6 +25,19 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Mirror Lab-Code into docs
+        run: |
+          mkdir -p docs/_labcode
+          rsync -a --delete \
+            --include='*/' \
+            --include='*.md' \
+            --include='*.png' --include='*.jpg' --include='*.jpeg' \
+            --include='*.gif' --include='*.svg' --include='*.webp' \
+            --include='*.pdf' \
+            --exclude='*' \
+            labs/Lab-Code/ docs/_labcode/
+
       - name: Configure git identity
         run: |
           git config user.name "github-actions[bot]"
