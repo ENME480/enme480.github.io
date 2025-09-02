@@ -20,7 +20,7 @@ Introduction to Ubuntu environment and Python programming basics for robotics ap
 
 ## Prerequisites
 - Basic computer literacy
-- No prior programming experience required
+- Fundamental programming experience required
 
 ## Next Steps
 This foundation will prepare you for ROS (Robot Operating System) work in Week 3.

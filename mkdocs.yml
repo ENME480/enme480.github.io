@@ -105,3 +105,6 @@ nav:
 
 # Note: _labcode files are automatically hidden from navigation
 # as they are included via the include-markdown plugin
+
+not_in_nav:
+  - _labcode/**

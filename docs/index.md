@@ -80,7 +80,9 @@ description: Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-e
 ## 🗓️ This week
 
 <!-- THIS_WEEK:auto:start -->
-_(Auto-filled from `data/this_week.yml` by GitHub Actions on each push)_
+- Safety training due by end of Week 1
+- Environment setup (Ubuntu, Python, ROS 2)
+- Account verification for lab access
 <!-- THIS_WEEK:auto:end -->
 
 ---
@@ -88,7 +90,8 @@ _(Auto-filled from `data/this_week.yml` by GitHub Actions on each push)_
 ## ⚡ What’s new
 
 <!-- WHATS_NEW:auto:start -->
-_(Short announcements from `data/this_week.yml`)_
+- Course website launched 🎉
+- Lab materials synced from GitHub
 <!-- WHATS_NEW:auto:end -->
 
 ---
