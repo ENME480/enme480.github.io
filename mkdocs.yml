@@ -72,9 +72,14 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
   - javascripts/math.js
+  - https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
+  - https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/calendar.js
+  - javascripts/tablesort.js
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+  - styles/calendar.css
 
 nav:
   - Home: index.md
@@ -99,6 +104,14 @@ nav:
       - Week 15: labs/week-15.md
       - Final Project: labs/final-project.md
   - Resources: resources.md
+  - Wiki:
+      - Ubuntu Setup: ubuntu-setup.md
+      - ROS Setup: ros-setup.md
+      - Python Basics: python-basics.md
+      - Git Basics: git-basics.md
+      - Gazebo Setup: gazebo-setup.md
+      - Development Environment: dev-environment.md
+      - Kinematics Reference: kinematics-reference.md
   - Policies: policies.md
   - Help: help.md
   - Blog: blog/index.md

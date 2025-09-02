@@ -1,0 +1,604 @@
+[
+  {
+    "title": "Lab Intro",
+    "start": "2025-09-02T12:00:00",
+    "end": "2025-09-02T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 1
+  },
+  {
+    "title": "Lecture: Intro & Linear Algebra Primer",
+    "start": "2025-09-03T14:00:00",
+    "end": "2025-09-03T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 1
+  },
+  {
+    "title": "Lab Intro",
+    "start": "2025-09-04T12:00:00",
+    "end": "2025-09-04T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 1
+  },
+  {
+    "title": "Lab Intro",
+    "start": "2025-09-05T08:00:00",
+    "end": "2025-09-05T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 1
+  },
+  {
+    "title": "Lecture: Linear Algebra Primer",
+    "start": "2025-09-08T14:00:00",
+    "end": "2025-09-08T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 2
+  },
+  {
+    "title": "RAL Intro, Setup",
+    "start": "2025-09-09T12:00:00",
+    "end": "2025-09-09T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 2
+  },
+  {
+    "title": "Lecture: Linear Algebra Primer",
+    "start": "2025-09-10T14:00:00",
+    "end": "2025-09-10T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 2
+  },
+  {
+    "title": "RAL Intro, Setup",
+    "start": "2025-09-11T12:00:00",
+    "end": "2025-09-11T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 2
+  },
+  {
+    "title": "RAL Intro, Setup",
+    "start": "2025-09-12T08:00:00",
+    "end": "2025-09-12T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 2
+  },
+  {
+    "title": "Lecture: Rigid Motions",
+    "start": "2025-09-15T14:00:00",
+    "end": "2025-09-15T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 3
+  },
+  {
+    "title": "Python Intro, ROS Intro, Studio 1",
+    "start": "2025-09-16T12:00:00",
+    "end": "2025-09-16T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 3
+  },
+  {
+    "title": "Lecture: Rigid Motions",
+    "start": "2025-09-17T14:00:00",
+    "end": "2025-09-17T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 3
+  },
+  {
+    "title": "Python Intro, ROS Intro, Studio 1",
+    "start": "2025-09-18T12:00:00",
+    "end": "2025-09-18T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 3
+  },
+  {
+    "title": "Python Intro, ROS Intro, Studio 1",
+    "start": "2025-09-19T08:00:00",
+    "end": "2025-09-19T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 3
+  },
+  {
+    "title": "Lecture: Rigid Motions",
+    "start": "2025-09-22T14:00:00",
+    "end": "2025-09-22T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 4
+  },
+  {
+    "title": "Gazebo Demo, Studio 2",
+    "start": "2025-09-23T12:00:00",
+    "end": "2025-09-23T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 4
+  },
+  {
+    "title": "Lecture: Rigid Motions",
+    "start": "2025-09-24T14:00:00",
+    "end": "2025-09-24T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 4
+  },
+  {
+    "title": "Gazebo Demo, Studio 2",
+    "start": "2025-09-25T12:00:00",
+    "end": "2025-09-25T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 4
+  },
+  {
+    "title": "Gazebo Demo, Studio 2",
+    "start": "2025-09-26T08:00:00",
+    "end": "2025-09-26T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 4
+  },
+  {
+    "title": "Lecture: Forward Kinematics",
+    "start": "2025-09-29T14:00:00",
+    "end": "2025-09-29T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 5
+  },
+  {
+    "title": "FK Lab 1.1",
+    "start": "2025-09-30T12:00:00",
+    "end": "2025-09-30T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 5
+  },
+  {
+    "title": "Lecture: Forward Kinematics",
+    "start": "2025-10-01T14:00:00",
+    "end": "2025-10-01T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 5
+  },
+  {
+    "title": "FK Lab 1.1",
+    "start": "2025-10-02T12:00:00",
+    "end": "2025-10-02T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 5
+  },
+  {
+    "title": "FK Lab 1.1",
+    "start": "2025-10-03T08:00:00",
+    "end": "2025-10-03T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 5
+  },
+  {
+    "title": "Lecture: Velocity Kinematics",
+    "start": "2025-10-06T14:00:00",
+    "end": "2025-10-06T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 6
+  },
+  {
+    "title": "FK Lab 1.2",
+    "start": "2025-10-07T12:00:00",
+    "end": "2025-10-07T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 6
+  },
+  {
+    "title": "Lecture: Velocity Kinematics",
+    "start": "2025-10-08T14:00:00",
+    "end": "2025-10-08T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 6
+  },
+  {
+    "title": "FK Lab 1.2",
+    "start": "2025-10-09T12:00:00",
+    "end": "2025-10-09T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 6
+  },
+  {
+    "title": "FK Lab 1.2",
+    "start": "2025-10-10T08:00:00",
+    "end": "2025-10-10T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 6
+  },
+  {
+    "title": "Lecture: Velocity Kinematics",
+    "start": "2025-10-15T14:00:00",
+    "end": "2025-10-15T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 7
+  },
+  {
+    "title": "Lecture: Exam",
+    "start": "2025-10-20T14:00:00",
+    "end": "2025-10-20T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 8
+  },
+  {
+    "title": "IK Studio",
+    "start": "2025-10-21T12:00:00",
+    "end": "2025-10-21T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 8
+  },
+  {
+    "title": "Lecture: Inverse Kinematics",
+    "start": "2025-10-22T14:00:00",
+    "end": "2025-10-22T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 8
+  },
+  {
+    "title": "IK Studio",
+    "start": "2025-10-23T12:00:00",
+    "end": "2025-10-23T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 8
+  },
+  {
+    "title": "IK Studio",
+    "start": "2025-10-24T08:00:00",
+    "end": "2025-10-24T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 8
+  },
+  {
+    "title": "Lecture: Inverse Kinematics",
+    "start": "2025-10-27T14:00:00",
+    "end": "2025-10-27T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 9
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-10-28T12:00:00",
+    "end": "2025-10-28T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 9
+  },
+  {
+    "title": "Lecture: Inverse Kinematics",
+    "start": "2025-10-29T14:00:00",
+    "end": "2025-10-29T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 9
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-10-30T12:00:00",
+    "end": "2025-10-30T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 9
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-10-31T08:00:00",
+    "end": "2025-10-31T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 9
+  },
+  {
+    "title": "Lecture: Inverse Kinematics",
+    "start": "2025-11-03T14:00:00",
+    "end": "2025-11-03T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 10
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-11-04T12:00:00",
+    "end": "2025-11-04T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 10
+  },
+  {
+    "title": "Lecture: Dynamics",
+    "start": "2025-11-05T14:00:00",
+    "end": "2025-11-05T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 10
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-11-06T12:00:00",
+    "end": "2025-11-06T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 10
+  },
+  {
+    "title": "IK Lab",
+    "start": "2025-11-07T08:00:00",
+    "end": "2025-11-07T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 10
+  },
+  {
+    "title": "Lecture: Dynamics",
+    "start": "2025-11-10T14:00:00",
+    "end": "2025-11-10T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 11
+  },
+  {
+    "title": "Intro to Cameras",
+    "start": "2025-11-11T12:00:00",
+    "end": "2025-11-11T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 11
+  },
+  {
+    "title": "Lecture: Dynamics",
+    "start": "2025-11-12T14:00:00",
+    "end": "2025-11-12T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 11
+  },
+  {
+    "title": "Intro to Cameras",
+    "start": "2025-11-13T12:00:00",
+    "end": "2025-11-13T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 11
+  },
+  {
+    "title": "Intro to Cameras",
+    "start": "2025-11-14T08:00:00",
+    "end": "2025-11-14T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 11
+  },
+  {
+    "title": "Lecture: Path & Trajectory Planning",
+    "start": "2025-11-17T14:00:00",
+    "end": "2025-11-17T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 12
+  },
+  {
+    "title": "Camera Lab",
+    "start": "2025-11-18T12:00:00",
+    "end": "2025-11-18T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0103",
+    "week": 12
+  },
+  {
+    "title": "Lecture: Exam 2",
+    "start": "2025-11-19T14:00:00",
+    "end": "2025-11-19T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 12
+  },
+  {
+    "title": "Camera Lab",
+    "start": "2025-11-20T12:00:00",
+    "end": "2025-11-20T14:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0101",
+    "week": 12
+  },
+  {
+    "title": "Camera Lab",
+    "start": "2025-11-21T08:00:00",
+    "end": "2025-11-21T10:00:00",
+    "location": "EAF 3117",
+    "type": "lab",
+    "section": "0102",
+    "week": 12
+  },
+  {
+    "title": "Lecture: Path & Trajectory Planning",
+    "start": "2025-11-24T14:00:00",
+    "end": "2025-11-24T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 13
+  },
+  {
+    "title": "No Lab (Make-up/Office Hours)",
+    "start": "2025-11-25T12:00:00",
+    "end": "2025-11-25T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 13
+  },
+  {
+    "title": "Lecture: No Lecture (Wed–Fri)",
+    "start": "2025-11-26T14:00:00",
+    "end": "2025-11-26T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 13
+  },
+  {
+    "title": "No Lecture",
+    "start": "2025-11-27T12:00:00",
+    "end": "2025-11-27T14:00:00",
+    "location": "—",
+    "type": "studio",
+    "section": "0101",
+    "week": 13
+  },
+  {
+    "title": "No Lecture",
+    "start": "2025-11-28T08:00:00",
+    "end": "2025-11-28T10:00:00",
+    "location": "—",
+    "type": "studio",
+    "section": "0102",
+    "week": 13
+  },
+  {
+    "title": "Lecture: Path & Trajectory Planning",
+    "start": "2025-12-01T14:00:00",
+    "end": "2025-12-01T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 14
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-02T12:00:00",
+    "end": "2025-12-02T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 14
+  },
+  {
+    "title": "Lecture: Independent Joint Control",
+    "start": "2025-12-03T14:00:00",
+    "end": "2025-12-03T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 14
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-04T12:00:00",
+    "end": "2025-12-04T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 14
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-05T08:00:00",
+    "end": "2025-12-05T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 14
+  },
+  {
+    "title": "Lecture: Independent Joint Control",
+    "start": "2025-12-08T14:00:00",
+    "end": "2025-12-08T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 15
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-09T12:00:00",
+    "end": "2025-12-09T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0103",
+    "week": 15
+  },
+  {
+    "title": "Lecture: Independent Joint Control",
+    "start": "2025-12-10T14:00:00",
+    "end": "2025-12-10T14:50:00",
+    "location": "TWS1100",
+    "type": "lecture",
+    "week": 15
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-11T12:00:00",
+    "end": "2025-12-11T14:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0101",
+    "week": 15
+  },
+  {
+    "title": "Final Project",
+    "start": "2025-12-12T08:00:00",
+    "end": "2025-12-12T10:00:00",
+    "location": "KEB 2111",
+    "type": "studio",
+    "section": "0102",
+    "week": 15
+  }
+]
