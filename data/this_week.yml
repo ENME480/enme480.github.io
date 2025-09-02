@@ -1,0 +1,16 @@
+current_week: 1
+weeks:
+  - week: 1
+    this_week:
+      - "Safety training due by end of Week 1"
+      - "Environment setup (Ubuntu, Python, ROS 2)"
+      - "Account verification for lab access"
+    whats_new:
+      - "Course website launched 🎉"
+      - "Lab materials synced from GitHub"
+  - week: 2
+    this_week:
+      - "Ubuntu & Python fundamentals"
+      - "Canvas: Homework posted Fri 11:59pm"
+    whats_new:
+      - "Added Week 2 Studio checklist"

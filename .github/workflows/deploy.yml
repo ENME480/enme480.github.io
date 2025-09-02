@@ -1,4 +1,5 @@
-name: build-and-deploy
+name: Build & Deploy (MkDocs)
+
 on:
   push:
     branches: [ main ]
@@ -7,42 +8,24 @@ on:
 permissions:
   contents: write
 
-env:
-  VERSION: fa2025
-
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (with submodules)
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          fetch-depth: 0  # mike needs history for gh-pages ops
+          submodules: true    # pulls Lab-Code when you add it
+          fetch-depth: 0      # full history for tags/versions
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Mirror Lab-Code into docs
         run: |
-          mkdir -p docs/_labcode
-          rsync -a --delete \
-            --include='*/' \
-            --include='*.md' \
-            --include='*.png' --include='*.jpg' --include='*.jpeg' \
-            --include='*.gif' --include='*.svg' --include='*.webp' \
-            --include='*.pdf' \
-            --exclude='*' \
-            labs/Lab-Code/ docs/_labcode/
-
-      - name: Configure git identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Build & deploy version with mike
-        run: |
-          mike deploy --push --update-aliases ${VERSION} latest
-          mike set-default --push latest
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Auto-fill homepage from YAML
+        run: python scripts/update_home.py
+      - name: Build & Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

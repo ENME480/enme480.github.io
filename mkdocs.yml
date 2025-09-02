@@ -1,5 +1,5 @@
-site_name: ENME480 - Introduction to Robotics (Fall 2025)
-site_description: University of Maryland — ENME480 course website (lectures, labs, resources, policies)
+site_name: ENME480 — Introduction to Robotics
+site_description: Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project
 site_url: https://enme480.github.io/
 repo_url: https://github.com/ENME480/enme480.github.io
 
@@ -12,30 +12,21 @@ theme:
     - toc.integrate
     - content.code.copy
     - content.tabs.link
+    - navigation.indexes
+    - navigation.footer
+    - content.tooltips
+  icon:
+    logo: material/robot
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
-extra:
-  version:
-    provider: mike
+    - scheme: default
+    - scheme: slate
 
 plugins:
   - search
   - blog
   - include-markdown
+  - social
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -50,6 +41,20 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.arithmatex:
       generic: true
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ENME480
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/UMDMaryland
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
