@@ -6,30 +6,28 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project">
+        <meta name="description" content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project">
       
       
       
-        <link rel="canonical" href="https://enme480.github.io/">
+        <link rel="canonical" href="https://enme480.github.io/_labcode/Week%208%20-%20Inverse%20Kinematics/Studio-8-IK_Gazebo/">
       
       
       
-        <link rel="next" href="syllabus/">
       
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
-        <title>ENME480 — Introduction to Robotics (Fall 2025) - ENME480 — Introduction to Robotics</title>
+        <title>Week 8 - UR3e Inverse Kinematics on Gazebo - ENME480 — Introduction to Robotics</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,7 +48,7 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="Week 8 - UR3e Inverse Kinematics on Gazebo - ENME480 — Introduction to Robotics" >
       
-        <meta  property="og:description"  content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project" >
+        <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
-        <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/index.png" >
+        <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/_labcode/Week 8 - Inverse Kinematics/Studio-8-IK_Gazebo.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +69,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://enme480.github.io/" >
+        <meta  property="og:url"  content="https://enme480.github.io/_labcode/Week%208%20-%20Inverse%20Kinematics/Studio-8-IK_Gazebo/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="Week 8 - UR3e Inverse Kinematics on Gazebo - ENME480 — Introduction to Robotics" >
       
-        <meta  name="twitter:description"  content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project" >
+        <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
-        <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/index.png" >
+        <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/_labcode/Week 8 - Inverse Kinematics/Studio-8-IK_Gazebo.png" >
       
     
     
@@ -102,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enme480-introduction-to-robotics" class="md-skip">
+        <a href="#week-8-ur3e-inverse-kinematics-on-gazebo" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +118,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href="../../.." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -140,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ENME480 — Introduction to Robotics (Fall 2025)
+              Week 8 - UR3e Inverse Kinematics on Gazebo
             
           </span>
         </div>
@@ -241,11 +239,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -266,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="syllabus/" class="md-tabs__link">
+      <a href="../../../syllabus/" class="md-tabs__link">
         
   
   
@@ -285,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="schedule/" class="md-tabs__link">
+      <a href="../../../schedule/" class="md-tabs__link">
         
   
   
@@ -306,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="labs/" class="md-tabs__link">
+        <a href="../../../labs/" class="md-tabs__link">
           
   
   
@@ -326,7 +322,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="resources/" class="md-tabs__link">
+      <a href="../../../resources/" class="md-tabs__link">
         
   
   
@@ -345,7 +341,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="policies/" class="md-tabs__link">
+      <a href="../../../policies/" class="md-tabs__link">
         
   
   
@@ -364,7 +360,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="help/" class="md-tabs__link">
+      <a href="../../../help/" class="md-tabs__link">
         
   
   
@@ -383,7 +379,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="blog/" class="md-tabs__link">
+      <a href="../../../blog/" class="md-tabs__link">
         
   
   
@@ -420,7 +416,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href="../../.." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -447,34 +443,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -487,107 +459,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#course-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 Course overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔑 Key facts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start-new-students" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Quick start (new students)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      📅 Key dates
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#this-week" class="md-nav__link">
-    <span class="md-ellipsis">
-      🗓️ This week
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#whats-new" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚡ What’s new
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#at-a-glance" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 At a glance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#locations" class="md-nav__link">
-    <span class="md-ellipsis">
-      🏢 Locations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎓 Learning path
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -599,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="syllabus/" class="md-nav__link">
+      <a href="../../../syllabus/" class="md-nav__link">
         
   
   
@@ -621,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="schedule/" class="md-nav__link">
+      <a href="../../../schedule/" class="md-nav__link">
         
   
   
@@ -698,7 +569,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="labs/" class="md-nav__link ">
+            <a href="../../../labs/" class="md-nav__link ">
               
   
   
@@ -733,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-01/" class="md-nav__link">
+      <a href="../../../labs/week-01/" class="md-nav__link">
         
   
   
@@ -756,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-02/" class="md-nav__link">
+      <a href="../../../labs/week-02/" class="md-nav__link">
         
   
   
@@ -779,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-03/" class="md-nav__link">
+      <a href="../../../labs/week-03/" class="md-nav__link">
         
   
   
@@ -802,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-04/" class="md-nav__link">
+      <a href="../../../labs/week-04/" class="md-nav__link">
         
   
   
@@ -825,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-05/" class="md-nav__link">
+      <a href="../../../labs/week-05/" class="md-nav__link">
         
   
   
@@ -848,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-06/" class="md-nav__link">
+      <a href="../../../labs/week-06/" class="md-nav__link">
         
   
   
@@ -871,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-07/" class="md-nav__link">
+      <a href="../../../labs/week-07/" class="md-nav__link">
         
   
   
@@ -894,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-08/" class="md-nav__link">
+      <a href="../../../labs/week-08/" class="md-nav__link">
         
   
   
@@ -917,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-09/" class="md-nav__link">
+      <a href="../../../labs/week-09/" class="md-nav__link">
         
   
   
@@ -940,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-10/" class="md-nav__link">
+      <a href="../../../labs/week-10/" class="md-nav__link">
         
   
   
@@ -963,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-11/" class="md-nav__link">
+      <a href="../../../labs/week-11/" class="md-nav__link">
         
   
   
@@ -986,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-12/" class="md-nav__link">
+      <a href="../../../labs/week-12/" class="md-nav__link">
         
   
   
@@ -1009,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-13/" class="md-nav__link">
+      <a href="../../../labs/week-13/" class="md-nav__link">
         
   
   
@@ -1032,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-14/" class="md-nav__link">
+      <a href="../../../labs/week-14/" class="md-nav__link">
         
   
   
@@ -1055,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/week-15/" class="md-nav__link">
+      <a href="../../../labs/week-15/" class="md-nav__link">
         
   
   
@@ -1078,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="labs/final-project/" class="md-nav__link">
+      <a href="../../../labs/final-project/" class="md-nav__link">
         
   
   
@@ -1108,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="resources/" class="md-nav__link">
+      <a href="../../../resources/" class="md-nav__link">
         
   
   
@@ -1130,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="policies/" class="md-nav__link">
+      <a href="../../../policies/" class="md-nav__link">
         
   
   
@@ -1152,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="help/" class="md-nav__link">
+      <a href="../../../help/" class="md-nav__link">
         
   
   
@@ -1176,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/" class="md-nav__link">
+      <a href="../../../blog/" class="md-nav__link">
         
   
   
@@ -1210,150 +1081,166 @@
   
 
 
-<h1 id="enme480-introduction-to-robotics">🚀 ENME480 — Introduction to Robotics</h1>
-<div align="center">
-
-**Fall 2025 • University of Maryland • 3 credits**
-
-*Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project*
-
-[![Course Banner](assets/images/favicon.png){ width="200" }](assets/images/favicon.png)
-
-</div>
-
-<hr />
-<h2 id="course-overview">🎯 Course overview</h2>
-<p><strong>ENME480</strong> blends core theory with practical labs:</p>
+<h1 id="week-8-ur3e-inverse-kinematics-on-gazebo">Week 8 - UR3e Inverse Kinematics on Gazebo</h1>
+<h2 id="objectives">Objectives</h2>
+<p>The objective of this lab is to derive and implement a solution to the inverse kinematics problem for the UR3 robot. In this lab we will:</p>
 <ul>
-<li>🤖 <strong>Kinematics &amp; dynamics</strong> — rigid motions, forward/inverse kinematics, planning &amp; control  </li>
-<li>🧑‍💻 <strong>ROS 2 &amp; Python</strong> — modern robotics tooling and best practices  </li>
-<li>🧪 <strong>Studios &amp; labs</strong> — translate math into code on <strong>UR3e</strong> industrial arms  </li>
-<li>👁️ <strong>Vision pipeline</strong> — perception + pick &amp; place for the final project</li>
+<li>Derive elbow-up inverse kinematic equations for the UR3</li>
+<li>Write a publisher that moves the UR3 to a point in space specified by the user</li>
 </ul>
-<hr />
-<h2 id="key-facts">🔑 Key facts</h2>
-<ul>
-<li><strong>Instructor:</strong> Dr. Nikhil Chopra — <strong>Office Hours:</strong> Wed 10–11:30, <strong>2149 Martin Hall</strong> (Zoom link in syllabus)  </li>
-<li><strong>TAs:</strong> Alex Beyer, Kaustubh Joshi — <strong>TA Office Hours:</strong> <em>TBD</em>  </li>
-<li><strong>Course dates:</strong> <strong>Sep 2 – Dec 12, 2025</strong>  </li>
-<li><strong>Lectures:</strong> <strong>MW 2:00–2:50pm</strong> (<strong>TWS1100</strong>)  </li>
-<li><strong>Studios (sections):</strong> 0101 Thu 12–2, 0102 Fri 8–10, 0103 Tue 12–2 (<strong>KEB 2111 / EAF 3119</strong>)  </li>
-<li><strong>Channels:</strong> <a href="https://piazza.com/umd/fall2025/enme480">Piazza</a>, <a href="https://elms.umd.edu">Canvas</a>, <a href="https://github.com/ENME480">GitHub</a></li>
-</ul>
-<blockquote>
-<p><strong>Note on rooms:</strong> Syllabus mentions EAF <strong>3119</strong> in the section schedule and <strong>3117</strong> elsewhere. We list <strong>EAF 3119</strong> here; confirm via Schedule/Piazza if updated.</p>
-</blockquote>
-<hr />
-<div align="center">
-
-[📋 View Syllabus](syllabus.md){ .md-button .md-button--primary }
-[🗓️ Schedule](schedule.md){ .md-button }
-[🧪 Start Labs](labs/index.md){ .md-button }
-[❓ Help](help.md){ .md-button }
-
-</div>
-
-<hr />
-<h2 id="quick-start-new-students">🚀 Quick start (new students)</h2>
+<h2 id="task-description">Task Description</h2>
+<p>The joints and links of the UR3 robot are annotated in Figure 1. The goal is to find the rotation
+angles of the 6 joints <code>(θ1, ... , θ6)</code>, so that the end-effector (end of Link 10) can reach to a given
+position <code>(x_grip, y_grip, z_grip)</code> and orientation <code>{θ_yaw, θ_pitch, θ_roll}</code> input by the user.
+There are many possible solutions to the inverse kinematics problem. To make the derivation
+manageable, we will only implement one of the elbow-up solution in this lab. <code>θ_pitch</code> and <code>θ_roll</code> of
+the end-effector are fixed by letting the vacuum gripper aluminum plate (Link 9) always be
+parallel to the x-y plane of world frame coordinates (i.e., desk plane), and θ5 is always equal to −90°. Thus, the user will input the desired position and yaw angle of the end-effector in world
+frame coordinates <code>(xWgrip, yWgrip, zWgrip, yawWgrip)</code>, and the output of the program should
+be the joint angles <code>θ1 to θ6</code>.</p>
+<p><img alt="" src="../images/img1.jpg" /></p>
+<h2 id="solution-steps">Solution Steps</h2>
+<p>In this section, a suggested solution approach is described.</p>
 <ol>
-<li>📋 Complete <a href="policies/#safety-guidelines">Safety Training</a> <em>(required before robot lab)</em>  </li>
-<li>💻 Set up Ubuntu, Python, and ROS 2 — see <a href="labs/week-01/">Week 1</a>  </li>
-<li>🐧 Practice Linux/Python basics — <a href="labs/week-02/">Week 2</a>  </li>
-<li>🤖 Get started with ROS — <a href="labs/week-03/">Week 3</a></li>
+<li>Establish the world coordinate frame (frame w) centered at the corner of the UR3’s base shown in Figure 2. We will solve the inverse kinematics problem in the base frame (frame 0), so we will convert the coordinates (𝑥𝑤−𝑔𝑟𝑖𝑝, 𝑦𝑤−𝑔𝑟𝑖𝑝, 𝑧𝑤−𝑔𝑟𝑖𝑝) entered by the user to base frame coordinates (𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝). The origin of the base frame is at (-0.15, 0.15, 0.01) in
+the world frame. Set 𝜃5 = −90° in unit of radian."</li>
 </ol>
-<hr />
-<h2 id="key-dates">📅 Key dates</h2>
-<blockquote>
-<p>Final dates live on Canvas; midterm weeks appear on the Schedule page.</p>
-</blockquote>
-<ul>
-<li><strong>Course runs:</strong> Sep 2 → Dec 12, 2025  </li>
-<li><strong>Midterm 1:</strong> <em>TBD (see Schedule)</em>  </li>
-<li><strong>Midterm 2:</strong> <em>TBD (see Schedule)</em>  </li>
-<li><strong>Final project demos:</strong> <em>TBD (last 1–2 weeks)</em></li>
-</ul>
-<hr />
-<h2 id="this-week">🗓️ This week</h2>
-<!-- THIS_WEEK:auto:start -->
-<ul>
-<li>Safety training due by end of Week 1</li>
-<li>Environment setup (Ubuntu, Python, ROS 2)</li>
-<li>Account verification for lab access</li>
-</ul>
-<!-- THIS_WEEK:auto:end -->
-
-<hr />
-<h2 id="whats-new">⚡ What’s new</h2>
-<!-- WHATS_NEW:auto:start -->
-<ul>
-<li>Course website launched 🎉</li>
-<li>Lab materials synced from GitHub</li>
-</ul>
-<!-- WHATS_NEW:auto:end -->
-
-<hr />
-<h2 id="at-a-glance">🧭 At a glance</h2>
-<div class="grid cards">
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69zm4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67zM5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2zm11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85"/></svg></span> <strong>Meetings</strong>
-    ---
-    <strong>Lectures:</strong> MW 2:00–2:50 (<strong>TWS1100</strong>)<br />
-<strong>Studios:</strong> 0101 Thu 12–2 • 0102 Fri 8–10 • 0103 Tue 12–2 (<strong>KEB 2111 / EAF 3119</strong>)
-    <a href="schedule/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Schedule</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 9H7V7h10m0 6H7v-2h10m-3 6H7v-2h7M12 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span> <strong>Grading</strong>
-    ---
-    Homework <strong>20%</strong> · Studios/Labs <strong>20%</strong> · Midterm 1 <strong>20%</strong> · Midterm 2 <strong>20%</strong> · Final Project <strong>20%</strong> · Extra credit up to <strong>5%</strong>
-    <a href="policies/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Policies</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <strong>Text &amp; tools</strong>
-    ---
-    Spong/Hutchinson/Vidyasagar, <em>Robot Modeling and Control</em> (2e, 2020).<br />
-    ROS 2 (Humble) + Python; laptop capable of running ROS 2.
-    <a href="resources/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Resources</a></p>
-</li>
-</ul>
-</div>
-<hr />
-<h2 id="locations">🏢 Locations</h2>
+<p><img alt="" src="../images/img2.jpg" /></p>
+<ol>
+<li>We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of <code>𝜃6</code>’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper <code>(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)</code> in the base frame and the yaw angle, find wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛).</li>
+<li>Given the wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛), find the waist angle 𝜃1. Figure 3 shows the
+top-down view of the robot, which is helpful for formulating the relations.</li>
+<li>Solve for the value of <code>𝜃6</code>, given 𝜃1 and the desired yaw angle (should be converted to radian from the input degree value). 𝜃6 = 0 when Link 9 is parallel to Link 4 and Link 6.</li>
+<li>We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑) is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if 𝜃1 = 0 then 𝑦3𝑒𝑛𝑑 = 0. If 𝜃1 = 90° then 𝑥3𝑒𝑛𝑑 = 0. Use the top-down view (Figure 3) to find 𝑥3𝑒𝑛𝑑 and 𝑦3𝑒𝑛𝑑 from 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛. Figure 4 is a side view that is a projection of the robot onto a plane
+perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
+this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.</li>
+</ol>
+<p><img alt="Top View of UR3" src="../images/img3.jpg" /></p>
+<p><img alt="Side View of UR3" src="../images/img4.jpg" /></p>
+<ol>
+<li>Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
+x-y plane of the world frame.</li>
+</ol>
+<p>Now that your code solves for all the joint variables <code>(𝜃1 to 𝜃6)</code>, send these six values to the publisher you created in FK lab to move the robot to those angles so that it gets to the desired position.</p>
+<h2 id="implementation-in-ros2-gazebo">Implementation in ROS2 &amp; Gazebo</h2>
+<ol>
+<li>Pull the latest commit for ur3e_enme480 package</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~/&lt;your_workspace&gt;/src/ur3e_enme480
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+<ol>
+<li>Download the URDF <code>enme480_ik.xacro</code> (from <code>Code Resources</code> in Week 7 on this page) in your <code>urdf</code> folder. Replace <code>ur.urdf.xacro</code> as well.</li>
+</ol>
+<p>Add the <code>UR3SuctionCupMount.stl</code> from <code>Code Resources</code> to your <code>Universal_Robots_ROS2_Description//meshes/ur3/visual/</code> folder.</p>
+<ol>
+<li>Create a publisher <code>ur3e_ik_sim.py</code> with node name <code>ur3e_sim_ik_publisher</code>. It will have a structure somewhat like this:</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">....</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">InverseKinematicsUR3e</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="o">...</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="o">...</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">CommandUR3e</span><span class="p">,</span> <span class="s1">&#39;/ur3/command&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="o">...</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="o">...</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">move_robot</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="o">...</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="o">...</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">calculate_fk_from_dh</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="o">...</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="o">...</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">inverse_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xWgrip</span><span class="p">,</span> <span class="n">yWgrip</span><span class="p">,</span> <span class="n">zWgrip</span><span class="p">,</span> <span class="n">yawWgrip</span><span class="p">):</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="c1"># TODO: Function that calculates an elbow up </span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="c1"># inverse kinematics solution for the UR3</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="c1"># Step 1: find gripper position relative to the base of UR3,</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="c1"># and set theta_5 equal to -pi/2</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="c1"># Step 2: find x_cen, y_cen, z_cen</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="c1"># Step 3: find theta_1</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="c1"># Step 4: find theta_6 </span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    <span class="c1"># Step 5: find x3_end, y3_end, z3_end</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="c1"># Step 6: find theta_2, theta_3, theta_4</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="c1"># Return the set of joint angles to move the robot</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>  <span class="o">...</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>  <span class="o">...</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>  <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>You command should look like this:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>ur3e_sim_ik_publisher<span class="w"> </span>&lt;x&gt;<span class="w"> </span>&lt;y&gt;<span class="w"> </span>&lt;z&gt;<span class="w"> </span>&lt;Yaw&gt;
+</span></code></pre></div>
+<h2 id="test-cases">Test Cases</h2>
 <table>
 <thead>
 <tr>
-<th><strong>Activity</strong></th>
-<th><strong>Location</strong></th>
-<th><strong>Room</strong></th>
+<th>Test Point Inputs (x, y, z, yaw)</th>
+<th style="text-align: center;">IK solution (𝜽𝟏, … 𝜽𝟔)</th>
+<th style="text-align: right;">Output from <code>/ur3/position</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>💻 Programming Studios</td>
-<td>Kim Engineering (KEB)</td>
-<td><strong>KEB 2111</strong></td>
+<td>(0.2, 0.3, 0.3, 45)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>🤖 Robot Lab (RAL)</td>
-<td>Engineering Annex Facility (EAF)</td>
-<td><strong>EAF 3119</strong> <em>(watch Piazza for any changes)</em></td>
+<td>(0.1, 0.4, 0.1, 90)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>📚 Office Hours (Instructor)</td>
-<td>Martin Hall</td>
-<td><strong>2149</strong> (Wed 10–11:30)</td>
+<td>(0.2, 0.2, 0.2, 0)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>(0.2, -0.2, 0.1, 0)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>(0.2, 0.3, 0.4, 30)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>## Submission</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="learning-path">🎓 Learning path</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph LR
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    A[Week 1–2: Setup] --&gt; B[Week 3: ROS Basics]
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    B --&gt; C[Week 4–5: Gazebo &amp; Demos]
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    C --&gt; D[Week 5–8: Kinematics]
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    D --&gt; E[Week 9–11: Dynamics &amp; Control]
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    E --&gt; F[Final Project]
-</span></code></pre></div>
+<ol>
+<li>A pdf of your code complete with comments describing the steps you've taken</li>
+<li>A pdf containing a (neatly) written/typed solution for IK showing how you derived your equations from the geometry</li>
+<li>Screenshots of UR3e in Gazebo for all test cases</li>
+<li>A comparison of error between your IK script and the output of the <code>ur3/position</code> topic for the test cases with a discussion of possible error sources.</li>
+<li>A brief discussion of any possible singularities in the math and what could be done to avoid them (you don't need to implement this, we just want you thinking about strategies!)</li>
+</ol>
 
 
 
@@ -1383,28 +1270,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="syllabus/" class="md-footer__link md-footer__link--next" aria-label="Next: Syllabus">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Syllabus
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1458,16 +1323,16 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
-        <script src="javascripts/math.js"></script>
+        <script src="../../../javascripts/math.js"></script>
       
     
   </body>
