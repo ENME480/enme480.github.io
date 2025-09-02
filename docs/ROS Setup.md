@@ -8,15 +8,15 @@ Below, you can find steps to install the docker image on your local machine.
 
 ## Windows
 1. Download the Docker Image
-2. Download WSL2 (Windows Subsystem for Linux), running Ubuntu 22.04 (*our code is version locked - do not doesnload 24.04 or things will break!*)
+2. Download WSL2 (Windows Subsystem for Linux), running Ubuntu 22.04 (*our code is version locked - do not load 24.04 or things will break!*)
 3. Within WSL2 run:
-    sudo apt update && sudo apt upgrade
+        sudo apt update && sudo apt upgrade
    In order to update all system packages (you may need to enter your password)
-     sudo apt install git && sudo snap install docker
+         sudo apt install git && sudo snap install docker
    In order to install the relevant packages
-     git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
+         git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
    To download the repo
-     docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+         docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 5. 
 
 
