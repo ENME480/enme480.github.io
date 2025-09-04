@@ -1355,21 +1355,36 @@
 Below, you can find steps to install the docker image on your local machine. </p>
 <p><em>These steps vary based on the operating system you are running!</em></p>
 <p><strong>Docker Image Download:</strong> https://github.com/MarylandRoboticsCenter/ENME480_mrc</p>
-<h2 id="windows">Windows</h2>
+<h2 id="windows-10-or-later">Windows (10 or later)</h2>
 <ol>
-<li>Download the Docker Image</li>
-<li>Download WSL2 (Windows Subsystem for Linux), running Ubuntu 22.04 (<em>our code is version locked - do not load 24.04 or things will break!</em>)</li>
-<li>Within WSL2 run:
-        &gt;sudo apt update &amp;&amp; sudo apt upgrade
-   In order to update all system packages (you may need to enter your password)
-         &gt;sudo apt install git &amp;&amp; sudo snap install docker
-   In order to install the relevant packages
-         &gt;git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
-   To download the repo
-         &gt;docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker</li>
-<li></li>
+<li>Open a terminal (it windows and type either <em>cmd</em> or <em>powershell</em> in the search bar and hit enter)</li>
+<li>
+<p>Run the command</p>
+<div class="language-text highlight"><pre><span></span><code>wsl --install Ubuntu-22.04
+</code></pre></div>
+<p>to install the Ubuntu distribtuion we will use in this class. ROS (the software we use to control the robots) is tightly coupled to specific versions of Ubuntu and it's likely using a version of Ubuntu other than this will lead to compatibility issues. This will take a few minutes to install and then should dorp you into the Ubuntu shell automatically, but yu can type "wsl" to enter the shell if it doens't.</p>
+</li>
+<li>
+<p>First, we will make sure our dependencies are in place. Within WSL2 run:</p>
+<div class="language-text highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre></div>
+<p>In order to update all system packages (you may need to enter your password)</p>
+<div class="language-text highlight"><pre><span></span><code> sudo apt install git python-is-python3 &amp;&amp; sudo snap install docker
+</code></pre></div>
+</li>
 </ol>
-<h2 id="ubuntu">Ubuntu</h2>
+<p>To install git (which is how we manage sending code to the class), docker (how we make sure everyone is working in the same environment) and to make Python happier by letting you call it as "python" instead of "python3".</p>
+<div class="language-text highlight"><pre><span></span><code>     cd ~/ &amp;&amp; git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
+</code></pre></div>
+<p>To move to the right folder and download the repo containing the docker image we need.</p>
+<div class="language-text highlight"><pre><span></span><code>    sudo groupadd docker &amp;&amp; sudo usermod -aG docker $USER &amp;&amp; newgrp docker
+</code></pre></div>
+<p>So that you are able to build and run docker images.
+6. Now, we will build our image.</p>
+<div class="language-text highlight"><pre><span></span><code>    cd ~/ENME480_mrc/docker &amp;&amp; userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+</code></pre></div>
+<p>The first part of this command (before the &amp;&amp;) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.</p>
+<h2 id="ubuntu-2204-lts">Ubuntu (22.04 LTS)</h2>
 
 
 
