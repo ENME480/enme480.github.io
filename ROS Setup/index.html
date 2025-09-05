@@ -1357,7 +1357,9 @@ Below, you can find steps to install the docker image on your local machine. </p
 <p><strong>Docker Image Download:</strong> https://github.com/MarylandRoboticsCenter/ENME480_mrc</p>
 <h2 id="windows-10-or-later">Windows (10 or later)</h2>
 <ol>
-<li>Open a terminal (hit windows key and type either <em>cmd</em> or <em>powershell</em> in the search bar and hit enter)</li>
+<li>
+<p>Open a terminal (hit windows key and type either <em>cmd</em> or <em>powershell</em> in the search bar and hit enter)</p>
+</li>
 <li>
 <p>Run the command</p>
 <div class="language-text highlight"><pre><span></span><code>wsl --install Ubuntu-22.04
@@ -1385,9 +1387,17 @@ sudo apt update
 <div class="language-text highlight"><pre><span></span><code>sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
 </code></pre></div>
 <p>This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code. </p>
+</li>
+<li>
+<p>Now, we will download the code from GitHub. To do this, run:</p>
 <div class="language-text highlight"><pre><span></span><code> cd ~/ &amp;&amp; git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
 </code></pre></div>
+</li>
+</ol>
 <p>To move to the right folder and download the GitHub repo containing the docker image we need.</p>
+<ol>
+<li>
+<p>With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:</p>
 <div class="language-text highlight"><pre><span></span><code>sudo groupadd docker
 
 sudo usermod -aG docker $USER
@@ -1396,8 +1406,10 @@ newgrp docker
 
 sudo systemctl restart docker
 </code></pre></div>
-<p>So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
-6. Now, we will build our image.</p>
+<p>So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.</p>
+</li>
+<li>
+<p>Now, we will build our image.</p>
 <div class="language-text highlight"><pre><span></span><code>cd ~/ENME480_mrc/docker &amp;&amp; userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
 </code></pre></div>
 <p>The first part of this command (before the &amp;&amp;) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.</p>
@@ -1407,40 +1419,39 @@ sudo systemctl restart docker
 <div class="language-text highlight"><pre><span></span><code>    nvidia-smi
 </code></pre></div>
 <p>You should get an output which looks something like</p>
-<p><em>If you do, follow the next step, if not skip to step 9.</em>
-7. Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:</p>
-<div class="language-text highlight"><pre><span></span><code>    sudo touch /etc/docker/daemon.json
-
-sudo chmod 777 /etc/docker/daemon.json
-
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+<p><em>If you do, follow the next step, if not skip to step 9.</em></p>
+<ol>
+<li>
+<p>Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:</p>
+<div class="language-text highlight"><pre><span></span><code>sudo touch /etc/docker/daemon.json
+</code></pre></div>
+<p>sudo chmod 777 /etc/docker/daemon.json</p>
+<p>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
       &amp;&amp; curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-        sed &#39;s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g&#39; | \
-        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-sed -i -e &#39;/experimental/ s/^#//g&#39; /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-sudo apt-get update
-
-    export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
-    sudo apt-get install -y \
-          nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-          nvidia-container-toolkit-base=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-          libnvidia-container-tools=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-          libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
+        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list</p>
+<p>sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list</p>
+<p>sudo apt-get update</p>
+<div class="language-text highlight"><pre><span></span><code>export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
+sudo apt-get install -y \
+      nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+      nvidia-container-toolkit-base=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+      libnvidia-container-tools=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+      libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
 </code></pre></div>
 <p>This will install the Nvidia container toolkit which allows Docker to use your GPU.
 8. With the container toolkit installed, we can now configure docker and compose our image. </p>
-<div class="language-text highlight"><pre><span></span><code>echo $&#39;{&quot;runtimes&quot;: {&quot;nvidia&quot;: {&quot;path&quot;: &quot;nvidia-container-runtime&quot;, &quot;runtimeArgs&quot;: []}}}&#39; &gt; /etc/docker/daemon.json &amp;&amp; sudo systemctl restart docker
-</code></pre></div>
-<p>This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
-<div class="language-text highlight"><pre><span></span><code>    docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+<p>echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' &gt; /etc/docker/daemon.json &amp;&amp; sudo systemctl restart docker
+ This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
+<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
 </code></pre></div>
 <p>Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 9 if you've done this, step 9 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
 9. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:</p>
-<div class="language-text highlight"><pre><span></span><code>    docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 </code></pre></div>
 <p>This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.</p>
+</li>
+</ol>
 <h3 id="vscode-setup">VSCode Setup</h3>
 <ol>
 <li>Visit <a href="https://code.visualstudio.com/download">code.visualstudio.com/download</a> and download the installer.</li>
