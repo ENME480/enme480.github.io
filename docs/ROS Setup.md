@@ -68,16 +68,16 @@ You should get an output which looks something like
 
         sudo touch /etc/docker/daemon.json
 	
-	sudo chmod 777 /etc/docker/daemon.json
-
-	curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-          && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+		sudo chmod 777 /etc/docker/daemon.json
 	
-	sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
-	
-	sudo apt-get update
+		curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+	          && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+	            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+	            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+		
+		sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
+		
+		sudo apt-get update
 	
         export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
         sudo apt-get install -y \
@@ -91,11 +91,11 @@ This will install the Nvidia container toolkit which allows Docker to use your G
 	echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' > /etc/docker/daemon.json && sudo systemctl restart docker
  This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
 
-        docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+	docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
 Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 9 if you've done this, step 9 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
 9. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:
 
-        docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+	docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.
 
 ### VSCode Setup
@@ -111,5 +111,5 @@ Assuming you are using a fresh install, start from Step 4 in the Windows section
 
 Setting up VSCode is also very similar. The only difference is that if you don't want to download the deb package from the microsoft site you can use either apt or snap to get the package via:
 
-        sudo <apt/snap> install code (or code-insiders)
+	sudo <apt/snap> install code (or code-insiders)
 
