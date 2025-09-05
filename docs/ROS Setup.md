@@ -8,12 +8,13 @@ Below, you can find steps to install the docker image on your local machine.
 
 ## Windows (10 or later)
 1. Open a terminal (hit windows key and type either *cmd* or *powershell* in the search bar and hit enter)
+
 2. Run the command
 
         wsl --install Ubuntu-22.04
 to install the Ubuntu distribtuion we will use in this class. ROS (the software we use to control the robots) is tightly coupled to specific versions of Ubuntu and it's likely using a version of Ubuntu other than this will lead to compatibility issues. This will take a few minutes to install and then should dorp you into the Ubuntu shell automatically, but you can type *wsl* to enter the shell if it doens't.
    
-4. First, we will make sure our dependencies are in place. Within WSL2 run:
+3. First, we will make sure our dependencies are in place. Within WSL2 run:
    
         sudo apt update && sudo apt upgrade
    In order to update all system packages (you may need to enter your password)
@@ -34,8 +35,13 @@ These commands set up package registries within WSL, which is how Ubuntu knows w
         sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
 This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code. 
 
+4. Now, we will download the code from GitHub. To do this, run:
+   
          cd ~/ && git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
+
 To move to the right folder and download the GitHub repo containing the docker image we need.
+
+5. With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:
 
         sudo groupadd docker 
         
@@ -45,6 +51,7 @@ To move to the right folder and download the GitHub repo containing the docker i
 
         sudo systemctl restart docker
 So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
+
 6. Now, we will build our image.
 
         cd ~/ENME480_mrc/docker && userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
@@ -56,6 +63,7 @@ Next, try running
 You should get an output which looks something like
 
 *If you do, follow the next step, if not skip to step 9.*
+
 7. Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:
 
         sudo touch /etc/docker/daemon.json
