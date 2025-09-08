@@ -34,7 +34,7 @@ Before starting, ensure you have:
 3. With WSL open, click the blue button in the bottom left of VSCode and select "Connect to WSL". VSCode should look like it is closing and reopening.
 4. After you've connected VSCode to WSL, open a new terminal in VSCode using the Terminal menu on the top on your screen (or Ctrl+Shfit+`). You can check to make sure the connection worked by making sure the username displayed in the terminal matches what's displayed in WSL.
 5. Run the docker compose command from the last seciton.
-6. You can also follow the steps from the Native Ubuntu section below, these steps are primarily to configure VSCode to integrate with Docker through WSL.
+6. You can also follow the steps for adding extensions and changing settings from the Native Ubuntu section below, the steps in this section are primarily to configure VSCode to integrate with Docker through WSL.
 
 ### Native Ubuntu/VM
 ####  **Install VS Code**
