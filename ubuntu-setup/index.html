@@ -1830,18 +1830,16 @@
 </div>
 </div>
 <ol>
-<li><strong>Enable WSL 2</strong> and install <strong>Ubuntu 22.04</strong> from Microsoft Store.</li>
 <li>
-<p>Confirm GUI support (<strong>WSLg</strong>) and install your <strong>GPU's vGPU driver</strong> for hardware-accelerated OpenGL:</p>
+<p>Open a terminal (hit windows key and type either <em>cmd</em> or <em>powershell</em> in the search bar and hit enter)</p>
 </li>
 <li>
-<p>Win11 or Win10 build <strong>19044+</strong> required.</p>
+<p>Run the command</p>
+<div class="language-text highlight"><pre><span></span><code>wsl --install Ubuntu-22.04
+</code></pre></div>
+<p>to install the Ubuntu distribtuion we will use in this class. ROS (the software we use to control the robots) is tightly coupled to specific versions of Ubuntu and it's likely using a version of Ubuntu other than this will lead to compatibility issues. This will take a few minutes to install and then should dorp you into the Ubuntu shell automatically, but you can type <em>wsl</em> to enter the shell if it doens't. <strong>You need a minimum of ~35GB hard drive space, but 50GB will work better.</strong></p>
 </li>
-<li>Driver links (Intel/AMD/NVIDIA) in Microsoft's WSLg doc.</li>
-<li>Proceed with ROS 2 / Gazebo steps <strong>inside</strong> the Ubuntu terminal.</li>
 </ol>
-<p class="thin"><strong>Ref:</strong> Microsoft WSL GUI apps guide.<br />
-<a href="https://learn.microsoft.com/windows/wsl/tutorials/gui-apps">https://learn.microsoft.com/windows/wsl/tutorials/gui-apps</a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Linux / Dual-boot (optional)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
