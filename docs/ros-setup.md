@@ -12,7 +12,7 @@
 
 ## 🎯 **Overview**
 
-This guide will help you install ROS 2 Humble (Hawksbill) on Ubuntu 20.04 or 22.04. ROS 2 is the Robot Operating System that we'll use throughout the course for robot programming and simulation.
+This guide will help you install ROS 2 Humble (Hawksbill) on Ubuntu 22.04. ROS 2 is the Robot Operating System that we'll use throughout the course for robot programming and simulation.
 
 ---
 
@@ -23,66 +23,6 @@ Before starting, ensure you have:
 - ✅ **Internet connection** for downloading packages
 - ✅ **Basic Ubuntu knowledge** (terminal commands)
 - ✅ **At least 10GB free space**
-
----
-
-## 🚀 **Installation Methods**
-
-### **Method 1: Binary Installation (Recommended)**
-- **Pros**: Fast, reliable, official packages
-- **Cons**: Less customizable
-- **Best for**: Most students, production use
-
-### **Method 2: Source Installation**
-- **Pros**: Customizable, latest features
-- **Cons**: Time-consuming, more complex
-- **Best for**: Advanced users, development
-
----
-
-## 📦 **Install ROS 2 Humble (Ubuntu 22.04)**
-
-> **Supported OS:** ROS 2 Humble targets **Ubuntu 22.04 (Jammy)**. Use Ubuntu 22.04 in UTM/WSL.  
-> Ref: ROS 2 docs / REP 2000.
-
-### **Step 1: Locale & repos**
-```bash
-sudo apt update
-sudo apt install -y locales curl gnupg2 lsb-release software-properties-common
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8
-sudo add-apt-repository universe
-```
-
-### **Step 2: ROS 2 apt source + key (official pattern)**
-```bash
-sudo mkdir -p /etc/apt/keyrings
-curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
-  | gpg --dearmor | sudo tee /etc/apt/keyrings/ros-archive-keyring.gpg >/dev/null
-
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/ros-archive-keyring.gpg] \
-http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
-| sudo tee /etc/apt/sources.list.d/ros2.list >/dev/null
-```
-
-### **Step 3: Install ROS 2 Humble Desktop**
-```bash
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y ros-humble-desktop ros-dev-tools
-```
-
-### **Step 4: Environment setup**
-```bash
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
-
-### **Step 5: Quick test**
-```bash
-ros2 run demo_nodes_cpp talker
-```
 
 ---
 
