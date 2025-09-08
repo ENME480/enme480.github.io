@@ -105,7 +105,7 @@ This will install the Nvidia container toolkit which allows Docker to use your G
  This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
 
 	docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
-Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 9 if you've done this, step 7 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
+Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 7 if you've done this, step 7 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
 7. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:
 
 	docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
