@@ -1,26 +1,23 @@
-# Week 2 - Ubuntu & Python Introduction
+# Week 2 - Software Setup
 
-## Overview
-Introduction to Ubuntu environment and Python programming basics for robotics applications.
+## Overview:
+This lab will walk you through installing and configuring and testing the sofftware we will need for this class.
 
-## Materials
-- [ENME480 Lab Week 2.pptx](ENME480%20Lab%20Week%202.pptx) - Complete lab presentation with Ubuntu and Python introduction
+## Slides:
+Lab 2 Slides
 
-## Key Topics
-- **Ubuntu Environment**: Linux-based development environment setup
-- **Python Basics**: Programming fundamentals for robotics
-- **Development Tools**: Essential software and libraries
-- **Environment Configuration**: Setting up your development workspace
+## Goals:
+In this lab, we will follow the pages on the wiki to:
+- Install Ubuntu
+- Set up the ROS2 MRC Docker Image
+- Set up an IDE to work with the Docker Image
 
-## Learning Objectives
-- Understand the Ubuntu operating system
-- Learn basic Python programming concepts
-- Set up development environment for robotics work
-- Familiarize with command-line interface
+## Relevant Wiki Pages:
+[Ubuntu Setup](https://enme480.github.io/ubuntu-setup/)
+[ROS2 Setup](https://enme480.github.io/ros-setup/)
+[IDE Setup](https://enme480.github.io/dev-environment/)
 
-## Prerequisites
-- Basic computer literacy
-- Fundamental programming experience required
+## Next Steps:
 
-## Next Steps
-This foundation will prepare you for ROS (Robot Operating System) work in Week 3.
+## Additional Resources:
+[Piazza](https://umd.instructure.com/courses/1389037/external_tools/42711)
