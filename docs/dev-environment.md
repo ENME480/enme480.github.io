@@ -28,7 +28,16 @@ Before starting, ensure you have:
 
 ## 🚀 **VS Code (Recommended)**
 
-### **Install VS Code**
+### WSL
+1. Visit [code.visualstudio.com/download](https://code.visualstudio.com/download) and download the installer.
+2. Go to the extensions screen on the left side of your screen (Or hit Ctrl+Shift+X) and install the [Remote Development package](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack), the [Container Tools package](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers), the [Docker package](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), the [Python package](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and the [Python Debugger package](https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy). We also recommend installing a python linter (i.e. Pylance, RUFF) to help with debugging.
+3. With WSL open, click the blue button in the bottom left of VSCode and select "Connect to WSL". VSCode should look like it is closing and reopening.
+4. After you've connected VSCode to WSL, open a new terminal in VSCode using the Terminal menu on the top on your screen (or Ctrl+Shfit+`). You can check to make sure the connection worked by making sure the username displayed in the terminal matches what's displayed in WSL.
+5. Run the docker compose command from the last seciton.
+6. You can also follow the steps from the Native Ubuntu section below, these steps are primarily to configure VSCode to integrate with Docker through WSL.
+
+### Native Ubuntu/VM
+####  **Install VS Code**
 ```bash
 # Install VS Code
 sudo snap install code --classic
@@ -37,7 +46,7 @@ sudo snap install code --classic
 # https://code.visualstudio.com/download
 ```
 
-### **Essential Extensions**
+#### **Essential Extensions**
 ```bash
 # Install Python extension
 code --install-extension ms-python.python
@@ -61,7 +70,7 @@ code --install-extension kevinrose.python-indent
 code --install-extension coenraads.bracket-pair-colorizer-2
 ```
 
-### **VS Code Settings**
+#### **VS Code Settings**
 ```json
 // .vscode/settings.json
 {
