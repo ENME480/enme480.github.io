@@ -39,16 +39,12 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
 
 === "Windows — WSL 2 (Ubuntu 22.04)"
 
-1. **Enable WSL 2** and install **Ubuntu 22.04** from Microsoft Store.
-2. Confirm GUI support (**WSLg**) and install your **GPU's vGPU driver** for hardware-accelerated OpenGL:
+1. Open a terminal (hit windows key and type either *cmd* or *powershell* in the search bar and hit enter)
 
-   * Win11 or Win10 build **19044+** required.
-   * Driver links (Intel/AMD/NVIDIA) in Microsoft's WSLg doc.
-3. Proceed with ROS 2 / Gazebo steps **inside** the Ubuntu terminal.
+2. Run the command
 
-**Ref:** Microsoft WSL GUI apps guide.  
-[https://learn.microsoft.com/windows/wsl/tutorials/gui-apps](https://learn.microsoft.com/windows/wsl/tutorials/gui-apps)
-{: .thin }
+        wsl --install Ubuntu-22.04
+to install the Ubuntu distribtuion we will use in this class. ROS (the software we use to control the robots) is tightly coupled to specific versions of Ubuntu and it's likely using a version of Ubuntu other than this will lead to compatibility issues. This will take a few minutes to install and then should dorp you into the Ubuntu shell automatically, but you can type *wsl* to enter the shell if it doens't. **You need a minimum of ~35GB hard drive space, but 50GB will work better.**
 
 === "Linux / Dual-boot (optional)"
 
