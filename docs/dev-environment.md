@@ -19,7 +19,7 @@ This guide helps you set up a professional development environment for robotics 
 ## 💻 **Prerequisites**
 
 Before starting, ensure you have:
-- ✅ **Ubuntu 20.04 LTS or 22.04 LTS** installed
+- ✅ **Ubuntu 22.04 LTS** installed
 - ✅ **Python 3.8+** installed
 - ✅ **ROS 2 Humble** installed
 - ✅ **Basic terminal knowledge**
