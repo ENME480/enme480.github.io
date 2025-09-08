@@ -25,7 +25,7 @@ Before starting, ensure you have:
 - ✅ **At least 10GB free space**
 
 ---
-## Windows 10/11
+## After setting up Ubuntu 22.04
 
 1. First, we will make sure our dependencies are in place. Within WSL2 run:
    
@@ -110,15 +110,6 @@ Finally, this command will compose and run our image. This is the command you wi
 
 	docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.
-
-## Ubuntu (22.04 LTS)
-Assuming you are using a fresh install, start from Step 4 in the Windows section. If you are using an installation you've customized you should check what of the prerequisites are already installed to avoid causing dependency issues with other programs. **Warning: If you are using a snap installation of Docker the step to configure docker to use Nvidia Container Toolkit is different, we strongly recommend using the apt installation.** 
-
-Setting up VSCode is also very similar. The only difference is that if you don't want to download the deb package from the microsoft site you can use either apt or snap to get the package via:
-
-	sudo <apt/snap> install code (or code-insiders)
-
-
 
 ---
 ## 🧪 **Verify Installation**
