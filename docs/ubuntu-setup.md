@@ -144,6 +144,66 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
     3. After reboot, you’ll land in the Ubuntu shell (or run `wsl`).  
        **Disk space:** at least **35 GB** free (recommend **50–60 GB**).  
 
+    4. First, we will make sure our dependencies are in place. Within WSL2 run:
+
+        ```bash
+        sudo apt update && sudo apt upgrade
+        ```
+
+        In order to update all system packages (you may need to enter your password)
+
+        ```bash
+        sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+        sudo apt update && sudo apt upgrade -y
+
+        sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+        echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+        sudo apt update
+        ```
+
+        These commands set up package registries within WSL, which is how Ubuntu knows where to look for packages (apps) we want to install. If you'd like a more detailed breakdown of what each command here does, feel free to ask a TA.
+
+        ```bash
+        sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
+        ```
+
+        This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code. 
+
+    5. Now, we will download the code from GitHub. To do this, run:
+
+        ```bash
+        cd ~/ && git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
+        ```
+
+        To move to the right folder and download the GitHub repo containing the docker image we need.
+
+    6. With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:
+
+        ```bash
+        sudo groupadd docker 
+        
+        sudo usermod -aG docker $USER 
+        
+        newgrp docker
+
+        sudo systemctl restart docker
+        ```
+
+        So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
+
+    7. Now, we will build our image.
+
+        ```bash
+        cd ~/ENME480_mrc/docker && userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+        ```
+
+        The first part of this command (before the &&) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.
+
 === "Linux / Dual-boot (optional)"
 
     Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
@@ -180,9 +240,8 @@ sudo snap install docker
 
 ### **Step 3: Configure Python**
 ```bash
-# Create virtual environment for robotics work
-python3 -m venv ~/robotics_env
-source ~/robotics_env/bin/activate
+# Make sure you can call python via 'python' instead of 'python3'
+sudo apt install python-is-python3
 
 # Install common packages
 pip install numpy matplotlib scipy
@@ -252,12 +311,77 @@ Once it is successfully built, run the container
 docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 ```
 
+### Step 3 (OPTIONAL): Configure Docker to run on NVIDIA GPU
+First, try running:
+
+```bash
+nvidia-smi
+```
+
+You should get an output which looks something like:
+
+![smiout](assets/nvidia-setup/smiout.png)
+
+*If you do not see an output like this you either don't have an Nvidia GPU or it is not set up correctly. You will not be able to complete the rest of these steps.*
+
+Getting the correct output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. Now, we will enable the GPU within docker to speed up our simulations. First, run the following commands:
+
+```bash
+sudo touch /etc/docker/daemon.json
+
+sudo chmod 777 /etc/docker/daemon.json
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+    && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt-get update
+
+export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
+sudo apt-get install -y \
+    nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+    nvidia-container-toolkit-base=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+    libnvidia-container-tools=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
+    libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
+```
+
+This will install the Nvidia container toolkit which allows Docker to use your GPU. With the container toolkit installed, we can now configure docker and compose our image:
+
+```bash
+echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' > /etc/docker/daemon.json && sudo systemctl restart docker
+```
+
+This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
+
+```bash
+docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+```
+
+Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. From now on, this is the command you will use to launch the docker image.
+
 ---
 
 ## Tests for Week 2
 
-To ensure everything is running sucessfully launch the following commands:
-
+To ensure everything is running sucessfully launch the following commands from within the Docker image:
+```bash
+ros2 run demo_nodes_cpp talker
+```
+This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
+```bash
+ros2 run demo_nodes_cpp listener
+```
+This second script should output the messages being sent by the talker.
+### **Test in New Terminal**
+```bash
+# Open new terminal and run
+ros2 --help
+# test gazebo, our simulation suite
+ign gazebo
+```
 ---
 
 ## 🔧 **Common Issues & Solutions**
