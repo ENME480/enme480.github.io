@@ -37,7 +37,6 @@ plugins:
   - search
   - blog
   - include-markdown
-  - social
 
 markdown_extensions:
   - admonition
@@ -62,11 +61,6 @@ markdown_extensions:
 extra:
   version:
     provider: mike
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/ENME480
-    - icon: fontawesome/brands/x-twitter
-      link: https://x.com/UMDMaryland
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
