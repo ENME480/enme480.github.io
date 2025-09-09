@@ -13,10 +13,6 @@
         <link rel="canonical" href="https://enme480.github.io/ros-setup/">
       
       
-        <link rel="prev" href="../ubuntu-setup/">
-      
-      
-        <link rel="next" href="../python-basics/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>ROS Setup - ENME480 — Introduction to Robotics</title>
+        <title>🤖 ROS 2 Setup Guide - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -63,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="ROS Setup - ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="🤖 ROS 2 Setup Guide - ENME480 — Introduction to Robotics" >
       
         <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
@@ -79,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="ROS Setup - ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="🤖 ROS 2 Setup Guide - ENME480 — Introduction to Robotics" >
       
         <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
@@ -144,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS Setup
+              🤖 ROS 2 Setup Guide
             
           </span>
         </div>
@@ -363,12 +359,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../ubuntu-setup/" class="md-tabs__link">
           
   
@@ -746,24 +740,10 @@
       
   
   
-    
   
   
-  
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -771,22 +751,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -799,7 +776,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Wiki
@@ -819,504 +796,6 @@
   
   <span class="md-ellipsis">
     Ubuntu Setup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    ROS Setup
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    ROS Setup
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      💻 Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#after-setting-up-ubuntu-2204" class="md-nav__link">
-    <span class="md-ellipsis">
-      After setting up Ubuntu 22.04
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧪 Verify Installation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧪 Verify Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#test-basic-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test Basic Installation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-in-new-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test in New Terminal
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-issues-solutions" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔧 Common Issues &amp; Solutions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔧 Common Issues &amp; Solutions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installation-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation Problems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#essential-ros-2-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      📚 Essential ROS 2 Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📚 Essential ROS 2 Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Concepts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Commands
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      🛠️ Development Setup
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🛠️ Development Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-ros-2-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create ROS 2 Workspace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-useful-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install Useful Tools
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-ros-2-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎮 First ROS 2 Program
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🎮 First ROS 2 Program">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-simple-publisher" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Simple Publisher
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-code-to-my_first_nodepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add Code to my_first_node.py
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      Build and Run
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔍 Debugging &amp; Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔍 Debugging &amp; Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-debugging-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Useful Debugging Commands
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-debugging-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Debugging Steps
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-tools-guis" class="md-nav__link">
-    <span class="md-ellipsis">
-      📱 ROS 2 Tools &amp; GUIs
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📱 ROS 2 Tools &amp; GUIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#command-line-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Command Line Tools
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphical-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Graphical Tools
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Verification Checklist
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      🆘 Getting Help
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🆘 Getting Help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-2-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      ROS 2 Resources
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#course-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course Support
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Next Steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../python-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Python Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../git-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Git Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../gazebo-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Gazebo Setup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Development Environment
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kinematics-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Kinematics Reference
     
   </span>
   
@@ -1819,44 +1298,6 @@ This second script should output the messages being sent by the talker.</p>
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../ubuntu-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ubuntu Setup">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Ubuntu Setup
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../python-basics/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Basics">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Python Basics
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
