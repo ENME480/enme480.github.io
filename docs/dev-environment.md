@@ -130,34 +130,12 @@ sudo apt install tmux
 sudo apt install fzf
 ```
 
-### **Configure Zsh**
-```bash
-# Edit .zshrc
-nano ~/.zshrc
-
-# Add these lines:
-export PATH="$HOME/.local/bin:$PATH"
-export ROS_DOMAIN_ID=0
-alias ll='ls -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias gs='git status'
-alias gp='git pull'
-alias gc='git commit -m'
-```
-
 ---
 
 ## 📦 **Python Environment Setup**
 
-### **Create Virtual Environment**
+### **Environment Setup**
 ```bash
-# Create robotics environment
-python3 -m venv ~/robotics_env
-
-# Activate environment
-source ~/robotics_env/bin/activate
-
 # Install essential packages
 pip install numpy matplotlib scipy pandas jupyter
 
@@ -308,18 +286,25 @@ my_robotics_project/
 ```
 
 ### **Create Project Template**
+*The commands in this section are examples, to be changed as needed.*
+
 ```bash
 # Create project structure
+# Make the folder to put files is
 mkdir -p my_robotics_project/{src,launch,config,test,docs,.vscode}
+# enter our new folder
 cd my_robotics_project
 
 # Create essential files
+# mkdir makes folders, touch creates files (if there is not already a file with the specified name)
 touch README.md requirements.txt setup.py .gitignore
 touch src/__init__.py launch/__init__.py config/__init__.py
 
 # Initialize Git
 git init
+# have git track changes on every file in the current folder
 git add .
+# upload the flder as it exists to your github account
 git commit -m "Initial project structure"
 ```
 

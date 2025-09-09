@@ -94,6 +94,7 @@ nav:
   - Resources: resources.md
   - Wiki:
       - Ubuntu Setup: ubuntu-setup.md
+      - Dev Environment: dev-environment.md
   - Policies: policies.md
   - Help: help.md
   - Blog: blog/index.md
