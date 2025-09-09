@@ -13,11 +13,7 @@ In this lab, we will follow the pages on the wiki to:
 - Set up an IDE to work with the Docker Image
 
 ## Relevant Wiki Pages:
-[Ubuntu Setup](https://enme480.github.io/ubuntu-setup/)
-
-[ROS2 Setup](https://enme480.github.io/ros-setup/)
-
-[IDE Setup](https://enme480.github.io/dev-environment/)
+[Software Setup](https://enme480.github.io/ubuntu-setup/)
 
 ## Next Steps:
 

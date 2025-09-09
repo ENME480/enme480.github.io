@@ -143,8 +143,6 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
 
     3. After reboot, you’ll land in the Ubuntu shell (or run `wsl`).  
        **Disk space:** at least **35 GB** free (recommend **50–60 GB**).  
-    4. (Windows 11/WSLg) GUI apps like RViz/Gazebo work best with the proper **vGPU** driver; see Microsoft’s WSLg guide.  
-       <https://learn.microsoft.com/windows/wsl/tutorials/gui-apps>
 
 === "Linux / Dual-boot (optional)"
 
@@ -160,8 +158,7 @@ Open up Terminal using `Ctrl + Alt + T` or from the menu on the bottom left and 
 
 ### **Step 1: Update System**
 ```bash
-sudo apt update
-sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 
 ### **Step 2: Install Essential Tools**
