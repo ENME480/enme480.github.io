@@ -94,8 +94,6 @@ nav:
   - Resources: resources.md
   - Wiki:
       - Ubuntu Setup: ubuntu-setup.md
-      - Development Environment: dev-environment.md
-      - Kinematics Reference: kinematics-reference.md
   - Policies: policies.md
   - Help: help.md
   - Blog: blog/index.md
