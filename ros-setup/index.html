@@ -1469,10 +1469,8 @@ sudo apt update
 <p>Now, we will download the code from GitHub. To do this, run:</p>
 <div class="language-text highlight"><pre><span></span><code> cd ~/ &amp;&amp; git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
 </code></pre></div>
-</li>
-</ol>
 <p>To move to the right folder and download the GitHub repo containing the docker image we need.</p>
-<ol>
+</li>
 <li>
 <p>With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:</p>
 <div class="language-text highlight"><pre><span></span><code>sudo groupadd docker
@@ -1490,14 +1488,12 @@ sudo systemctl restart docker
 <div class="language-text highlight"><pre><span></span><code>cd ~/ENME480_mrc/docker &amp;&amp; userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
 </code></pre></div>
 <p>The first part of this command (before the &amp;&amp;) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.</p>
-</li>
-</ol>
 <p>Next, try running</p>
-<div class="language-text highlight"><pre><span></span><code>    nvidia-smi
+<div class="language-text highlight"><pre><span></span><code>nvidia-smi
 </code></pre></div>
 <p>You should get an output which looks something like</p>
 <p><em>If you do, follow the next step, if not skip to step 7.</em></p>
-<ol>
+</li>
 <li>
 <p>Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:</p>
 <div class="language-text highlight"><pre><span></span><code>sudo touch /etc/docker/daemon.json
@@ -1522,13 +1518,16 @@ sudo apt-get install -y \
 </code></pre></div>
 <p>This will install the Nvidia container toolkit which allows Docker to use your GPU.
 6. With the container toolkit installed, we can now configure docker and compose our image. </p>
-<p>echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' &gt; /etc/docker/daemon.json &amp;&amp; sudo systemctl restart docker
- This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
-<p>docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
-Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 7 if you've done this, step 7 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
+<div class="language-text highlight"><pre><span></span><code>echo $&#39;{&quot;runtimes&quot;: {&quot;nvidia&quot;: {&quot;path&quot;: &quot;nvidia-container-runtime&quot;, &quot;runtimeArgs&quot;: []}}}&#39; &gt; /etc/docker/daemon.json &amp;&amp; sudo systemctl restart docker
+</code></pre></div>
+<p>This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
+<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+</code></pre></div>
+<p>Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 7 if you've done this, step 7 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
 7. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:</p>
-<p>docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
-This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.</p>
+<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+</code></pre></div>
+<p>This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.</p>
 </li>
 </ol>
 <hr />
