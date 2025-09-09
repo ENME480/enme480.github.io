@@ -14,6 +14,7 @@ In this lab, we will follow the pages on the wiki to:
 
 ## Relevant Wiki Pages:
 [Software Setup](https://enme480.github.io/ubuntu-setup/)
+
 [Dev Environmnet Information](https://enme480.github.io/dev-environment/)
 
 ## Next Steps:
