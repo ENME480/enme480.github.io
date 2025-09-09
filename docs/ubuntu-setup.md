@@ -16,49 +16,12 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
 
 ---
 
-## 💻 **Choose Your Platform**
-
-=== "macOS (Apple Silicon) — UTM VM"
-
-1. **Download UTM** → [https://mac.getutm.app](https://mac.getutm.app)  
-2. **Grab Ubuntu 22.04 ARM64** (Desktop or Server): [https://ubuntu.com/download/raspberry-pi](https://ubuntu.com/download/raspberry-pi) (choose **22.04 LTS 64-bit (ARM)**)
-3. **Create VM in UTM**  
-   - System: **ARM64 (aarch64)**, Memory ≥ **8 GB** (16 GB better), Disk ≥ **60 GB**  
-   - Display: **SPICE** (3D acceleration is limited in VMs; Gazebo GUI may be slower)
-4. **Install Ubuntu**, then (if you installed Server) add a desktop:
-   ```bash
-   sudo apt update
-   sudo apt install ubuntu-desktop
-   sudo reboot
-   ```
-5. Optional: enable clipboard / directory sharing (UTM docs).
-
-**Refs:** UTM's Ubuntu guide and your reference article (same setup).  
-[https://docs.getutm.app/guides/ubuntu/](https://docs.getutm.app/guides/ubuntu/) ; [https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1](https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1)
-{: .thin }
-
-=== "Windows — WSL 2 (Ubuntu 22.04)"
-
-1. Open a terminal (hit windows key and type either *cmd* or *powershell* in the search bar and hit enter)
-
-2. Run the command
-
-        wsl --install Ubuntu-22.04
-to install the Ubuntu distribtuion we will use in this class. ROS (the software we use to control the robots) is tightly coupled to specific versions of Ubuntu and it's likely using a version of Ubuntu other than this will lead to compatibility issues. This will take a few minutes to install and then should dorp you into the Ubuntu shell automatically, but you can type *wsl* to enter the shell if it doens't. **You need a minimum of ~35GB hard drive space, but 50GB will work better.**
-
-=== "Linux / Dual-boot (optional)"
-
-Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
-
----
-
 ## 💻 **System Requirements**
 
 ### **Minimum Requirements**
 - **RAM**: 8GB (16GB recommended)
 - **Storage**: 60GB free space (100GB recommended)
 - **Processor**: 64-bit processor (Intel/AMD) or ARM64 (Apple Silicon)
-- **USB**: USB 2.0 or 3.0 port for installation
 
 ### **Recommended Setup**
 - **RAM**: 16GB or more
@@ -68,77 +31,137 @@ Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk spa
 
 ---
 
-## 📥 **Download Ubuntu**
+## 💻 **Choose Your Platform**
 
-### **Option 1: Ubuntu Desktop (Recommended)**
-1. Go to [ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
-2. Download **Ubuntu 22.04 LTS** (latest stable)
-3. Choose **64-bit** version
+=== "macOS (Apple Silicon) — UTM VM"
 
-### **Option 2: Ubuntu 22.04 LTS (Recommended)**
-- **Direct link**: [Ubuntu 22.04 LTS](https://releases.ubuntu.com/22.04/)
-- **Why 22.04**: ROS 2 Humble is officially supported on Ubuntu 22.04 (Tier-1 platform)
+    ### **Step 1: Download UTM**
+    
+    Download UTM from the official website: <https://mac.getutm.app>
+
+    ### **Step 2: Download Ubuntu 22.04 ARM64**
+    
+    Get Ubuntu 22.04 ARM64 (Desktop or Server): <https://cdimage.ubuntu.mirror.onlime.sl/ubuntu/daily-live/20220417/>  
+    *Choose **22.04 LTS 64-bit (ARM)**.*
+
+    ### **Step 3: Create New Virtual Machine**
+    
+    Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.
+    
+    ![UTM Download](assets/vm_figs/1.webp)
+    
+    Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.
+
+    ![Ubuntu Download](assets/vm_figs/2.webp)
+    
+    ![Create VM](assets/vm_figs/3.webp)
+    
+    Click on Browse and select the ISO file you downloaded in Step 2
+    
+    ![Choose Virtualization](assets/vm_figs/4.webp)
+
+    On the next screen, leave the memory at 4096 MB and CPU Cores at [Default]. Then specify the amount of space you want to allocate to the virtual machine. It is recommended that you don’t go below around 30GB. Leaving it at the default 64GB is fine, or allocate a higher number if you prefer. Preferred space is around 50GB
+
+    ![Select Linux](assets/vm_figs/5.webp)
+    
+   
+    ![Browse ISO](assets/vm_figs/6.webp)
+    
+    (Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.
+    
+    ![System Settings](assets/vm_figs/7.webp)
+
+    Once done, enter the details for your VM as you want and press done.
+
+    ### **Step 4: Start the VM**
+    
+    Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".
+
+    ![Display Settings](assets/vm_figs/8.webp)
+
+    
+    ![Review Settings](assets/vm_figs/9.png)
+
+    ### **Step 11: Ubuntu Installation Welcome**
+    
+    The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".
+
+    ![Start VM](assets/vm_figs/10.png)
+
+   
+    
+    ![Installation Welcome](assets/vm_figs/11.png)
+    
+     Choose your keyboard layout. "English (US)" is selected by default. You can test your keyboard in the text field below. (Normally, you can leave it as is and just press continue)
+    
+    ![Installation Type](assets/vm_figs/12.png)
+    
+    Uncheck the "Download updates while installing" so that you have a faster installation
+    
+    ![User Setup](assets/vm_figs/13.png)
+
+     Select "Erase disk and install Ubuntu" since this is a virtual machine. The installer will show a warning about deleting all files.
+
+    
+    ![Installation Progress](assets/vm_figs/14.png)
+    
+    ![Installation Complete](assets/vm_figs/15.png)
+    
+    ![Ubuntu Login](assets/vm_figs/16.png)
+
+    Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.
+
+    ![Ubuntu Desktop](assets/vm_figs/17.png)
+
+    Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.
+
+    ### **Step 6: First Boot**
+    
+    After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.
+    
+
+
+    
+    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
+    
+
+    **References:** 
+    
+    1. [UTM's Ubuntu guide](https://docs.getutm.app/guides/ubuntu/)
+    2. [Blog Post](https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1)  
+
+=== "Windows — WSL 2 (Ubuntu 22.04)"
+
+    1. Open **Terminal** (Win+X → *Terminal* or search “terminal”).  
+    2. Install Ubuntu 22.04:
+
+        ```powershell
+        wsl --install Ubuntu-22.04
+        ```
+
+        This installs the exact distro we use. Using a different Ubuntu version often breaks ROS compatibility.
+
+    3. After reboot, you’ll land in the Ubuntu shell (or run `wsl`).  
+       **Disk space:** at least **35 GB** free (recommend **50–60 GB**).  
+    4. (Windows 11/WSLg) GUI apps like RViz/Gazebo work best with the proper **vGPU** driver; see Microsoft’s WSLg guide.  
+       <https://learn.microsoft.com/windows/wsl/tutorials/gui-apps>
+
+=== "Linux / Dual-boot (optional)"
+
+    Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
+
 
 ---
 
-## 🔧 **Installation Methods**
-
-### **Method 1: Dual Boot (Recommended for beginners)**
-- **Pros**: Full performance, native Ubuntu experience
-- **Cons**: Requires partitioning, risk of data loss
-- **Best for**: Students who want to keep Windows/Mac
-
-### **Method 2: Virtual Machine**
-- **Pros**: Safe, no partitioning, easy to remove
-- **Cons**: Reduced performance, limited graphics support
-- **Best for**: Testing or if you can't dual boot
-
-### **Method 3: WSL2 (Windows only)**
-- **Pros**: Good integration with Windows
-- **Cons**: Limited graphics support, some compatibility issues
-- **Best for**: Windows users who want Linux tools
-
----
-
-## 🚀 **Dual Boot Installation**
-
-### **Step 1: Prepare Your System**
-1. **Backup your data** - Always backup important files
-2. **Defragment Windows** (if applicable)
-3. **Create free space** - At least 50GB unallocated space
-
-### **Step 2: Create Bootable USB**
-1. **Download Rufus** (Windows) or **Balena Etcher** (Mac/Linux)
-2. **Insert USB drive** (8GB or larger)
-3. **Select Ubuntu ISO** and USB drive
-4. **Click Start** and wait for completion
-
-### **Step 3: Boot from USB**
-1. **Restart computer** with USB inserted
-2. **Enter BIOS/UEFI** (usually F2, F12, or Del)
-3. **Change boot order** to USB first
-4. **Save and exit**
-
-### **Step 4: Install Ubuntu**
-1. **Choose "Install Ubuntu"**
-2. **Select language and keyboard layout**
-3. **Choose "Install Ubuntu alongside Windows"**
-4. **Set partition sizes**:
-   - **Ubuntu**: 50-100GB
-   - **Swap**: 8-16GB (same as RAM)
-   - **Leave Windows partition untouched**
-5. **Set timezone and user account**
-6. **Wait for installation** (20-30 minutes)
-
----
 
 ## ⚙️ **Post-Installation Setup**
+
+Open up Terminal using `Ctrl + Alt + T` or from the menu on the bottom left and selecting it.
 
 ### **Step 1: Update System**
 ```bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt autoremove -y
 ```
 
 ### **Step 2: Install Essential Tools**
@@ -152,6 +175,10 @@ sudo apt install python3-pip python3-venv
 # Text editors
 sudo apt install code  # VS Code
 sudo apt install gedit  # Simple text editor
+
+# Docker
+sudo snap install docker
+
 ```
 
 ### **Step 3: Configure Python**
@@ -163,6 +190,76 @@ source ~/robotics_env/bin/activate
 # Install common packages
 pip install numpy matplotlib scipy
 ```
+
+### **Step 4: Configure Docker to Run as Non-Root User**
+
+If you want to run Docker as a non-root user, then you need to add your user to the docker group.
+
+Create the docker group if it does not exist:
+```bash
+sudo groupadd docker
+```
+Add your user to the docker group:
+```bash
+sudo usermod -aG docker $USER
+```
+Log in to the new docker group (to avoid having to log out and log in again; but if not enough, try to reboot):
+```bash
+newgrp docker
+```
+Check if Docker can be run without root:
+```bash
+docker run hello-world
+```
+Reboot if you still get an error:
+```bash
+reboot
+```
+---
+
+## ENME480 Docker Installation
+
+### Step 1: Clone the Repo
+
+Open up [MRC's ENME480 GitHub Repo](https://github.com/MarylandRoboticsCenter/ENME480_mrc). You can either download the zip or open up your terminal
+
+```bash
+cd 
+git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
+```
+
+This will download the repository content into your `HOME` directory. Next, build Docker image (run the command from the docker folder). This needs to be done every time the Docker file is changed. Here's the commands to do that:
+
+**For MacOS users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile` 
+
+```
+# BEFORE
+FROM osrf/ros:humble-desktop AS humble-mod_desktop
+
+# AFTER
+FROM arm64v8/ros:humble AS humble-mod_desktop
+```
+
+### Step 2: Build and Run the Docker
+
+**For Everyone**, run
+
+```bash
+cd ~/ENME480_mrc/docker/
+userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+```
+
+Once it is successfully built, run the container
+
+```bash
+docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+```
+
+---
+
+## Tests for Week 2
+
+To ensure everything is running sucessfully launch the following commands:
 
 ---
 

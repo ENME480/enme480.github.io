@@ -12,11 +12,7 @@ description: Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-e
 
 <div align="center">
 
-**Fall 2025 • University of Maryland • 3 credits**
-
-*Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project*
-
-[![Course Banner](assets/images/favicon.png){ width="200" }](assets/images/favicon.png)
+Fall 2025 • University of Maryland • 3 credits
 
 </div>
 
@@ -42,24 +38,24 @@ description: Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-e
 - **Studios (sections):** 0101 Thu 12–2, 0102 Fri 8–10, 0103 Tue 12–2 (**KEB 2111 / EAF 3119**)  
 - **Channels:** [Piazza](https://piazza.com/umd/fall2025/enme480), [Canvas](https://elms.umd.edu), [GitHub](https://github.com/ENME480)
 
-> **Note on rooms:** Syllabus mentions EAF **3119** in the section schedule and **3117** elsewhere. We list **EAF 3119** here; confirm via Schedule/Piazza if updated.
+<!-- > **Note on rooms:** Syllabus mentions EAF **3119** in the section schedule and **3117** elsewhere. We list **EAF 3119** here; confirm via Schedule/Piazza if updated. -->
 
 ---
 
-<div align="center">
+<!-- <div align="center"> -->
 
 [📋 View Syllabus](syllabus.md){ .md-button .md-button--primary }
 [🗓️ Schedule](schedule.md){ .md-button }
 [🧪 Start Labs](labs/index.md){ .md-button }
 [❓ Help](help.md){ .md-button }
 
-</div>
+<!-- </div> -->
 
 ---
 
 ## 🚀 Quick start (new students)
 
-1. 📋 Complete [Safety Training](policies.md#safety-guidelines) *(required before robot lab)*  
+1. 📋 Complete [Safety Training]() *(required before robot lab)*  
 2. 💻 Set up Ubuntu, Python, and ROS 2 — see [Week 1](labs/week-01.md)  
 3. 🐧 Practice Linux/Python basics — [Week 2](labs/week-02.md)  
 4. 🤖 Get started with ROS — [Week 3](labs/week-03.md)
