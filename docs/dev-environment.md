@@ -165,7 +165,7 @@ pip install numpy matplotlib scipy pandas jupyter
 pip install black pylint pytest ipython
 
 # Install ROS 2 Python client
-sudo apt install python3-rclpy
+sudo apt install python3-rclpy python-is-python3
 ```
 
 ### **Jupyter Notebook Setup**
