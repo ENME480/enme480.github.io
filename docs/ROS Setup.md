@@ -88,14 +88,14 @@ You should get an output which looks something like
 This will install the Nvidia container toolkit which allows Docker to use your GPU.
 8. With the container toolkit installed, we can now configure docker and compose our image. 
 
-	echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' > /etc/docker/daemon.json && sudo systemctl restart docker
+		echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' > /etc/docker/daemon.json && sudo systemctl restart docker
  This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
 
-	docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+		docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
 Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 9 if you've done this, step 9 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
 9. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:
 
-	docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+		docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.
 
 ### VSCode Setup
@@ -111,5 +111,5 @@ Assuming you are using a fresh install, start from Step 4 in the Windows section
 
 Setting up VSCode is also very similar. The only difference is that if you don't want to download the deb package from the microsoft site you can use either apt or snap to get the package via:
 
-	sudo <apt/snap> install code (or code-insiders)
+		sudo <apt/snap> install code (or code-insiders)
 
