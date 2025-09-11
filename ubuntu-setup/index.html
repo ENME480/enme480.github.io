@@ -1066,6 +1066,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ros2-run-demo_nodes_cpp-listener-this-second-script-should-output-the-messages-being-sent-by-the-talker-test-in-new-terminal-bash-open-new-terminal-and-run-ros2-help-test-gazebo-our-simulation-suite-ign-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      ros2 run demo_nodes_cpp listener ``` --&gt; This second script should output the messages being sent by the talker. ### **Test in New Terminal** ```bash # Open new terminal and run ros2 --help # test gazebo, our simulation suite ign gazebo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-issues-solutions" class="md-nav__link">
     <span class="md-ellipsis">
       🔧 Common Issues &amp; Solutions
@@ -1576,7 +1585,7 @@ Reboot if you still get an error:
 <h3 id="step-2-build-and-run-the-docker">Step 2: Build and Run the Docker</h3>
 <p><strong>For Everyone</strong>, run</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>build
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
 <p>Once it is successfully built, run the container</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>enme480_ur3e-docker
@@ -1624,11 +1633,11 @@ Reboot if you still get an error:
 </span></code></pre></div>
 <hr />
 <h2 id="tests-for-week-2">Tests for Week 2</h2>
-<p>&lt;!-- To ensure everything is running sucessfully launch the following commands from within the Docker image:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+<p>&lt;!-- To ensure everything is running sucessfully launch the following commands from within the Docker image:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
 </span></code></pre></div>
-This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener
+This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:</p>
+<h2 id="ros2-run-demo_nodes_cpp-listener-this-second-script-should-output-the-messages-being-sent-by-the-talker-test-in-new-terminal-bash-open-new-terminal-and-run-ros2-help-test-gazebo-our-simulation-suite-ign-gazebo"><div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="sb">```</span><span class="w"> </span>--&gt;
 </span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>This<span class="w"> </span>second<span class="w"> </span>script<span class="w"> </span>should<span class="w"> </span>output<span class="w"> </span>the<span class="w"> </span>messages<span class="w"> </span>being<span class="w"> </span>sent<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>talker.
 </span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1">### **Test in New Terminal**</span>
@@ -1637,8 +1646,7 @@ This shouuld begin outputting a list of number to the terminal. Open a new termi
 </span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>ros2<span class="w"> </span>--help
 </span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="c1"># test gazebo, our simulation suite</span>
 </span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>ign<span class="w"> </span>gazebo
-</span></code></pre></div></p>
-<hr />
+</span></code></pre></div></h2>
 <h2 id="common-issues-solutions">🔧 <strong>Common Issues &amp; Solutions</strong></h2>
 <h3 id="boot-issues"><strong>Boot Issues</strong></h3>
 <table>
