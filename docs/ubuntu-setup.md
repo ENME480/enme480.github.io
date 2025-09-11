@@ -251,7 +251,9 @@ sudo apt install gedit  # Simple text editor
 Do not run this if you are using WSL, it will break your Docker installation.
 ```bash
 # Docker
-sudo snap install docker
+sudo apt install docker
+sudo apt install docker-compose
+
 ```
 
 ### **Step 3: Configure Python**
@@ -394,14 +396,14 @@ docker exec -ti <hit your tab button> bash
 
 ## Tests for Week 2
 
-To ensure everything is running sucessfully launch the following commands from within the Docker image:
+<!-- To ensure everything is running sucessfully launch the following commands from within the Docker image:
 ```bash
 ros2 run demo_nodes_cpp talker
 ```
 This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
 ```bash
 ros2 run demo_nodes_cpp listener
-```
+``` -->
 This second script should output the messages being sent by the talker.
 ### **Test in New Terminal**
 ```bash
