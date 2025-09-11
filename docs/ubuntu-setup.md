@@ -194,16 +194,29 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
         sudo systemctl restart docker
         ```
 
-        So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
+        So that you are able to build and run docker images. These commands make a group who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
 
     7. Now, we will build our image.
 
         ```bash
-        cd ~/ENME480_mrc/docker && userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+        cd ~/ENME480_mrc/docker && userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
         ```
 
         The first part of this command (before the &&) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.
 
+        In the future, you can use the command
+
+        ```bash
+        docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+        ```
+
+        To launch a new docker container. Once the container is open in one terminal, you can run
+
+        ```bash    
+        docker exec -ti <hit your tab button> bash
+        ```
+
+        To launch a new terminal connected to the docker image.
 === "Linux / Dual-boot (optional)"
 
     Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
@@ -232,10 +245,13 @@ sudo apt install python3-pip python3-venv
 # Text editors
 sudo apt install code  # VS Code
 sudo apt install gedit  # Simple text editor
+```
 
+**If you are running in a VM, run the following command**
+Do not run this if you are using WSL, it will break your Docker installation.
+```bash
 # Docker
 sudo snap install docker
-
 ```
 
 ### **Step 3: Configure Python**
@@ -361,6 +377,18 @@ docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-d
 ```
 
 Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. From now on, this is the command you will use to launch the docker image.
+
+If you do this step you will launch the container with the command
+
+```bash
+docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+```
+
+From now on. The command to connect to a running Docker conatiner (i.e. one you have open in a nother terminal) is still
+
+```bash
+docker exec -ti <hit your tab button> bash
+```
 
 ---
 
