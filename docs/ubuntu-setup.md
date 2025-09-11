@@ -320,7 +320,7 @@ FROM arm64v8/ros:humble AS humble-mod_desktop
 
 ```bash
 cd ~/ENME480_mrc/docker/
-userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
 ```
 
 Once it is successfully built, run the container
@@ -397,10 +397,12 @@ docker exec -ti <hit your tab button> bash
 ## Tests for Week 2
 
 <!-- To ensure everything is running sucessfully launch the following commands from within the Docker image:
+
 ```bash
 ros2 run demo_nodes_cpp talker
 ```
 This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
+
 ```bash
 ros2 run demo_nodes_cpp listener
 ``` -->
