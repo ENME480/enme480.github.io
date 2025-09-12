@@ -576,16 +576,5 @@ After completing Ubuntu setup:
 
 ---
 
-<div align="center">
-
-**Ready to move on? Let's set up ROS 2 next! 🚀**
-
-[🤖 Install ROS 2](ros-setup.md){ .md-button .md-button--primary }
-[🐍 Python Setup](python-basics.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
----
 
 *Last updated: Fall 2025 • [Back to Resources](resources.md)*
