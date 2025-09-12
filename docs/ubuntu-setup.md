@@ -119,7 +119,9 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
     
     After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.
     
+    ## Troubleshooting
 
+    If your OS doesn't boot up to the welcome screen, restart the VM and press `ESC`, and use your arrow keys to go to "Boot Manager", press "ENTER", go to `ubuntu` and press "ENTER"
 
     
     You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
