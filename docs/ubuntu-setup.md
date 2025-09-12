@@ -565,16 +565,4 @@ sudo apt install firefox
 
 ---
 
-## 🚀 **Next Steps**
-
-After completing Ubuntu setup:
-
-1. **Install ROS 2**: See [ROS Setup Guide](ros-setup.md)
-2. **Configure Python**: See [Python Basics](python-basics.md)
-3. **Set up Git**: See [Git Basics](git-basics.md)
-4. **Install Gazebo**: See [Gazebo Setup](gazebo-setup.md)
-
----
-
-
 *Last updated: Fall 2025 • [Back to Resources](resources.md)*
