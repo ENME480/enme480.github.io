@@ -252,7 +252,7 @@ Do not run this if you are using WSL, it will break your Docker installation.
 ```bash
 # Docker
 sudo apt install docker
-sudo apt install docker-compose
+sudo apt install docker-compose*
 
 ```
 
