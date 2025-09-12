@@ -241,7 +241,10 @@ sudo apt install build-essential cmake git curl wget
 
 # Python tools
 sudo apt install python3-pip python3-venv
+```
 
+If you are *not* running WSL (WSL will install VScode in Windows):
+```bash
 # Text editors
 sudo apt install code  # VS Code
 sudo apt install gedit  # Simple text editor
