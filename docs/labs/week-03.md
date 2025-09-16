@@ -12,12 +12,12 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 
 ## 📚 Quick links (read these first)
 
-- **ROS 2 Humble tutorials (index):** https://docs.ros.org/en/humble/Tutorials.html  
-- **Create a workspace (colcon):** https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  
-- **Create your first package (Python):** https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  
-- **Write a simple publisher & subscriber (Python):** https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  
-- **Using turtlesim, ros2, and rqt:** https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  
-- **Understanding topics (CLI tools):** https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  
+- **ROS 2 Humble tutorials (index):** [docs.ros.org/en/humble/Tutorials.html](https://docs.ros.org/en/humble/Tutorials.html)  
+- **Create a workspace (colcon):** [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/)  
+- **Create your first package (Python):** [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)  
+- **Write a simple publisher & subscriber (Python):** [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
+- **Using turtlesim, ros2, and rqt:** [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+- **Understanding topics (CLI tools):** [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
 
 ---
 
@@ -52,10 +52,10 @@ This will cause the folder you just created to appear inside the docker image, l
 Follow the **official Humble tutorials** step-by-step (do not copy solution code from elsewhere):
 
 1) **Create a workspace:** Use the **Create a workspace** guide and build once so the structure is valid.  
-   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html
+   ↪ Guide: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
 
 2) **Create a Python package:** Inside your `src/`, make a new package for this week (any sensible name, e.g., `week3`).  
-   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html
+   ↪ Guide: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
 
 **Checkpoint B (screenshot later):** Your workspace builds with `colcon` and your package appears in the build output.
 
@@ -65,7 +65,7 @@ Follow the **official Humble tutorials** step-by-step (do not copy solution code
 
 Use the **publisher/subscriber (Python)** tutorial as your primary reference:
 
-- Tutorial: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html
+- Tutorial: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
 
 **Task C1 — Publisher (“talker”)**  
 Create a node that **publishes numbers at a steady rate** on a topic you choose (e.g., `/numbers`).  
@@ -77,7 +77,7 @@ Create a node that **subscribes** to your numbers topic and **maintains a cumula
 
 **Task C3 — Inspect with CLI**  
 Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum topic, and **show** topic info (type, publishers/subscribers).  
-↪ https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html
+↪ [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
 
 > **Hints (conceptual, not solutions):**
 > - Topic names must **match exactly**; message types must be consistent.  
@@ -94,7 +94,7 @@ Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum
 ## 🐢 Part D — Turtlesim (drive in a circle)
 
 Read the **turtlesim, ros2, and rqt** tutorial first:  
-https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
+[docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
 
 **Task D1 — Launch turtlesim**  
 Start the turtlesim simulator in one terminal (see tutorial).
@@ -105,7 +105,7 @@ In your package, create a node that **publishes velocity commands** to turtlesim
 
 **Task D3 — Observe & Inspect**  
 Use `ros2 topic list` / `ros2 topic echo` to confirm motion and pose updates; open **rqt** and view the **Node Graph** and **Topic Monitor**.  
-- rqt info: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html
+- rqt info: [docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html](https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html)
 
 **Checkpoint D — Screenshots to capture:**  
 - Turtlesim window with a **clear circular path**.  
@@ -156,10 +156,10 @@ Also submit the **three Python files** you created this week as separate attachm
 
 ## 🔗 References
 
-- ROS 2 Humble tutorials (index): https://docs.ros.org/en/humble/Tutorials.html  
-- Create a workspace: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  
-- Create your first ROS 2 package (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  
-- Simple publisher & subscriber (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  
-- Using turtlesim, ros2, and rqt: https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  
-- Understanding topics (CLI tools): https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  
-- rqt overview: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html
+- ROS 2 Humble tutorials (index): [docs.ros.org/en/humble/Tutorials.html](https://docs.ros.org/en/humble/Tutorials.html)  
+- Create a workspace: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+- Create your first ROS 2 package (Python): [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
+- Simple publisher & subscriber (Python): [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)  
+- Using turtlesim, ros2, and rqt: [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+- Understanding topics (CLI tools): [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
+- rqt overview: [docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html](https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html)
