@@ -32,7 +32,7 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 
 ## 🛫 Part A — Pre-flight check (5–10 min)
 
-1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy.
+<!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
 2) Using the commands form last week, open your Docker image contianing ROS
 3) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
 4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
