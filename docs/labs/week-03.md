@@ -19,8 +19,6 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 - **Using turtlesim, ros2, and rqt:** https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  
 - **Understanding topics (CLI tools):** https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  
 
-> Want general background? The older **ROS Wiki** is mostly for ROS 1: https://wiki.ros.org/ (use the Humble docs above for this assignment).
-
 ---
 
 ## 🎯 What you’ll be able to do
