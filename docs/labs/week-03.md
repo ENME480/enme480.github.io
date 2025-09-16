@@ -6,8 +6,6 @@ description: Create a ROS 2 workspace and package; implement a talker/listener; 
 
 # Week 3 · ROS 2 (Humble) with Python
 
-> **Studio 3 submission page.** Slides and any starter files live in the **[Lab Code repo](https://github.com/ENME480/Lab-Code)**.
-
 This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: **workspaces**, **packages**, **publish/subscribe**, and a tiny sim (**turtlesim**). The steps below point you to the **official Humble tutorials**—follow them carefully.
 
 ---
