@@ -32,8 +32,16 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 
 ## 🛫 Part A — Pre-flight check (5–10 min)
 
-1) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
-2) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy.
+1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy.
+2) Using the commands form last week, open your Docker image contianing ROS
+3) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
+4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
+
+```bash
+docker exec <HIT TAB> ln -s ~/<NAME OF THE FOLDER YOU JUST MADE> ~/<NAME YOU WANT THE FOLDER TO HAVE INSIDE DOCKER> 
+```
+This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.
+
 
 **Checkpoint A (no submission yet):** You can run `ros2 --help` without errors.
 
