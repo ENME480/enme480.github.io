@@ -1136,12 +1136,12 @@
 <hr />
 <h2 id="quick-links-read-these-first">📚 Quick links (read these first)</h2>
 <ul>
-<li><strong>ROS 2 Humble tutorials (index):</strong> https://docs.ros.org/en/humble/Tutorials.html  </li>
-<li><strong>Create a workspace (colcon):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  </li>
-<li><strong>Create your first package (Python):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  </li>
-<li><strong>Write a simple publisher &amp; subscriber (Python):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  </li>
-<li><strong>Using turtlesim, ros2, and rqt:</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  </li>
-<li><strong>Understanding topics (CLI tools):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  </li>
+<li><strong>ROS 2 Humble tutorials (index):</strong> <a href="https://docs.ros.org/en/humble/Tutorials.html">docs.ros.org/en/humble/Tutorials.html</a>  </li>
+<li><strong>Create a workspace (colcon):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a>  </li>
+<li><strong>Create your first package (Python):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a>  </li>
+<li><strong>Write a simple publisher &amp; subscriber (Python):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
+<li><strong>Using turtlesim, ros2, and rqt:</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></li>
+<li><strong>Understanding topics (CLI tools):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></li>
 </ul>
 <hr />
 <h2 id="what-youll-be-able-to-do">🎯 What you’ll be able to do</h2>
@@ -1165,15 +1165,15 @@ This will cause the folder you just created to appear inside the docker image, l
 <h2 id="part-b-workspace-package-setup-only">📦 Part B — Workspace &amp; package (setup only)</h2>
 <p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
 <p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
-   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</p>
+   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></p>
 <p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
-   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</p>
+   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
 <p><strong>Checkpoint B (screenshot later):</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
 <hr />
 <h2 id="part-c-talker-listener-no-solution-code-here">📡 Part C — Talker / Listener (no solution code here)</h2>
 <p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
-<li>Tutorial: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</li>
+<li>Tutorial: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
 </ul>
 <p><strong>Task C1 — Publisher (“talker”)</strong><br />
 Create a node that <strong>publishes numbers at a steady rate</strong> on a topic you choose (e.g., <code>/numbers</code>).<br />
@@ -1183,7 +1183,7 @@ Create a node that <strong>subscribes</strong> to your numbers topic and <strong
 <em>(Re-use the subscriber pattern from the tutorial; add your own sum logic and a second publisher.)</em></p>
 <p><strong>Task C3 — Inspect with CLI</strong><br />
 Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</strong>, <strong>echo</strong> your sum topic, and <strong>show</strong> topic info (type, publishers/subscribers).<br />
-↪ https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</p>
+↪ <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></p>
 <blockquote>
 <p><strong>Hints (conceptual, not solutions):</strong>
 - Topic names must <strong>match exactly</strong>; message types must be consistent.<br />
@@ -1197,7 +1197,7 @@ Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</
 <hr />
 <h2 id="part-d-turtlesim-drive-in-a-circle">🐢 Part D — Turtlesim (drive in a circle)</h2>
 <p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
-https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</p>
+<a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></p>
 <p><strong>Task D1 — Launch turtlesim</strong><br />
 Start the turtlesim simulator in one terminal (see tutorial).</p>
 <p><strong>Task D2 — Velocity publisher</strong><br />
@@ -1205,7 +1205,7 @@ In your package, create a node that <strong>publishes velocity commands</strong>
 <em>(You’ll find the correct topic name in the tutorial; use the CLI to explore message fields.)</em></p>
 <p><strong>Task D3 — Observe &amp; Inspect</strong><br />
 Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motion and pose updates; open <strong>rqt</strong> and view the <strong>Node Graph</strong> and <strong>Topic Monitor</strong>.<br />
-- rqt info: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</p>
+- rqt info: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></p>
 <p><strong>Checkpoint D — Screenshots to capture:</strong><br />
 - Turtlesim window with a <strong>clear circular path</strong>.<br />
 - Your velocity publisher terminal (brief output).<br />
@@ -1247,13 +1247,13 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <hr />
 <h2 id="references">🔗 References</h2>
 <ul>
-<li>ROS 2 Humble tutorials (index): https://docs.ros.org/en/humble/Tutorials.html  </li>
-<li>Create a workspace: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  </li>
-<li>Create your first ROS 2 package (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  </li>
-<li>Simple publisher &amp; subscriber (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  </li>
-<li>Using turtlesim, ros2, and rqt: https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  </li>
-<li>Understanding topics (CLI tools): https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  </li>
-<li>rqt overview: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</li>
+<li>ROS 2 Humble tutorials (index): <a href="https://docs.ros.org/en/humble/Tutorials.html">docs.ros.org/en/humble/Tutorials.html</a>  </li>
+<li>Create a workspace: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></li>
+<li>Create your first ROS 2 package (Python): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></li>
+<li>Simple publisher &amp; subscriber (Python): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a>  </li>
+<li>Using turtlesim, ros2, and rqt: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></li>
+<li>Understanding topics (CLI tools): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></li>
+<li>rqt overview: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></li>
 </ul>
 
 
