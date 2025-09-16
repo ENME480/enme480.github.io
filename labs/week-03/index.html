@@ -6,25 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project">
+        <meta name="description" content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt.">
       
       
       
         <link rel="canonical" href="https://enme480.github.io/labs/week-03/">
       
       
+        <link rel="prev" href="../week-2-slides.pptx">
+      
+      
+        <link rel="next" href="../../resources/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>Week 03 — Python + ROS Intro (Studio 1) - ENME480 — Introduction to Robotics</title>
+        <title>Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -59,9 +63,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Week 03 — Python + ROS Intro (Studio 1) - ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" >
       
-        <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
+        <meta  property="og:description"  content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." >
       
         <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/labs/week-03.png" >
       
@@ -75,9 +79,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Week 03 — Python + ROS Intro (Studio 1) - ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" >
       
-        <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
+        <meta  name="twitter:description"  content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." >
       
         <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/labs/week-03.png" >
       
@@ -102,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-03-python-ros-intro-studio-1" class="md-skip">
+        <a href="#week-3-ros-2-humble-with-python" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 03 — Python + ROS Intro (Studio 1)
+              Week 3 — ROS 2 Basics (Python)
             
           </span>
         </div>
@@ -233,7 +237,7 @@
         <a href="https://github.com/ENME480/enme480.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -318,10 +322,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -471,7 +477,7 @@
       <a href="https://github.com/ENME480/enme480.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -553,6 +559,8 @@
       
   
   
+    
+  
   
   
     
@@ -570,20 +578,25 @@
       
         
       
+        
+      
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -600,13 +613,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Labs
@@ -702,6 +715,174 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Week 3
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
+  <span class="md-ellipsis">
+    Week 3
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links-read-these-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Quick links (read these first)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-be-able-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 What you’ll be able to do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-a-pre-flight-check-510-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛫 Part A — Pre-flight check (5–10 min)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b-workspace-package-setup-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Part B — Workspace &amp; package (setup only)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c-talker-listener-no-solution-code-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      📡 Part C — Talker / Listener (no solution code here)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-turtlesim-drive-in-a-circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      🐢 Part D — Turtlesim (drive in a circle)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-were-assessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 What we’re assessing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables-single-pdf-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      📤 Deliverables (single PDF upload)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Submission checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls-where-to-look" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Common pitfalls (where to look)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -925,53 +1106,131 @@
   
 
 
-<h1 id="week-03-python-ros-intro-studio-1">Week 03 — Python + ROS Intro (Studio 1)</h1>
+<h1 id="week-3-ros-2-humble-with-python">Week 3 · ROS 2 (Humble) with Python</h1>
+<blockquote>
+<p><strong>Studio 3 submission page.</strong> Slides and any starter files live in the <strong><a href="https://github.com/ENME480/Lab-Code">Lab Code repo</a></strong>.</p>
+</blockquote>
+<p>This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: <strong>workspaces</strong>, <strong>packages</strong>, <strong>publish/subscribe</strong>, and a tiny sim (<strong>turtlesim</strong>). The steps below point you to the <strong>official Humble tutorials</strong>—follow them carefully.</p>
+<hr />
+<h2 id="quick-links-read-these-first">📚 Quick links (read these first)</h2>
 <ul>
-<li>📁 <a href="../Lab-Code/Week%203%20-%20ROS/"><code>labs/Lab-Code/Week 3 - ROS/</code></a></li>
+<li><strong>ROS 2 Humble tutorials (index):</strong> https://docs.ros.org/en/humble/Tutorials.html  </li>
+<li><strong>Create a workspace (colcon):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  </li>
+<li><strong>Create your first package (Python):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  </li>
+<li><strong>Write a simple publisher &amp; subscriber (Python):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  </li>
+<li><strong>Using turtlesim, ros2, and rqt:</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  </li>
+<li><strong>Understanding topics (CLI tools):</strong> https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  </li>
 </ul>
-<!--
--->
-
-<!-- BEGIN:AUTO-INCLUDE-README -->
-<h2 id="lab-handout-from-lab-code">Lab handout (from Lab-Code)</h2>
-<p><a href="https://github.com/ENME480/Lab-Code/tree/main/Week%203%20-%20ROS">View this lab folder on GitHub</a></p>
-<h2 id="week-3-introduction-to-ros-robot-operating-system">Week 3 - Introduction to ROS (Robot Operating System)</h2>
-<h3 id="overview">Overview</h3>
-<p>Introduction to ROS (Robot Operating System), the fundamental framework for robotics development and simulation.</p>
-<h3 id="materials">Materials</h3>
+<blockquote>
+<p>Want general background? The older <strong>ROS Wiki</strong> is mostly for ROS 1: https://wiki.ros.org/ (use the Humble docs above for this assignment).</p>
+</blockquote>
+<hr />
+<h2 id="what-youll-be-able-to-do">🎯 What you’ll be able to do</h2>
 <ul>
-<li><a href="../../_labcode/Week%203%20-%20ROS/ENME480_IntroToROS.pdf">ENME480_IntroToROS.pdf</a> - Comprehensive introduction to ROS concepts and usage</li>
+<li>Set up a <strong>ROS 2 workspace</strong> and a <strong>Python package</strong> (Humble).</li>
+<li>Implement a basic <strong>publisher</strong> and <strong>subscriber</strong> and reason about <strong>topics</strong>.</li>
+<li>Use <strong>CLI tools</strong> and <strong>rqt</strong> to inspect nodes, topics, and messages.</li>
+<li>Control <strong>turtlesim</strong> by publishing velocity commands.</li>
 </ul>
-<h3 id="key-topics">Key Topics</h3>
+<hr />
+<h2 id="part-a-pre-flight-check-510-min">🛫 Part A — Pre-flight check (5–10 min)</h2>
+<p>1) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).<br />
+2) Create a folder for this course (e.g., <code>~/enme480_ws</code>) to keep things tidy.</p>
+<p><strong>Checkpoint A (no submission yet):</strong> You can run <code>ros2 --help</code> without errors.</p>
+<hr />
+<h2 id="part-b-workspace-package-setup-only">📦 Part B — Workspace &amp; package (setup only)</h2>
+<p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
+<p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
+   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</p>
+<p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
+   ↪ Guide: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</p>
+<p><strong>Checkpoint B (screenshot later):</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
+<hr />
+<h2 id="part-c-talker-listener-no-solution-code-here">📡 Part C — Talker / Listener (no solution code here)</h2>
+<p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
-<li><strong>ROS Fundamentals</strong>: Understanding the Robot Operating System architecture</li>
-<li><strong>Core Concepts</strong>: Nodes, topics, services, and actions</li>
-<li><strong>Communication</strong>: How ROS components communicate with each other</li>
-<li><strong>Development Workflow</strong>: Building and running ROS applications</li>
+<li>Tutorial: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</li>
 </ul>
-<h3 id="learning-objectives">Learning Objectives</h3>
+<p><strong>Task C1 — Publisher (“talker”)</strong><br />
+Create a node that <strong>publishes numbers at a steady rate</strong> on a topic you choose (e.g., <code>/numbers</code>).<br />
+<em>(Use the tutorial to recall how to create a publisher node; adapt it to publish numbers rather than strings.)</em></p>
+<p><strong>Task C2 — Subscriber (“listener”)</strong><br />
+Create a node that <strong>subscribes</strong> to your numbers topic and <strong>maintains a cumulative sum</strong>. After each new message arrives, it should <strong>publish the running sum</strong> on a <strong>new topic</strong> (e.g., <code>/sum_topic</code>).<br />
+<em>(Re-use the subscriber pattern from the tutorial; add your own sum logic and a second publisher.)</em></p>
+<p><strong>Task C3 — Inspect with CLI</strong><br />
+Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</strong>, <strong>echo</strong> your sum topic, and <strong>show</strong> topic info (type, publishers/subscribers).<br />
+↪ https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</p>
+<blockquote>
+<p><strong>Hints (conceptual, not solutions):</strong>
+- Topic names must <strong>match exactly</strong>; message types must be consistent.<br />
+- If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.<br />
+- Keep node/topic names short and meaningful.</p>
+</blockquote>
+<p><strong>Checkpoint C — Screenshots to capture:</strong><br />
+- Talker output (brief).<br />
+- Listener output showing a <strong>running sum</strong>.<br />
+- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of your sum topic.</p>
+<hr />
+<h2 id="part-d-turtlesim-drive-in-a-circle">🐢 Part D — Turtlesim (drive in a circle)</h2>
+<p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
+https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</p>
+<p><strong>Task D1 — Launch turtlesim</strong><br />
+Start the turtlesim simulator in one terminal (see tutorial).</p>
+<p><strong>Task D2 — Velocity publisher</strong><br />
+In your package, create a node that <strong>publishes velocity commands</strong> to turtlesim so the turtle moves in a <strong>circle</strong> (non-zero linear <span class="arithmatex">\(x\)</span> and angular <span class="arithmatex">\(z\)</span>).<br />
+<em>(You’ll find the correct topic name in the tutorial; use the CLI to explore message fields.)</em></p>
+<p><strong>Task D3 — Observe &amp; Inspect</strong><br />
+Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motion and pose updates; open <strong>rqt</strong> and view the <strong>Node Graph</strong> and <strong>Topic Monitor</strong>.<br />
+- rqt info: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</p>
+<p><strong>Checkpoint D — Screenshots to capture:</strong><br />
+- Turtlesim window with a <strong>clear circular path</strong>.<br />
+- Your velocity publisher terminal (brief output).<br />
+- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of the pose topic.<br />
+- rqt with <strong>Node Graph</strong> / <strong>Topic Monitor</strong> visible.</p>
+<hr />
+<h2 id="what-were-assessing">🔎 What we’re assessing</h2>
 <ul>
-<li>Understand ROS architecture and philosophy</li>
-<li>Learn basic ROS concepts (nodes, topics, services)</li>
-<li>Set up ROS development environment</li>
-<li>Create simple ROS programs</li>
+<li>You can follow <strong>official Humble docs</strong> and adapt examples to a new task.  </li>
+<li>Your nodes <strong>publish/subscribe</strong> correctly and use appropriate <strong>topic names</strong> and <strong>message types</strong>.  </li>
+<li>You can <strong>inspect</strong> systems via CLI and <strong>rqt</strong> and explain what you see.</li>
 </ul>
-<h3 id="prerequisites">Prerequisites</h3>
+<hr />
+<h2 id="deliverables-single-pdf-upload">📤 Deliverables (single PDF upload)</h2>
+<p>Include <strong>concise</strong> screenshots (one image may show multiple windows):</p>
 <ul>
-<li>Week 2: Ubuntu and Python basics</li>
-<li>Basic understanding of programming concepts</li>
+<li><strong>Talker/Listener:</strong> talker output; listener output showing <strong>running sum</strong>; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of your sum topic.  </li>
+<li><strong>Turtlesim:</strong> turtlesim showing a <strong>circle</strong>; velocity publisher terminal; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of the pose topic; rqt with Node Graph/Topic Monitor visible.  </li>
+<li>A terminal view of your <strong>package tree</strong> (folder/files) helps grading.</li>
 </ul>
-<h3 id="ros-concepts-covered">ROS Concepts Covered</h3>
+<p>Also submit the <strong>three Python files</strong> you created this week as separate attachments or in the PDF appendix (clearly named).</p>
+<hr />
+<h2 id="submission-checklist">✅ Submission checklist</h2>
 <ul>
-<li><strong>Nodes</strong>: Individual processes that perform computation</li>
-<li><strong>Topics</strong>: Asynchronous communication mechanism</li>
-<li><strong>Services</strong>: Synchronous request-response communication</li>
-<li><strong>Messages</strong>: Data structures for communication</li>
-<li><strong>Packages</strong>: Organizational units for ROS code</li>
+<li>[ ] Workspace builds with <strong>colcon</strong> (no errors).  </li>
+<li>[ ] Package exists in <code>src/</code> and is discoverable by <code>ros2 pkg list</code>.  </li>
+<li>[ ] Talker publishes numbers; listener computes &amp; republishes a <strong>running sum</strong> to a new topic.  </li>
+<li>[ ] <code>ros2 topic list</code> shows your topics; <code>ros2 topic echo</code> shows expected messages.  </li>
+<li>[ ] Turtlesim moves in a <strong>circle</strong> when your node runs.  </li>
+<li>[ ] rqt screenshots show graph and topic activity.</li>
 </ul>
-<h3 id="next-steps">Next Steps</h3>
-<p>This ROS foundation will enable you to work with Gazebo simulation in Week 4.</p>
-<!-- END:AUTO-INCLUDE-README -->
+<hr />
+<h2 id="common-pitfalls-where-to-look">💡 Common pitfalls (where to look)</h2>
+<ul>
+<li><strong>Nothing appears on a topic</strong> → check exact <strong>topic names</strong> and that both nodes are running; use <code>ros2 topic info</code> to inspect connections.  </li>
+<li><strong>Package found but nodes won’t run</strong> → review the <strong>Create a package</strong> tutorial for entry-point configuration and structure.  </li>
+<li><strong>rqt panels missing</strong> → install the rqt meta-packages (see turtlesim tutorial) and relaunch.</li>
+</ul>
+<hr />
+<h2 id="references">🔗 References</h2>
+<ul>
+<li>ROS 2 Humble tutorials (index): https://docs.ros.org/en/humble/Tutorials.html  </li>
+<li>Create a workspace: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html  </li>
+<li>Create your first ROS 2 package (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html  </li>
+<li>Simple publisher &amp; subscriber (Python): https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html  </li>
+<li>Using turtlesim, ros2, and rqt: https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html  </li>
+<li>Understanding topics (CLI tools): https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html  </li>
+<li>rqt overview: https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</li>
+</ul>
 
 
 
@@ -1002,6 +1261,44 @@
         <footer class="md-footer">
   
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../week-2-slides.pptx" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 Slides">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Week 2 Slides
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../resources/" class="md-footer__link md-footer__link--next" aria-label="Next: Resources">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Resources
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1026,7 +1323,7 @@
       
     
     <a href="https://github.com/ENME480" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
     
@@ -1037,7 +1334,7 @@
       
     
     <a href="https://x.com/UMDMaryland" target="_blank" rel="noopener" title="x.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
     </a>
   
 </div>
@@ -1057,7 +1354,7 @@
       <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
