@@ -219,11 +219,112 @@ This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics developmen
         ```
 
         To launch a new terminal connected to the docker image.
+
+=== "Windows - VM"
+
+    ### **Step 1: Download UTM**
+    
+    Download UTM from the official website: <https://mac.getutm.app>
+
+    ### **Step 2: Download Ubuntu 22.04 ARM64**
+    
+    Get Ubuntu 22.04 ARM64 (Desktop or Server): <https://releases.ubuntu.com/jammy/>
+    
+    *Choose **22.04 LTS 64-bit (AMD)**.*
+
+    ### **Step 3: Create New Virtual Machine**
+    
+    Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.
+    
+    ![UTM Download](assets/vm_figs/1.webp)
+    
+    Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.
+
+    ![Ubuntu Download](assets/vm_figs/2.webp)
+    
+    ![Create VM](assets/vm_figs/3.webp)
+    
+    Click on Browse and select the ISO file you downloaded in Step 2
+    
+    ![Choose Virtualization](assets/vm_figs/4.webp)
+
+    On the next screen, leave the memory at 4096 MB and CPU Cores at [Default]. Then specify the amount of space you want to allocate to the virtual machine. It is recommended that you don’t go below around 30GB. Leaving it at the default 64GB is fine, or allocate a higher number if you prefer. Preferred space is around 50GB
+
+    ![Select Linux](assets/vm_figs/5.webp)
+    
+   
+    ![Browse ISO](assets/vm_figs/6.webp)
+    
+    (Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.
+    
+    ![System Settings](assets/vm_figs/7.webp)
+
+    Once done, enter the details for your VM as you want and press done.
+
+    ### **Step 4: Start the VM**
+    
+    Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".
+
+    ![Display Settings](assets/vm_figs/8.webp)
+
+    
+    ![Review Settings](assets/vm_figs/9.png)
+
+    ### **Step 11: Ubuntu Installation Welcome**
+    
+    The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".
+
+    ![Start VM](assets/vm_figs/10.png)
+
+   
+    
+    ![Installation Welcome](assets/vm_figs/11.png)
+    
+     Choose your keyboard layout. "English (US)" is selected by default. You can test your keyboard in the text field below. (Normally, you can leave it as is and just press continue)
+    
+    ![Installation Type](assets/vm_figs/12.png)
+    
+    Uncheck the "Download updates while installing" so that you have a faster installation
+    
+    ![User Setup](assets/vm_figs/13.png)
+
+     Select "Erase disk and install Ubuntu" since this is a virtual machine. The installer will show a warning about deleting all files.
+
+    
+    ![Installation Progress](assets/vm_figs/14.png)
+    
+    ![Installation Complete](assets/vm_figs/15.png)
+    
+    ![Ubuntu Login](assets/vm_figs/16.png)
+
+    Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.
+
+    ![Ubuntu Desktop](assets/vm_figs/17.png)
+
+    Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.
+
+    ### **Step 6: First Boot**
+    
+    After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.
+    
+    ## Troubleshooting
+
+    If your OS doesn't boot up to the welcome screen, restart the VM and press `ESC`, and use your arrow keys to go to "Boot Manager", press "ENTER", go to `ubuntu` and press "ENTER"
+
+    
+    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
+    
+
+    **References:** 
+    
+    1. [UTM's Ubuntu guide](https://docs.getutm.app/guides/ubuntu/)
+    2. [Blog Post](https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1)  
+
+
+
 === "Linux / Dual-boot (optional)"
 
     Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
-
-
 ---
 
 
