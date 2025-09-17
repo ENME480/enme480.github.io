@@ -905,15 +905,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      🎯 Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#system-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       💻 System Requirements
@@ -1505,17 +1496,6 @@
 
 
 <h1 id="ubuntu-setup-guide">🐧 Ubuntu Setup Guide</h1>
-<div align="center">
-
-**Complete Ubuntu installation and configuration for robotics development**
-
-*Get your Ubuntu environment ready for ROS 2, Python, and robotics tools*
-
-</div>
-
-<hr />
-<h2 id="overview">🎯 <strong>Overview</strong></h2>
-<p>This guide will help you set up Ubuntu 22.04 LTS for ENME480 robotics development. Ubuntu 22.04 is the recommended operating system for ROS 2 Humble and robotics development.</p>
 <hr />
 <h2 id="system-requirements">💻 <strong>System Requirements</strong></h2>
 <h3 id="minimum-requirements"><strong>Minimum Requirements</strong></h3>
@@ -1533,6 +1513,9 @@
 </ul>
 <hr />
 <h2 id="choose-your-platform">💻 <strong>Choose Your Platform</strong></h2>
+<p>If you are on Windows then you have two choices here:
+    - A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
+    - Windows Subsystem for Linux (WSL), Microsofts official way of running Linux code on Windows. This approach has much less overhead and runs faster, but can require some extra steps. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Apple Silicon) — UTM VM</label><label for="__tabbed_1_2">Windows — WSL 2 (Ubuntu 22.04)</label><label for="__tabbed_1_3">Windows - VM</label><label for="__tabbed_1_4">Linux / Dual-boot (optional)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1586,18 +1569,26 @@
 </ol>
 </div>
 <div class="tabbed-block">
+<p>At the moment, getting the Docker image this course uses working in WSL requires that you have an Nvidia GPU. This can be checked by hitting your Windows key and typing <em>dxdiag</em>. A popup will appear asking about checking for signed drivers, you can click either option. This should lead you to a window which looks like:
+<img alt="dxdiag screen" src="../assets/nvidia-setup/dxdiag.png" />
+Click on the Display tabs on the top to see all available GPUs. If none of them are an NVIDIA GeForce chip you should follow the steps to set up the VM on Windows instead of WSL.</p>
 <ol>
-<li>Open <strong>Terminal</strong> (Win+X → <em>Terminal</em> or search “terminal”).  </li>
+<li>Open <strong>Powershell</strong> (search "powershell" in the Windows menu).  </li>
 <li>
 <p>Install Ubuntu 22.04:</p>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span> <span class="n">Ubuntu</span><span class="p">-</span><span class="n">22</span><span class="p">.</span><span class="n">04</span>
 </span></code></pre></div>
-<p>This installs the exact distro we use. Using a different Ubuntu version often breaks ROS compatibility.</p>
+<p>This installs the exact distro we use. Using a different Ubuntu version often breaks ROS compatibility. <em>Note: if you have never used WSL before this command will install some necessary drivers first, then say that it failed to install Ubuntu. If this happens reset your computer and try again, it should work now.</em></p>
 </li>
 <li>
-<p>After reboot, you’ll land in the Ubuntu shell (or run <code>wsl</code>).<br />
-<strong>Disk space:</strong> at least <strong>35 GB</strong> free (recommend <strong>50–60 GB</strong>).  </p>
+<p>You should notice that powershell has gona from looking like this: 
+<img alt="phsell" src="../assets/nvidia-setup/pshell.png" /></p>
 </li>
+</ol>
+<p>to something like this:
+<img alt="wsl" src="../assets/nvidia-setup/wsl.png" /></p>
+<p>This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here. </p>
+<ol>
 <li>
 <p>First, we will make sure our dependencies are in place. Within WSL2 run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
