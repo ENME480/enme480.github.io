@@ -71,7 +71,7 @@ docker exec <HIT TAB> ln -s ~/<NAME OF THE FOLDER YOU JUST MADE> ~/<NAME YOU WAN
 This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
 
 
-**Checkpoint A (no submission yet):** You can run `ros2 --help` without errors.
+**Checkpoint A (no submission yet):** You can run the above commands without any errors.
 
 ---
 
@@ -85,7 +85,7 @@ Follow the **official Humble tutorials** step-by-step (do not copy solution code
 2) **Create a Python package:** Inside your `src/`, make a new package for this week (any sensible name, e.g., `week3`).  
    ↪ Guide: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
 
-**Checkpoint B (screenshot later):** Your workspace builds with `colcon` and your package appears in the build output.
+**Checkpoint B:** Your workspace builds with `colcon` and your package appears in the build output.
 
 ---
 
