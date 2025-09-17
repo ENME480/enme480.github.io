@@ -783,31 +783,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-links-read-these-first" class="md-nav__link">
+  <a href="#part-a-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      📚 Quick links (read these first)
+      Part A - Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-youll-be-able-to-do" class="md-nav__link">
+  <a href="#credit-to-benjamin-ruby" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 What you’ll be able to do
+      (Credit to Benjamin Ruby)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-a-pre-flight-check-510-min" class="md-nav__link">
+  <a href="#part-b-pre-flight-check-510-min" class="md-nav__link">
     <span class="md-ellipsis">
-      🛫 Part A — Pre-flight check (5–10 min)
+      🛫 Part B — Pre-flight check (5–10 min)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🛫 Part A — Pre-flight check (5–10 min)">
+    <nav class="md-nav" aria-label="🛫 Part B — Pre-flight check (5–10 min)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -825,27 +825,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-b-workspace-package-setup-only" class="md-nav__link">
+  <a href="#part-c-workspace-package-setup-only" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 Part B — Workspace &amp; package (setup only)
+      📦 Part C — Workspace &amp; package (setup only)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-c-talker-listener" class="md-nav__link">
+  <a href="#part-d-talker-listener" class="md-nav__link">
     <span class="md-ellipsis">
-      📡 Part C — Talker / Listener
+      📡 Part D — Talker / Listener
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-d-turtlesim-drive-in-a-circle" class="md-nav__link">
+  <a href="#part-e-turtlesim-drive-in-a-circle" class="md-nav__link">
     <span class="md-ellipsis">
-      🐢 Part D — Turtlesim (drive in a circle)
+      🐢 Part E — Turtlesim (drive in a circle)
     </span>
   </a>
   
@@ -864,33 +864,6 @@
   <a href="#deliverables-single-pdf-upload" class="md-nav__link">
     <span class="md-ellipsis">
       📤 Deliverables (single PDF upload)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submission-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Submission checklist
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-pitfalls-where-to-look" class="md-nav__link">
-    <span class="md-ellipsis">
-      💡 Common pitfalls (where to look)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 References
     </span>
   </a>
   
@@ -1149,63 +1122,65 @@
 <h1 id="week-3-ros-2-humble-with-python">Week 3 · ROS 2 (Humble) with Python</h1>
 <p>This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: <strong>workspaces</strong>, <strong>packages</strong>, <strong>publish/subscribe</strong>, and a tiny sim (<strong>turtlesim</strong>). The steps below point you to the <strong>official Humble tutorials</strong>—follow them carefully.</p>
 <hr />
-<h2 id="quick-links-read-these-first">📚 Quick links (read these first)</h2>
-<ul>
-<li><strong>ROS 2 Humble tutorials (index):</strong> <a href="https://docs.ros.org/en/humble/Tutorials.html">docs.ros.org/en/humble/Tutorials.html</a>  </li>
-<li><strong>Create a workspace (colcon):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a>  </li>
-<li><strong>Create your first package (Python):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a>  </li>
-<li><strong>Write a simple publisher &amp; subscriber (Python):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
-<li><strong>Using turtlesim, ros2, and rqt:</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></li>
-<li><strong>Understanding topics (CLI tools):</strong> <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></li>
-</ul>
-<hr />
-<h2 id="what-youll-be-able-to-do">🎯 What you’ll be able to do</h2>
-<ul>
-<li>Set up a <strong>ROS 2 workspace</strong> and a <strong>Python package</strong> (Humble).</li>
-<li>Implement a basic <strong>publisher</strong> and <strong>subscriber</strong> and reason about <strong>topics</strong>.</li>
-<li>Use <strong>CLI tools</strong> and <strong>rqt</strong> to inspect nodes, topics, and messages.</li>
-<li>Control <strong>turtlesim</strong> by publishing velocity commands.</li>
-</ul>
-<hr />
-<h2 id="part-a-pre-flight-check-510-min">🛫 Part A — Pre-flight check (5–10 min)</h2>
+<h2 id="part-a-setup">Part A - Setup</h2>
+<p>First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.</p>
+<p>For people <strong>not</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div></p>
+<p>For people who <strong>are</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div></p>
+<p>These commands will create two bash files (essentially just lists of other commands) that will allow you to launch the Docker container with:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>startDocker.sh
+</span></code></pre></div></p>
+<p>And connect to it from another terminal with:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div>
+Provided you are in the folder where these files are.</p>
+<h2 id="credit-to-benjamin-ruby">(Credit to Benjamin Ruby)</h2>
+<h2 id="part-b-pre-flight-check-510-min">🛫 Part B — Pre-flight check (5–10 min)</h2>
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
-<p>1) Using the commands form last week, open your Docker image contianing ROS
+<p>1) Using the commands from above, open your Docker image contianing ROS
 2) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
 </span></code></pre></div>
 It will show you a list of topics, most likely <code>/rosout</code> and <code>/parameter_events</code></p>
 <p>3) Try opening up Gazebo
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ign<span class="w"> </span>gazebo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ign<span class="w"> </span>gazebo
 </span></code></pre></div>
 It should open up a window with examples to different test environments</p>
 <p>4) Try opening up <code>rqt</code>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>rqt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>rqt
 </span></code></pre></div>
 If <code>rqt</code> does not open up anything or throws an error, install any required extenstions
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
 </span></code></pre></div>
 or try reopening it with 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rqt<span class="w"> </span>--force-discover
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rqt<span class="w"> </span>--force-discover
 </span></code></pre></div></p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>During any of these steps if your display doesn't open up, follow the follwoing steps</p>
 <!--4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
 </span></code></pre></div>
 This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
 
-<p><strong>Checkpoint A (no submission yet):</strong> You can run the above commands without any errors.</p>
+<p><strong>Checkpoint B (no submission yet):</strong> You can run the above commands without any errors.</p>
 <hr />
-<h2 id="part-b-workspace-package-setup-only">📦 Part B — Workspace &amp; package (setup only)</h2>
+<h2 id="part-c-workspace-package-setup-only">📦 Part C — Workspace &amp; package (setup only)</h2>
 <p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
 <p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
    ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></p>
 <p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
    ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
-<p><strong>Checkpoint B:</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
+<p><strong>Checkpoint C:</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
 <hr />
-<h2 id="part-c-talker-listener">📡 Part C — Talker / Listener</h2>
+<h2 id="part-d-talker-listener">📡 Part D — Talker / Listener</h2>
 <p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
 <li>Tutorial: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
@@ -1225,12 +1200,12 @@ Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</
 - If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.<br />
 - Keep node/topic names short and meaningful.</p>
 </blockquote>
-<p><strong>Checkpoint C — Screenshots to capture:</strong><br />
+<p><strong>Checkpoint D — Screenshots to capture:</strong><br />
 - Talker output (brief).<br />
 - Listener output showing a <strong>running sum</strong>.<br />
 - <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of your sum topic.</p>
 <hr />
-<h2 id="part-d-turtlesim-drive-in-a-circle">🐢 Part D — Turtlesim (drive in a circle)</h2>
+<h2 id="part-e-turtlesim-drive-in-a-circle">🐢 Part E — Turtlesim (drive in a circle)</h2>
 <p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
 <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></p>
 <p><strong>Task D1 — Launch turtlesim</strong><br />
@@ -1241,7 +1216,7 @@ In your package, create a node that <strong>publishes velocity commands</strong>
 <p><strong>Task D3 — Observe &amp; Inspect</strong><br />
 Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motion and pose updates; open <strong>rqt</strong> and view the <strong>Node Graph</strong> and <strong>Topic Monitor</strong>.<br />
 - rqt info: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></p>
-<p><strong>Checkpoint D — Screenshots to capture:</strong><br />
+<p><strong>Checkpoint E — Screenshots to capture:</strong><br />
 - Turtlesim window with a <strong>clear circular path</strong>.<br />
 - Your velocity publisher terminal (brief output).<br />
 - <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of the pose topic.<br />
@@ -1262,34 +1237,6 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <li>A terminal view of your <strong>package tree</strong> (folder/files) helps grading.</li>
 </ul>
 <p>Also submit the <strong>three Python files</strong> you created this week as separate attachments or in the PDF appendix (clearly named).</p>
-<hr />
-<h2 id="submission-checklist">✅ Submission checklist</h2>
-<ul>
-<li>[ ] Workspace builds with <strong>colcon</strong> (no errors).  </li>
-<li>[ ] Package exists in <code>src/</code> and is discoverable by <code>ros2 pkg list</code>.  </li>
-<li>[ ] Talker publishes numbers; listener computes &amp; republishes a <strong>running sum</strong> to a new topic.  </li>
-<li>[ ] <code>ros2 topic list</code> shows your topics; <code>ros2 topic echo</code> shows expected messages.  </li>
-<li>[ ] Turtlesim moves in a <strong>circle</strong> when your node runs.  </li>
-<li>[ ] rqt screenshots show graph and topic activity.</li>
-</ul>
-<hr />
-<h2 id="common-pitfalls-where-to-look">💡 Common pitfalls (where to look)</h2>
-<ul>
-<li><strong>Nothing appears on a topic</strong> → check exact <strong>topic names</strong> and that both nodes are running; use <code>ros2 topic info</code> to inspect connections.  </li>
-<li><strong>Package found but nodes won’t run</strong> → review the <strong>Create a package</strong> tutorial for entry-point configuration and structure.  </li>
-<li><strong>rqt panels missing</strong> → install the rqt meta-packages (see turtlesim tutorial) and relaunch.</li>
-</ul>
-<hr />
-<h2 id="references">🔗 References</h2>
-<ul>
-<li>ROS 2 Humble tutorials (index): <a href="https://docs.ros.org/en/humble/Tutorials.html">docs.ros.org/en/humble/Tutorials.html</a>  </li>
-<li>Create a workspace: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></li>
-<li>Create your first ROS 2 package (Python): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></li>
-<li>Simple publisher &amp; subscriber (Python): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a>  </li>
-<li>Using turtlesim, ros2, and rqt: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></li>
-<li>Understanding topics (CLI tools): <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></li>
-<li>rqt overview: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></li>
-</ul>
 
 
 
