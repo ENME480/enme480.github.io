@@ -1022,6 +1022,75 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-utm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download UTM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-download-ubuntu-2204-arm64_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Download Ubuntu 22.04 ARM64
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-new-virtual-machine_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create New Virtual Machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-start-the-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Start the VM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-ubuntu-installation-welcome_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11: Ubuntu Installation Welcome
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-first-boot_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: First Boot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1464,7 +1533,7 @@
 </ul>
 <hr />
 <h2 id="choose-your-platform">💻 <strong>Choose Your Platform</strong></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Apple Silicon) — UTM VM</label><label for="__tabbed_1_2">Windows — WSL 2 (Ubuntu 22.04)</label><label for="__tabbed_1_3">Linux / Dual-boot (optional)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Apple Silicon) — UTM VM</label><label for="__tabbed_1_2">Windows — WSL 2 (Ubuntu 22.04)</label><label for="__tabbed_1_3">Windows - VM</label><label for="__tabbed_1_4">Linux / Dual-boot (optional)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="step-1-download-utm"><strong>Step 1: Download UTM</strong></h3>
@@ -1582,6 +1651,56 @@
 </span></code></pre></div>
 <p>To launch a new terminal connected to the docker image.</p>
 </li>
+</ol>
+</div>
+<div class="tabbed-block">
+<h3 id="step-1-download-utm_1"><strong>Step 1: Download UTM</strong></h3>
+<p>Download UTM from the official website: <a href="https://mac.getutm.app">https://mac.getutm.app</a></p>
+<h3 id="step-2-download-ubuntu-2204-arm64_1"><strong>Step 2: Download Ubuntu 22.04 ARM64</strong></h3>
+<p>Get Ubuntu 22.04 ARM64 (Desktop or Server): <a href="https://releases.ubuntu.com/jammy/">https://releases.ubuntu.com/jammy/</a></p>
+<p><em>Choose </em><em>22.04 LTS 64-bit (AMD)</em><em>.</em></p>
+<h3 id="step-3-create-new-virtual-machine_1"><strong>Step 3: Create New Virtual Machine</strong></h3>
+<p>Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.</p>
+<p><img alt="UTM Download" src="../assets/vm_figs/1.webp" /></p>
+<p>Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.</p>
+<p><img alt="Ubuntu Download" src="../assets/vm_figs/2.webp" /></p>
+<p><img alt="Create VM" src="../assets/vm_figs/3.webp" /></p>
+<p>Click on Browse and select the ISO file you downloaded in Step 2</p>
+<p><img alt="Choose Virtualization" src="../assets/vm_figs/4.webp" /></p>
+<p>On the next screen, leave the memory at 4096 MB and CPU Cores at [Default]. Then specify the amount of space you want to allocate to the virtual machine. It is recommended that you don’t go below around 30GB. Leaving it at the default 64GB is fine, or allocate a higher number if you prefer. Preferred space is around 50GB</p>
+<p><img alt="Select Linux" src="../assets/vm_figs/5.webp" /></p>
+<p><img alt="Browse ISO" src="../assets/vm_figs/6.webp" /></p>
+<p>(Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.</p>
+<p><img alt="System Settings" src="../assets/vm_figs/7.webp" /></p>
+<p>Once done, enter the details for your VM as you want and press done.</p>
+<h3 id="step-4-start-the-vm_1"><strong>Step 4: Start the VM</strong></h3>
+<p>Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".</p>
+<p><img alt="Display Settings" src="../assets/vm_figs/8.webp" /></p>
+<p><img alt="Review Settings" src="../assets/vm_figs/9.png" /></p>
+<h3 id="step-11-ubuntu-installation-welcome_1"><strong>Step 11: Ubuntu Installation Welcome</strong></h3>
+<p>The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".</p>
+<p><img alt="Start VM" src="../assets/vm_figs/10.png" /></p>
+<p><img alt="Installation Welcome" src="../assets/vm_figs/11.png" /></p>
+<p>Choose your keyboard layout. "English (US)" is selected by default. You can test your keyboard in the text field below. (Normally, you can leave it as is and just press continue)</p>
+<p><img alt="Installation Type" src="../assets/vm_figs/12.png" /></p>
+<p>Uncheck the "Download updates while installing" so that you have a faster installation</p>
+<p><img alt="User Setup" src="../assets/vm_figs/13.png" /></p>
+<p>Select "Erase disk and install Ubuntu" since this is a virtual machine. The installer will show a warning about deleting all files.</p>
+<p><img alt="Installation Progress" src="../assets/vm_figs/14.png" /></p>
+<p><img alt="Installation Complete" src="../assets/vm_figs/15.png" /></p>
+<p><img alt="Ubuntu Login" src="../assets/vm_figs/16.png" /></p>
+<p>Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.</p>
+<p><img alt="Ubuntu Desktop" src="../assets/vm_figs/17.png" /></p>
+<p>Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.</p>
+<h3 id="step-6-first-boot_1"><strong>Step 6: First Boot</strong></h3>
+<p>After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.</p>
+<h2 id="troubleshooting_1">Troubleshooting</h2>
+<p>If your OS doesn't boot up to the welcome screen, restart the VM and press <code>ESC</code>, and use your arrow keys to go to "Boot Manager", press "ENTER", go to <code>ubuntu</code> and press "ENTER"</p>
+<p>You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.</p>
+<p><strong>References:</strong> </p>
+<ol>
+<li><a href="https://docs.getutm.app/guides/ubuntu/">UTM's Ubuntu guide</a></li>
+<li><a href="https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1">Blog Post</a>  </li>
 </ol>
 </div>
 <div class="tabbed-block">
