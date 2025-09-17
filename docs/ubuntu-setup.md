@@ -218,6 +218,7 @@ If you are on Windows then you have two choices here:
         ```
 
         To launch a new terminal connected to the docker image.
+        
 
 === "Windows - VM"
 
@@ -338,23 +339,29 @@ sudo apt update && sudo apt upgrade -y
 
 ### **Step 2: Install Essential Tools**
 ```bash
+# add new package sources so we can find everything we want to install
+sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# reload lists
+sudo apt update && sudo apt upgrade -y
+
+# install packages we will use to download other things
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+# grab docker from the internet
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+
 # Development tools
 sudo apt install build-essential cmake git curl wget
 
 # Python tools
-sudo apt install python3-pip python3-venv
-```
+sudo apt install python3-pip python3-venv python-is-python3
 
-If you are *not* running WSL (WSL will install VScode in Windows):
-```bash
-# Text editors
-sudo apt install code  # VS Code
-sudo apt install gedit  # Simple text editor
-```
-
-**If you are running in a VM, run the following command**
-Do not run this if you are using WSL, it will break your Docker installation.
-```bash
 # Docker
 sudo apt install docker
 sudo apt install docker-compose*
