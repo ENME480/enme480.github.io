@@ -10,10 +10,43 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 
 ---
 
+## Part A - Setup
+
+First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.
+
+For people **not** using the Nvidia container, run:
+```bash
+echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
+
+echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+```
+
+For people who **are** using the Nvidia container, run:
+```bash
+echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
+
+echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+```
+
+These commands will create two bash files (essentially just lists of other commands) that will allow you to launch the Docker container with:
+```bash
+bash startDocker.sh
+```
+
+And connect to it from another terminal with:
+```bash
+bash connectToDocker.sh
+```
+Provided you are in the folder where these files are.
+
+
+(Credit to Benjamin Ruby)
+---
+
 ## 🛫 Part B — Pre-flight check (5–10 min)
 
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
-1) Using the commands form last week, open your Docker image contianing ROS
+1) Using the commands from above, open your Docker image contianing ROS
 2) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
 ```bash
 ros2 topic list
