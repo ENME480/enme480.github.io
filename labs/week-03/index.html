@@ -807,6 +807,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="🛫 Part A — Pre-flight check (5–10 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -819,9 +834,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-c-talker-listener-no-solution-code-here" class="md-nav__link">
+  <a href="#part-c-talker-listener" class="md-nav__link">
     <span class="md-ellipsis">
-      📡 Part C — Talker / Listener (no solution code here)
+      📡 Part C — Talker / Listener
     </span>
   </a>
   
@@ -1155,10 +1170,28 @@
 <h2 id="part-a-pre-flight-check-510-min">🛫 Part A — Pre-flight check (5–10 min)</h2>
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
 <p>1) Using the commands form last week, open your Docker image contianing ROS
-2) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).  </p>
+2) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span></code></pre></div>
+It will show you a list of topics, most likely <code>/rosout</code> and <code>/parameter_events</code></p>
+<p>3) Try opening up Gazebo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ign<span class="w"> </span>gazebo
+</span></code></pre></div>
+It should open up a window with examples to different test environments</p>
+<p>4) Try opening up <code>rqt</code>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>rqt
+</span></code></pre></div>
+If <code>rqt</code> does not open up anything or throws an error, install any required extenstions
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
+</span></code></pre></div>
+or try reopening it with 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rqt<span class="w"> </span>--force-discover
+</span></code></pre></div></p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>During any of these steps if your display doesn't open up, follow the follwoing steps</p>
 <!--4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
 </span></code></pre></div>
 This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
 
@@ -1172,7 +1205,7 @@ This will cause the folder you just created to appear inside the docker image, l
    ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
 <p><strong>Checkpoint B (screenshot later):</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
 <hr />
-<h2 id="part-c-talker-listener-no-solution-code-here">📡 Part C — Talker / Listener (no solution code here)</h2>
+<h2 id="part-c-talker-listener">📡 Part C — Talker / Listener</h2>
 <p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
 <li>Tutorial: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
