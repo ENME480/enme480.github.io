@@ -420,7 +420,8 @@ echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs
 This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
 
 ```bash
-docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+cd ~/ENME480_mrc/docker/
+userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
 ```
 
 Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. From now on, this is the command you will use to launch the docker image.
