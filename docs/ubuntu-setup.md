@@ -144,80 +144,6 @@ If you are on Windows then you have two choices here:
     ![wsl](assets/nvidia-setup/wsl.png)
 
     This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here. 
-
-    4. First, we will make sure our dependencies are in place. Within WSL2 run:
-
-        ```bash
-        sudo apt update && sudo apt upgrade
-        ```
-
-        In order to update all system packages (you may need to enter your password)
-
-        ```bash
-        sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-        sudo apt update && sudo apt upgrade -y
-
-        sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-        echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-        sudo apt update
-        ```
-
-        These commands set up package registries within WSL, which is how Ubuntu knows where to look for packages (apps) we want to install. If you'd like a more detailed breakdown of what each command here does, feel free to ask a TA.
-
-        ```bash
-        sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
-        ```
-
-        This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code. 
-
-    5. Now, we will download the code from GitHub. To do this, run:
-
-        ```bash
-        cd ~/ && git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
-        ```
-
-        To move to the right folder and download the GitHub repo containing the docker image we need.
-
-    6. With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:
-
-        ```bash
-        sudo groupadd docker 
-        
-        sudo usermod -aG docker $USER 
-        
-        newgrp docker
-
-        sudo systemctl restart docker
-        ```
-
-        So that you are able to build and run docker images. These commands make a group who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.
-
-    7. Now, we will build our image.
-
-        ```bash
-        cd ~/ENME480_mrc/docker && userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
-        ```
-
-        The first part of this command (before the &&) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.
-
-        In the future, you can use the command
-
-        ```bash
-        docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
-        ```
-
-        To launch a new docker container. Once the container is open in one terminal, you can run
-
-        ```bash    
-        docker exec -ti <hit your tab button> bash
-        ```
-
-        To launch a new terminal connected to the docker image.
         
 
 === "Windows - VM"
@@ -351,9 +277,10 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 # grab docker from the internet
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-
+# write the new package sources to our list
 echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
+# reload lists again
 sudo apt update
 
 # Development tools
@@ -366,20 +293,14 @@ sudo apt install python3-pip python3-venv python-is-python3
 sudo apt install docker
 sudo apt install docker-compose*
 
+# check to make sure ubuntu actually grabbed all the packages we want
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
+
 ```
 
-### **Step 3: Configure Python**
-```bash
-# Make sure you can call python via 'python' instead of 'python3'
-sudo apt install python-is-python3
+### **Step 3: Configure Docker to Run as Non-Root User**
 
-# Install common packages
-pip install numpy matplotlib scipy
-```
-
-### **Step 4: Configure Docker to Run as Non-Root User**
-
-If you want to run Docker as a non-root user, then you need to add your user to the docker group.
+By default Docker can only be run as an admin, which will cause it to throw lots of random, hard to diagnose errors. These steps will set up Docker so it can be run by anyone. Docker is *supposed* to run these steps manually, but sometimes doesn't so you may see some random warnings or errors about groups already existing or users already being in the group. This is totally fine, we want to rerun these commands to make sure the entire process worked.
 
 Create the docker group if it does not exist:
 ```bash
@@ -397,7 +318,7 @@ Check if Docker can be run without root:
 ```bash
 docker run hello-world
 ```
-Reboot if you still get an error:
+This should download a small program and print a short message confirming that Docker works. If it doesn't, reboot using the command:
 ```bash
 reboot
 ```
@@ -425,6 +346,8 @@ FROM osrf/ros:humble-desktop AS humble-mod_desktop
 # AFTER
 FROM arm64v8/ros:humble AS humble-mod_desktop
 ```
+**Do not do this on anything other than a MAC!** MACs require code that has been compiled in a special way in order to work and this code does not work on other computers!
+
 
 ### Step 2: Build and Run the Docker
 
@@ -435,13 +358,23 @@ cd ~/ENME480_mrc/docker/
 userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
 ```
 
-Once it is successfully built, run the container
+Once it is successfully built, run the container with:
 
 ```bash
 docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 ```
 
-### Step 3 (OPTIONAL): Configure Docker to run on NVIDIA GPU
+In the future, some exercises will require you to open multiple terminals in the same Docker image. In order to achieve this, run:
+
+```bash
+docker exec -ti <DELETE THIS AND HIT TAB TO AUTOFILL> bash
+```
+To spawn a new terminal in the already running container. If you repeatedly run the *docker compose* command you will either get errors or create clones of the container which can not talk to one another.
+
+You should see that your name in the terminal has changed from what is was before to *enme480_mrc*. This means you are inside the Docker container and can run ROS code.
+
+
+### Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
 First, try running:
 
 ```bash
@@ -492,21 +425,29 @@ docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-d
 
 Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. From now on, this is the command you will use to launch the docker image.
 
-If you do this step you will launch the container with the command
+If you do this step you will launch the container with the command:
 
 ```bash
 docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
 ```
 
-From now on. The command to connect to a running Docker conatiner (i.e. one you have open in a nother terminal) is still
+From now on. The command to connect to a running Docker conatiner (i.e. one you have open in a nother terminal) is still:
 
 ```bash
 docker exec -ti <hit your tab button> bash
 ```
 
+You should see that your name in the terminal has changed from what is was before to *enme480_mrc*. This means you are inside the Docker container and can run ROS code.
+
 ---
 
 ## Tests for Week 2
+
+From within the docker iamge, ensure the demo nodes are actually downloaded by running:
+
+```bash
+sudo apt update && sudo apt install ros-humble-demo-nodes-cpp
+```
 
 To ensure everything is running sucessfully launch the following commands from within the Docker image:
 
@@ -514,7 +455,7 @@ To ensure everything is running sucessfully launch the following commands from w
 ros2 run demo_nodes_cpp talker
 ```
 
-This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
+This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the Docker image and run:
 
 ```bash
 ros2 run demo_nodes_cpp listener
@@ -531,129 +472,6 @@ ros2 --help
 # test gazebo, our simulation suite
 ign gazebo
 ```
----
-
-## 🔧 **Common Issues & Solutions**
-
-### **Boot Issues**
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **Grub not showing** | Boot from USB, run `sudo grub-install` |
-| **Windows not in boot menu** | Run `sudo update-grub` |
-| **Can't boot Windows** | Use Windows recovery tools |
-
-### **Graphics Issues**
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **Black screen** | Boot with `nomodeset` kernel parameter |
-| **Low resolution** | Install graphics drivers |
-| **No display** | Check monitor connections |
-
-### **Network Issues**
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **WiFi not working** | Install proprietary drivers |
-| **Ethernet not working** | Check cable and drivers |
-| **Slow internet** | Update network drivers |
-
----
-
-## 📱 **Essential Ubuntu Commands**
-
-### **System Management**
-```bash
-# Update package list
-sudo apt update
-
-# Upgrade packages
-sudo apt upgrade
-
-# Install package
-sudo apt install package_name
-
-# Remove package
-sudo apt remove package_name
-
-# Search packages
-apt search keyword
-
-# System info
-lsb_release -a
-uname -a
-```
-
-### **File Management**
-```bash
-# List files
-ls -la
-
-# Change directory
-cd directory_name
-
-# Create directory
-mkdir new_directory
-
-# Copy files
-cp source destination
-
-# Move files
-mv source destination
-
-# Remove files
-rm filename
-```
-
-### **Process Management**
-```bash
-# List processes
-ps aux
-
-# Kill process
-kill process_id
-
-# System monitor
-htop
-
-# Disk usage
-df -h
-```
-
----
-
-## 🎨 **Customization (Optional)**
-
-### **Install Additional Software**
-```bash
-# Media players
-sudo apt install vlc
-
-# Image editing
-sudo apt install gimp
-
-# Office suite
-sudo apt install libreoffice
-
-# Web browsers
-sudo apt install firefox
-```
-
-### **Customize Desktop**
-- **Change wallpaper**: Right-click desktop → Change Background
-- **Install themes**: Settings → Appearance
-- **Customize dock**: Settings → Dock
-- **Add extensions**: Ubuntu Software → Extensions
-
----
-
-## ✅ **Verification Checklist**
-
-- [ ] Ubuntu boots successfully
-- [ ] System updates completed
-- [ ] Essential tools installed
-- [ ] Python environment configured
-- [ ] Network working properly
-- [ ] Graphics drivers installed
-- [ ] System running smoothly
 
 ---
 
@@ -667,7 +485,6 @@ sudo apt install firefox
 
 ### **Emergency Recovery**
 - **Boot from USB** and use "Try Ubuntu" mode
-- **Use Windows recovery** if dual boot fails
 - **Reinstall Ubuntu** as last resort
 
 ---
