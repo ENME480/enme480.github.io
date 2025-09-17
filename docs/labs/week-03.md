@@ -35,6 +35,34 @@ This week you’ll learn how ROS 2 is organized and practice the core ideas you�
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
 1) Using the commands form last week, open your Docker image contianing ROS
 2) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
+```bash
+ros2 topic list
+```
+It will show you a list of topics, most likely `/rosout` and `/parameter_events`
+
+3) Try opening up Gazebo
+```bash
+ign gazebo
+```
+It should open up a window with examples to different test environments
+
+4) Try opening up `rqt`
+```bash
+rqt
+```
+If `rqt` does not open up anything or throws an error, install any required extenstions
+```bash
+sudo apt install ros-humble-rqt*
+```
+or try reopening it with 
+```bash
+rqt --force-discover
+```
+
+### Troubleshooting
+
+During any of these steps if your display doesn't open up, follow the follwoing steps
+
 <!--4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
 
 ```bash
@@ -61,7 +89,7 @@ Follow the **official Humble tutorials** step-by-step (do not copy solution code
 
 ---
 
-## 📡 Part C — Talker / Listener (no solution code here)
+## 📡 Part C — Talker / Listener
 
 Use the **publisher/subscriber (Python)** tutorial as your primary reference:
 
