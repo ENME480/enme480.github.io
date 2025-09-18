@@ -32,25 +32,6 @@ sudo snap install pycharm-community --classic
 # https://www.jetbrains.com/pycharm/download/
 ```
 
-### **Configure Python Interpreter**
-1. **Open PyCharm**
-2. **File → Settings → Project → Python Interpreter**
-3. **Add Interpreter → System Interpreter**
-4. **Select**: `/usr/bin/python3`
-
-### **Install Plugins**
-- **ROS**: For ROS 2 integration
-- **Git Integration**: For version control
-- **Markdown**: For documentation
-- **Python**: Enhanced Python support
-
----
-
-### **Cloud Development**
-- **GitHub Codespaces**: Cloud development environment
-- **GitPod**: Online IDE for GitHub repositories
-- **VS Code Online**: Web-based VS Code
-
 ---
 
 ## 🔍 **Troubleshooting Common Issues**
