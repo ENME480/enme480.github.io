@@ -46,9 +46,8 @@ ENME480_mrc/src --> enme480_ws/src
 ENME480_mrc/config --> enme480_ws/config
 ```
 This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
-
-
 (Credit to Benjamin Ruby for the original version of the script)
+
 ---
 
 ## 🛫 Part B — Pre-flight check (5–10 min)
