@@ -148,9 +148,9 @@ If you are on Windows then you have two choices here:
 
 === "Windows - VM"
 
-    ### **Step 1: Download UTM**
+    ### **Step 1: Download VirtualBox**
     
-    Download UTM from the official website: <https://mac.getutm.app>
+    Download VirtualBox from the official website: <https://www.virtualbox.org>
 
     ### **Step 2: Download Ubuntu 22.04 ARM64**
     
