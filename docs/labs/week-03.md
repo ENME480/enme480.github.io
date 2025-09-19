@@ -39,7 +39,7 @@ bash connectToDocker.sh
 ```
 Provided you are in the folder where these files are.
 
-**IMPORTANT:** This command will create links between the following folders (outside the docker --> inside the docker)
+**IMPORTANT:** This the following folders will be linked (outside the docker --> inside the docker)
 
 ```
 ENME480_mrc/src --> enme480_ws/src
