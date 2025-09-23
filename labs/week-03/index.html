@@ -858,6 +858,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="📤 Deliverables (single PDF upload)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helpful-tips-for-the-turtlesim-velocity-publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helpful tips for the turtlesim velocity publisher
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1234,6 +1249,16 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <li>A terminal view of your <strong>package tree</strong> (folder/files) helps grading.</li>
 </ul>
 <p>Also submit the <strong>three Python files</strong> you created this week as separate attachments or in the PDF appendix (clearly named).</p>
+<hr />
+<h3 id="helpful-tips-for-the-turtlesim-velocity-publisher">Helpful tips for the turtlesim velocity publisher</h3>
+<ul>
+<li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. </li>
+<li><strong>Message type</strong>: <code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
+  you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s). </li>
+<li>If you’re unsure of fields, ask ROS directly:
+  ```bash
+  ros2 interface show geometry_msgs/msg/Twist</li>
+</ul>
 
 
 
