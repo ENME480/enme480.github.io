@@ -181,3 +181,14 @@ Include **concise** screenshots (one image may show multiple windows):
 
 Also submit the **three Python files** you created this week as separate attachments or in the PDF appendix (clearly named).
 
+---
+
+### Helpful tips for the turtlesim velocity publisher
+
+
+- **Topic to command motion**: `/turtle1/cmd_vel`. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. 
+- **Message type**: `geometry_msgs/Twist` with two parts: `linear` and `angular`, each a 3-D vector (`x`, `y`, `z`). For a planar turtle,
+  you’ll typically set **`linear.x`** and **`angular.z`** only (m/s and rad/s). 
+- If you’re unsure of fields, ask ROS directly:
+  ```bash
+  ros2 interface show geometry_msgs/msg/Twist
