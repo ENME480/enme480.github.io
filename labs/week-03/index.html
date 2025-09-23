@@ -1253,7 +1253,9 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <h3 id="helpful-tips-for-the-turtlesim-velocity-publisher">Helpful tips for the turtlesim velocity publisher</h3>
 <ul>
 <li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. </li>
-<li><strong>Message type</strong>: <code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
+<li><strong>Message type</strong>: </li>
+<li>Make edits to <code>package.xml</code> to include <code>geometry_msgs</code>
+-<code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
   you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s). </li>
 <li>If you’re unsure of fields, ask ROS directly:
   ```bash
