@@ -11,17 +11,29 @@
 1.  First, you will set up the pendant
 
 Press the power button, shown here:
+
 ![powerbutton](assets/robot_pics/power)
+
 Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing.
+
 ![arming](assets/robot_pics/arm)
+
 Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot.
+
 ![freedrive](assets/robot_pics/freedrive)
+
 While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.
+
 ![constraints](assets/robot_pics/constraints) 
+
 The teaching pendant also has an E-Stop button on its face. *If the robot ever moves in a way you don't expect, E-Stop it.* A stopped robot is better than a hurt classmate or a broken robot. Try pressing it now. In order to release it, you'll need to spin the knob to pop it back up and then re-release the brakes.
+
 ![estop](assets/robot_pics/estop)
+
 For todays lab, you'll be using the teaching pendant to control the position of each of the robots joints. To do this, go to the move screen. You'll see a list of each joint and it's current encoder angle, as well as a set of controls you can use to move the robot in a cartesian frame. Try the different controls out.
+
 ![move](assets/robot_pics/move)
+
 Note that by convention we will call movements where you directly set the angle of the joint *Forward Kinematics* (which is what you are doing in class right now and what this lab is about), while motions where you drectly control the position and orientation of the end effector will be called *Inverse Kinematics*.
 
 ## 2. DH Parameters of UR3e
