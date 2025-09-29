@@ -7,7 +7,7 @@
 - Visualize ROS Processes
 
 ## Files
-Data Collection Sheet: ![pdf](../assets/docs/fk_datasheet.pdf){:download} ![docx](../assets/docs/fk_datasheet.docx){:download}
+Data Collection Sheet: [pdf](../assets/docs/fk_datasheet.pdf), [docx](../assets/docs/fk_datasheet.docx)
 
 
 ## Procedure
