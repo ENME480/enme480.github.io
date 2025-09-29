@@ -985,14 +985,12 @@
 <li>Visualize ROS Processes</li>
 </ul>
 <h2 id="procedure">Procedure</h2>
-<ol>
-<li>First, you will set up the pendant</li>
-</ol>
+<p>First, you will set up the pendant</p>
 <p>Press the power button, shown here:</p>
 <p><img alt="powerbutton" src="assets/robot_pics/power" /></p>
-<p>Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing.</p>
+<p>Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.</p>
 <p><img alt="arming" src="assets/robot_pics/arm" /></p>
-<p>Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot.</p>
+<p>Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot. Be careful not to do this too quickly otherwise the robot may lock you out.</p>
 <p><img alt="freedrive" src="assets/robot_pics/freedrive" /></p>
 <p>While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.</p>
 <p><img alt="constraints" src="assets/robot_pics/constraints" /> </p>
@@ -1001,10 +999,15 @@
 <p>For todays lab, you'll be using the teaching pendant to control the position of each of the robots joints. To do this, go to the move screen. You'll see a list of each joint and it's current encoder angle, as well as a set of controls you can use to move the robot in a cartesian frame. Try the different controls out.</p>
 <p><img alt="move" src="assets/robot_pics/move" /></p>
 <p>Note that by convention we will call movements where you directly set the angle of the joint <em>Forward Kinematics</em> (which is what you are doing in class right now and what this lab is about), while motions where you drectly control the position and orientation of the end effector will be called <em>Inverse Kinematics</em>.</p>
-<h2 id="2-dh-parameters-of-ur3e">2. DH Parameters of UR3e</h2>
-<p>Link for UR3e specifications: https://www.universal-robots.com/media/1807464/ur3e-rgb-fact-sheet-landscape-a4.pdf</p>
-<p>The PDF for UR3 dimensions is included in the folder for <code>Week 6</code> and the zero configuration (all joint angles are 0) for the robot looks like <a href="images/UR3e_Zero_angle_Config.png">given in this image</a></p>
-<p>You need to create a DH-table for the robot and annotate the given PDF to show the frames and axes used. The unknowns here will be the joint angles. Include the base plate in your calculations as well. Note that our given zero frame is not consistent with the zero frame given by Universal Robotics.</p>
+<!--
+## 2. DH Parameters of UR3e
+
+Link for UR3e specifications: https://www.universal-robots.com/media/1807464/ur3e-rgb-fact-sheet-landscape-a4.pdf
+
+The PDF for UR3 dimensions is included in the folder for ```Week 6``` and the zero configuration (all joint angles are 0) for the robot looks like [given in this image](images/UR3e_Zero_angle_Config.png)
+
+You need to create a DH-table for the robot and annotate the given PDF to show the frames and axes used. The unknowns here will be the joint angles. Include the base plate in your calculations as well. Note that our given zero frame is not consistent with the zero frame given by Universal Robotics.
+-->
 <!--
 ## 3. Creating a Publisher script to move the robot
 
@@ -1085,8 +1088,16 @@ where the numbers represent the six joint angles in degrees. Hint: Look into how
 
 Don't forget to add the node to your ```setup.py``` in your package. -->
 
-<h2 id="4-measure-where-the-laser-pointer-reaches-the-table">4. Measure where the laser pointer reaches the table`</h2>
-<h2 id="5-compare-the-readings">5. Compare the readings</h2>
+<h2 id="2-connect-the-robot-to-the-computer">2. Connect the Robot to the Computer</h2>
+<ol>
+<li>Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).</li>
+<li>Find the "commands2run.txt" file on the desktop and open it. This will contain a list of steps to connect the robot to the computer.</li>
+<li>Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. <em>Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.</em></li>
+</ol>
+<h2 id="3-enabling-the-laser-and-publishing-joint-angles-to-the-robot">3. Enabling the Laser and Publishing Joint Angles to the Robot</h2>
+<p>The TAs should have attached a laser pointer to your robot.</p>
+<h2 id="4-measure-where-the-laser-pointer-reaches-the-table">4. Measure where the Laser Pointer reaches the Table`</h2>
+<h2 id="5-compare-the-readings">5. Compare the Readings</h2>
 <p>You need to compare the readings from the DH-parameters method with the actual robot position through <code>/tf</code>. Put that in a table for the following 5 test cases:</p>
 <p>Set 1: <code>[0 0 0 0 0 0]</code> (robot should be horizontal)</p>
 <p>Set 2: <code>[0 0 -90 90 0 0]</code></p>
