@@ -87,12 +87,14 @@ nav:
   - Schedule: schedule.md
   - Labs:
       - Overview: labs/index.md
-      - Week 1: labs/week-01.md
+      - Week 1 (Intro): labs/week-01.md
       - Week 1 Slides: labs/week-1-slides.pptx
-      - Week 2: labs/week-02.md
+      - Week 2 (Software): labs/week-02.md
       - Week 2 Slides: labs/week-2-slides.pptx
-      - Week 3: labs/week-03.md
-      - Week 3 Slides: labs/week-3-slides.pptx
+      - Week 3/4 (ROS Tutorial): labs/week-03.md
+      - Week 3/4 Slides: labs/week-3-slides.pptx
+      - Week 5 (UR3e Intro, FK Lab Part 1): labs/week-05.md
+
   - Resources: resources.md
   - Wiki:
       - Ubuntu Setup: ubuntu-setup.md
