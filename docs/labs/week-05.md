@@ -6,6 +6,10 @@
 - Interface UR3e with ROS packages on RAL machines
 - Visualize ROS Processes
 
+## Files
+Data Collection Sheet: ![pdf](assets/docs/fk_datasheet.pdf) ![docx](assets/docs/fk_datasheet.docx)
+
+
 ## Procedure
 
 First, you will set up the pendant
