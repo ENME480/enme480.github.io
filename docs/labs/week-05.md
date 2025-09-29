@@ -143,13 +143,17 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
 ## 3. Enabling the Laser and Publishing Joint Angles to the Robot
 1. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer, first go to the "I/O" tab on the teaching pendant and enable Digital Outputs 0 and 1. Once that is done, run the command
 
-```ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"```
+```bash
+ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"
+```
 
 From within the docker. Your laser should now be on, so make sure the robot only points down towards the table. *If your laser still is not on, call a TA.*
 
 2. Now we are ready to begin publishing joint angles to the robot. To do this, run the command 
 
-```ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"```
+```bash
+ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"
+```
 
 This message contains a few parts:
 - "ros2 topic pub --once" will publish a message on a certain topic once, then stop (instead of endlessly republishing the same message).
