@@ -167,7 +167,11 @@ This message contains a few parts:
 
 ## Wrap Up and Shutdown
 
-Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood. *Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!*
+Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood. 
+
+Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the mvoe is complete. *Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!*
+
+
 
 ## Next Steps
 
