@@ -8,17 +8,17 @@
 
 ## Procedure
 
-1.  First, you will set up the pendant
+First, you will set up the pendant
 
 Press the power button, shown here:
 
 ![powerbutton](assets/robot_pics/power)
 
-Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing.
+Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.
 
 ![arming](assets/robot_pics/arm)
 
-Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot.
+Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot. Be careful not to do this too quickly otherwise the robot may lock you out.
 
 ![freedrive](assets/robot_pics/freedrive)
 
@@ -36,6 +36,7 @@ For todays lab, you'll be using the teaching pendant to control the position of 
 
 Note that by convention we will call movements where you directly set the angle of the joint *Forward Kinematics* (which is what you are doing in class right now and what this lab is about), while motions where you drectly control the position and orientation of the end effector will be called *Inverse Kinematics*.
 
+<!--
 ## 2. DH Parameters of UR3e
 
 Link for UR3e specifications: https://www.universal-robots.com/media/1807464/ur3e-rgb-fact-sheet-landscape-a4.pdf
@@ -43,7 +44,7 @@ Link for UR3e specifications: https://www.universal-robots.com/media/1807464/ur3
 The PDF for UR3 dimensions is included in the folder for ```Week 6``` and the zero configuration (all joint angles are 0) for the robot looks like [given in this image](images/UR3e_Zero_angle_Config.png)
 
 You need to create a DH-table for the robot and annotate the given PDF to show the frames and axes used. The unknowns here will be the joint angles. Include the base plate in your calculations as well. Note that our given zero frame is not consistent with the zero frame given by Universal Robotics.
-
+-->
 <!--
 ## 3. Creating a Publisher script to move the robot
 
@@ -130,11 +131,20 @@ where the numbers represent the six joint angles in degrees. Hint: Look into how
 
 Don't forget to add the node to your ```setup.py``` in your package. -->
 
-## 4. Measure where the laser pointer reaches the table`
+## 2. Connect the Robot to the Computer
+1. Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).
+2. Find the "commands2run.txt" file on the desktop and open it. This will contain a list of steps to connect the robot to the computer.
+3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
+
+## 3. Enabling the Laser and Publishing Joint Angles to the Robot
+The TAs should have attached a laser pointer to your robot.
+
+
+## 4. Measure where the Laser Pointer reaches the Table`
 
 
 
-## 5. Compare the readings 
+## 5. Compare the Readings 
 
 You need to compare the readings from the DH-parameters method with the actual robot position through ```/tf```. Put that in a table for the following 5 test cases:
 
