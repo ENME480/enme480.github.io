@@ -150,7 +150,9 @@ Set 5: ```[0 -90 0 0 0 0]``` (robot should be upright)
 
 ## Submission
 
-1. Show a screenshot of the base plate with the robot 
+No submissions for this week. However, make sure you collect the data for this week properly. There will be a joint submission with next week's studio covering the entire forward kinematics assignment.
+
+<!-- 1. Show a screenshot of the base plate with the robot 
 
 2. Show the DH Table for the robot
 
@@ -172,7 +174,7 @@ add it as a readable image of the output window as well.
 - FK publisher (including the Python script for DH transformation)
 - ~~```tf``` subscriber~~ Screenshot of messages received from `/ur3/position`
 
-Add everything in one single PDF file and upload it.
+Add everything in one single PDF file and upload it. -->
 
 
 
