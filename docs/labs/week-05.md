@@ -26,9 +26,9 @@ Next, you can try using free drive to control the robot. To do so, press the bla
 
 ![freedrive](../assets/robot_pics/freedrive.JPG)
 
-While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.
+<!--While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.
 
-![constraints](../assets/robot_pics/constraints.JPG) 
+![constraints](../assets/robot_pics/constraints.JPG) -->
 
 The teaching pendant also has an E-Stop button on its face. *If the robot ever moves in a way you don't expect, E-Stop it.* A stopped robot is better than a hurt classmate or a broken robot. Try pressing it now. In order to release it, you'll need to spin the knob to pop it back up and then re-release the brakes.
 
