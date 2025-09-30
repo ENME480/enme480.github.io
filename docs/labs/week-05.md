@@ -137,7 +137,11 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
 
 ## 2. Connect the Robot to the Computer
 1. Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).
-2. Find the "commands2run.txt" file on the desktop and open it. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.
+2. Find the "README.md" file within the ENME480_mrc folder. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.
+  
+      2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
+      ![previewmode](../assets/preview_mode.png)
+
 3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
 
 ## 3. Enabling the Laser and Publishing Joint Angles to the Robot
