@@ -145,6 +145,7 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
 3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
 
       3.1. The confirmation command should read: "Robot connected to reverse interface. Redy to receive control commands." and will print in the terminal where you are running ur_robot_control driver.
+      3.2. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver.
 
 ## 3. Enabling the Laser and Publishing Joint Angles to the Robot
 1. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer, first go to the "I/O" tab on the teaching pendant and enable Digital Outputs 0 and 1. Once that is done, run the command
