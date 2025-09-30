@@ -34,11 +34,11 @@ The teaching pendant also has an E-Stop button on its face. *If the robot ever m
 
 ![estop](../assets/robot_pics/estop.JPG)
 
-For todays lab, you'll be using the teaching pendant to control the position of each of the robots joints. To do this, go to the move screen. You'll see a list of each joint and it's current encoder angle, as well as a set of controls you can use to move the robot in a cartesian frame. Try the different controls out.
+<!--For todays lab, you'll be using the teaching pendant to control the position of each of the robots joints. To do this, go to the move screen. You'll see a list of each joint and it's current encoder angle, as well as a set of controls you can use to move the robot in a cartesian frame. Try the different controls out.
 
 ![move](../assets/robot_pics/move.JPG)
 
-Note that by convention we will call movements where you directly set the angle of the joint *Forward Kinematics* (which is what you are doing in class right now and what this lab is about), while motions where you drectly control the position and orientation of the end effector will be called *Inverse Kinematics*.
+Note that by convention we will call movements where you directly set the angle of the joint *Forward Kinematics* (which is what you are doing in class right now and what this lab is about), while motions where you drectly control the position and orientation of the end effector will be called *Inverse Kinematics*.-->
 
 <!--
 ## 2. DH Parameters of UR3e
