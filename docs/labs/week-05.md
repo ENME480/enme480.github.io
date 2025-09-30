@@ -148,7 +148,15 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
       3.2. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver.
 
 ## 3. Enabling the Laser and Publishing Joint Angles to the Robot
-1. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
+
+1. Now we are ready to begin publishing joint angles to the robot. To do this, run the command with angles on your datasheet.
+
+```bash
+ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"
+```
+
+
+2. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
 
 ```bash
 ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"
