@@ -155,6 +155,15 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
 ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"
 ```
 
+This message contains a few parts:
+- "ros2 topic pub --once" will publish a message on a certain topic once, then stop (instead of endlessly republishing the same message).
+- We are publishing on the topic "ur3/command" with a message type "ur3e_mrc/msg/CommandUR3e"
+- The "ur3e_mrc/msg/CommandUR3e" message has four fields:
+  
+  - "destination": a set of 6 angles, one per joint. ***These angles are in RADIANS! Sanity check any angle you're putting in before hitting enter - an angle of +/-90 probably doesn't make sense here, for example.***
+  - "v" and "a": these control the velocity and acceleration of the robots joints, respectively. There are internal afeties set to prevent the robot from moving too fast, but we've also explicitly set the speed here to something low enough that you'll have time to react if the robot moves unexpectedly.
+  
+  - "io_0": this field will turn the laser pointer off during the motion of the arm. This is to make sure the laser never accidentally shines in someones eyes.
 
 2. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
 
@@ -164,21 +173,7 @@ ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"
 
 From within the docker. Your laser should now be on, so make sure the robot only points down towards the table. *If your laser still is not on, call a TA.*
 
-2. Now we are ready to begin publishing joint angles to the robot. To do this, run the command 
-
-```bash
-ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"
-```
-
-This message contains a few parts:
-- "ros2 topic pub --once" will publish a message on a certain topic once, then stop (instead of endlessly republishing the same message).
-- We are publishing on the topic "ur3/command" with a message type "ur3e_mrc/msg/CommandUR3e"
-- The "ur3e_mrc/msg/CommandUR3e" message has four fields:
-  - "destination": a set of 6 angles, one per joint. ***These angles are in RADIANS! Sanity check any angle you're putting in before hitting enter - an angle of +/-90 probably doesn't make sense here, for example.***
-  - "v" and "a": these control the velocity and acceleration of the robots joints, respectively. There are internal afeties set to prevent the robot from moving too fast, but we've also explicitly set the speed here to something low enough that you'll have time to react if the robot moves unexpectedly.
-  - "io_0": this field will turn the laser pointer off during the motion of the arm. This is to make sure the laser never accidentally shines in someones eyes.
-
-3. Check the data sheets we handed out in lab for the angles you need to populate the command. For this lab, you will be measuring the coordinates of where the laser pointer hits the table after each move.  
+3. Check the data sheets we handed out in lab for the angles you need to populate the command. For this lab, you will be measuring the coordinates of where the laser pointer hits the table after each move. Make sure youre using the set of axes defined on the table.
 
 ## Wrap Up and Shutdown
 
