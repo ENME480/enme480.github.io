@@ -152,7 +152,10 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
 1. Now we are ready to begin publishing joint angles to the robot. To do this, run the command with angles on your datasheet.
 
 ```bash
-ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] v: 1.0 a: 1.0 io_0:false"
+ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] 
+v: 1.0 
+a: 1.0 
+io_0:false"
 ```
 
 This message contains a few parts:
