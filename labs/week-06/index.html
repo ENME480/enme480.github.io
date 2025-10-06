@@ -1003,195 +1003,55 @@
 
 
 <h1 id="week-06-forward-kinematics-lab-12">Week 06 — Forward Kinematics Lab 1.2</h1>
+<h2 id="objectives">Objectives</h2>
 <ul>
-<li>📁 <a href="../Lab-Code/Week%206%20-%20Forward%20Kinematics/"><code>labs/Lab-Code/Week 6 - Forward Kinematics/</code></a></li>
+<li>Write a publisher for moving the robot in Gazebo</li>
+<li>Derive the Forward Kinematics for the UR3e</li>
+<li>Compare against the values obtained from last week's lab </li>
 </ul>
-<!-- BEGIN:AUTO-INCLUDE-README -->
-<h2 id="lab-handout-from-lab-code">Lab handout (from Lab-Code)</h2>
-<p><a href="https://github.com/ENME480/Lab-Code/tree/main/Week%206%20-%20Forward%20Kinematics">View this lab folder on GitHub</a></p>
-<h2 id="week-6-ur3e-forward-kinematics-on-gazebo">Week 6 - UR3e Forward Kinematics on Gazebo</h2>
-<h3 id="objectives">Objectives</h3>
-<ul>
-<li>Add elements to your Gazebo environment</li>
-<li>Calculate DH parameters of UR3e</li>
-<li>Create a publisher to move the robot to desired joint states</li>
-<li>Find the end effector pose</li>
-<li>Validate and compare the pose readings from DH-parameter calculation &amp; end effector</li>
-</ul>
-<h3 id="1-adding-physical-elements-in-gazebo">1. Adding Physical Elements in Gazebo</h3>
-<p>Your aim is to add a base plate to your Gazebo environment and mount the robot on top of it, and link them.</p>
-<p>To do so, we modify the Unified Robot Description Format (URDF) file for the environment. This is an XML (Extensible Markup Language) specification. Another commonly known markup language is HTML. The major contrast between XML and HTML is that in addition to diplaying data, XML allows different applications to exchange and store data and its structure in a way that is universally understood. For more info, refer to this link: http://wiki.ros.org/urdf/XML/model</p>
-<h4 id="step-1-build-the-ur-description-package">Step 1: Build the UR Description Package</h4>
-<p>This package contains the mesh files and all the description files to simulate the UR robots. Clone the repositiory in your <strong>src</strong> folder of your workspace</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
+<h2 id="useful-files">Useful Files</h2>
+<h2 id="-ur3e-dimensions-">- UR3e Dimensions -</h2>
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-pull-the-latest-version-of-the-repo">Step 1: Pull the latest version of the Repo</h3>
+<p>The repository and docker files has been updated to include the updated simulation tools so you'll need to build the docker environment again</p>
+<p>Before doing that take a backup of your current <code>/src</code> folder so that you don't accidentally lose access to your previous work.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>backup/week5
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>~/ENME480_mrc/src/<span class="w"> </span>~/backup/week5
 </span></code></pre></div>
-<p>Build and source your workspace</p>
-<h4 id="step-2-modify-the-description-files-to-add-a-plate">Step 2: Modify the Description Files to Add a Plate</h4>
-<p>Check the <code>urdf</code> folder in the directory. We will be modifying <code>ur.urdf.xacro</code> and creating a duplicate of <code>ur_macro.xacro</code> and rename the copy as <code>enme480_fk.xacro</code>. As to why we are modifying these files, will be explained in the studio session.</p>
-<h5 id="-changes-in-ururdfxacro">- Changes in <code>ur.urdf.xacro</code> :</h5>
-<p>Here just change two things:</p>
-<ul>
-<li>Replace the main macro file being imported from <code>ur_macro.xacro</code> to <code>enme480_fk.xacro</code></li>
-<li>The default <code>ur_type</code> value should be <code>ur3e</code> (just to make life easy by making your command shorter)</li>
-</ul>
-<h5 id="-changes-in-enme480_fkxacro">- Changes in <code>enme480_fk.xacro</code></h5>
-<p>Add the following snippet to add the plate mesh to the environment. The code will be explained in class and you have to figure out where to add the snippets. Keep a base plate dimensions of <code>0.3 x 0.3 x 0.01</code></p>
-<p>Snippet 1: Defining the description of Base Plate</p>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">   </span><span class="cm">&lt;!-- Define the base plate --&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">   </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${tf_prefix}base_plate&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">     </span><span class="nt">&lt;visual&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">       </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Modify Adjust origin as needed --&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">       </span><span class="nt">&lt;geometry&gt;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">         </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Modify Size of the base plate (length x width x height) --&gt;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">       </span><span class="nt">&lt;/geometry&gt;</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">       </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;orange&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">     </span><span class="nt">&lt;/visual&gt;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">     </span><span class="nt">&lt;collision&gt;</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">       </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this --&gt;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">       </span><span class="nt">&lt;geometry&gt;</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">         </span><span class="nt">&lt;box</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this --&gt;</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">       </span><span class="nt">&lt;/geometry&gt;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">     </span><span class="nt">&lt;/collision&gt;</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">     </span><span class="nt">&lt;inertial&gt;</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">       </span><span class="nt">&lt;mass</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1.0&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">       </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this --&gt;</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">       </span><span class="nt">&lt;inertia</span><span class="w"> </span><span class="na">ixx=</span><span class="s">&quot;0.001&quot;</span><span class="w"> </span><span class="na">ixy=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">ixz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">iyy=</span><span class="s">&quot;0.001&quot;</span><span class="w"> </span><span class="na">iyz=</span><span class="s">&quot;0.0&quot;</span><span class="w"> </span><span class="na">izz=</span><span class="s">&quot;0.001&quot;</span><span class="nt">/&gt;</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">     </span><span class="nt">&lt;/inertial&gt;</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">   </span><span class="nt">&lt;/link&gt;</span>
+<p>Next, we pull the latest version of the repository</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
-<p>Snippet 2: Defining the relationship between base plate and the robot</p>
-<p>You will find a code block that defines how the base link connects to the environment. Replace that with the snippet below</p>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="cm">&lt;!-- base_joint fixes ..... to the environment  (Find this similar part in the code and replace it) --&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">   </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${tf_prefix}base_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">     </span><span class="nt">&lt;xacro:insert_block</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;origin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">     </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${parent}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">     </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${tf_prefix}.................&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this --&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">   </span><span class="nt">&lt;/joint&gt;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">   </span><span class="cm">&lt;!-- Attach base plate to the robot&#39;s base link --&gt;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">   </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;${tf_prefix}base_to_base_plate&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;fixed&quot;</span><span class="nt">&gt;</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">     </span><span class="nt">&lt;parent</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${tf_prefix}............&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this based on the child and parent --&gt;</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">     </span><span class="nt">&lt;child</span><span class="w"> </span><span class="na">link=</span><span class="s">&quot;${tf_prefix}.............&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Modify this based on child and parent Hint Check the subsequent code to know the childparent --&gt;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">     </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Adjust origin to place the base plate correctly --&gt;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">   </span><span class="nt">&lt;/joint&gt;</span>
+<p><strong>For MacOS users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code> at <code>~/ENME480_mrc/docker</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># BEFORE
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>FROM osrf/ros:humble-desktop AS humble-mod_desktop
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># AFTER
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>FROM arm64v8/ros:humble AS humble-mod_desktop
 </span></code></pre></div>
-<p>Try launching the robot simulation to check if the pate is visible and the robot is standing on the plate:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_simulation_gazebo<span class="w"> </span>ur_sim_control.launch.py<span class="w"> </span>ur_type:<span class="o">=</span>ur3e
+<p><strong>Do not do this on anything other than a MAC!</strong> MACs require code that has been compiled in a special way in order to work and this code does not work on other computers!</p>
+<h3 id="step-2-build-and-run-docker">Step 2: Build and run docker</h3>
+<p><strong>For Everyone</strong>, run</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
-<p>You can modify the launch file to have <code>ur3e</code> as the default argument so that you don't need to specify it everytime</p>
-<h3 id="2-dh-parameters-of-ur3e">2. DH Parameters of UR3e</h3>
-<p>Link for UR3e specifications: https://www.universal-robots.com/media/1807464/ur3e-rgb-fact-sheet-landscape-a4.pdf</p>
-<p>The PDF for UR3 dimensions is included in the folder for <code>Week 6</code> and the zero configuration (all joint angles are 0) for the robot looks like <a href="../../_labcode/Week%206%20-%20Forward%20Kinematics/images/UR3e_Zero_angle_Config.png">given in this image</a></p>
-<p>You need to create a DH-table for the robot and annotate the given PDF to show the frames and axes used. The unknowns here will be the joint angles. Include the base plate in your calculations as well.</p>
-<h3 id="3-creating-a-publisher-script-to-move-the-robot">3. Creating a Publisher script to move the robot</h3>
-<p>(NEW) Bridge packages for custom topics between ur_driver and ENME480 labs</p>
-<ul>
-<li>Clone the following repositories into your workspace</li>
-</ul>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MarylandRoboticsCenter/ur3e_mrc.git
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/ur3e_enme480.git
-</span></code></pre></div>
-- Build and source your workspace.</p>
-<p>We have a predefined custom message for obtaining position and sending commands:</p>
-<p>CommandUR3e.msg 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>float64[] destination
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>float64 v
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>float64 a
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>bool io_0
-</span></code></pre></div>
-(destination is the set of joint angles <code>[theta1 theta2 theta3 theta4 theta5 theta6]</code>)</p>
-<p>PositionUR3e.msg
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>float64[] position
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>bool is_ready
+<p>Create the <code>startDocker.sh</code> and <code>connectToDocker.sh</code> scripts again if you haven't yet</p>
+<p>For people <strong>not</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
 </span></code></pre></div></p>
-<p>(position is the set of 6DoF pose of the end effector <code>[x y z roll pitch yaw]</code>)</p>
-<p>Now run the following command:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_sim_enme480.launch.py
+<p>For people who <strong>are</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
 </span></code></pre></div></p>
-<p>You should be able to see the topics <code>/ur3/position</code> and <code>/ur3/command</code>. Refer to this <a href="https://github.com/ENME480/ur3e_enme480/tree/main">link</a> for details of the package and its usage.</p>
-<p>~~Using the topic <code>/joint_trajectory_controller/joint_trajectory</code> and the message type <code>JointTrajectory</code> and <code>JointTrajectoryPoint</code> from <code>trajectory_msgs</code>, create a publisher to move the robot to desired joint angles. Keep in mind that the angles given to th robot sould be in radians but we want to give the input in degrees so ensure that you have converted that.~~</p>
-<p>Using the topic <code>/ur3/command</code> and the message type <code>CommandUR3e</code> from <code>ur3e_mrc.msg</code>, create a publisher to move the robot to desired joint angles. Keep in mind that the angles given to the robot should be in radians but we want to give the input in degrees so ensure that you have converted that. You can set the velocity and acceleration as <code>1.0</code></p>
-<p>The second step is to create a function (or multiple functions) in the same Python class to calculate the end effector pose using forward kinematics via DH-parameters, and print that out as the final transformation matrix.</p>
-<p>Your code will have a structure like this (it can be different but just a baseline)</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">....</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">ForwardKinematicsUR3e</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="o">...</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="o">...</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">move_robot</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="o">...</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="o">...</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  <span class="k">def</span><span class="w"> </span><span class="nf">calculate_fk_from_dh</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="o">...</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="o">...</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>  <span class="o">...</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>  <span class="o">...</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>  <span class="n">main</span><span class="p">()</span>
-</span></code></pre></div>
-<p>Hint: Use the structure from your <code>pubsub</code> codes which you have done previously. ~~You can get the message info for <code>JointTrajectory</code> and <code>JointTrajectoryPoint</code> here: http://docs.ros.org/en/noetic/api/trajectory_msgs/html/msg/JointTrajectory.html &amp; http://docs.ros.org/en/noetic/api/trajectory_msgs/html/msg/JointTrajectoryPoint.html~~</p>
-<p>Your command should look something like this:</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>ur3e_fk<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-</span></code></pre></div>
-where the numbers represent the six joint angles in degrees. Hint: Look into how you can send arguments to a Python script</p>
-<p>Don't forget to add the node to your <code>setup.py</code> in your package.</p>
-<h3 id="4-get-the-end-effector-pose-from-ur3position">4. Get the end effector pose from <code>/ur3/position</code></h3>
-<p>~~Here you will be using the <code>/tf</code> topic which denotes the transformations in your workspace. The topic publishes the relative transform between all the joints. Your goal is to find the relative transform between the <code>base_plate</code> and the last link on the robot (figure out which is the last link). You will be shown what <code>tf</code> is in class.~~</p>
-<p>~~Get the relative transform and print the position and orientation. (Hint: There is a tf2 library that will help you to trnasform between frames without needing to do calcuulations.)~~</p>
-<p>TF (TransForm) calculations are being done on the backend now. You will get the position of the end effector from <code>/ur3/position</code>. </p>
-<h3 id="5-compare-the-readings">5. Compare the readings</h3>
-<p>You need to compare the readings from the DH-parameters method with the actual robot position through <code>/tf</code>. Put that in a table for the following 5 test cases:</p>
-<p>Set 1: <code>[0 0 0 0 0 0]</code> (robot should be horizontal)</p>
-<p>Set 2: <code>[0 0 -90 90 0 0]</code></p>
-<p>Set 3: <code>[0 -45 45 -90 30 90]</code></p>
-<p>Set 4: <code>[90 -60 30 20 10 50]</code></p>
-<p>Set 5: <code>[0 -90 0 0 0 0]</code> (robot should be upright)</p>
-<h3 id="submission">Submission</h3>
-<ol>
-<li>
-<p>Show a screenshot of the base plate with the robot </p>
-</li>
-<li>
-<p>Show the DH Table for the robot</p>
-</li>
-<li>
-<p>Show a figure with frames and axes marked</p>
-</li>
-<li>
-<p>For each test case, show:</p>
-</li>
-<li>
-<p>The set of joint angle values (θ1, θ2, θ3, θ4, θ5, θ6)</p>
-</li>
-<li>The final transformation matrix (from Python script). You can
-add it as a readable image of the output window as well.</li>
-<li>The calculated pose from DH table in simulation vs the pose from <code>/ur3/position</code></li>
-<li>
-<p>The scalar error</p>
-</li>
-<li>
-<p>Discuss the sources of error</p>
-</li>
-<li>
-<p>An appendix to show your scripts</p>
-</li>
-<li>
-<p><code>enme480_fk.xacro</code></p>
-</li>
-<li>FK publisher (including the Python script for DH transformation)</li>
-<li>~~<code>tf</code> subscriber~~ Screenshot of messages received from <code>/ur3/position</code></li>
-</ol>
-<p>Add everything in one single PDF file and upload it.</p>
-<!-- END:AUTO-INCLUDE-README -->
 
 
 
