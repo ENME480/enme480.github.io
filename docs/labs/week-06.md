@@ -75,3 +75,36 @@ echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_
 echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
 ```
 
+### Step 3: Build the workspace
+
+Now, we build the workspace for the simulation
+
+```bash
+cd ~/enme480_ws
+colcon build
+```
+
+Once done, source it
+
+```bash
+cd ~/enme480_ws
+source install/setup.bash
+```
+
+### Step 4: Launch the Simulation
+
+Now we will test if the simulation environment is working
+
+```bash
+cd ~/enme480_ws
+source install/setup.bash
+ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+```
+
+This should open up a Gazebo environment with the UR3e arm on a table with a vacuum grippper on it's end effector.
+
+You can test if the robot is operational by running the followig command
+
+```bash
+ros2 run ur_robot_driver example_move
+```
