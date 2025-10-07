@@ -955,6 +955,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deliverablessubmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deliverables/Submission
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deliverables/Submission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#report-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Report (PDF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1185,9 +1227,9 @@
 <h1 id="week-06-forward-kinematics-lab-12">Week 06 — Forward Kinematics Lab 1.2</h1>
 <h2 id="objectives">Objectives</h2>
 <ul>
-<li>Write a publisher for moving the robot in Gazebo</li>
-<li>Derive the Forward Kinematics for the UR3e</li>
-<li>Compare against the values obtained from last week's lab </li>
+<li>Implement a ROS 2 publisher node (Python/rclpy) to command a UR3e in Gazebo.</li>
+<li>Derive the Forward Kinematics for the UR3e using DH Transformations</li>
+<li>Validate FK numerically against the simulator’s reported pose and reason about modeling error sources. Compare against the values obtained from last week's lab </li>
 </ul>
 <h2 id="useful-files">Useful Files</h2>
 <ul>
@@ -1252,9 +1294,10 @@
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
 </span></code></pre></div>
 <p>Now, we build the workspace for the simulation</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </span></code></pre></div>
+<code>--symlink-install</code> speeds Python iteration by avoiding rebuilds for script-only changes.</p>
 <p>Once done, source it</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
@@ -1269,14 +1312,14 @@
 <p><code>Ctrl+A v</code>  # Split vertically</p>
 </li>
 <li>
-<p>Launch MRC UR3e Gazebo simulation in one of the <code>tmux</code> panes:
+<p><strong>Terminal/Pane 1:</strong> Launch MRC UR3e Gazebo simulation in one of the <code>tmux</code> panes:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2 launch enme480_sim enme480_ur3e_sim.launch.py
 </span></code></pre></div></p>
 </li>
-<li>Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
+<li><strong>Terminal/Pane 2:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
 </span></code></pre></div></li>
-<li>Example command to move the arm:
+<li><strong>Terminal/Pane 3:</strong> Example command to move the arm:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e &quot;destination: [0, -1.57, -1.57, 0, 0, 0]
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>v: 1.0
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>a: 1.0
@@ -1337,16 +1380,39 @@
 </tr>
 </tbody>
 </table>
-<h1 id="submission">Submission</h1>
-<p>Please create a neatly typed/written report for the lab including the following:</p>
+<h2 id="deliverablessubmission">Deliverables/Submission</h2>
+<h3 id="report-pdf">Report (PDF)</h3>
 <ul>
-<li>Correct frame and axes assignments for the UR3e</li>
-<li>DH table for the UR3e</li>
-<li>A detailed derivation of how the position of laser point is predicted on the workbench.</li>
-<li>Error Analysis (for at least 3 points) with detailed explaination on how errors occur</li>
-<li>Your code snippets for the functions supposed to be changed (function for moving the robot and calulating DH transformation matrix)</li>
+<li>
+<p>Clear frame assignments &amp; axes drawings.</p>
+</li>
+<li>
+<p>DH table with your chosen convention and parameter definitions. </p>
+</li>
+<li>
+<p>Step-by-step derivation for the laser–plane intersection.</p>
+</li>
+<li>
+<p>Error analysis (≥3 points): quantify FK vs. sim pose (from <code>/ur3/position</code>) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error</p>
+</li>
+<li>
+<p>Short description of your publisher (design &amp; message format).</p>
+</li>
 </ul>
-<p>Fell free to explore tools like <code>rqt</code> to get a deeper understanding of how the nodes are interacting with each other.</p>
+<h3 id="code">Code</h3>
+<ul>
+<li>The FK function and the publisher function you modified (with comments).</li>
+</ul>
+<h3 id="results">Results</h3>
+<ul>
+<li>
+<p>Filled test table (above).</p>
+</li>
+<li>
+<p>Plots or tables comparing predicted vs. measured laser positions.</p>
+</li>
+</ul>
+<p>Feel free to explore tools like <code>rqt</code> to get a deeper understanding of how the nodes are interacting with each other.</p>
 
 
 
