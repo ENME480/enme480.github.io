@@ -158,6 +158,7 @@ The main point of todays lab is to validate the measurements you took in lab las
 This is the robot in its zero configuration. Your DH Table should correspond to this when you have all free variables set to 0.
 
 ![offset](../assets/fk/zeropoint.png)
+
 A top down view of the offset for the corner point.
 
 ![schem](../assets/fk/ur3eschem.png)
