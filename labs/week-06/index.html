@@ -1357,15 +1357,15 @@
 </li>
 <li>
 <p><strong>Terminal/Pane 3:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
-    ```
-    ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py</p>
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Terminal/Pane 4:</strong> Example command to move the arm:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e &quot;destination: [0, -1.57, -1.57, 0, 0, 0]
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>v: 1.0
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>a: 1.0
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>io_0: false&quot; 
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e &quot;destination: [0, -1.57, -1.57, 0, 0, 0]
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>v: 1.0
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>a: 1.0
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>io_0: false&quot; 
 </span></code></pre></div></p>
 </li>
 </ul>
@@ -1389,7 +1389,7 @@
 <li>Going to RQT --&gt; Visualization --&gt; TF Tree will show you the list of every frame in the currently active robot.</li>
 <li>Going to your terminal and running the command </li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>SOURCE_FRAME<span class="w"> </span>TARGET_FRAME
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>SOURCE_FRAME<span class="w"> </span>TARGET_FRAME
 </span></code></pre></div>
 <p>will show you the current transform. <em>Note that you will need to replace SOURCE_FRAME and TARGET_FRAME with actual frames from your TF tree!</em> TF2 (the transform library within ROS) lets you skip frames, so you can find the transform between the base and end effector directly, for example. This can be used to debug your coe by printing out your intermediate transforms and verifying them against what tf2 says.  </p>
 </li>
@@ -1404,7 +1404,7 @@
 <p>The script is located at <code>~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py</code>.</p>
 <p>In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin <code>(0,0)</code> for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. </p>
 <p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
 </span></code></pre></div>
 <p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
 <p>Assume the <code>z_table = 0</code>. </p>
