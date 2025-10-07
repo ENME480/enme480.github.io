@@ -143,6 +143,18 @@ Now we will test if the simulation environment is working
     io_0: false" 
     ```    
 
+### Step 5: Solve the UR3e DH Table
+
+The main point of todays lab is to validate the measurements you took in lab last week. To do this, you will be solving the Forward Kinematics for the UR3e arm. Below, we have included some helpful images to get you started.
+
+![zero](../assets/fk/UR3e_Zero_angle_Config.png)
+
+This is the robot in its zero configuration. Your DH Table should correspond to this when you have all free variables set to 0.
+
+![schem](../assets/fk/ur3eschem.png)
+
+This is a schematic showing the lengths of the different links on the robot.
+
 ### Step 5: Create a publisher script to move the arm
 
 Here, you need to write a publisher script to:
