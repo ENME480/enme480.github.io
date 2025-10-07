@@ -1350,15 +1350,24 @@
     <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2 launch enme480_sim enme480_ur3e_sim.launch.py
 </span></code></pre></div></p>
 </li>
-<li><strong>Terminal/Pane 2:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
+<li>
+<p><strong>Terminal/Pane 2:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
-</span></code></pre></div></li>
-<li><strong>Terminal/Pane 3:</strong> Example command to move the arm:
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Terminal/Pane 3:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
+    ```
+    ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py</p>
+</li>
+<li>
+<p><strong>Terminal/Pane 4:</strong> Example command to move the arm:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e &quot;destination: [0, -1.57, -1.57, 0, 0, 0]
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>v: 1.0
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>a: 1.0
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>io_0: false&quot; 
-</span></code></pre></div></li>
+</span></code></pre></div></p>
+</li>
 </ul>
 <h3 id="step-5-solve-the-ur3e-dh-table">Step 5: Solve the UR3e DH Table</h3>
 <p>The main point of todays lab is to validate the measurements you took in lab last week. To do this, you will be solving the Forward Kinematics for the UR3e arm. Below, we have included some helpful images to get you started.</p>
