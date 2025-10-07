@@ -190,6 +190,12 @@ The script is located at `~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py`
 
 In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin `(0,0)` for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. 
 
+It can be launched as follows:
+
+```bash
+ros2 run ur3e_enme480 ur3e_fk
+```
+
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
 
 ```bash
