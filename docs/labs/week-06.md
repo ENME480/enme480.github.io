@@ -208,8 +208,6 @@ Assume the `z_table = 0`.
 
 We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
 
-Turning on the laser pointer:
-
 ## Test Points (same as last week, but in degrees)
 
 Run the robot for the following test points:
