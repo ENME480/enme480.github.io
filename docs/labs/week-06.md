@@ -159,7 +159,7 @@ In the helper script, we have added an approximately correct end effector transf
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
 
 ```bash
-ros2 topic echo /ur3/position 
+ros2 topic echo /ur3e/position 
 ```
 
 Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
@@ -192,7 +192,7 @@ Run the robot for the following test points:
 
 - Step-by-step derivation for the laser–plane intersection.
 
-- Error analysis (≥3 points): quantify FK vs. sim pose (from `/ur3/position`) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error
+- Error analysis (≥3 points): quantify FK vs. sim pose (from `/ur3e/position`) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error
 
 - Short description of your publisher (design & message format).
 
