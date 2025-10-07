@@ -8,8 +8,8 @@
 
 ## Useful Files
 
-- UR3e Dimensions - PDF
-- UR3e Zero Position - Image
+- [UR3e Dimensions](../assets/fk/UR3e_Zero_angle_Config.png)
+- [UR3e Zero Position](../assets/fk/ur3eschem.png)
 
 ## Procedure
 
