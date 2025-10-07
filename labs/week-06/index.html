@@ -942,9 +942,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-create-a-publisher-script-to-move-the-arm" class="md-nav__link">
+  <a href="#step-6-create-a-publisher-script-to-move-the-arm" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Create a publisher script to move the arm
+      Step 6: Create a publisher script to move the arm
     </span>
   </a>
   
@@ -1341,7 +1341,26 @@
 <p>This is the robot in its zero configuration. Your DH Table should correspond to this when you have all free variables set to 0.</p>
 <p><img alt="schem" src="../../assets/fk/ur3eschem.png" /></p>
 <p>This is a schematic showing the lengths of the different links on the robot.</p>
-<h3 id="step-5-create-a-publisher-script-to-move-the-arm">Step 5: Create a publisher script to move the arm</h3>
+<p>Tips:</p>
+<ul>
+<li>Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.</li>
+<li>Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.<ul>
+<li>This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.</li>
+</ul>
+</li>
+<li>Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.</li>
+<li>
+<p>To help debug your code, you can use some of the tools we've mentioned in prior labs:</p>
+<ul>
+<li>Going to RQT --&gt; Visualization --&gt; TF Tree will show you the list of every frame in the currently active robot.</li>
+<li>Going to your terminal and running the command </li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>SOURCE_FRAME<span class="w"> </span>TARGET_FRAME
+</span></code></pre></div>
+<p>will show you the current transform. <em>Note that you will need to replace SOURCE_FRAME and TARGET_FRAME with actual frames from your TF tree!</em> TF2 (the transform library within ROS) lets you skip frames, so you can find the transform between the base and end effector directly, for example. This can be used to debug your coe by printing out your intermediate transforms and verifying them against what tf2 says.  </p>
+</li>
+</ul>
+<h3 id="step-6-create-a-publisher-script-to-move-the-arm">Step 6: Create a publisher script to move the arm</h3>
 <p>Here, you need to write a publisher script to:</p>
 <ul>
 <li>Move the robot (using <code>/ur3e/command</code>)</li>
@@ -1351,7 +1370,7 @@
 <p>The script is located at <code>~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py</code>.</p>
 <p>In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin <code>(0,0)</code> for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. </p>
 <p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
 </span></code></pre></div>
 <p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
 <p>Assume the <code>z_table = 0</code>. </p>
