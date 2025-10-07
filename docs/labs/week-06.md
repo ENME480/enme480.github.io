@@ -139,7 +139,7 @@ Now we will test if the simulation environment is working
 * **Terminal/Pane 3:** Launch MRC UR3e sim control package in a different `tmux` pane:
     ```
     ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
-
+    ```
 
 * **Terminal/Pane 4:** Example command to move the arm:
     ```
