@@ -872,15 +872,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-ur3e-dimensions-" class="md-nav__link">
-    <span class="md-ellipsis">
-      - UR3e Dimensions -
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
@@ -915,6 +906,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 3: Build the workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preliminary-instllations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preliminary instllations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -926,8 +932,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#step-5-create-a-publisher-script-to-move-the-arm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Create a publisher script to move the arm
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-points-same-as-last-week-but-in-degrees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Points (same as last week, but in degrees)
+    </span>
+  </a>
   
 </li>
       
@@ -1166,7 +1190,10 @@
 <li>Compare against the values obtained from last week's lab </li>
 </ul>
 <h2 id="useful-files">Useful Files</h2>
-<h2 id="-ur3e-dimensions-">- UR3e Dimensions -</h2>
+<ul>
+<li>UR3e Dimensions - PDF</li>
+<li>UR3e Zero Position - Image</li>
+</ul>
 <h2 id="procedure">Procedure</h2>
 <h3 id="step-1-pull-the-latest-version-of-the-repo">Step 1: Pull the latest version of the Repo</h3>
 <p>The repository and docker files has been updated to include the updated simulation tools so you'll need to build the docker environment again</p>
@@ -1180,53 +1207,146 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
-<p><strong>For MacOS users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code> at <code>~/ENME480_mrc/docker</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># BEFORE
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>FROM osrf/ros:humble-desktop AS humble-mod_desktop
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># AFTER
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>FROM arm64v8/ros:humble AS humble-mod_desktop
+<p>Next, we add a helper package to the repository:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/src
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/ur3e_enme480.git
+</span></code></pre></div>
+<h3 id="step-2-build-and-run-docker">Step 2: Build and run docker</h3>
+<p><strong>For MacOS/VM users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code> at <code>~/ENME480_mrc/docker</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># BEFORE
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>FROM osrf/ros:humble-desktop AS humble-mod_desktop
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># AFTER
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>FROM arm64v8/ros:humble AS humble-mod_desktop
 </span></code></pre></div>
 <p><strong>Do not do this on anything other than a MAC!</strong> MACs require code that has been compiled in a special way in order to work and this code does not work on other computers!</p>
-<h3 id="step-2-build-and-run-docker">Step 2: Build and run docker</h3>
 <p><strong>For Everyone</strong>, run</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
 <p>Create the <code>startDocker.sh</code> and <code>connectToDocker.sh</code> scripts again if you haven't yet</p>
 <p>For people <strong>not</strong> using the Nvidia container, run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
-</span></code></pre></div></p>
-<p>For people who <strong>are</strong> using the Nvidia container, run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
 </span></code></pre></div></p>
+<p>For people who <strong>are</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div></p>
+<p>To start the docker container, run</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bash<span class="w"> </span>startDocker.sh
+</span></code></pre></div>
+<p>To connect to the same docker container from another terminal, run</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>bash<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div>
 <h3 id="step-3-build-the-workspace">Step 3: Build the workspace</h3>
+<h4 id="preliminary-instllations">Preliminary instllations</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-tf-transformations
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
+</span></code></pre></div>
 <p>Now, we build the workspace for the simulation</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>colcon<span class="w"> </span>build
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </span></code></pre></div>
 <p>Once done, source it</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
 <h3 id="step-4-launch-the-simulation">Step 4: Launch the Simulation</h3>
 <p>Now we will test if the simulation environment is working</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_sim<span class="w"> </span>enme480_ur3e_sim.launch.py
+<ul>
+<li>Use <code>tmux</code> to manage multiple panes. Create several panes to work with the Gazebo simulation:</li>
+<li><code>tmux</code>      # Start a new session</li>
+<li><code>Ctrl+A b</code>  # Split horizontally</li>
+<li>
+<p><code>Ctrl+A v</code>  # Split vertically</p>
+</li>
+<li>
+<p>Launch MRC UR3e Gazebo simulation in one of the <code>tmux</code> panes:
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+</span></code></pre></div></p>
+</li>
+<li>Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+</span></code></pre></div></li>
+<li>Example command to move the arm:
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e &quot;destination: [0, -1.57, -1.57, 0, 0, 0]
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>v: 1.0
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>a: 1.0
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>io_0: false&quot; 
+</span></code></pre></div></li>
+</ul>
+<h3 id="step-5-create-a-publisher-script-to-move-the-arm">Step 5: Create a publisher script to move the arm</h3>
+<p>Here, you need to write a publisher script to:</p>
+<ul>
+<li>Move the robot (using <code>/ur3e/command</code>)</li>
+<li>Calculate the end effector position using DH Transformations</li>
+</ul>
+<p>You are encouraged to write the entire publisher script on your own, but we have also provided a helper script if needed.</p>
+<p>The script is located at <code>~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py</code>.</p>
+<p>In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin <code>(0,0)</code> for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. </p>
+<p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3/position<span class="w"> </span>
 </span></code></pre></div>
-<p>This should open up a Gazebo environment with the UR3e arm on a table with a vacuum grippper on it's end effector.</p>
-<p>You can test if the robot is operational by running the followig command</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ur_robot_driver<span class="w"> </span>example_move
-</span></code></pre></div>
+<p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
+<p>Assume the <code>z_table = 0</code>. </p>
+<p>We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.</p>
+<p>Turning on the laser pointer:</p>
+<h2 id="test-points-same-as-last-week-but-in-degrees">Test Points (same as last week, but in degrees)</h2>
+<p>Run the robot for the following test points:</p>
+<table>
+<thead>
+<tr>
+<th>Test Point Inputs (𝜽𝟏, … 𝜽𝟔)</th>
+<th style="text-align: center;">End Effector Position (Your Code) <code>(x y z)</code></th>
+<th style="text-align: right;">Laser Position on Workbench (from Code) (<code>x,y</code>)</th>
+<th style="text-align: right;">Laser Position on Workbench(Measured) <code>(x, y)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0, -45, 0, 45, -90, 60]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>[-30, -60, 80, -10, -90, -30]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>[30 -70 80 -10 -90 10]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>[-30, -60, 60, -10, -90, -30]</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="submission">Submission</h1>
+<p>Please create a neatly typed/written report for the lab including the following:</p>
+<ul>
+<li>Correct frame and axes assignments for the UR3e</li>
+<li>DH table for the UR3e</li>
+<li>A detailed derivation of how the position of laser point is predicted on the workbench.</li>
+<li>Error Analysis (for at least 3 points) with detailed explaination on how errors occur</li>
+<li>Your code snippets for the functions supposed to be changed (function for moving the robot and calulating DH transformation matrix)</li>
+</ul>
+<p>Fell free to explore tools like <code>rqt</code> to get a deeper understanding of how the nodes are interacting with each other.</p>
 
 
 
