@@ -8,8 +8,8 @@
 
 ## Useful Files
 
-- UR3e Dimensions - 
-- 
+- UR3e Dimensions - PDF
+- UR3e Zero Position - Image
 
 ## Procedure
 
@@ -33,7 +33,16 @@ git checkout .
 git pull
 ```
 
-**For MacOS users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile` at `~/ENME480_mrc/docker`
+Next, we add a helper package to the repository:
+
+```bash
+cd ~/ENME480_mrc/src
+git clone https://github.com/ENME480/ur3e_enme480.git
+```
+
+### Step 2: Build and run docker
+
+**For MacOS/VM users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile` at `~/ENME480_mrc/docker`
 
 ```
 # BEFORE
@@ -44,9 +53,6 @@ FROM arm64v8/ros:humble AS humble-mod_desktop
 ```
 
 **Do not do this on anything other than a MAC!** MACs require code that has been compiled in a special way in order to work and this code does not work on other computers!
-
-
-### Step 2: Build and run docker
 
 **For Everyone**, run
 
@@ -75,13 +81,33 @@ echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_
 echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
 ```
 
+To start the docker container, run
+
+```bash
+bash startDocker.sh
+```
+
+To connect to the same docker container from another terminal, run
+
+```bash
+bash connectToDocker.sh
+```
+
 ### Step 3: Build the workspace
+
+#### Preliminary instllations
+
+```bash
+sudo apt update
+sudo apt install ros-humble-tf-transformations
+sudo apt install ros-humble-rqt*
+```
 
 Now, we build the workspace for the simulation
 
 ```bash
 cd ~/enme480_ws
-colcon build
+colcon build --symlink-install
 ```
 
 Once done, source it
@@ -95,16 +121,75 @@ source install/setup.bash
 
 Now we will test if the simulation environment is working
 
+* Use `tmux` to manage multiple panes. Create several panes to work with the Gazebo simulation:
+  * `tmux`      # Start a new session
+  * `Ctrl+A b`  # Split horizontally
+  * `Ctrl+A v`  # Split vertically
+
+* Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
+    ```
+    ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+    ```
+* Launch MRC UR3e sim control package in a different `tmux` pane:
+    ```
+    ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+    ```
+* Example command to move the arm:
+    ```
+    ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e "destination: [0, -1.57, -1.57, 0, 0, 0]
+    v: 1.0
+    a: 1.0
+    io_0: false" 
+    ```    
+
+### Step 5: Create a publisher script to move the arm
+
+Here, you need to write a publisher script to:
+
+- Move the robot (using `/ur3e/command`)
+- Calculate the end effector position using DH Transformations
+
+You are encouraged to write the entire publisher script on your own, but we have also provided a helper script if needed.
+
+The script is located at `~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py`.
+
+In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin `(0,0)` for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. 
+
+You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
+
 ```bash
-cd ~/enme480_ws
-source install/setup.bash
-ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+ros2 topic echo /ur3/position 
 ```
 
-This should open up a Gazebo environment with the UR3e arm on a table with a vacuum grippper on it's end effector.
+Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
 
-You can test if the robot is operational by running the followig command
+Assume the `z_table = 0`. 
 
-```bash
-ros2 run ur_robot_driver example_move
-```
+We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
+
+Turning on the laser pointer:
+
+## Test Points (same as last week, but in degrees)
+
+Run the robot for the following test points:
+
+| Test Point Inputs (𝜽𝟏, … 𝜽𝟔)    | End Effector Position (Your Code) `(x y z)`        | Laser Position on Workbench (from Code) (`x,y`) | Laser Position on Workbench(Measured) `(x, y)` |
+| --------------- |:---------------:| --------:| --------:|
+| [0, -45, 0, 45, -90, 60] | | |
+| [-30, -60, 80, -10, -90, -30] | | |
+| [30 -70 80 -10 -90 10] | | |
+| [-30, -60, 60, -10, -90, -30] | | |
+
+
+# Submission
+
+Please create a neatly typed/written report for the lab including the following:
+
+- Correct frame and axes assignments for the UR3e
+- DH table for the UR3e
+- A detailed derivation of how the position of laser point is predicted on the workbench.
+- Error Analysis (for at least 3 points) with detailed explaination on how errors occur
+- Your code snippets for the functions supposed to be changed (function for moving the robot and calulating DH transformation matrix)
+
+
+Fell free to explore tools like `rqt` to get a deeper understanding of how the nodes are interacting with each other.
