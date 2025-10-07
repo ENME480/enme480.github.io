@@ -2,9 +2,9 @@
 
 ## Objectives
 
-- Write a publisher for moving the robot in Gazebo
-- Derive the Forward Kinematics for the UR3e
-- Compare against the values obtained from last week's lab 
+- Implement a ROS 2 publisher node (Python/rclpy) to command a UR3e in Gazebo.
+- Derive the Forward Kinematics for the UR3e using DH Transformations
+- Validate FK numerically against the simulator’s reported pose and reason about modeling error sources. Compare against the values obtained from last week's lab 
 
 ## Useful Files
 
@@ -109,6 +109,7 @@ Now, we build the workspace for the simulation
 cd ~/enme480_ws
 colcon build --symlink-install
 ```
+`--symlink-install` speeds Python iteration by avoiding rebuilds for script-only changes.
 
 Once done, source it
 
@@ -126,15 +127,15 @@ Now we will test if the simulation environment is working
   * `Ctrl+A b`  # Split horizontally
   * `Ctrl+A v`  # Split vertically
 
-* Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
+* **Terminal/Pane 1:** Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
     ```
     ros2 launch enme480_sim enme480_ur3e_sim.launch.py
     ```
-* Launch MRC UR3e sim control package in a different `tmux` pane:
+* **Terminal/Pane 2:** Launch MRC UR3e sim control package in a different `tmux` pane:
     ```
     ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
     ```
-* Example command to move the arm:
+* **Terminal/Pane 3:** Example command to move the arm:
     ```
     ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e "destination: [0, -1.57, -1.57, 0, 0, 0]
     v: 1.0
@@ -181,15 +182,29 @@ Run the robot for the following test points:
 | [-30, -60, 60, -10, -90, -30] | | |
 
 
-# Submission
+## Deliverables/Submission
 
-Please create a neatly typed/written report for the lab including the following:
+### Report (PDF)
 
-- Correct frame and axes assignments for the UR3e
-- DH table for the UR3e
-- A detailed derivation of how the position of laser point is predicted on the workbench.
-- Error Analysis (for at least 3 points) with detailed explaination on how errors occur
-- Your code snippets for the functions supposed to be changed (function for moving the robot and calulating DH transformation matrix)
+- Clear frame assignments & axes drawings.
+
+- DH table with your chosen convention and parameter definitions. 
+
+- Step-by-step derivation for the laser–plane intersection.
+
+- Error analysis (≥3 points): quantify FK vs. sim pose (from `/ur3/position`) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error
+
+- Short description of your publisher (design & message format).
+
+### Code
+
+- The FK function and the publisher function you modified (with comments).
+
+### Results
+
+- Filled test table (above).
+
+- Plots or tables comparing predicted vs. measured laser positions.
 
 
-Fell free to explore tools like `rqt` to get a deeper understanding of how the nodes are interacting with each other.
+Feel free to explore tools like `rqt` to get a deeper understanding of how the nodes are interacting with each other.
