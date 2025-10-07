@@ -161,9 +161,16 @@ This is the robot in its zero configuration. Your DH Table should correspond to 
 
 A top down view of the offset for the corner point.
 
+![tool](../assets/fk/tool.png)
+
+Tool dimensions.
+
+
 ![schem](../assets/fk/ur3eschem.png)
 
 This is a schematic showing the lengths of the different links on the robot.
+
+
 
 Tips:
 
