@@ -197,7 +197,7 @@ In the helper script, we have added an approximately correct end effector transf
 It can be launched as follows:
 
 ```bash
-ros2 run ur3e_enme480 ur3e_fk
+ros2 run ur3e_enme480 ur3e_fk 0 0 0 0 0 0
 ```
 
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
