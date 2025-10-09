@@ -1381,7 +1381,11 @@
 <p>This is a schematic showing the lengths of the different links on the robot.</p>
 <p>Tips:</p>
 <ul>
-<li>Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.</li>
+<li>Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.<ul>
+<li>A common scenario is that a transform you want to do would require a translation or rotation about a y-axis, which is not allowed with DH parameters. In these cases, you will always end up needing an intermediate fixed frame.</li>
+<li>An easy sanity check for this is that if a transform leads to the old x becoming the new z or vice versa then you need an intermediate frame.</li>
+</ul>
+</li>
 <li>Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.<ul>
 <li>This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.</li>
 </ul>
