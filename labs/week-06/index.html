@@ -1412,11 +1412,26 @@
 <p>You are encouraged to write the entire publisher script on your own, but we have also provided a helper script if needed.</p>
 <p>The script is located at <code>~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py</code>.</p>
 <p>In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin <code>(0,0)</code> for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. </p>
+<p>Some tips for finishing the script:</p>
+<ul>
+<li>Finish the <code>send_command()</code> first with a placeholder matrix for the transformation</li>
+<li>To finish the <code>send_command()</code> function, the message definition for <code>CommandUR3e.msg</code> is </li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>float64[] destination
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>float64 v
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>float64 a
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>bool io_0
+</span></code></pre></div>
+<p>Do this similar to the way you wrote the publisher messages for previous weeks</p>
+<ul>
+<li>The helper script defines an identity matrix as placeholder to ensure you can test the script first. Make sure that you change this with your final transformation matrix.</li>
+<li>You can implement a recursve method or do a matrix multiplication of your choosing to calculate the final trnasformation matrix in the code.</li>
+</ul>
 <p>It can be launched as follows:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_fk<span class="w"> </span>&lt;th1&gt;<span class="w"> </span>&lt;th2&gt;<span class="w"> </span>&lt;th3&gt;<span class="w"> </span>&lt;th4&gt;<span class="w"> </span>&lt;th5&gt;<span class="w"> </span>&lt;th6&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_fk<span class="w"> </span>&lt;th1&gt;<span class="w"> </span>&lt;th2&gt;<span class="w"> </span>&lt;th3&gt;<span class="w"> </span>&lt;th4&gt;<span class="w"> </span>&lt;th5&gt;<span class="w"> </span>&lt;th6&gt;
 </span></code></pre></div>
 <p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
 </span></code></pre></div>
 <p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
 <p>Assume the <code>z_table = 0</code>. </p>
