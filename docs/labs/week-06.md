@@ -174,6 +174,7 @@ This is a schematic showing the lengths of the different links on the robot.
 
 Tips:
 
+- The physical robots are set up assuming that the z-axis is always pointing *out of* the blue caps.
 - Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.
     - A common scenario is that a transform you want to do would require a translation or rotation about a y-axis, which is not allowed with DH parameters. In these cases, you will always end up needing an intermediate fixed frame.
     - An easy sanity check for this is that if a transform leads to the old x becoming the new z or vice versa then you need an intermediate frame.
