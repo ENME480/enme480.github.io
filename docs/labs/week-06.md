@@ -204,6 +204,23 @@ The script is located at `~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py`
 
 In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin `(0,0)` for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. 
 
+Some tips for finishing the script:
+
+- Finish the `send_command()` first with a placeholder matrix for the transformation
+- To finish the `send_command()` function, the message definition for `CommandUR3e.msg` is 
+
+```
+float64[] destination
+float64 v
+float64 a
+bool io_0
+```
+
+Do this similar to the way you wrote the publisher messages for previous weeks
+
+- The helper script defines an identity matrix as placeholder to ensure you can test the script first. Make sure that you change this with your final transformation matrix.
+- You can implement a recursve method or do a matrix multiplication of your choosing to calculate the final trnasformation matrix in the code.
+
 It can be launched as follows:
 
 ```bash
