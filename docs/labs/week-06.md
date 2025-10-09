@@ -204,7 +204,7 @@ In the helper script, we have added an approximately correct end effector transf
 It can be launched as follows:
 
 ```bash
-ros2 run ur3e_enme480 ur3e_fk 0 0 0 0 0 0
+ros2 run ur3e_enme480 ur3e_fk <th1> <th2> <th3> <th4> <th5> <th6>
 ```
 
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
@@ -219,16 +219,16 @@ Assume the `z_table = 0`.
 
 We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
 
-## Test Points (same as last week, but in degrees)
+## Test Points (same as last week)
 
 Run the robot for the following test points:
 
 | Test Point Inputs (𝜽𝟏, … 𝜽𝟔)    | End Effector Position (Your Code) `(x y z)`        | Laser Position on Workbench (from Code) (`x,y`) | Laser Position on Workbench(Measured) `(x, y)` |
 | --------------- |:---------------:| --------:| --------:|
-| [0, -45, 0, 45, -90, 60] | | |
-| [-30, -60, 80, -10, -90, -30] | | |
-| [30 -70 80 -10 -90 10] | | |
-| [-30, -60, 60, -10, -90, -30] | | |
+| [0, -0.758, 0, 0.758, -1.571, 1.048] | | |
+| [-0.524, -1.048, 1.396, -0.175, -1.571, -0.524] | | |
+| [0.524, -1.222, 1.396, -0.175, -1.571, 0.175] | | |
+| [-0.524, -1.048, 1.048, -0.175, -1.571, -0.524] | | |
 
 
 ## Deliverables/Submission
