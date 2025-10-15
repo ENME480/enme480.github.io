@@ -260,7 +260,7 @@ Run the robot for the following test points:
 
 - Step-by-step derivation for the laser–plane intersection.
 
-- Error analysis (≥3 points): quantify FK vs. sim pose (from `/ur3e/position`) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error
+- Error analysis (≥3 points): quantify FK vs. sim pose (from `/ur3/position`) vs. correct DH transform and laser prediction error; discuss atleast 4-5 sources of error
 
 - Short description of your publisher (design & message format).
 
