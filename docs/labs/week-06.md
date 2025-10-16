@@ -224,11 +224,14 @@ You should also be able to see the approximate final position of the end-effecto
 ros2 topic echo /ur3/position 
 ```
 
+This will provide a final position and orientation of your end effector. Another way to validate it is using the "Approximately Correct DH Matrix" that's printed on your terminal when you launch the command to move the orbot. You need to ensure that your values are relatively close to the correct one.
+
 Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
 
 Assume the `z_table = 0`. 
 
 We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
+
 
 ## Test Points (same as last week)
 
