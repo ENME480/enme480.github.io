@@ -180,15 +180,7 @@ Tips:
 - Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.
     - This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.
 - Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.
-- To help debug your code, you can use some of the tools we've mentioned in prior labs:
-    - Going to RQT --> Visualization --> TF Tree will show you the list of every frame in the currently active robot.
-    - Going to your terminal and running the command 
 
-    ```bash
-    ros2 run tf2_ros tf2_echo SOURCE_FRAME TARGET_FRAME
-    ```
-
-    will show you the current transform. *Note that you will need to replace SOURCE_FRAME and TARGET_FRAME with actual frames from your TF tree!* TF2 (the transform library within ROS) lets you skip frames, so you can find the transform between the base and end effector directly, for example. This can be used to debug your coe by printing out your intermediate transforms and verifying them against what tf2 says.  
 
 ### Step 6: Create a publisher script to move the arm
 
