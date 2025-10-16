@@ -221,7 +221,7 @@ ros2 run ur3e_enme480 ur3e_fk <th1> <th2> <th3> <th4> <th5> <th6>
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
 
 ```bash
-ros2 topic echo /ur3e/position 
+ros2 topic echo /ur3/position 
 ```
 
 Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
