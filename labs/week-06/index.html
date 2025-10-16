@@ -588,6 +588,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1040,6 +1044,52 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 7 (No Lab))
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 8 (UR3e Inverse Kinematics)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1391,16 +1441,6 @@
 </ul>
 </li>
 <li>Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.</li>
-<li>
-<p>To help debug your code, you can use some of the tools we've mentioned in prior labs:</p>
-<ul>
-<li>Going to RQT --&gt; Visualization --&gt; TF Tree will show you the list of every frame in the currently active robot.</li>
-<li>Going to your terminal and running the command </li>
-</ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>tf2_ros<span class="w"> </span>tf2_echo<span class="w"> </span>SOURCE_FRAME<span class="w"> </span>TARGET_FRAME
-</span></code></pre></div>
-<p>will show you the current transform. <em>Note that you will need to replace SOURCE_FRAME and TARGET_FRAME with actual frames from your TF tree!</em> TF2 (the transform library within ROS) lets you skip frames, so you can find the transform between the base and end effector directly, for example. This can be used to debug your coe by printing out your intermediate transforms and verifying them against what tf2 says.  </p>
-</li>
 </ul>
 <h3 id="step-6-create-a-publisher-script-to-move-the-arm">Step 6: Create a publisher script to move the arm</h3>
 <p>Here, you need to write a publisher script to:</p>
@@ -1416,10 +1456,10 @@
 <li>Finish the <code>send_command()</code> first with a placeholder matrix for the transformation</li>
 <li>To finish the <code>send_command()</code> function, the message definition for <code>CommandUR3e.msg</code> is </li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>float64[] destination
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>float64 v
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>float64 a
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>bool io_0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>float64[] destination
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>float64 v
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>float64 a
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>bool io_0
 </span></code></pre></div>
 <p>Do this similar to the way you wrote the publisher messages for previous weeks</p>
 <ul>
@@ -1427,10 +1467,10 @@
 <li>You can implement a recursve method or do a matrix multiplication of your choosing to calculate the final trnasformation matrix in the code.</li>
 </ul>
 <p>It can be launched as follows:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_fk<span class="w"> </span>&lt;th1&gt;<span class="w"> </span>&lt;th2&gt;<span class="w"> </span>&lt;th3&gt;<span class="w"> </span>&lt;th4&gt;<span class="w"> </span>&lt;th5&gt;<span class="w"> </span>&lt;th6&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_fk<span class="w"> </span>&lt;th1&gt;<span class="w"> </span>&lt;th2&gt;<span class="w"> </span>&lt;th3&gt;<span class="w"> </span>&lt;th4&gt;<span class="w"> </span>&lt;th5&gt;<span class="w"> </span>&lt;th6&gt;
 </span></code></pre></div>
 <p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3e/position<span class="w"> </span>
 </span></code></pre></div>
 <p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
 <p>Assume the <code>z_table = 0</code>. </p>
