@@ -175,8 +175,9 @@ This is a schematic showing the lengths of the different links on the robot.
 Tips:
 
 - The physical robots are set up assuming that the z-axis is always pointing *out of* the blue caps.
-- Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.
+- If it helps, you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.
     - A common scenario is that a transform you want to do would require a translation or rotation about a y-axis, which is not allowed with DH parameters. In these cases, you will always end up needing an intermediate fixed frame.
+    - In many cases, these fixed frames can be avoided by remembering that the center of a DH frame does not need to be physically on the joint, it only needs to have a z-axis aligned with the axis of motion of the joint. This is how many people will lay out DH frames in practice.
 - Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.
     - This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.
 - Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.
