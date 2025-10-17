@@ -181,15 +181,7 @@ Tips:
 - Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.
     - This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.
 - Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.
-- To help debug your code, you can use some of the tools we've mentioned in prior labs:
-    - Going to RQT --> Visualization --> TF Tree will show you the list of every frame in the currently active robot.
-    - Going to your terminal and running the command 
 
-    ```bash
-    ros2 run tf2_ros tf2_echo SOURCE_FRAME TARGET_FRAME
-    ```
-
-    will show you the current transform. *Note that you will need to replace SOURCE_FRAME and TARGET_FRAME with actual frames from your TF tree!* TF2 (the transform library within ROS) lets you skip frames, so you can find the transform between the base and end effector directly, for example. This can be used to debug your coe by printing out your intermediate transforms and verifying them against what tf2 says.  
 
 ### Step 6: Create a publisher script to move the arm
 
@@ -230,14 +222,17 @@ ros2 run ur3e_enme480 ur3e_fk <th1> <th2> <th3> <th4> <th5> <th6>
 You should also be able to see the approximate final position of the end-effector fromm the `ur3/position` topic:
 
 ```bash
-ros2 topic echo /ur3e/position 
+ros2 topic echo /ur3/position 
 ```
+
+This will provide a final position and orientation of your end effector. Another way to validate it is using the "Approximately Correct DH Matrix" that's printed on your terminal when you launch the command to move the orbot. You need to ensure that your values are relatively close to the correct one.
 
 Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
 
 Assume the `z_table = 0`. 
 
 We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
+
 
 ## Test Points (same as last week)
 

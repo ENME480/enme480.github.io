@@ -96,6 +96,8 @@ nav:
       - Week 5 (UR3e Intro, FK Lab Part 1): labs/week-05.md
       - Week 6 (UR3e Forward Kinematics Simulation): labs/week-06.md
       - Week 5/6 Slides: labs/week-6-slides.pptx
+      - Week 7 (No Lab)): labs/week-07.md
+      - Week 8 (UR3e Inverse Kinematics): labs/week-08.md
 
   - Resources: resources.md
   - Wiki:
