@@ -11,7 +11,7 @@ The objective of this lab is to derive and implement a solution to the inverse k
 
 ## Helpful Resources
 
-- [Trignometry & Geometry Cheat Sheet](../../docs/assets/docs/trig_cheat_sheet.pdf) 
+- [Trignometry & Geometry Cheat Sheet](../assets/ik/trig_cheat_sheet.pdf) 
   - Ref: https://tutorial.math.lamar.edu/pdf/trig_cheat_sheet.pdf
 
 
