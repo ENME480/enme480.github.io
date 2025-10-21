@@ -38,9 +38,9 @@ top-down view of the robot, which is helpful for formulating the relations.
 perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
 this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.
 
-![Top View of UR3](images/img3.jpg)
+![Top View of UR3](../../docs/assets/robot_pics/ik/img3.jpg)
 
-![Side View of UR3](images/img4.jpg)
+![Side View of UR3](../../docs/assets/robot_pics/ik/img4.jpg)
 
 6. Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
 x-y plane of the world frame.
@@ -49,80 +49,106 @@ Now that your code solves for all the joint variables `(𝜃1 to 𝜃6)`, send t
 
 ## Implementation in ROS2 & Gazebo
 
-1. Pull the latest commit for ur3e_enme480 package
+### Step 1: Pull the latest version of the Repo
+
+The repository has been updated to include updated simulation tools and helper scripts so you'll need to pull the latest version
+
+Before doing that take a backup of your current `/src` folder so that you don't accidentally lose access to your previous work.
 
 ```bash
-cd ~/<your_workspace>/src/ur3e_enme480
+cd
+mkdir -p backup/week6
+cp -r ~/ENME480_mrc/src/ ~/backup/week6
+```
+
+Next, we pull the latest version of the repository
+
+```bash
+cd ~/ENME480_mrc
+git checkout .
 git pull
 ```
 
-2. Download the URDF `enme480_ik.xacro` (from `Code Resources` in Week 7 on this page) in your `urdf` folder. Replace `ur.urdf.xacro` as well.
-
-Add the `UR3SuctionCupMount.stl` from `Code Resources` to your `Universal_Robots_ROS2_Description//meshes/ur3/visual/` folder.
-
-
-3. Create a publisher `ur3e_ik_sim.py` with node name `ur3e_sim_ik_publisher`. It will have a structure somewhat like this:
-
-```python
-import ....
-
-class InverseKinematicsUR3e(...)
-
-  def __init__(self): 
-    ...
-    ...
-    self.publisher_ = self.create_publisher(CommandUR3e, '/ur3/command', 10)
-    ...
-    ...
-
-  def move_robot(...):
-    ...
-    ...
-
-  def calculate_fk_from_dh(...):
-    ...
-    ...
-
-  def inverse_kinematics(self, xWgrip, yWgrip, zWgrip, yawWgrip):
-
-    # TODO: Function that calculates an elbow up 
-	# inverse kinematics solution for the UR3
-
-	# Step 1: find gripper position relative to the base of UR3,
-	# and set theta_5 equal to -pi/2
-
-
-	# Step 2: find x_cen, y_cen, z_cen
-
-
-	# Step 3: find theta_1
-	
-
-	# Step 4: find theta_6 
-	
-
-	# Step 5: find x3_end, y3_end, z3_end
-	
-
-	# Step 6: find theta_2, theta_3, theta_4
-
-    # Return the set of joint angles to move the robot
-
-    
-def main(...):
-
-  ...
-  ...
-
-if __name__ == '__main__':
-  main()
-```
-
-You command should look like this:
+Next, we pull the latest version of the helper package repository:
 
 ```bash
-ros2 run <package_name> ur3e_sim_ik_publisher <x> <y> <z> <Yaw>
+cd ~/ENME480_mrc/src/ur3e_enme480
+git checkout .
+git pull
 ```
+
+### Step 2: Start the Docker Container
+
+To start the docker container, run
+
+```bash
+bash startDocker.sh
+```
+
+To connect to the same docker container from another terminal, run
+
+```bash
+bash connectToDocker.sh
+```
+
+### Step 3: Build the workspace
+
+Once in the doicker dcontainer:
+
+#### Preliminary instllations
+
+```bash
+sudo apt update
+sudo apt install ros-humble-tf-transformations
+sudo apt install ros-humble-rqt*
+```
+
+Now, we build the workspace for the simulation
+
+```bash
+cd ~/enme480_ws
+colcon build --symlink-install
+```
+`--symlink-install` speeds Python iteration by avoiding rebuilds for script-only changes.
+
+Once done, source it
+
+```bash
+cd ~/enme480_ws
+source install/setup.bash
+```
+
+### Step 4: Complete the IK Script Node
+
+Find the script in `~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_ik.py` and complete the function `inverse_kinematics()`
+
+### Step 5: Launch the Simulation
+
+Now we will test if the simulation environment is working
+
+* Use `tmux` to manage multiple panes. Create several panes to work with the Gazebo simulation:
+  * `tmux`      # Start a new session
+  * `Ctrl+A b`  # Split horizontally
+  * `Ctrl+A v`  # Split vertically
+
+* **Terminal/Pane 1:** Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
+    ```
+    ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+    ```
+* **Terminal/Pane 2:** Launch MRC UR3e sim control package in a different `tmux` pane:
+    ```
+    ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+    ```
+
+* **Terminal/Pane 3:** Launch ENME480 UR3e sim control package in a different `tmux` pane:
+    ```
+    ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
+    ```
+
+* **Terminal/Pane 4:** Run the IK node once script is completed in a different `tmux` pane:
+    ```
+    ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
+    ```
 
 
 ## Test Cases
@@ -134,7 +160,9 @@ ros2 run <package_name> ur3e_sim_ik_publisher <x> <y> <z> <Yaw>
 |(0.2, 0.2, 0.2, 0) | |
 |(0.2, -0.2, 0.1, 0) | |
 |(0.2, 0.3, 0.4, 30) |      |     |
-## Submission
+
+
+-## Submission
 
 1.  A pdf of your code complete with comments describing the steps you've taken
 2.  A pdf containing a (neatly) written/typed solution for IK showing how you derived your equations from the geometry
@@ -142,8 +170,3 @@ ros2 run <package_name> ur3e_sim_ik_publisher <x> <y> <z> <Yaw>
 4.  A comparison of error between your IK script and the output of the ```ur3/position``` topic for the test cases with a discussion of possible error sources.
 5.  A brief discussion of any possible singularities in the math and what could be done to avoid them (you don't need to implement this, we just want you thinking about strategies!)
 
-
-
-Here’s a cleaned-up, student-friendly **markdown** you can drop in as the Week 8 handout. It keeps the math for students to derive, but adds clarity, scaffolding, and “helper” guardrails. No formulas are provided.
-
----

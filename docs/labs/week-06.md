@@ -136,7 +136,7 @@ Now we will test if the simulation environment is working
     ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
     ```
 
-* **Terminal/Pane 3:** Launch MRC UR3e sim control package in a different `tmux` pane:
+* **Terminal/Pane 3:** Launch ENME480 UR3e sim control package in a different `tmux` pane:
     ```
     ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
     ```
