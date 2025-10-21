@@ -1406,7 +1406,7 @@
 </span></code></pre></div></p>
 </li>
 <li>
-<p><strong>Terminal/Pane 3:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
+<p><strong>Terminal/Pane 3:</strong> Launch ENME480 UR3e sim control package in a different <code>tmux</code> pane:
     <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 </span></code></pre></div></p>
 </li>
@@ -1432,8 +1432,9 @@
 <p>Tips:</p>
 <ul>
 <li>The physical robots are set up assuming that the z-axis is always pointing <em>out of</em> the blue caps.</li>
-<li>Remember that you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.<ul>
+<li>If it helps, you can make fixed DH Frames that don't have any free parameters. Sometimes, a transform may not be doable using the standard DH convention and this is necessary.<ul>
 <li>A common scenario is that a transform you want to do would require a translation or rotation about a y-axis, which is not allowed with DH parameters. In these cases, you will always end up needing an intermediate fixed frame.</li>
+<li>In many cases, these fixed frames can be avoided by remembering that the center of a DH frame does not need to be physically on the joint, it only needs to have a z-axis aligned with the axis of motion of the joint. This is how many people will lay out DH frames in practice.</li>
 </ul>
 </li>
 <li>Each one of the 6 blue caps on the robot is a motor, meaning each one introduces a new free varaible representing the bending in the joint.<ul>
@@ -1472,6 +1473,7 @@
 <p>You should also be able to see the approximate final position of the end-effector fromm the <code>ur3/position</code> topic:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3/position<span class="w"> </span>
 </span></code></pre></div>
+<p>This will provide a final position and orientation of your end effector. Another way to validate it is using the "Approximately Correct DH Matrix" that's printed on your terminal when you launch the command to move the orbot. You need to ensure that your values are relatively close to the correct one.</p>
 <p>Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)</p>
 <p>Assume the <code>z_table = 0</code>. </p>
 <p>We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.</p>
