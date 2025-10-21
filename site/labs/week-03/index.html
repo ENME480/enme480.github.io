@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project">
+        <meta name="description" content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt.">
       
       
       
         <link rel="canonical" href="https://enme480.github.io/labs/week-03/">
       
       
-        <link rel="prev" href="../week-02/">
+        <link rel="prev" href="../week-2-slides.pptx">
       
       
-        <link rel="next" href="../week-04/">
+        <link rel="next" href="../week-3-slides.pptx">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Week 03 - ENME480 — Introduction to Robotics</title>
+        <title>Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -63,9 +63,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Week 03 - ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" >
       
-        <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
+        <meta  property="og:description"  content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." >
       
         <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/labs/week-03.png" >
       
@@ -79,9 +79,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Week 03 - ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" >
       
-        <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
+        <meta  name="twitter:description"  content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." >
       
         <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/labs/week-03.png" >
       
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-03-python-ros-intro-studio-1" class="md-skip">
+        <a href="#week-3-ros-2-humble-with-python" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 03
+              Week 3 — ROS 2 Basics (Python)
             
           </span>
         </div>
@@ -596,12 +596,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
@@ -662,7 +656,30 @@
   
   
   <span class="md-ellipsis">
-    Week 01
+    Week 1 (Intro)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-1-slides.pptx" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 Slides
     
   </span>
   
@@ -685,7 +702,30 @@
   
   
   <span class="md-ellipsis">
-    Week 02
+    Week 2 (Software)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-2-slides.pptx" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 Slides
     
   </span>
   
@@ -716,8 +756,10 @@
           
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
-    Week 03
+    Week 3/4 (ROS Tutorial)
     
   </span>
   
@@ -729,8 +771,10 @@
         
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
-    Week 03
+    Week 3/4 (ROS Tutorial)
     
   </span>
   
@@ -753,82 +797,88 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-handout-from-lab-code" class="md-nav__link">
+  <a href="#part-a-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Lab handout (from Lab-Code)
+      Part A - Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#week-3-introduction-to-ros-robot-operating-system" class="md-nav__link">
+  <a href="#part-b-pre-flight-check-510-min" class="md-nav__link">
     <span class="md-ellipsis">
-      Week 3 - Introduction to ROS (Robot Operating System)
+      🛫 Part B — Pre-flight check (5–10 min)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Week 3 - Introduction to ROS (Robot Operating System)">
+    <nav class="md-nav" aria-label="🛫 Part B — Pre-flight check (5–10 min)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Troubleshooting
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#materials" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c-workspace-package-setup-only" class="md-nav__link">
     <span class="md-ellipsis">
-      Materials
+      📦 Part C — Workspace &amp; package (setup only)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#key-topics" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#part-d-talker-listener" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Topics
+      📡 Part D — Talker / Listener
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#learning-objectives" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#part-e-turtlesim-drive-in-a-circle" class="md-nav__link">
     <span class="md-ellipsis">
-      Learning Objectives
+      🐢 Part E — Turtlesim (drive in a circle)
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#what-were-assessing" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      🔎 What we’re assessing
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ros-concepts-covered" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#deliverables-single-pdf-upload" class="md-nav__link">
     <span class="md-ellipsis">
-      ROS Concepts Covered
+      📤 Deliverables (single PDF upload)
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="📤 Deliverables (single PDF upload)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#helpful-tips-for-the-turtlesim-velocity-publisher" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      Helpful tips for the turtlesim velocity publisher
     </span>
   </a>
   
@@ -855,12 +905,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-04/" class="md-nav__link">
+      <a href="../week-3-slides.pptx" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 04
+    Week 3/4 Slides
     
   </span>
   
@@ -883,7 +933,7 @@
   
   
   <span class="md-ellipsis">
-    Week 05
+    Week 5 (UR3e Intro, FK Lab Part 1)
     
   </span>
   
@@ -906,7 +956,53 @@
   
   
   <span class="md-ellipsis">
-    Week 06
+    Week 6 (UR3e Forward Kinematics Simulation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week-6-slides.pptx" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 5/6 Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UR3e DH Table
     
   </span>
   
@@ -929,7 +1025,7 @@
   
   
   <span class="md-ellipsis">
-    Week 07
+    Week 7 (No Lab))
     
   </span>
   
@@ -952,7 +1048,7 @@
   
   
   <span class="md-ellipsis">
-    Week 08
+    Week 8 (UR3e Inverse Kinematics)
     
   </span>
   
@@ -970,173 +1066,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-09/" class="md-nav__link">
+      <a href="../week-8-slides.pptx" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 09
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-10/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 10
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-11/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 11
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 12
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-13/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 13
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-14/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 14
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-15/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Week 15
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../final-project/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Final Project
+    Week 8 Slides
     
   </span>
   
@@ -1184,16 +1119,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -1265,127 +1190,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ROS Setup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../python-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Python Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../git-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Git Basics
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gazebo-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Gazebo Setup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../dev-environment/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Development Environment
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kinematics-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Kinematics Reference
+    Dev Environment
     
   </span>
   
@@ -1490,87 +1300,142 @@
   
 
 
-<h1 id="week-03-python-ros-intro-studio-1">Week 03 — Python + ROS Intro (Studio 1)</h1>
+<h1 id="week-3-ros-2-humble-with-python">Week 3 · ROS 2 (Humble) with Python</h1>
+<p>This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: <strong>workspaces</strong>, <strong>packages</strong>, <strong>publish/subscribe</strong>, and a tiny sim (<strong>turtlesim</strong>). The steps below point you to the <strong>official Humble tutorials</strong>—follow them carefully.</p>
+<hr />
+<h2 id="part-a-setup">Part A - Setup</h2>
+<p>First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.</p>
+<p>For people <strong>not</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div></p>
+<p>For people who <strong>are</strong> using the Nvidia container, run:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="s1">&#39;!&#39;</span><span class="s2">&quot;/bin/bash\ncontainer=&quot;</span><span class="s1">&#39;$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)&#39;</span><span class="s2">&quot;\necho Found running container &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot;. Connecting...\ndocker exec -ti &quot;</span><span class="s1">&#39;$container&#39;</span><span class="s2">&quot; bash&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div></p>
+<p>These commands will create two bash files (essentially just lists of other commands) that will allow you to launch the Docker container with:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>startDocker.sh
+</span></code></pre></div></p>
+<p>And connect to it from another terminal with:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div>
+Provided you are in the folder where these files are.</p>
+<p><strong>IMPORTANT:</strong> This the following folders will be linked (outside the docker --&gt; inside the docker)</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ENME480_mrc/src --&gt; enme480_ws/src
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ENME480_mrc/config --&gt; enme480_ws/config
+</span></code></pre></div>
+This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
+(Credit to Benjamin Ruby for the original version of the script)</p>
+<hr />
+<h2 id="part-b-pre-flight-check-510-min">🛫 Part B — Pre-flight check (5–10 min)</h2>
+<!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
+<p>1) Using the commands from above, open your Docker image contianing ROS
+2) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span></code></pre></div>
+It will show you a list of topics, most likely <code>/rosout</code> and <code>/parameter_events</code></p>
+<p>3) Try opening up Gazebo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ign<span class="w"> </span>gazebo
+</span></code></pre></div>
+It should open up a window with examples to different test environments</p>
+<p>4) Try opening up <code>rqt</code>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rqt
+</span></code></pre></div>
+If <code>rqt</code> does not open up anything or throws an error, install any required extenstions
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
+</span></code></pre></div>
+or try reopening it with 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rqt<span class="w"> </span>--force-discover
+</span></code></pre></div></p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>During any of these steps if your display doesn't open up, follow the follwoing steps</p>
+<!--4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
+</span></code></pre></div>
+This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
+
+<p><strong>Checkpoint B (no submission yet):</strong> You can run the above commands without any errors.</p>
+<hr />
+<h2 id="part-c-workspace-package-setup-only">📦 Part C — Workspace &amp; package (setup only)</h2>
+<p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
+<p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
+   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></p>
+<p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
+   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
+<p><strong>Checkpoint C:</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
+<hr />
+<h2 id="part-d-talker-listener">📡 Part D — Talker / Listener</h2>
+<p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
-<li>📁 <a href="../Lab-Code/Week%203%20-%20ROS/"><code>labs/Lab-Code/Week 3 - ROS/</code></a></li>
+<li>Tutorial: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
 </ul>
-<!--
-# Week 3 - Introduction to ROS (Robot Operating System)
-
-## Overview
-Introduction to ROS (Robot Operating System), the fundamental framework for robotics development and simulation.
-
-## Materials
-- [ENME480_IntroToROS.pdf](ENME480_IntroToROS.pdf) - Comprehensive introduction to ROS concepts and usage
-
-## Key Topics
-- **ROS Fundamentals**: Understanding the Robot Operating System architecture
-- **Core Concepts**: Nodes, topics, services, and actions
-- **Communication**: How ROS components communicate with each other
-- **Development Workflow**: Building and running ROS applications
-
-## Learning Objectives
-- Understand ROS architecture and philosophy
-- Learn basic ROS concepts (nodes, topics, services)
-- Set up ROS development environment
-- Create simple ROS programs
-
-## Prerequisites
-- Week 2: Ubuntu and Python basics
-- Basic understanding of programming concepts
-
-## ROS Concepts Covered
-- **Nodes**: Individual processes that perform computation
-- **Topics**: Asynchronous communication mechanism
-- **Services**: Synchronous request-response communication
-- **Messages**: Data structures for communication
-- **Packages**: Organizational units for ROS code
-
-## Next Steps
-This ROS foundation will enable you to work with Gazebo simulation in Week 4.
-
--->
-
-<!-- BEGIN:AUTO-INCLUDE-README -->
-<h2 id="lab-handout-from-lab-code">Lab handout (from Lab-Code)</h2>
-<p><a href="https://github.com/ENME480/Lab-Code/tree/main/Week%203%20-%20ROS">View this lab folder on GitHub</a></p>
-<h2 id="week-3-introduction-to-ros-robot-operating-system">Week 3 - Introduction to ROS (Robot Operating System)</h2>
-<h3 id="overview">Overview</h3>
-<p>Introduction to ROS (Robot Operating System), the fundamental framework for robotics development and simulation.</p>
-<h3 id="materials">Materials</h3>
+<p><strong>Task C1 — Publisher (“talker”)</strong><br />
+Create a node that <strong>publishes numbers at a steady rate</strong> on a topic you choose (e.g., <code>/numbers</code>).<br />
+<em>(Use the tutorial to recall how to create a publisher node; adapt it to publish numbers rather than strings.)</em></p>
+<p><strong>Task C2 — Subscriber (“listener”)</strong><br />
+Create a node that <strong>subscribes</strong> to your numbers topic and <strong>maintains a cumulative sum</strong>. After each new message arrives, it should <strong>publish the running sum</strong> on a <strong>new topic</strong> (e.g., <code>/sum_topic</code>).<br />
+<em>(Re-use the subscriber pattern from the tutorial; add your own sum logic and a second publisher.)</em></p>
+<p><strong>Task C3 — Inspect with CLI</strong><br />
+Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</strong>, <strong>echo</strong> your sum topic, and <strong>show</strong> topic info (type, publishers/subscribers).<br />
+↪ <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></p>
+<blockquote>
+<p><strong>Hints (conceptual, not solutions):</strong>
+- Topic names must <strong>match exactly</strong>; message types must be consistent.<br />
+- If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.<br />
+- Keep node/topic names short and meaningful.</p>
+</blockquote>
+<p><strong>Checkpoint D — Screenshots to capture:</strong><br />
+- Talker output (brief).<br />
+- Listener output showing a <strong>running sum</strong>.<br />
+- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of your sum topic.</p>
+<hr />
+<h2 id="part-e-turtlesim-drive-in-a-circle">🐢 Part E — Turtlesim (drive in a circle)</h2>
+<p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
+<a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></p>
+<p><strong>Task D1 — Launch turtlesim</strong><br />
+Start the turtlesim simulator in one terminal (see tutorial).</p>
+<p><strong>Task D2 — Velocity publisher</strong><br />
+In your package, create a node that <strong>publishes velocity commands</strong> to turtlesim so the turtle moves in a <strong>circle</strong> (non-zero linear <span class="arithmatex">\(x\)</span> and angular <span class="arithmatex">\(z\)</span>).<br />
+<em>(You’ll find the correct topic name in the tutorial; use the CLI to explore message fields.)</em></p>
+<p><strong>Task D3 — Observe &amp; Inspect</strong><br />
+Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motion and pose updates; open <strong>rqt</strong> and view the <strong>Node Graph</strong> and <strong>Topic Monitor</strong>.<br />
+- rqt info: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></p>
+<p><strong>Checkpoint E — Screenshots to capture:</strong><br />
+- Turtlesim window with a <strong>clear circular path</strong>.<br />
+- Your velocity publisher terminal (brief output).<br />
+- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of the pose topic.<br />
+- rqt with <strong>Node Graph</strong> / <strong>Topic Monitor</strong> visible.</p>
+<hr />
+<h2 id="what-were-assessing">🔎 What we’re assessing</h2>
 <ul>
-<li><a href="../../_labcode/Week%203%20-%20ROS/ENME480_IntroToROS.pdf">ENME480_IntroToROS.pdf</a> - Comprehensive introduction to ROS concepts and usage</li>
+<li>You can follow <strong>official Humble docs</strong> and adapt examples to a new task.  </li>
+<li>Your nodes <strong>publish/subscribe</strong> correctly and use appropriate <strong>topic names</strong> and <strong>message types</strong>.  </li>
+<li>You can <strong>inspect</strong> systems via CLI and <strong>rqt</strong> and explain what you see.</li>
 </ul>
-<h3 id="key-topics">Key Topics</h3>
+<hr />
+<h2 id="deliverables-single-pdf-upload">📤 Deliverables (single PDF upload)</h2>
+<p>Include <strong>concise</strong> screenshots (one image may show multiple windows):</p>
 <ul>
-<li><strong>ROS Fundamentals</strong>: Understanding the Robot Operating System architecture</li>
-<li><strong>Core Concepts</strong>: Nodes, topics, services, and actions</li>
-<li><strong>Communication</strong>: How ROS components communicate with each other</li>
-<li><strong>Development Workflow</strong>: Building and running ROS applications</li>
+<li><strong>Talker/Listener:</strong> talker output; listener output showing <strong>running sum</strong>; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of your sum topic.  </li>
+<li><strong>Turtlesim:</strong> turtlesim showing a <strong>circle</strong>; velocity publisher terminal; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of the pose topic; rqt with Node Graph/Topic Monitor visible.  </li>
+<li>A terminal view of your <strong>package tree</strong> (folder/files) helps grading.</li>
 </ul>
-<h3 id="learning-objectives">Learning Objectives</h3>
+<p>Also submit the <strong>three Python files</strong> you created this week as separate attachments or in the PDF appendix (clearly named).</p>
+<hr />
+<h3 id="helpful-tips-for-the-turtlesim-velocity-publisher">Helpful tips for the turtlesim velocity publisher</h3>
 <ul>
-<li>Understand ROS architecture and philosophy</li>
-<li>Learn basic ROS concepts (nodes, topics, services)</li>
-<li>Set up ROS development environment</li>
-<li>Create simple ROS programs</li>
+<li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. </li>
+<li><strong>Message type</strong>: </li>
+<li>Make edits to <code>package.xml</code> to include <code>geometry_msgs</code>
+-<code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
+  you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s). </li>
+<li>If you’re unsure of fields, ask ROS directly:
+  ```bash
+  ros2 interface show geometry_msgs/msg/Twist</li>
 </ul>
-<h3 id="prerequisites">Prerequisites</h3>
-<ul>
-<li>Week 2: Ubuntu and Python basics</li>
-<li>Basic understanding of programming concepts</li>
-</ul>
-<h3 id="ros-concepts-covered">ROS Concepts Covered</h3>
-<ul>
-<li><strong>Nodes</strong>: Individual processes that perform computation</li>
-<li><strong>Topics</strong>: Asynchronous communication mechanism</li>
-<li><strong>Services</strong>: Synchronous request-response communication</li>
-<li><strong>Messages</strong>: Data structures for communication</li>
-<li><strong>Packages</strong>: Organizational units for ROS code</li>
-</ul>
-<h3 id="next-steps">Next Steps</h3>
-<p>This ROS foundation will enable you to work with Gazebo simulation in Week 4.</p>
-<!-- END:AUTO-INCLUDE-README -->
 
 
 
@@ -1605,7 +1470,7 @@ This ROS foundation will enable you to work with Gazebo simulation in Week 4.
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week-02/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 02">
+          <a href="../week-2-slides.pptx" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 Slides">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1615,20 +1480,20 @@ This ROS foundation will enable you to work with Gazebo simulation in Week 4.
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 02
+                Week 2 Slides
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week-04/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 04">
+          <a href="../week-3-slides.pptx" class="md-footer__link md-footer__link--next" aria-label="Next: Week 3/4 Slides">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 04
+                Week 3/4 Slides
               </div>
             </div>
             <div class="md-footer__button md-icon">
