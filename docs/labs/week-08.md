@@ -7,6 +7,14 @@ The objective of this lab is to derive and implement a solution to the inverse k
 - Derive elbow-up inverse kinematic equations for the UR3
 - Write a publisher that moves the UR3 to a point in space specified by the user
 
+> **Important:** You are expected to do the geometry/trigonometry yourself.
+
+## Helpful Resources
+
+- [Trignometry & Geometry Cheat Sheet](../../docs/assets/docs/trig_cheat_sheet.pdf) 
+  - Ref: https://tutorial.math.lamar.edu/pdf/trig_cheat_sheet.pdf
+
+
 ## Task Description
 
 The joints and links of the UR3 robot are annotated in Figure 1. The goal is to find the rotation
@@ -25,16 +33,45 @@ be the joint angles `θ1 to θ6`.
 
 In this section, a suggested solution approach is described.
 
-1. Establish the world coordinate frame (frame w) centered at the corner of the UR3’s base shown in Figure 2. We will solve the inverse kinematics problem in the base frame (frame 0), so we will convert the coordinates (𝑥𝑤−𝑔𝑟𝑖𝑝, 𝑦𝑤−𝑔𝑟𝑖𝑝, 𝑧𝑤−𝑔𝑟𝑖𝑝) entered by the user to base frame coordinates (𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝). The origin of the base frame is at (-0.15, 0.15, 0.01) in
-the world frame. Set 𝜃5 = −90° in unit of radian."
+
+### Step 1
+
+Establish the world coordinate frame (`frame w`) centered at the corner of the UR3’s base shown in the image below. We will solve the inverse kinematics problem in the base frame (`frame 0`), so we will convert the coordinates (𝑥𝑤−𝑔𝑟𝑖𝑝, 𝑦𝑤−𝑔𝑟𝑖𝑝, 𝑧𝑤−𝑔𝑟𝑖𝑝) entered by the user to base frame coordinates (`𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝`). The origin of the base frame is at (`-0.15, 0.15, 0.01`) in
+the world frame. Set `𝜃5 = −90°` in unit of radian."
+
+**Hints**
+
+* This is a **pure translation** (axes are parallel). Keep units in **meters**.
+* Convert yaw input **degrees → radians** immediately at the start of your function.
 
 ![](../../docs/assets/robot_pics/ik/img2.jpg)
 
-2. We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of `𝜃6`’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper `(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)` in the base frame and the yaw angle, find wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛).
-3. Given the wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛), find the waist angle 𝜃1. Figure 3 shows the
+### Step 2
+
+We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of `𝜃6`’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper `(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)` in the base frame and the yaw angle, find wrist’s center point (`𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛`).
+
+**Hints**
+
+* Think: “from the gripper target, walk **back** along its yaw direction by 0.0535 m to reach J6.”
+* Keep the **sign conventions** consistent with your world/base axes and yaw definition.
+* Do not overthink: this is a **short, straight translation** in the gripper’s yaw direction.
+
+**Sanity check**
+
+* If yaw points straight “forward” in your world, the wrist center is simply a **small step behind** the gripper target in that same horizontal line.
+
+### Step 3
+
+Given the wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛), find the waist angle 𝜃1. Figure 3 shows the
 top-down view of the robot, which is helpful for formulating the relations.
-4. Solve for the value of `𝜃6`, given 𝜃1 and the desired yaw angle (should be converted to radian from the input degree value). 𝜃6 = 0 when Link 9 is parallel to Link 4 and Link 6.
-5. We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑) is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if 𝜃1 = 0 then 𝑦3𝑒𝑛𝑑 = 0. If 𝜃1 = 90° then 𝑥3𝑒𝑛𝑑 = 0. Use the top-down view (Figure 3) to find 𝑥3𝑒𝑛𝑑 and 𝑦3𝑒𝑛𝑑 from 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛. Figure 4 is a side view that is a projection of the robot onto a plane
+
+### Step 4
+
+Solve for the value of `𝜃6`, given 𝜃1 and the desired yaw angle (should be converted to radian from the input degree value). 𝜃6 = 0 when Link 9 is parallel to Link 4 and Link 6.
+
+### Step 5
+
+We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑) is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if 𝜃1 = 0 then 𝑦3𝑒𝑛𝑑 = 0. If 𝜃1 = 90° then 𝑥3𝑒𝑛𝑑 = 0. Use the top-down view (Figure 3) to find 𝑥3𝑒𝑛𝑑 and 𝑦3𝑒𝑛𝑑 from 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛. Figure 4 is a side view that is a projection of the robot onto a plane
 perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
 this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.
 
@@ -42,7 +79,9 @@ this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a co
 
 ![Side View of UR3](../../docs/assets/robot_pics/ik/img4.jpg)
 
-6. Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
+### Step 6
+
+Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
 x-y plane of the world frame.
 
 Now that your code solves for all the joint variables `(𝜃1 to 𝜃6)`, send these six values to the publisher you created in FK lab to move the robot to those angles so that it gets to the desired position.
@@ -162,11 +201,10 @@ Now we will test if the simulation environment is working
 |(0.2, 0.3, 0.4, 30) |      |     |
 
 
--## Submission
+## Submission
 
 1.  A pdf of your code complete with comments describing the steps you've taken
 2.  A pdf containing a (neatly) written/typed solution for IK showing how you derived your equations from the geometry
 3. Screenshots of UR3e in Gazebo for all test cases
 4.  A comparison of error between your IK script and the output of the ```ur3/position``` topic for the test cases with a discussion of possible error sources.
 5.  A brief discussion of any possible singularities in the math and what could be done to avoid them (you don't need to implement this, we just want you thinking about strategies!)
-
