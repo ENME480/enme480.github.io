@@ -1419,7 +1419,7 @@ the end-effector are fixed by letting the vacuum gripper aluminum plate (Link 9)
 parallel to the x-y plane of world frame coordinates (i.e., desk plane), and θ5 is always equal to −90°. Thus, the user will input the desired position and yaw angle of the end-effector in world
 frame coordinates <code>(xWgrip, yWgrip, zWgrip, yawWgrip)</code>, and the output of the program should
 be the joint angles <code>θ1 to θ6</code>.</p>
-<p><img alt="1" src="{{ base_url }}/assets/ik/img1.jpg" /></p>
+<p><img alt="1" src="../../assets/ik/img1.jpg" /></p>
 <h2 id="solution-steps">Solution Steps</h2>
 <p>In this section, a suggested solution approach is described.</p>
 <h3 id="step-1">Step 1</h3>
@@ -1430,7 +1430,7 @@ the world frame. Set <code>𝜃5 = −90°</code> in unit of radian."</p>
 <li>This is a <strong>pure translation</strong> (axes are parallel). Keep units in <strong>meters</strong>.</li>
 <li>Convert yaw input <strong>degrees → radians</strong> immediately at the start of your function.</li>
 </ul>
-<p><img alt="2" src="{{ base_url }}/assets/ik/img2.jpg" /></p>
+<p><img alt="2" src="../../assets/ik/img2.jpg" /></p>
 <h3 id="step-2">Step 2</h3>
 <p>We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of <code>𝜃6</code>’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper <code>(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)</code> in the base frame and the yaw angle, find wrist’s center point (<code>𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛</code>).</p>
 <p><strong>Hints</strong></p>
@@ -1452,8 +1452,8 @@ top-down view of the robot, which is helpful for formulating the relations.</p>
 <p>We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑) is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if 𝜃1 = 0 then 𝑦3𝑒𝑛𝑑 = 0. If 𝜃1 = 90° then 𝑥3𝑒𝑛𝑑 = 0. Use the top-down view (Figure 3) to find 𝑥3𝑒𝑛𝑑 and 𝑦3𝑒𝑛𝑑 from 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛. Figure 4 is a side view that is a projection of the robot onto a plane
 perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
 this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.</p>
-<p><img alt="Top View of UR3" src="{{ base_url }}/assets/ik/img3.jpg" /></p>
-<p><img alt="Side View of UR3" src="{{ base_url }}/assets/ik/img4.jpg" /></p>
+<p><img alt="Top View of UR3" src="../../assets/ik/img3.jpg" /></p>
+<p><img alt="Side View of UR3" src="../../assets/ik/img4.jpg" /></p>
 <h3 id="step-6">Step 6</h3>
 <p>Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
 x-y plane of the world frame.</p>
