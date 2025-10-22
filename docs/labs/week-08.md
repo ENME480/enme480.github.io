@@ -27,7 +27,7 @@ parallel to the x-y plane of world frame coordinates (i.e., desk plane), and θ5
 frame coordinates `(xWgrip, yWgrip, zWgrip, yawWgrip)`, and the output of the program should
 be the joint angles `θ1 to θ6`.
 
-![1]({{ base_url }}/assets/ik/img1.jpg)
+![1](../assets/ik/img1.jpg)
 
 ## Solution Steps
 
@@ -44,7 +44,7 @@ the world frame. Set `𝜃5 = −90°` in unit of radian."
 * This is a **pure translation** (axes are parallel). Keep units in **meters**.
 * Convert yaw input **degrees → radians** immediately at the start of your function.
 
-![2]({{ base_url }}/assets/ik/img2.jpg)
+![2](../assets/ik/img2.jpg)
 
 ### Step 2
 
@@ -75,9 +75,9 @@ We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 
 perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
 this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.
 
-![Top View of UR3]({{ base_url }}/assets/ik/img3.jpg)
+![Top View of UR3](../assets/ik/img3.jpg)
 
-![Side View of UR3]({{ base_url }}/assets/ik/img4.jpg)
+![Side View of UR3](../assets/ik/img4.jpg)
 
 ### Step 6
 
