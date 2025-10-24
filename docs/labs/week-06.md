@@ -159,7 +159,7 @@ This is the robot in its zero configuration. Your DH Table should correspond to 
 
 ![offset](../assets/fk/zeropoint.png)
 
-A top down view of the offset for the corner point.
+A top down view of the offset for the corner point. The thickness of the base plate is `z=10mm`.
 
 ![tool](../assets/fk/tool.png)
 
