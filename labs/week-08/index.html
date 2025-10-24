@@ -1484,7 +1484,7 @@ x-y plane of the world frame.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>bash<span class="w"> </span>connectToDocker.sh
 </span></code></pre></div>
 <h3 id="step-3-build-the-workspace">Step 3: Build the workspace</h3>
-<p>Once in the doicker dcontainer:</p>
+<p>Once in the docker dcontainer:</p>
 <h4 id="preliminary-instllations">Preliminary instllations</h4>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-tf-transformations
@@ -1527,7 +1527,7 @@ x-y plane of the world frame.</p>
 </li>
 <li>
 <p><strong>Terminal/Pane 4:</strong> Run the IK node once script is completed in a different <code>tmux</code> pane:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2 launch ur3e_enme480 ur3e_ik.py &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;yawAngle&gt;
 </span></code></pre></div></p>
 </li>
 </ul>
