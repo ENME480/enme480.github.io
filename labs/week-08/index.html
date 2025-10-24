@@ -1435,7 +1435,7 @@ the world frame. Set <code>𝜃5 = −90°</code> in unit of radian."</p>
 <p>We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of <code>𝜃6</code>’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper <code>(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)</code> in the base frame and the yaw angle, find wrist’s center point (<code>𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛</code>).</p>
 <p><strong>Hints</strong></p>
 <ul>
-<li>Think: “from the gripper target, walk <strong>back</strong> along its yaw direction by 0.0535 m to reach J6.”</li>
+<li>Think: “from the gripper target, walk <strong>back</strong> along its yaw direction by 0.0535 m to reach Joint 6.”</li>
 <li>Keep the <strong>sign conventions</strong> consistent with your world/base axes and yaw definition.</li>
 <li>Do not overthink: this is a <strong>short, straight translation</strong> in the gripper’s yaw direction.</li>
 </ul>
@@ -1447,15 +1447,15 @@ the world frame. Set <code>𝜃5 = −90°</code> in unit of radian."</p>
 <p>Given the wrist’s center point (𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛), find the waist angle 𝜃1. Figure 3 shows the
 top-down view of the robot, which is helpful for formulating the relations.</p>
 <h3 id="step-4">Step 4</h3>
-<p>Solve for the value of <code>𝜃6</code>, given 𝜃1 and the desired yaw angle (should be converted to radian from the input degree value). 𝜃6 = 0 when Link 9 is parallel to Link 4 and Link 6.</p>
+<p>Solve for the value of <code>𝜃6</code>, given 𝜃1 and the desired yaw angle (should be converted to radian from the input degree value). <code>𝜃6 = 0</code> when Link 9 is parallel to Link 4 and Link 6.</p>
 <h3 id="step-5">Step 5</h3>
-<p>We will define another virtual point. A projected end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑) is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if 𝜃1 = 0 then 𝑦3𝑒𝑛𝑑 = 0. If 𝜃1 = 90° then 𝑥3𝑒𝑛𝑑 = 0. Use the top-down view (Figure 3) to find 𝑥3𝑒𝑛𝑑 and 𝑦3𝑒𝑛𝑑 from 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛. Figure 4 is a side view that is a projection of the robot onto a plane
-perpendicular to the x-y plane of world frame and rotated by 𝜃1 about the base frame. From
-this figure we can see that 𝑧3𝑒𝑛𝑑 is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.</p>
+<p>We will define another virtual point. A projected end point <code>(𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑)</code> is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if <code>𝜃1 = 0</code> then <code>𝑦3𝑒𝑛𝑑 = 0</code>. If <code>𝜃1 = 90°</code> then <code>𝑥3𝑒𝑛𝑑 = 0</code>. Use the top-down view (Figure 3) to find <code>𝑥3𝑒𝑛𝑑</code> and <code>𝑦3𝑒𝑛𝑑</code> from <code>𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛</code>. Figure 4 is a side view that is a projection of the robot onto a plane
+perpendicular to the x-y plane of world frame and rotated by <code>𝜃1</code> about the base frame. From
+this figure we can see that <code>𝑧3𝑒𝑛𝑑</code> is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.</p>
 <p><img alt="Top View of UR3" src="../../assets/ik/img3.jpg" /></p>
 <p><img alt="Side View of UR3" src="../../assets/ik/img4.jpg" /></p>
 <h3 id="step-6">Step 6</h3>
-<p>Find 𝜃2, 𝜃3 and 𝜃4 from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
+<p>Find <code>𝜃2</code>, <code>𝜃3</code> and <code>𝜃4</code> from the end point (𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑). In Figure 4, a parallel to the base construction line through Joint 2 and a parallel to the base construction line through Joint 4 are helpful in finding the needed partial angles. 𝜃2 and 𝜃3 can be found from the geometry, while 𝜃4 is determined due to the requirement that Link 7 and Link 9 must be parallel to the
 x-y plane of the world frame.</p>
 <p>Now that your code solves for all the joint variables <code>(𝜃1 to 𝜃6)</code>, send these six values to the publisher you created in FK lab to move the robot to those angles so that it gets to the desired position.</p>
 <h2 id="implementation-in-ros2-gazebo">Implementation in ROS2 &amp; Gazebo</h2>
