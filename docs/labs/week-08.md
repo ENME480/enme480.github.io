@@ -186,7 +186,7 @@ Now we will test if the simulation environment is working
 
 * **Terminal/Pane 4:** Run the IK node once script is completed in a different `tmux` pane:
     ```
-    ros2 launch ur3e_enme480 ur3e_ik.py <x> <y> <z> <yawAngle>
+    ros2 run ur3e_enme480 ur3e_ik <x> <y> <z> <yawAngle>
     ```
 
 
