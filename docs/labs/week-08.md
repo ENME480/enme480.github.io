@@ -112,7 +112,7 @@ Next, we pull the latest version of the helper package repository:
 
 ```bash
 cd ~/ENME480_mrc/src/ur3e_enme480
-git checkout .
+git checkout origin/main -- ur3e_enme480/submodules/kinematic_functions.pyc
 git pull
 ```
 
