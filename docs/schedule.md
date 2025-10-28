@@ -1,4 +1,4 @@
-# Schedule — Fall 2025
+<!-- # Schedule — Fall 2025
 
 > **Heads-up:** Locations can change; watch **Piazza** for updates.  
 > **Legend:** **bold = Lab (RAL)**, Lectures in **TWS1100**, Studios in **KEB 2111**.
@@ -177,4 +177,4 @@ Use the tabs to view the plan as a **calendar**, by **week**, a **sortable table
 - **W12:** **Camera Lab** → [Week 12](../labs/week-12.md)  
 - **W13:** **No Lab** (Make-up/Office Hours)  
 - **W14:** **Final Project** → [Week 14](../labs/week-14.md)  
-- **W15:** **Final Project** → [Week 15](../labs/week-15.md)
+- **W15:** **Final Project** → [Week 15](../labs/week-15.md) -->
