@@ -134,10 +134,11 @@ git pull
 
 If you have an error in pulling the commit, run the following commands, assuming you have a backup of your previous codes:
 
+```bash
 cd ~/ENME480_mrc/src/ur3e_enme480
 git checkout .
 git pull
-
+```
 
 ### Step 2: Start the Docker Container
 
