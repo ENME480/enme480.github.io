@@ -21,7 +21,7 @@
 - **Group-based** - Work with classmates to solve problems
 - **Progressive difficulty** - Skills build week by week
 
----
+<!-- ---
 
 ## 📅 **Lab Progression**
 
@@ -38,7 +38,7 @@
 | **Week 9** | No Lab | - | - | Catch up week |
 | **Week 10** | FK Lab | Robot | EAF 3119 | Real robot FK |
 | **Week 11** | IK Lab | Robot | EAF 3119 | Real robot IK |
-| **Week 12-15** | Final Project | Both | Both | Vision-enabled pick & place |
+| **Week 12-15** | Final Project | Both | Both | Vision-enabled pick & place | -->
 
 ---
 
