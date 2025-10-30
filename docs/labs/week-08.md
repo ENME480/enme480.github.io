@@ -132,6 +132,13 @@ git checkout origin/main -- ur3e_enme480/submodules/kinematic_functions.pyc
 git pull
 ```
 
+If you have an error in pulling the commit, run the following commands, assuming you have a backup of your previous codes:
+
+cd ~/ENME480_mrc/src/ur3e_enme480
+git checkout .
+git pull
+
+
 ### Step 2: Start the Docker Container
 
 To start the docker container, run
