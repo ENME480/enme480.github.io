@@ -113,7 +113,7 @@ Before doing that take a backup of your current `/src` folder so that you don't 
 ```bash
 cd
 mkdir -p backup/week6
-cp -r ~/ENME480_mrc/src/ ~/backup/week6
+sudo cp -r ~/ENME480_mrc/src/ ~/backup/week6
 ```
 
 Next, we pull the latest version of the repository
