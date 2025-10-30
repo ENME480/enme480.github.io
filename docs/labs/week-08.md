@@ -132,6 +132,7 @@ git checkout origin/main -- ur3e_enme480/submodules/kinematic_functions.pyc
 git pull
 ```
 
+#### Troubleshooting
 If you have an error in pulling the commit, run the following commands, assuming you have a backup of your previous codes:
 
 ```bash
