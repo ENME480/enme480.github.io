@@ -184,6 +184,8 @@ source install/setup.bash
 
 ### Step 4: Complete the IK Script Node
 
+Ensure that your `~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py` is complete from previous week's assignment.
+
 Find the script in `~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_ik.py` and complete the function `inverse_kinematics()`
 
 ### Step 5: Launch the Simulation
