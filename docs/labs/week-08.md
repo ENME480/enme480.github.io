@@ -42,8 +42,8 @@ Here's a table for the link lengths from the [UR3e Dimensions](../../docs/assets
 | L6 | 0.104
 |L7 | 0.083
 |L8| 0.092
-|L9| 0.059
-|L10 | 0.0535     |     
+|L9| 0.0535
+|L10 | 0.059     |     
 
 ## Solution Steps
 
@@ -89,7 +89,7 @@ Solve for the value of `𝜃6`, given 𝜃1 and the desired yaw angle (should be
 
 We will define another virtual point. A projected end point `(𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑)` is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if `𝜃1 = 0` then `𝑦3𝑒𝑛𝑑 = 0`. If `𝜃1 = 90°` then `𝑥3𝑒𝑛𝑑 = 0`. Use the top-down view (Figure 3) to find `𝑥3𝑒𝑛𝑑` and `𝑦3𝑒𝑛𝑑` from `𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛`. Figure 4 is a side view that is a projection of the robot onto a plane
 perpendicular to the x-y plane of world frame and rotated by `𝜃1` about the base frame. From
-this figure we can see that `𝑧3𝑒𝑛𝑑` is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.
+this figure we can see that `𝑧3𝑒𝑛𝑑` is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.059m from the center of the gripper plate in the z-axis direction.
 
 ![Top View of UR3](../assets/ik/img3.jpg)
 
