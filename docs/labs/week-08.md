@@ -29,6 +29,22 @@ be the joint angles `θ1 to θ6`.
 
 ![1](../assets/ik/img1.jpg)
 
+Here's a table for the link lengths from the [UR3e Dimensions](../../docs/assets/fk/ur3eschem.png). Write your math in terms of the variables for the links, instead of using their numerical value.
+
+
+| Link   | Length (in m)         | 
+| ------------- |:-------------:| 
+| L1 | 0.152
+|L2 | 0.120
+|L3| 0.244
+|L4| 0.093
+|L5 | 0.213     |     
+| L6 | 0.104
+|L7 | 0.083
+|L8| 0.092
+|L9| 0.0535
+|L10 | 0.059     |     
+
 ## Solution Steps
 
 In this section, a suggested solution approach is described.
@@ -73,7 +89,7 @@ Solve for the value of `𝜃6`, given 𝜃1 and the desired yaw angle (should be
 
 We will define another virtual point. A projected end point `(𝑥3𝑒𝑛𝑑, 𝑦3𝑒𝑛𝑑, 𝑧3𝑒𝑛𝑑)` is a point off the UR3 but lies along the Link 6 axis, as shown in Figure 1 and Figure 3. For example, if `𝜃1 = 0` then `𝑦3𝑒𝑛𝑑 = 0`. If `𝜃1 = 90°` then `𝑥3𝑒𝑛𝑑 = 0`. Use the top-down view (Figure 3) to find `𝑥3𝑒𝑛𝑑` and `𝑦3𝑒𝑛𝑑` from `𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛`. Figure 4 is a side view that is a projection of the robot onto a plane
 perpendicular to the x-y plane of world frame and rotated by `𝜃1` about the base frame. From
-this figure we can see that `𝑧3𝑒𝑛𝑑` is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.052m from the center of the gripper plate in the z-axis direction.
+this figure we can see that `𝑧3𝑒𝑛𝑑` is 𝑧𝑐𝑒𝑛 offset by a constant. The end of the gripper is 0.059m from the center of the gripper plate in the z-axis direction.
 
 ![Top View of UR3](../assets/ik/img3.jpg)
 
@@ -97,7 +113,7 @@ Before doing that take a backup of your current `/src` folder so that you don't 
 ```bash
 cd
 mkdir -p backup/week6
-cp -r ~/ENME480_mrc/src/ ~/backup/week6
+sudo cp -r ~/ENME480_mrc/src/ ~/backup/week6
 ```
 
 Next, we pull the latest version of the repository
@@ -113,6 +129,15 @@ Next, we pull the latest version of the helper package repository:
 ```bash
 cd ~/ENME480_mrc/src/ur3e_enme480
 git checkout origin/main -- ur3e_enme480/submodules/kinematic_functions.pyc
+git pull
+```
+
+#### Troubleshooting
+If you have an error in pulling the commit, run the following commands, assuming you have a backup of your previous codes:
+
+```bash
+cd ~/ENME480_mrc/src/ur3e_enme480
+git checkout .
 git pull
 ```
 
@@ -158,6 +183,8 @@ source install/setup.bash
 ```
 
 ### Step 4: Complete the IK Script Node
+
+Ensure that your `~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py` is complete from previous week's assignment.
 
 Find the script in `~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_ik.py` and complete the function `inverse_kinematics()`
 
