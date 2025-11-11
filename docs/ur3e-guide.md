@@ -1,4 +1,4 @@
-# UR3e Quick Reference
+<!-- # UR3e Quick Reference
 
 Hands-on notes for operating the UR3e in ENME480 labs. Use this as a quick refresher before robot sessions or while debugging in the lab.
 
@@ -31,4 +31,4 @@ Hands-on notes for operating the UR3e in ENME480 labs. Use this as a quick refre
 - **Driver disconnects:** check Ethernet cable, confirm the control box shows *Remote Control*, and restart the ROS 2 driver node.
 - **Unexpected motion:** immediately press e-stop, inspect the URScript/ROS command, and test at a low speed.
 
-Need deeper theory? See [Kinematics Reference](kinematics-reference.md) and the lab handouts embedded throughout the weekly pages.
+Need deeper theory? See [Kinematics Reference](kinematics-reference.md) and the lab handouts embedded throughout the weekly pages. -->

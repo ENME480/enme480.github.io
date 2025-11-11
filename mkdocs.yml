@@ -81,6 +81,9 @@ extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
   - styles/calendar.css
 
+not_in_nav: |
+  _labcode/**
+
 nav:
   - Home: index.md
   - Syllabus: syllabus.md

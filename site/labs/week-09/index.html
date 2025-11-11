@@ -1096,6 +1096,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-before-you-leave-the-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Before you leave the lab
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1763,9 +1772,15 @@
 <table>
 <thead>
 <tr>
-<th>Test Point Inputs (x, y, z, yaw)</th>
-<th style="text-align: center;">IK solution (𝜽𝟏, … 𝜽𝟔)</th>
-<th style="text-align: right;">Output from <code>/ur3/position</code></th>
+<th>Test Point Inputs (x, y, z, Yaw)</th>
+<th style="text-align: center;">Joint Angles (Your Code)  <code>(𝜽𝟏, … 𝜽𝟔)</code></th>
+<th style="text-align: right;">Correct Joint Angles <code>(𝜽𝟏, … 𝜽𝟔)</code></th>
+<th style="text-align: right;">Laser Position on Workbench (Your Prediction) <code>(x, y)</code></th>
+<th style="text-align: right;">Laser Position on Workbench (Correct Prediction) <code>(x, y)</code></th>
+<th style="text-align: right;">Laser Position on Workbench (Measured Prediction) <code>(x, y)</code></th>
+<th style="text-align: right;">End Effector Position (Your Prediction) <code>(x, y, z)</code></th>
+<th style="text-align: right;">End Effector Position (Correct Prediction) <code>(x, y, z)</code></th>
+<th style="text-align: right;">End Effector Position (Measured) <code>(x, y, z)</code></th>
 </tr>
 </thead>
 <tbody>
@@ -1773,29 +1788,72 @@
 <td>(0.2, 0.3, 0.3, 45)</td>
 <td style="text-align: center;"></td>
 <td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
 <td>(0.1, 0.4, 0.1, 90)</td>
 <td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
 </tr>
 <tr>
 <td>(0.2, 0.2, 0.2, 0)</td>
 <td style="text-align: center;"></td>
 <td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
 <td>(0.2, -0.2, 0.1, 0)</td>
 <td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 <td style="text-align: right;"></td>
 </tr>
 <tr>
 <td>(0.2, 0.3, 0.4, 30)</td>
 <td style="text-align: center;"></td>
 <td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
+<h2 id="5-before-you-leave-the-lab">5. Before you leave the lab</h2>
+<p>Send yourself the backup/copy of your script and restore the package to its blank version.</p>
+<p>IMPORTANT: The below command will erase your script from the computer so take a backup of it before you run it</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/rosPackages/ENME480_ws/src/ur3e_enme480
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span></code></pre></div>
+<h1 id="submission">Submission</h1>
+<p>Please create a neatly typed/written report for the lab including the following:
+1. Your IK derivation 
+2. Comparsion table for Step 4.
+3. Write a paragraph on the reasons behind discrepancies in measurements and calculations.
+4. What are the potential sources of singlularities and how will avoid them when you are implementing the code? If you found any singularities, be sure to list them and discuss possible causes.
+5. Code snippet of <code>inverse_kinematics()</code> function that you used.</p>
 
 
 

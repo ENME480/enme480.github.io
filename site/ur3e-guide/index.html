@@ -105,11 +105,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#ur3e-quick-reference" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -1417,21 +1412,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    UR3e Guide
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1444,79 +1424,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#powering-on-and-arming" class="md-nav__link">
-    <span class="md-ellipsis">
-      Powering on and arming
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operating-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operating modes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-ros-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with ROS 2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calibration-coordinate-frames" class="md-nav__link">
-    <span class="md-ellipsis">
-      Calibration &amp; coordinate frames
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#safety-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      Safety checklist
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting tips
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1709,44 +1616,42 @@
   
 
 
-<h1 id="ur3e-quick-reference">UR3e Quick Reference</h1>
-<p>Hands-on notes for operating the UR3e in ENME480 labs. Use this as a quick refresher before robot sessions or while debugging in the lab.</p>
-<h2 id="powering-on-and-arming">Powering on and arming</h2>
-<ul>
-<li>Follow the detailed walk-through in <a href="../labs/week-05/#powering-on-the-ur3e">Week 05 — UR3e Intro</a> for pictures of the power and arm buttons.</li>
-<li>If the arm does not respond after powering on, press the arm button twice—the first press powers the robot, the second releases the brakes.</li>
-<li>Keep the physical e-stop within reach; if it has been pressed, twist to release before trying to arm the robot.</li>
-</ul>
-<h2 id="operating-modes">Operating modes</h2>
-<ul>
-<li><strong>Freedrive:</strong> Hold the freedrive button on the back of the teach pendant to move the arm manually. Use this to get joint guesses before running code.</li>
-<li><strong>Program mode:</strong> Run scripts from the teach pendant or from <code>ur_robot_driver</code> in ROS 2. Confirm the controller is in <em>Remote Control</em> before launching external programs.</li>
-<li><strong>Speed slider:</strong> Start at 10–20% for first runs; increase only after verifying the trajectory.</li>
-</ul>
-<h2 id="working-with-ros-2">Working with ROS 2</h2>
-<ul>
-<li>Source your ROS 2 workspace, then use <code>ros2 launch ur_robot_driver ur_control.launch.py robot_ip:=ROBOT_IP</code>.</li>
-<li>Use <code>ros2 topic echo /joint_states</code> to confirm feedback and <code>rviz2</code> to monitor the robot model.</li>
-<li>Reference <a href="../labs/week-09/">Week 09 — IK Lab</a> for the full ROS 2 driver workflow.</li>
-</ul>
-<h2 id="calibration-coordinate-frames">Calibration &amp; coordinate frames</h2>
-<ul>
-<li>Ensure the base frame is aligned with the cell layout; if the table was moved, redo the feature alignment process from Week 05.</li>
-<li>Use the provided calibration blocks and checkerboards; see the perspective PDF in <a href="../labs/week-11/#camera-perspective-pdf">Week 11</a> for camera-to-base alignment steps.</li>
-</ul>
-<h2 id="safety-checklist">Safety checklist</h2>
-<ul>
-<li>Keep the work envelope clear and warn teammates before executing motion.</li>
-<li>Never bypass safety interlocks or modify the protective stops.</li>
-<li>If anything looks wrong, hit the e-stop first, then diagnose.</li>
-</ul>
-<h2 id="troubleshooting-tips">Troubleshooting tips</h2>
-<ul>
-<li><strong>Robot won’t arm:</strong> verify e-stop released, confirm mode selector is in <em>Auto</em>, then reboot the controller if needed.</li>
-<li><strong>Driver disconnects:</strong> check Ethernet cable, confirm the control box shows <em>Remote Control</em>, and restart the ROS 2 driver node.</li>
-<li><strong>Unexpected motion:</strong> immediately press e-stop, inspect the URScript/ROS command, and test at a low speed.</li>
-</ul>
-<p>Need deeper theory? See <a href="../kinematics-reference/">Kinematics Reference</a> and the lab handouts embedded throughout the weekly pages.</p>
+  <h1>UR3e Guide</h1>
+
+<!-- # UR3e Quick Reference
+
+Hands-on notes for operating the UR3e in ENME480 labs. Use this as a quick refresher before robot sessions or while debugging in the lab.
+
+## Powering on and arming
+- Follow the detailed walk-through in [Week 05 — UR3e Intro](labs/week-05.md#powering-on-the-ur3e) for pictures of the power and arm buttons.
+- If the arm does not respond after powering on, press the arm button twice—the first press powers the robot, the second releases the brakes.
+- Keep the physical e-stop within reach; if it has been pressed, twist to release before trying to arm the robot.
+
+## Operating modes
+- **Freedrive:** Hold the freedrive button on the back of the teach pendant to move the arm manually. Use this to get joint guesses before running code.
+- **Program mode:** Run scripts from the teach pendant or from `ur_robot_driver` in ROS 2. Confirm the controller is in *Remote Control* before launching external programs.
+- **Speed slider:** Start at 10–20% for first runs; increase only after verifying the trajectory.
+
+## Working with ROS 2
+- Source your ROS 2 workspace, then use `ros2 launch ur_robot_driver ur_control.launch.py robot_ip:=ROBOT_IP`.
+- Use `ros2 topic echo /joint_states` to confirm feedback and `rviz2` to monitor the robot model.
+- Reference [Week 09 — IK Lab](labs/week-09.md) for the full ROS 2 driver workflow.
+
+## Calibration & coordinate frames
+- Ensure the base frame is aligned with the cell layout; if the table was moved, redo the feature alignment process from Week 05.
+- Use the provided calibration blocks and checkerboards; see the perspective PDF in [Week 11](labs/week-11.md#camera-perspective-pdf) for camera-to-base alignment steps.
+
+## Safety checklist
+- Keep the work envelope clear and warn teammates before executing motion.
+- Never bypass safety interlocks or modify the protective stops.
+- If anything looks wrong, hit the e-stop first, then diagnose.
+
+## Troubleshooting tips
+- **Robot won’t arm:** verify e-stop released, confirm mode selector is in *Auto*, then reboot the controller if needed.
+- **Driver disconnects:** check Ethernet cable, confirm the control box shows *Remote Control*, and restart the ROS 2 driver node.
+- **Unexpected motion:** immediately press e-stop, inspect the URScript/ROS command, and test at a low speed.
+
+Need deeper theory? See [Kinematics Reference](kinematics-reference.md) and the lab handouts embedded throughout the weekly pages. -->
 
 
 

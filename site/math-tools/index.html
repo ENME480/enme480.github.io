@@ -105,11 +105,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#math-tools-for-enme480" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -1463,21 +1458,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Math Tools
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1490,70 +1470,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#coordinate-transforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coordinate transforms
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dh-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      DH parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jacobians" class="md-nav__link">
-    <span class="md-ellipsis">
-      Jacobians
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linear-algebra-reminders" class="md-nav__link">
-    <span class="md-ellipsis">
-      Linear algebra reminders
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-calculators-notebooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Useful calculators &amp; notebooks
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1700,27 +1616,29 @@
   
 
 
-<h1 id="math-tools-for-enme480">Math Tools for ENME480</h1>
-<p>Quick reference for the linear algebra and geometry you will touch every week. Pair these snippets with the detailed derivations in <a href="../kinematics-reference/">kinematics-reference.md</a>.</p>
-<h2 id="coordinate-transforms">Coordinate transforms</h2>
-<ul>
-<li>Homogeneous transform:</li>
-</ul>
+  <h1>Math Tools</h1>
+
+<!-- # Math Tools for ENME480
+
+Quick reference for the linear algebra and geometry you will touch every week. Pair these snippets with the detailed derivations in [kinematics-reference.md](kinematics-reference.md).
+
+## Coordinate transforms
+- Homogeneous transform:
+
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>^{A}T_{B} =
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>\begin{bmatrix}
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>R &amp; p \\
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>0 &amp; 1
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>\end{bmatrix}
 </span></code></pre></div>
-<ul>
-<li>Compose transforms with matrix multiplication; invert by transposing the rotation and negating the translated point: <code>T_AB.inverse() = [[Rᵀ, -Rᵀ p], [0, 1]]</code>.</li>
-</ul>
-<h2 id="dh-parameters">DH parameters</h2>
-<ul>
-<li>Standard DH table columns: <code>aᵢ</code>, <code>αᵢ</code>, <code>dᵢ</code>, <code>θᵢ</code>.</li>
-<li>Use the UR3e table provided in <a href="../labs/week-05/">labs/week-05.md</a>.</li>
-<li>Build transforms programmatically with helper functions (see snippet below).</li>
-</ul>
+
+- Compose transforms with matrix multiplication; invert by transposing the rotation and negating the translated point: `T_AB.inverse() = [[Rᵀ, -Rᵀ p], [0, 1]]`.
+
+## DH parameters
+- Standard DH table columns: `aᵢ`, `αᵢ`, `dᵢ`, `θᵢ`.
+- Use the UR3e table provided in [labs/week-05.md](labs/week-05.md).
+- Build transforms programmatically with helper functions (see snippet below).
+
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">dh_transform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
@@ -1733,24 +1651,22 @@
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>        <span class="mi">0</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">],</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="p">])</span>
 </span></code></pre></div>
-<h2 id="jacobians">Jacobians</h2>
-<ul>
-<li>Compute the geometric Jacobian by stacking <code>z × (pᴇ - pᵢ)</code> for revolute joints and <code>z</code> for prismatic joints.</li>
-<li>Numerical stability: avoid near-singular poses by checking <code>np.linalg.cond(J)</code> and backing away from zero determinant configurations.</li>
-</ul>
-<h2 id="linear-algebra-reminders">Linear algebra reminders</h2>
-<ul>
-<li><strong>Matrix inverse:</strong> avoid explicit inverses in code; use <code>numpy.linalg.solve</code>.</li>
-<li><strong>Least squares:</strong> <code>np.linalg.lstsq(J, dx, rcond=None)</code> is the fastest way to compute a damped pseudo-inverse for IK tweaks.</li>
-<li><strong>Eigenvalues:</strong> use <code>np.linalg.eig</code> for stability analysis of control matrices.</li>
-</ul>
-<h2 id="useful-calculators-notebooks">Useful calculators &amp; notebooks</h2>
-<ul>
-<li><a href="https://www.symbolab.com/solver/matrix-calculator">Symbolab Matrix Calculator</a> for quick checks.</li>
-<li><a href="https://www.wolframalpha.com/input?i=dh+matrix">Wolfram Alpha</a> for DH sanity checks.</li>
-<li><a href="https://numpy.org/doc/stable/reference/routines.linalg.html">NumPy docs</a> for full linear algebra API.</li>
-</ul>
-<p>Need concrete examples? Check <a href="../code-examples/">code-examples.md</a> for ready-to-run Python snippets.</p>
+
+## Jacobians
+- Compute the geometric Jacobian by stacking `z × (pᴇ - pᵢ)` for revolute joints and `z` for prismatic joints.
+- Numerical stability: avoid near-singular poses by checking `np.linalg.cond(J)` and backing away from zero determinant configurations.
+
+## Linear algebra reminders
+- **Matrix inverse:** avoid explicit inverses in code; use `numpy.linalg.solve`.
+- **Least squares:** `np.linalg.lstsq(J, dx, rcond=None)` is the fastest way to compute a damped pseudo-inverse for IK tweaks.
+- **Eigenvalues:** use `np.linalg.eig` for stability analysis of control matrices.
+
+## Useful calculators & notebooks
+- [Symbolab Matrix Calculator](https://www.symbolab.com/solver/matrix-calculator) for quick checks.
+- [Wolfram Alpha](https://www.wolframalpha.com/input?i=dh+matrix) for DH sanity checks.
+- [NumPy docs](https://numpy.org/doc/stable/reference/routines.linalg.html) for full linear algebra API.
+
+Need concrete examples? Check [code-examples.md](code-examples.md) for ready-to-run Python snippets. -->
 
 
 

@@ -105,11 +105,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#code-examples" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -1486,21 +1481,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Code Examples
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1513,61 +1493,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-publisher-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      ROS 2 publisher template
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logging-joint-data-to-csv" class="md-nav__link">
-    <span class="md-ellipsis">
-      Logging joint data to CSV
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#simple-vision-pipeline-stub" class="md-nav__link">
-    <span class="md-ellipsis">
-      Simple vision pipeline stub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#further-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      Further references
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1691,9 +1616,14 @@
   
 
 
-<h1 id="code-examples">Code Examples</h1>
-<p>Common snippets you can drop into labs or adapt for the final project. All examples assume Ubuntu 22.04 with ROS 2 Humble.</p>
-<h2 id="ros-2-publisher-template">ROS 2 publisher template</h2>
+  <h1>Code Examples</h1>
+
+<!-- # Code Examples
+
+Common snippets you can drop into labs or adapt for the final project. All examples assume Ubuntu 22.04 with ROS 2 Humble.
+
+## ROS 2 publisher template
+
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/usr/bin/env python3</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
@@ -1722,7 +1652,9 @@
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 </span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<h2 id="logging-joint-data-to-csv">Logging joint data to CSV</h2>
+
+## Logging joint data to CSV
+
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -1734,8 +1666,11 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">q</span><span class="p">])</span>
 </span></code></pre></div>
-<p>Use with <code>ros2 topic echo /joint_states --csv &gt; joint_log.csv</code> or capture programmatically inside a ROS 2 node.</p>
-<h2 id="simple-vision-pipeline-stub">Simple vision pipeline stub</h2>
+
+Use with `ros2 topic echo /joint_states --csv > joint_log.csv` or capture programmatically inside a ROS 2 node.
+
+## Simple vision pipeline stub
+
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -1747,12 +1682,11 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">cv2</span><span class="o">.</span><span class="n">minEnclosingCircle</span><span class="p">(</span><span class="n">cnt</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">contours</span> <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">contourArea</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">]</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="further-references">Further references</h2>
-<ul>
-<li><a href="../labs/#lab-code-organization">Lab templates</a> — pull starter files from the Lab-Code repo.</li>
-<li><a href="../ur3e-guide/">UR3e Quick Reference</a> — power-on, freedrive, and troubleshooting notes.</li>
-<li><a href="../math-tools/">Math Tools</a> — DH matrices, Jacobians, and solver reminders.</li>
-</ul>
+
+## Further references
+- [Lab templates](labs/index.md#lab-code-organization) — pull starter files from the Lab-Code repo.
+- [UR3e Quick Reference](ur3e-guide.md) — power-on, freedrive, and troubleshooting notes.
+- [Math Tools](math-tools.md) — DH matrices, Jacobians, and solver reminders. -->
 
 
 
