@@ -1,4 +1,73 @@
-# Week 09 — Inverse Kinematics Lab
+# Week 9 - UR3e Inverse Kinematics
 
-- 📁 [`labs/Lab-Code/Week 11 - Inverse Kinematics Lab/`](../Lab-Code/Week%2011%20-%20Inverse%20Kinematics%20Lab/)
-- Note: An `IK Lab Solution.pdf` exists in repo root for staff reference.
+## Objectives
+
+- Run your IK script on the UR3e Robot
+
+## Files
+Data Collection Sheet: [pdf](../assets/docs/fk_datasheet.pdf), [docx](../assets/docs/fk_datasheet.docx)
+
+
+## Procedure
+
+First, you will set up the pendant
+
+Press the power button, shown here:
+
+![powerbutton](../assets/robot_pics/power.jpg)
+
+Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.
+
+![arming](../assets/robot_pics/arm.JPG)
+
+Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot. Be careful not to do this too quickly otherwise the robot may lock you out.
+
+![freedrive](../assets/robot_pics/freedrive.JPG)
+
+<!--While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.
+
+![constraints](../assets/robot_pics/constraints.JPG) -->
+
+The teaching pendant also has an E-Stop button on its face. *If the robot ever moves in a way you don't expect, E-Stop it.* A stopped robot is better than a hurt classmate or a broken robot. Try pressing it now. In order to release it, you'll need to spin the knob to pop it back up and then re-release the brakes.
+
+![estop](../assets/robot_pics/estop.JPG)
+
+
+## 2. Connect the Robot to the Computer
+1. Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).
+2. Find the `README.md` file within the `ENME480_mrc` folder. You can also open up VS Code from the sidebar and open the `ENME480_mrc` folder and open the `README.md` file from there. Do `Ctrl + Shift + V` to enable a more readable view of the README file. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.
+  
+      2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
+      ![previewmode](../assets/preview_mode.png)
+
+3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
+
+      3.1. The confirmation command should read: "Robot connected to reverse interface. Redy to receive control commands." and will print in the terminal where you are running ur_robot_control driver.
+      3.2. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver.
+
+## 3. Completeting Your IK script and publishing to the Robot
+
+1. Now we are ready to begin publishing joint angles to the robot. To do this, complete the FK and IK scripts in the `ur3e_enme480` folder as you did for simulations. Do not change the code outside the marked sections.
+
+
+2. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
+
+```bash
+ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"
+```
+
+From within the docker. Your laser should now be on, so make sure the robot only points down towards the table. *If your laser still is not on, call a TA.*
+
+3. Check the data sheets we handed out in lab for the angles you need to populate the command. For this lab, you will be measuring the coordinates of where the laser pointer hits the table after each move. Make sure youre using the set of axes defined on the table.
+
+
+## Test Cases
+
+| Test Point Inputs (x, y, z, yaw)    | IK solution (𝜽𝟏, … 𝜽𝟔)           | Output from `/ur3/position`  |
+| ------------- |:-------------:| -----:|
+| (0.2, 0.3, 0.3, 45) | |
+|(0.1, 0.4, 0.1, 90) | |
+|(0.2, 0.2, 0.2, 0) | |
+|(0.2, -0.2, 0.1, 0) | |
+|(0.2, 0.3, 0.4, 30) |      |     |
+
