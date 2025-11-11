@@ -12,11 +12,13 @@ Data Collection Sheet: [pdf](../assets/docs/fk_datasheet.pdf), [docx](../assets/
 
 ## Procedure
 
+### Powering on the UR3e {#powering-on-the-ur3e}
+
 First, you will set up the pendant
 
 Press the power button, shown here:
 
-![powerbutton](../assets/robot_pics/power.jpg)
+![powerbutton](../assets/robot_pics/power.JPG)
 
 Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.
 
@@ -237,8 +239,6 @@ Now that you've seen the teaching pendant we also want to demonstrate some of th
 - Visualize Node Graphs
 - You will be shown how to generate plots in RQT to analyze data
 --!>
-
-
 
 
 

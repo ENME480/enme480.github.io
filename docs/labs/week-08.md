@@ -29,7 +29,7 @@ be the joint angles `θ1 to θ6`.
 
 ![1](../assets/ik/img1.jpg)
 
-Here's a table for the link lengths from the [UR3e Dimensions](../../docs/assets/fk/ur3eschem.png). Write your math in terms of the variables for the links, instead of using their numerical value.
+Here's a table for the link lengths from the [UR3e Dimensions](../assets/fk/ur3eschem.png). Write your math in terms of the variables for the links, instead of using their numerical value.
 
 
 | Link   | Length (in m)         | 

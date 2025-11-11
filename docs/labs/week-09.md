@@ -14,7 +14,7 @@ First, you will set up the pendant
 
 Press the power button, shown here:
 
-![powerbutton](../assets/robot_pics/power.jpg)
+![powerbutton](../assets/robot_pics/power.JPG)
 
 Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.
 
@@ -70,4 +70,3 @@ From within the docker. Your laser should now be on, so make sure the robot only
 |(0.2, 0.2, 0.2, 0) | |
 |(0.2, -0.2, 0.1, 0) | |
 |(0.2, 0.3, 0.4, 30) |      |     |
-

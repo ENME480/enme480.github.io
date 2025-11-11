@@ -8,4 +8,4 @@ Location: **KEB 2111**
 
   - Confirm environment + accounts
   - Complete safety training checkpoint (details in Canvas/Piazza)
-  - [Lab Survey](go.umd.edu/ENME480-25-Survey)
+  - [Lab Survey](https://go.umd.edu/ENME480-25-Survey)
