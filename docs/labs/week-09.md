@@ -63,13 +63,13 @@ From within the docker. Your laser should now be on, so make sure the robot only
 
 ## Test Cases
 
-| Test Point Inputs (x, y, z, Yaw)    | Joint Angles (Your Code)  `(𝜽𝟏, … 𝜽𝟔) `  | Correct Joint Angles `(𝜽𝟏, … 𝜽𝟔) ` | Laser Position on Workbench (Your Prediction) `(x, y)` |  Laser Position on Workbench (Correct Prediction) `(x, y)` | Laser Position on Workbench (Measured Prediction) `(x, y)` | End Effector Position (Your Prediction) `(x, y, z)`| End Effector Position (Correct Prediction) `(x, y, z)`| End Effector Position (Measured) `(x, y, z)`|
-| ------------- |:-------------:| --------:| --------:| --------:| --------:| --------:| --------:| --------:|
-| (0.2, 0.3, 0.3, 45) | | | | | | | |
-|(0.1, 0.4, 0.1, 90) | | | | | | | |
-|(0.2, 0.2, 0.2, 0) | | | | | | | |
-|(0.2, -0.2, 0.1, 0) | | | | | | | |
-|(0.2, 0.3, 0.4, 30) | | | | | | | |
+| Test Point Inputs (x, y, z, Yaw)    | Joint Angles (Your Code)  `(𝜽𝟏, … 𝜽𝟔) `  | Correct Joint Angles `(𝜽𝟏, … 𝜽𝟔) ` | Laser Position on Workbench (Your Prediction) `(x, y)` |  Laser Position on Workbench (Correct Prediction) `(x, y)` | Laser Position on Workbench (Measured Prediction) `(x, y)` | End Effector Position (Your Prediction) `(x, y, z)`| End Effector Position (Correct Prediction) `(x, y, z)`| 
+| ------------- |:-------------:| --------:| --------:| --------:| --------:| --------:| --------:|
+| (0.2, 0.3, 0.3, 45) | | | | | | |
+|(0.1, 0.4, 0.1, 90) | | | | | | |
+|(0.2, 0.2, 0.2, 0) | | | | | | |
+|(0.2, -0.2, 0.1, 0) | | | | | | |
+|(0.2, 0.3, 0.4, 30) | | | | | | |
 
 ## 5. Before you leave the lab
 
