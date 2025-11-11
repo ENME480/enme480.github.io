@@ -20,7 +20,7 @@ The instructor is a Responsible University Employee. Confidential resources incl
 ## Participation & Attendance
 Attendance and on-time arrival are essential, especially for group studios/labs. If you must miss your assigned lab time, message TAs via Piazza in advance and coordinate with your team.
 
-## Safety Guidelines
+## Safety Guidelines {#safety}
 
 ### **Robot Lab Safety**
 - **Safety training is mandatory** before entering the robot lab
@@ -40,6 +40,12 @@ Attendance and on-time arrival are essential, especially for group studios/labs.
 - **Medical emergency**: Call 911 or campus police
 - **Fire/equipment emergency**: Use emergency stops, evacuate if needed
 - **Robot malfunction**: Stop all operations, contact TA immediately
+
+## Lab Policies {#labs}
+- **Equipment care:** use provided fixtures; report damaged components immediately.
+- **Access:** only students who completed safety training may enter the robot lab unsupervised.
+- **Check-in/out:** let the TA know when you start/finish, especially when using UR3e cells outside class time.
+- **Documentation:** log incidents, bugs, or hardware issues on Piazza so the next team is aware.
 
 ## Course Evaluation
 Please complete Student Feedback on Course Experiences at semester end.

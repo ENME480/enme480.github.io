@@ -10,24 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://enme480.github.io/blog/2025-09-01-welcome/">
+        <link rel="canonical" href="https://enme480.github.io/math-tools/">
       
       
+        <link rel="prev" href="../kinematics-reference/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../code-examples/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
-        <title>Welcome to ENME480 (FA 2025) - ENME480 — Introduction to Robotics</title>
+        <title>Math Tools - ENME480 — Introduction to Robotics</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +52,9 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../styles/calendar.css">
+      <link rel="stylesheet" href="../styles/calendar.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Welcome to ENME480 (FA 2025) - ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="Math Tools - ENME480 — Introduction to Robotics" >
       
         <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
-        <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/blog/2025-09-01-welcome.png" >
+        <meta  property="og:image"  content="https://enme480.github.io/assets/images/social/math-tools.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +75,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://enme480.github.io/blog/2025-09-01-welcome/" >
+        <meta  property="og:url"  content="https://enme480.github.io/math-tools/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Welcome to ENME480 (FA 2025) - ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="Math Tools - ENME480 — Introduction to Robotics" >
       
         <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
-        <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/blog/2025-09-01-welcome.png" >
+        <meta  name="twitter:image"  content="https://enme480.github.io/assets/images/social/math-tools.png" >
       
     
     
@@ -101,11 +105,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#welcome-to-enme480-fa-2025" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -120,7 +119,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -140,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to ENME480 (FA 2025)
+              Math Tools
             
           </span>
         </div>
@@ -261,7 +260,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -282,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../syllabus/" class="md-tabs__link">
+      <a href="../syllabus/" class="md-tabs__link">
         
   
   
@@ -301,7 +300,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../schedule/" class="md-tabs__link">
+      <a href="../schedule/" class="md-tabs__link">
         
   
   
@@ -322,7 +321,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../labs/" class="md-tabs__link">
+        <a href="../labs/" class="md-tabs__link">
           
   
   
@@ -342,7 +341,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../resources/" class="md-tabs__link">
+      <a href="../resources/" class="md-tabs__link">
         
   
   
@@ -359,11 +358,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../ubuntu-setup/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ubuntu-setup/" class="md-tabs__link">
           
   
   
@@ -383,7 +384,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../policies/" class="md-tabs__link">
+      <a href="../policies/" class="md-tabs__link">
         
   
   
@@ -402,7 +403,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../help/" class="md-tabs__link">
+      <a href="../help/" class="md-tabs__link">
         
   
   
@@ -421,7 +422,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link">
+      <a href="../blog/" class="md-tabs__link">
         
   
   
@@ -458,7 +459,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -488,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -512,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../syllabus/" class="md-nav__link">
+      <a href="../syllabus/" class="md-nav__link">
         
   
   
@@ -534,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schedule/" class="md-nav__link">
+      <a href="../schedule/" class="md-nav__link">
         
   
   
@@ -588,6 +589,24 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -605,7 +624,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../labs/" class="md-nav__link ">
+            <a href="../labs/" class="md-nav__link ">
               
   
   
@@ -640,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-01/" class="md-nav__link">
+      <a href="../labs/week-01/" class="md-nav__link">
         
   
   
@@ -663,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-1-slides.pptx" class="md-nav__link">
+      <a href="../labs/week-1-slides.pptx" class="md-nav__link">
         
   
   
@@ -686,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-02/" class="md-nav__link">
+      <a href="../labs/week-02/" class="md-nav__link">
         
   
   
@@ -709,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-2-slides.pptx" class="md-nav__link">
+      <a href="../labs/week-2-slides.pptx" class="md-nav__link">
         
   
   
@@ -732,14 +751,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-03/" class="md-nav__link">
+      <a href="../labs/week-03/" class="md-nav__link">
         
   
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
   
   <span class="md-ellipsis">
-    Week 3/4 (ROS Tutorial)
+    Week 3 (ROS Tutorial)
     
   </span>
   
@@ -757,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-3-slides.pptx" class="md-nav__link">
+      <a href="../labs/week-3-slides.pptx" class="md-nav__link">
         
   
   
@@ -780,7 +799,30 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-05/" class="md-nav__link">
+      <a href="../labs/week-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 4 (Gazebo Demo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-05/" class="md-nav__link">
         
   
   
@@ -803,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-06/" class="md-nav__link">
+      <a href="../labs/week-06/" class="md-nav__link">
         
   
   
@@ -826,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-6-slides.pptx" class="md-nav__link">
+      <a href="../labs/week-6-slides.pptx" class="md-nav__link">
         
   
   
@@ -849,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
         
   
   
@@ -872,12 +914,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-07/" class="md-nav__link">
+      <a href="../labs/week-07/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Week 7 (No Lab))
+    Week 7 (No Lab)
     
   </span>
   
@@ -895,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-08/" class="md-nav__link">
+      <a href="../labs/week-08/" class="md-nav__link">
         
   
   
@@ -918,12 +960,196 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/week-8-slides.pptx" class="md-nav__link">
+      <a href="../labs/week-8-slides.pptx" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Week 8 Slides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 9 (UR3e IK Lab)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 10 (FK Robot Lab)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 11 (Dynamics & Cameras)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 12 (Project Sprint 1)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 13 (Project Sprint 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 14 (Final Project Kickoff)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/week-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 15 (Final Project Wrap-up)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/final-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Final Project Brief
     
   </span>
   
@@ -948,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   
@@ -967,8 +1193,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -976,23 +1204,44 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1005,7 +1254,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Wiki
@@ -1019,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu-setup/" class="md-nav__link">
+      <a href="../ubuntu-setup/" class="md-nav__link">
         
   
   
@@ -1042,12 +1291,227 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev-environment/" class="md-nav__link">
+      <a href="../dev-environment/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Dev Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ros-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ROS Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gazebo-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gazebo Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ur3e-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UR3e Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kinematics-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinematics Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math Tools
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enae450_readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENAE450 README
     
   </span>
   
@@ -1072,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../policies/" class="md-nav__link">
+      <a href="../policies/" class="md-nav__link">
         
   
   
@@ -1094,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/" class="md-nav__link">
+      <a href="../help/" class="md-nav__link">
         
   
   
@@ -1118,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../blog/" class="md-nav__link">
         
   
   
@@ -1152,8 +1616,57 @@
   
 
 
-<h1 id="welcome-to-enme480-fa-2025">Welcome to ENME480 (FA 2025)</h1>
-<p>Check the <strong>Schedule</strong> for weekly topics and labs. The <strong>Labs</strong> section links to the code submodule. Good luck &amp; have fun!</p>
+  <h1>Math Tools</h1>
+
+<!-- # Math Tools for ENME480
+
+Quick reference for the linear algebra and geometry you will touch every week. Pair these snippets with the detailed derivations in [kinematics-reference.md](kinematics-reference.md).
+
+## Coordinate transforms
+- Homogeneous transform:
+
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>^{A}T_{B} =
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>\begin{bmatrix}
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>R &amp; p \\
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>0 &amp; 1
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>\end{bmatrix}
+</span></code></pre></div>
+
+- Compose transforms with matrix multiplication; invert by transposing the rotation and negating the translated point: `T_AB.inverse() = [[Rᵀ, -Rᵀ p], [0, 1]]`.
+
+## DH parameters
+- Standard DH table columns: `aᵢ`, `αᵢ`, `dᵢ`, `θᵢ`.
+- Use the UR3e table provided in [labs/week-05.md](labs/week-05.md).
+- Build transforms programmatically with helper functions (see snippet below).
+
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">dh_transform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">ca</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">ct</span><span class="p">,</span> <span class="n">st</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="p">[</span><span class="n">ct</span><span class="p">,</span> <span class="o">-</span><span class="n">st</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span>  <span class="n">st</span><span class="o">*</span><span class="n">sa</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">ct</span><span class="p">],</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="p">[</span><span class="n">st</span><span class="p">,</span>  <span class="n">ct</span><span class="o">*</span><span class="n">ca</span><span class="p">,</span> <span class="o">-</span><span class="n">ct</span><span class="o">*</span><span class="n">sa</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">st</span><span class="p">],</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>       <span class="n">sa</span><span class="p">,</span>      <span class="n">ca</span><span class="p">,</span>    <span class="n">d</span><span class="p">],</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>        <span class="mi">0</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>    <span class="mi">1</span><span class="p">],</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="p">])</span>
+</span></code></pre></div>
+
+## Jacobians
+- Compute the geometric Jacobian by stacking `z × (pᴇ - pᵢ)` for revolute joints and `z` for prismatic joints.
+- Numerical stability: avoid near-singular poses by checking `np.linalg.cond(J)` and backing away from zero determinant configurations.
+
+## Linear algebra reminders
+- **Matrix inverse:** avoid explicit inverses in code; use `numpy.linalg.solve`.
+- **Least squares:** `np.linalg.lstsq(J, dx, rcond=None)` is the fastest way to compute a damped pseudo-inverse for IK tweaks.
+- **Eigenvalues:** use `np.linalg.eig` for stability analysis of control matrices.
+
+## Useful calculators & notebooks
+- [Symbolab Matrix Calculator](https://www.symbolab.com/solver/matrix-calculator) for quick checks.
+- [Wolfram Alpha](https://www.wolframalpha.com/input?i=dh+matrix) for DH sanity checks.
+- [NumPy docs](https://numpy.org/doc/stable/reference/routines.linalg.html) for full linear algebra API.
+
+Need concrete examples? Check [code-examples.md](code-examples.md) for ready-to-run Python snippets. -->
 
 
 
@@ -1183,6 +1696,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../kinematics-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kinematics Reference">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kinematics Reference
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../code-examples/" class="md-footer__link md-footer__link--next" aria-label="Next: Code Examples">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Code Examples
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1236,24 +1787,24 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
-        <script src="../../javascripts/math.js"></script>
+        <script src="../javascripts/math.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="../../javascripts/calendar.js"></script>
+        <script src="../javascripts/calendar.js"></script>
       
-        <script src="../../javascripts/tablesort.js"></script>
+        <script src="../javascripts/tablesort.js"></script>
       
     
   </body>
