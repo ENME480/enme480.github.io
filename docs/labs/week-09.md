@@ -53,7 +53,7 @@ The teaching pendant also has an E-Stop button on its face. *If the robot ever m
 2. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
 
 ```bash
-ros2 topic pub --once /ur3/laser_point std_msgs/msg/Bool "data: true"
+ros2 topic pub --once /ur3e/laser_point std_msgs/msg/Bool "data: true"
 ```
 
 From within the docker. Your laser should now be on, so make sure the robot only points down towards the table. *If your laser still is not on, call a TA.*
