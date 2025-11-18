@@ -44,6 +44,34 @@ git checkout .
 git pull
 ```
 
+### Docker Initialization
+
+* Update the repository to be on the latest commit
+
+  ```bash
+  cd ~/rosPackages/ENME480_mrc
+  git checkout .
+  git pull
+  ```
+
+* Start the container (run the command from the `docker` folder):
+    ```
+    docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+    ```
+* Once inside the container, build your development workspace:
+    ```
+    cd enme480_ws
+    colcon build --symlink-install
+    ```
+* Source your development workspace:
+    ```
+    source install/setup.bash
+    ```
+* You can use `tmux` to manage multiple panes. Create panes to work as needed:
+  * `tmux`      # Start a new session
+  * `Ctrl+A b`  # Split horizontally
+  * `Ctrl+A v`  # Split vertically
+
 ## Script Descriptions
 
 You are recommended to complete each script in the order suggested in the table. 
