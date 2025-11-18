@@ -99,7 +99,7 @@ Once run, you will see a window with the live camera feed. Click on the referenc
 
 ### `aruco_detection_test.py`
 
-This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms in the main folder on this repository.
+This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms here [Perspective Warp](../assets/docs/PerspectiveTransformEstimation.pdf)
 
 
 ## Notes for Fnal Project
