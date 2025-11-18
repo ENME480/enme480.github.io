@@ -10,7 +10,7 @@ The objective of the final project is to control the UR3e to move (at least) thr
 
 The lab environment is shown below:
 
-![Top View of UR3](images/ENME480_Intro.jpg)
+![Top View of UR3](../assets/robot_pics/ENME480_Intro.jpg)
 
 You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform. 
 
