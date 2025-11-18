@@ -55,7 +55,7 @@ This script will generate a perspective matrix for the camera to table frame. Yo
 Before you run this script, ensure that you are in the correct directory. Assuming you have already entered the docker container, run
 
 ```bash
-cd ENME480_ws/src/enme480_project/enme480_project/
+cd ~/enme480_ws/src/enme480_project/enme480_project/
 python3 get_perspective_warping_with_aruco.py
 ```
 #### Troubleshooting: 
