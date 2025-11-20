@@ -16,7 +16,7 @@ You will be given 3 blocks with different Aruco markers. Your task is to move th
 
 ## Overview of the ROS Package
 
-The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: https://github.com/ENME480/enme480_project.
+The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: [](https://github.com/ENME480/enme480_project)
 
 The nodes have been added to the `setup.py` file, so you do not need to add that. You will find five scripts as listed in the table below:
 
@@ -39,7 +39,7 @@ Please follow the following steps before you start editing the scripts on RAL ma
 ### Restore the package to original form and pull the latest version
 
 ```bash
-cd rosPackages/ENME480_ws/src/enme480_project
+cd rosPackages/ENME480_mrc/src/enme480_project
 git checkout .
 git pull
 ```
@@ -101,7 +101,16 @@ Once run, you will see a window with the live camera feed. Click on the referenc
 
 This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms here [Perspective Warp](../assets/docs/PerspectiveTransformEstimation.pdf)
 
+## Exit Instructions
 
-## Notes for Fnal Project
+Take a backup of you scripts and reset your scripts & repository to the original form
+
+```bash
+cd rosPackages/ENME480_mrc/src/enme480_project
+git checkout .
+git pull
+```
+
+## Notes for Final Project
 
 You are only expected to do this for today, so that you have the scripts ready. Take backups of your scripts. We will sending the complete project details out by next week where you can simulate the project on your end and come in and test it in the lab in the subsequent weeks.
