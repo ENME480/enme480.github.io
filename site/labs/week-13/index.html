@@ -20,7 +20,7 @@
     
     
       
-        <title>Week 13 — Make-up / Office Hours - ENME480 — Introduction to Robotics</title>
+        <title>Week 13-15 — Final Project - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Week 13 — Make-up / Office Hours - ENME480 — Introduction to Robotics" >
+        <meta  property="og:title"  content="Week 13-15 — Final Project - ENME480 — Introduction to Robotics" >
       
         <meta  property="og:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Week 13 — Make-up / Office Hours - ENME480 — Introduction to Robotics" >
+        <meta  name="twitter:title"  content="Week 13-15 — Final Project - ENME480 — Introduction to Robotics" >
       
         <meta  name="twitter:description"  content="Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project" >
       
@@ -102,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-13-make-up-office-hours" class="md-skip">
+        <a href="#week-13-15-final-project" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 13 — Make-up / Office Hours
+              Week 13-15 — Final Project
             
           </span>
         </div>
@@ -1452,8 +1452,111 @@
   
 
 
-<h1 id="week-13-make-up-office-hours">Week 13 — Make-up / Office Hours</h1>
-<p>No lab meetings (holiday week). Use time for project prep.</p>
+<h1 id="week-13-15-final-project">Week 13-15 — Final Project</h1>
+<h2 id="objective">Objective</h2>
+<p>The objective of this project is to control the UR3e to move (at least) three AR-tagged blocks to desired positions using camera image as inputs. We will use OpenCV for processing the image data. The program will also integrate the functions of previous lab assignments. The major objectives are the following
+- Use OpenCV functions to find the centroid of each block
+- Convert the pixel coordinates in an image to coordinates in the world frame using a perspective matrix
+- Move the blocks from the detected positions to predefined desired positions (e.g. out of the workspace, stack a tower)</p>
+<h2 id="task-description">Task Description</h2>
+<p>The lab environment is shown below:</p>
+<p><img alt="Top View of UR3" src="../../assets/robot_pics/ENME480_Intro.jpg" /></p>
+<p>You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform. Then using your inverse kinematics solution, you will pick up the block using a suction gripper mounted at the end effector. Your task is to place each block at a specific location outside the workspace, and also stack them to create a tower.</p>
+<h2 id="overview-of-the-ros-package">Overview of the ROS Package</h2>
+<p>The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: https://github.com/ENME480/enme480_project.</p>
+<p>The nodes have been added to the <code>setup.py</code> file, so you do not need to add that. You will find five scripts as listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Script Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>get_perspective_warping_with_aruco.py</code></td>
+<td style="text-align: left;">Script to create the perspective matrix</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>aruco_detection_test.py</code></td>
+<td style="text-align: left;">Script to test the perspective transform and get coordinates of the blocks in table frame</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>block_detection_aruco.py</code></td>
+<td style="text-align: left;">ROS Node for detecting blocks, uses the same function and changes from <code>aruco_detection_test.py</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>kinematic_functions.py</code></td>
+<td style="text-align: left;">Script to insert all of your FK and IK functions from previous labs</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>main_pipeline.py</code></td>
+<td style="text-align: left;">The main pipeline to strategize and sequence movement of the blocks</td>
+</tr>
+</tbody>
+</table>
+<p>Please do not edit anything outside the given code snippets (it will lead to errors which will be difficult to identify)</p>
+<p>You can try out the code in simulation before coming to the lab to check if your logic works. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Gazebo Simulation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<h2 id="procedure-for-setup-using-gazebo">Procedure for Setup using Gazebo</h2>
+<p>Hello</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Real-World Setup</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<h2 id="procedure-for-setup-in-ral">Procedure for Setup in RAL</h2>
+<p>Please follow the following steps before you start editing the scripts on RAL machines</p>
+<h3 id="restore-the-package-to-original-form-and-pull-the-latest-version">Restore the package to original form and pull the latest version</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_ws/src/enme480_project
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+<h3 id="docker-initialization">Docker Initialization</h3>
+<ul>
+<li>Update the repository to be on the latest commit</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/rosPackages/ENME480_mrc
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+<ul>
+<li>Start the container (run the command from the <code>docker</code> folder):
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+</span></code></pre></div></li>
+<li>Once inside the container, build your development workspace:
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd enme480_ws
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>colcon build --symlink-install
+</span></code></pre></div></li>
+<li>Source your development workspace:
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>source install/setup.bash
+</span></code></pre></div></li>
+<li>You can use <code>tmux</code> to manage multiple panes. Create panes to work as needed:</li>
+<li><code>tmux</code>      # Start a new session</li>
+<li><code>Ctrl+A b</code>  # Split horizontally</li>
+<li><code>Ctrl+A v</code>  # Split vertically</li>
+</ul>
+<h2 id="script-descriptions">Script Descriptions</h2>
+<p>You are recommended to complete each script in the order suggested in the table. </p>
+<h3 id="get_perspective_warping_with_arucopy"><code>get_perspective_warping_with_aruco.py</code></h3>
+<p>This script will generate a perspective matrix for the camera to table frame. You need to edit one line to input the reference points on the table. Ensure that you are entering the values in <code>mm</code>. This script will generate a <code>perspective_matrix.npy</code> file in the folder.</p>
+<p>Before you run this script, ensure that you are in the correct directory. Assuming you have already entered the docker container, run</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws/src/enme480_project/enme480_project/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python3<span class="w"> </span>get_perspective_warping_with_aruco.py
+</span></code></pre></div>
+<h4 id="troubleshooting">Troubleshooting:</h4>
+<p>If you get a missing keyboard package error run the following command</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>keyboard
+</span></code></pre></div>
+<p>Once run, you will see a window with the live camera feed. Click on the reference points in the same order that you have listed in your script. It will calulate the perspective transform and a new window will pop-up showing a blue dot at <code>(175,175)</code> on the table coordinate frame. If this is right, you can proceed to the next script.</p>
+<h3 id="aruco_detection_testpy"><code>aruco_detection_test.py</code></h3>
+<p>This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the <code>image_frame_to_table_frame()</code> function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms here <a href="../../assets/docs/PerspectiveTransformEstimation.pdf">Perspective Warp</a></p>
+<h2 id="notes-for-fnal-project">Notes for Fnal Project</h2>
+<p>You are only expected to do this for today, so that you have the scripts ready. Take backups of your scripts. We will sending the complete project details out by next week where you can simulate the project on your end and come in and test it in the lab in the subsequent weeks.</p>
 
 
 
