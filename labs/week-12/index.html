@@ -1162,9 +1162,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes-for-fnal-project" class="md-nav__link">
+  <a href="#exit-instructions" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes for Fnal Project
+      Exit Instructions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-for-final-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes for Final Project
     </span>
   </a>
   
@@ -1632,7 +1641,7 @@
 <p><img alt="Top View of UR3" src="../../assets/robot_pics/ENME480_Intro.jpg" /></p>
 <p>You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform. </p>
 <h2 id="overview-of-the-ros-package">Overview of the ROS Package</h2>
-<p>The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: https://github.com/ENME480/enme480_project.</p>
+<p>The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: <a href="https://github.com/ENME480/enme480_project"></a></p>
 <p>The nodes have been added to the <code>setup.py</code> file, so you do not need to add that. You will find five scripts as listed in the table below:</p>
 <table>
 <thead>
@@ -1669,7 +1678,7 @@
 <h2 id="procedure-for-setup-in-ral">Procedure for Setup in RAL</h2>
 <p>Please follow the following steps before you start editing the scripts on RAL machines</p>
 <h3 id="restore-the-package-to-original-form-and-pull-the-latest-version">Restore the package to original form and pull the latest version</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_ws/src/enme480_project
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_mrc/src/enme480_project
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
@@ -1712,7 +1721,13 @@
 <p>Once run, you will see a window with the live camera feed. Click on the reference points in the same order that you have listed in your script. It will calulate the perspective transform and a new window will pop-up showing a blue dot at <code>(175,175)</code> on the table coordinate frame. If this is right, you can proceed to the next script.</p>
 <h3 id="aruco_detection_testpy"><code>aruco_detection_test.py</code></h3>
 <p>This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the <code>image_frame_to_table_frame()</code> function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms here <a href="../../assets/docs/PerspectiveTransformEstimation.pdf">Perspective Warp</a></p>
-<h2 id="notes-for-fnal-project">Notes for Fnal Project</h2>
+<h2 id="exit-instructions">Exit Instructions</h2>
+<p>Take a backup of you scripts and reset your scripts &amp; repository to the original form</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_mrc/src/enme480_project
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>pull
+</span></code></pre></div>
+<h2 id="notes-for-final-project">Notes for Final Project</h2>
 <p>You are only expected to do this for today, so that you have the scripts ready. Take backups of your scripts. We will sending the complete project details out by next week where you can simulate the project on your end and come in and test it in the lab in the subsequent weeks.</p>
 
 
