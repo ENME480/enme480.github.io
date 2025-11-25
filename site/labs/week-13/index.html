@@ -1727,14 +1727,14 @@
 
 <h1 id="week-13-15-final-project">Week 13-15 — Final Project</h1>
 <h2 id="objective">Objective</h2>
-<p>The objective of this project is to control the UR3e to move (at least) three AR-tagged blocks to desired positions using camera image as inputs. We will use OpenCV for processing the image data. The program will also integrate the functions of previous lab assignments. The major objectives are the following
+<p>The objective of this project is to control the UR3e to move (at least) three AR-tagged blocks to desired positions using the camera image as input. We will use OpenCV for processing the image data. The program will also integrate the functions of previous lab assignments (camera calibration, perspective transforms, FK/IK, and ROS nodes). The major objectives are the following
 - Use OpenCV functions to find the centroid of each block
 - Convert the pixel coordinates in an image to coordinates in the world frame using a perspective matrix
 - Move the blocks from the detected positions to predefined desired positions (e.g. out of the workspace, stack a tower)</p>
 <h2 id="task-description">Task Description</h2>
 <p>The lab environment is shown below:</p>
 <p><img alt="Top View of UR3" src="../../assets/robot_pics/ENME480_Intro.jpg" /></p>
-<p>You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform. Then using your inverse kinematics solution, you will pick up the block using a suction gripper mounted at the end effector. Your task is to place each block at a specific location outside the workspace, and also stack them to create a tower.</p>
+<p>You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid position of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a perspective transform. Then, using your inverse kinematics solution, you will pick up the block using a suction gripper mounted at the end effector. Your task is to place each block at a specific location outside the workspace, and also stack them to create a tower.</p>
 <h2 id="overview-of-the-ros-package">Overview of the ROS Package</h2>
 <p>The project package should be located on the local lab machines in RAL. You can also find the package with redacted scripts here: https://github.com/ENME480/enme480_project.</p>
 <p>The nodes have been added to the <code>setup.py</code> file, so you do not need to add that. You will find five scripts as listed in the table below:</p>
@@ -1749,6 +1749,10 @@
 <tr>
 <td style="text-align: center;"><code>get_perspective_warping_with_aruco.py</code></td>
 <td style="text-align: left;">Script to create the perspective matrix</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>perspective_gazebo.py</code></td>
+<td style="text-align: left;">Script to create the perspective matrix in Gazebo</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>aruco_detection_test.py</code></td>
@@ -1771,9 +1775,16 @@
 <p>Please do not edit anything outside the given code snippets (it will lead to errors which will be difficult to identify)</p>
 <p>You can try out the code in simulation before coming to the lab to check if your logic works. </p>
 <h2 id="script-descriptions">Script Descriptions</h2>
-<p>You are recommended to complete each script in the order suggested in the table. </p>
+<p>You are recommended to complete each script in the order suggested in the table. A typical workflow is:</p>
+<ol>
+<li>Use <code>get_perspective_warping_with_aruco.py</code> to generate the perspective matrix.</li>
+<li>Use <code>aruco_detection_test.py</code> to verify ArUco detection and coordinate conversion on a simple script.</li>
+<li>Copy your working detection code into <code>block_detection_aruco.py</code> to create a ROS node.</li>
+<li>Copy your FK/IK from previous labs into <code>kinematic_functions.py</code>.</li>
+<li>Use <code>main_pipeline.py</code> to design and test your full pick-and-place strategy.</li>
+</ol>
 <h3 id="get_perspective_warping_with_arucopy"><code>get_perspective_warping_with_aruco.py</code></h3>
-<p>This script will generate a perspective matrix for the camera to table frame. You need to edit one line to input the reference points on the table. Ensure that you are entering the values in <code>mm</code>. This script will generate a <code>perspective_matrix.npy</code> file in the folder.</p>
+<p>This script will generate a perspective matrix for the camera-to-table frame. You need to edit one line to input the reference points on the table. Ensure that you are entering the values in <code>mm</code>. This script will generate a <code>perspective_matrix.npy</code> file in the folder, which will be used later by the detection scripts.</p>
 <p>Before you run this script, ensure that you are in the correct directory. Assuming you have already entered the docker container, run</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>ENME480_ws/src/enme480_project/enme480_project/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3<span class="w"> </span>get_perspective_warping_with_aruco.py
@@ -1782,9 +1793,9 @@
 <p>If you get a missing keyboard package error run the following command</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>keyboard
 </span></code></pre></div>
-<p>Once run, you will see a window with the live camera feed. Click on the reference points in the same order that you have listed in your script. It will calulate the perspective transform and a new window will pop-up showing a blue dot at <code>(175,175)</code> on the table coordinate frame. If this is right, you can proceed to the next script.</p>
+<p>Once run, you will see a window with the live camera feed. Click on the reference points in the same order that you have listed in your script. It will calculate the perspective transform and a new window will pop up showing a blue dot at <code>(175,175)</code> on the table coordinate frame. If this is correct, you can proceed to the next script.</p>
 <h3 id="aruco_detection_testpy"><code>aruco_detection_test.py</code></h3>
-<p>This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the <code>image_frame_to_table_frame()</code> function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms in the main folder on this repository.</p>
+<p>This script will give you a live detection of the ArUco markers and their location with respect to the table frame in real time. You need to modify the <code>image_frame_to_table_frame()</code> function in the script. Use the math from perspective transforms to do the same. You can find a file discussing perspective transforms in the main folder of this repository.</p>
 <h3 id="block_detection_arucopy"><code>block_detection_aruco.py</code></h3>
 <p>This is the ROS node and a Python class for all the functions in the <code>aruco_detection_test.py</code> script. If your <code>aruco_detection_test.py</code> could detect the block coordinates correctly, please copy the same function to the snippet for <code>image_frame_to_table_frame()</code> function in this script as well.</p>
 <p>You can test this script by running the following commands:</p>
@@ -1806,25 +1817,25 @@
 </span></code></pre></div>
 <p>and it should show the same image in the window as the one you saw with <code>aruco_detection_test.py</code>, once you select the topic.</p>
 <h3 id="kinematic_functionspy"><code>kinematic_functions.py</code></h3>
-<p>This script will use your functions from previous labs and if you have the script working correctly for your FK and IK labs, you can copy the exact same functions here under the functions <code>calculate_dh_transform()</code> and <code>inverse_kinematics()</code> within the given snippets. We need to verify if your IK script is working correctly so please call the TAs over top show your final IK code working before you copy this.</p>
+<p>This script will use your functions from previous labs, and if you have the script working correctly for your FK and IK labs, you can copy the exact same functions here under <code>calculate_dh_transform()</code> and <code>inverse_kinematics()</code> within the given snippets. We need to verify if your IK script is working correctly, so please call the TAs over to show your final IK code working before you copy this.</p>
 <h3 id="main_pipelinepy"><code>main_pipeline.py</code></h3>
-<p>This script is where you will sequence and startegize the pick and place process. In this script, you have to edit the following functions:</p>
+<p>This script is where you will sequence and strategize the pick-and-place process. In this script, you have to edit the following functions:</p>
 <ol>
 <li>
 <p><code>move_arm()</code></p>
-<p>This function will take in the desired joint positions and publish them using the message data structure given in code comments</p>
+<p>This function will take in the desired joint positions and publish them using the message data structure given in the code comments. It should only command arm motion (not change the gripper state).</p>
 </li>
 <li>
 <p><code>gripper_control()</code></p>
-<p>This function will take in the desired state of the gripper and publish it using the message data structure given in code comments</p>
+<p>This function will take in the desired state of the gripper and publish it using the message data structure given in the code comments. It should toggle the gripper while holding the current arm configuration.</p>
 </li>
 <li>
 <p><code>move_block()</code></p>
-<p>Here, you need to work on giving the sequence of positions you want the block to move to for moving a block from an initial position to a final position. Keep in mind that every block needs to be picked up, raised up and then moved. Do not give it a sequence to drag it accross the table.</p>
+<p>Here, you need to work on giving the sequence of positions you want the block to move to for moving a block from an initial position to a final position. Keep in mind that every block needs to be picked up, raised, and then moved. Do not give it a sequence that drags the block across the table.</p>
 </li>
 <li>
 <p><code>process_blocks()</code></p>
-<p>This function is where you will enter the startegy and sorting method to place the blocks in their desired positions given their IDs, pre-defined destinations.</p>
+<p>This function is where you will enter the strategy and sorting method to place the blocks in their desired positions given their IDs and predefined destinations. This is also where you decide how many stacks you make and in what order you move the blocks.</p>
 </li>
 </ol>
 <h2 id="running-your-scripts">Running your Scripts</h2>
@@ -1833,19 +1844,19 @@
 <div class="tabbed-block">
 <h2 id="procedure-for-setup-using-gazebo">Procedure for Setup using Gazebo</h2>
 <p>The repository has been updated to include updated simulation tools and helper scripts so you'll need to pull the latest version</p>
-<p>Before doing that take a backup of your current <code>/src</code> folder so that you don't accidentally lose access to your previous work.</p>
+<p>Before doing that, take a backup of your current <code>/src</code> folder so that you don't accidentally lose access to your previous work.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>backup/week6
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>~/ENME480_mrc/src/<span class="w"> </span>~/backup/week12
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>backup/week13
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>~/ENME480_mrc/src/<span class="w"> </span>~/backup/week13
 </span></code></pre></div>
 <p>Next, we pull the latest version of the repository</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
-<p>Next, we pull the latest version of the helper package repository:</p>
+<p>Next, we pull the latest version of the helper package repository (project starter code):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/src/
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/enme_480_project.git
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/enme480_project.git
 </span></code></pre></div>
 <h3 id="step-2-build-and-run-docker">Step 2: Build and run docker</h3>
 <p><strong>For MacOS/VM users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code> at <code>~/ENME480_mrc/docker</code></p>
@@ -1920,7 +1931,7 @@
 <p><strong>Terminal/Pane 3:</strong> Run the perspective matrix calculator for Gazebo in a different <code>tmux</code> pane:
       <div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ros2 run enme480_project perspective_gazebo
 </span></code></pre></div></p>
-<p>Click the points on the edge of the table in a clockwise order starting from left bottom corner. Press <code>q</code> when you see the blue dot near the middle cube in a seperate window.</p>
+<p>Click the points on the edge of the table in a clockwise order starting from the left-bottom corner. Press <code>q</code> when you see the blue dot near the middle cube in a separate window.</p>
 </li>
 <li>
 <p><strong>Terminal/Pane 3:</strong> Once your <code>main_pipeline</code> and <code>block_detection_aruco</code> scripts are completed, you can use the same <code>tmux</code> pane to test your script:
@@ -1946,7 +1957,7 @@
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>git clone https://github.com/ENME480/ur3e_enme480.git
 </span></code></pre></div></p>
 <p>else:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>cd ~/rosPackages/ENME480_mrc/src/ur3e_enme480
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>cd ~/rosPackages/ENME480_mrc/src/enme480_project
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>git checkout .
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>git pull
 </span></code></pre></div>
@@ -1976,7 +1987,7 @@
 </span></code></pre></div></li>
 <li>Launch your node to move the arm / run your program in another <code>tmux</code> pane: <code>ros2 run {your node name}</code> or <code>ros2 launch {your launch file}</code></li>
 </ul>
-<p>Run the prespective warping code to get a new matrix for your tabl. Press <code>q</code> when you get a blue dot at <code>(175,175)</code> in a seperate window</p>
+<p>Run the perspective warping code to get a new matrix for your table. Press <code>q</code> when you get a blue dot at <code>(175,175)</code> in a separate window.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>cd ~/enme480_ws/src/enme480_project/enme480_project
 </span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>python3 get_perspective_warping_with_aruco.py
 </span></code></pre></div>

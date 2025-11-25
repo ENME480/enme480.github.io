@@ -342,6 +342,12 @@ This script is where you will sequence and strategize the pick-and-place process
       ros2 run enme480_project aruco_tracker
       ```
 
+      Running the camera node
+
+      ```
+      ros2 launch usb_cam camera.launch.py
+      ```
+
       Running the main_pipeline (Call TAs before you run this)
 
       ```
