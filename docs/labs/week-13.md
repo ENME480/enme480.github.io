@@ -33,53 +33,6 @@ Please do not edit anything outside the given code snippets (it will lead to err
 
 You can try out the code in simulation before coming to the lab to check if your logic works. 
 
-=== "Gazebo Simulation"
-
-## Procedure for Setup using Gazebo
-
-Hello
-
-=== "Real-World Setup"
-
-## Procedure for Setup in RAL
-
-Please follow the following steps before you start editing the scripts on RAL machines
-
-### Restore the package to original form and pull the latest version
-
-```bash
-cd rosPackages/ENME480_ws/src/enme480_project
-git checkout .
-git pull
-```
-
-### Docker Initialization
-
-* Update the repository to be on the latest commit
-
-  ```bash
-  cd ~/rosPackages/ENME480_mrc
-  git checkout .
-  git pull
-  ```
-
-* Start the container (run the command from the `docker` folder):
-    ```
-    docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
-    ```
-* Once inside the container, build your development workspace:
-    ```
-    cd enme480_ws
-    colcon build --symlink-install
-    ```
-* Source your development workspace:
-    ```
-    source install/setup.bash
-    ```
-* You can use `tmux` to manage multiple panes. Create panes to work as needed:
-  * `tmux`      # Start a new session
-  * `Ctrl+A b`  # Split horizontally
-  * `Ctrl+A v`  # Split vertically
 
 ## Script Descriptions
 
@@ -92,7 +45,7 @@ This script will generate a perspective matrix for the camera to table frame. Yo
 Before you run this script, ensure that you are in the correct directory. Assuming you have already entered the docker container, run
 
 ```bash
-cd ~/enme480_ws/src/enme480_project/enme480_project/
+cd ENME480_ws/src/enme480_project/enme480_project/
 python3 get_perspective_warping_with_aruco.py
 ```
 #### Troubleshooting: 
@@ -108,9 +61,290 @@ Once run, you will see a window with the live camera feed. Click on the referenc
 
 ### `aruco_detection_test.py`
 
-This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms here [Perspective Warp](../assets/docs/PerspectiveTransformEstimation.pdf)
+This script will give you a live detection of the aruco markers and their location w.r.t the table frame in real-time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from prespective transforms to do the same. You can find a file discussing perspective transforms in the main folder on this repository.
+
+### `block_detection_aruco.py`
+
+This is the ROS node and a Python class for all the functions in the `aruco_detection_test.py` script. If your `aruco_detection_test.py` could detect the block coordinates correctly, please copy the same function to the snippet for `image_frame_to_table_frame()` function in this script as well.
+
+You can test this script by running the following commands:
+
+- In a new terminal in the docker container, launch the camera node:
+
+```bash
+ros2 launch usb_cam camera.launch.py
+```
+
+#### Troubleshooting: 
+If you get a Pydantic error run the following command
+
+```bash
+sudo pip install pydantic==1.10.9
+```
+
+Once the camera node is up and running, run the following command in a seperate terminal:
+
+```bash
+ros2 run enme480_project aruco_tracker
+```
+
+It will publish data under two topics `/aruco_detection/image` and `/aruco_detection/positions`
+
+You can view the image using 
+
+```bash
+ros2 run rqt_image_view rqt_image_view
+```
+
+and it should show the same image in the window as the one you saw with `aruco_detection_test.py`, once you select the topic.
+
+### `kinematic_functions.py`
+
+This script will use your functions from previous labs and if you have the script working correctly for your FK and IK labs, you can copy the exact same functions here under the functions `calculate_dh_transform()` and `inverse_kinematics()` within the given snippets. We need to verify if your IK script is working correctly so please call the TAs over top show your final IK code working before you copy this.
+
+### `main_pipeline.py`
+
+This script is where you will sequence and startegize the pick and place process. In this script, you have to edit the following functions:
+
+1. `move_arm()`
+
+    This function will take in the desired joint positions and publish them using the message data structure given in code comments
+
+2. `gripper_control()`
+
+    This function will take in the desired state of the gripper and publish it using the message data structure given in code comments
+
+3. `move_block()`
+
+    Here, you need to work on giving the sequence of positions you want the block to move to for moving a block from an initial position to a final position. Keep in mind that every block needs to be picked up, raised up and then moved. Do not give it a sequence to drag it accross the table.
+
+4. `process_blocks()`
+
+    This function is where you will enter the startegy and sorting method to place the blocks in their desired positions given their IDs, pre-defined destinations.
+
+## Running your Scripts    
+
+=== "Gazebo Simulation"
+
+    ## Procedure for Setup using Gazebo
+
+    The repository has been updated to include updated simulation tools and helper scripts so you'll need to pull the latest version
+
+    Before doing that take a backup of your current `/src` folder so that you don't accidentally lose access to your previous work.
+
+    ```bash
+    cd
+    mkdir -p backup/week6
+    cp -r ~/ENME480_mrc/src/ ~/backup/week12
+    ```
+
+    Next, we pull the latest version of the repository
+
+    ```bash
+    cd ~/ENME480_mrc
+    git checkout .
+    git pull
+    ```
+
+    Next, we pull the latest version of the helper package repository:
+
+    ```bash
+    cd ~/ENME480_mrc/src/
+    git clone https://github.com/ENME480/enme_480_project.git
+    ```
+
+    ### Step 2: Build and run docker
+
+    **For MacOS/VM users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile` at `~/ENME480_mrc/docker`
+
+    ```
+    # BEFORE
+    FROM osrf/ros:humble-desktop AS humble-mod_desktop
+
+    # AFTER
+    FROM arm64v8/ros:humble AS humble-mod_desktop
+    ```
+
+    **Do not do this on anything other than a MAC!** MACs require code that has been compiled in a special way in order to work and this code does not work on other computers!
+
+    **For Everyone**, run
+
+    ```bash
+    cd ~/ENME480_mrc/docker/
+    userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
+    ```
+
+    Create the `startDocker.sh` and `connectToDocker.sh` scripts again if you haven't yet
+
+    For people **not** using the Nvidia container, run:
+    ```bash
+    cd
+
+    echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
+
+    echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+    ```
+
+    For people who **are** using the Nvidia container, run:
+    ```bash
+    cd 
+
+    echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
+
+    echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+    ```
+
+    To start the docker container, run
+
+    ```bash
+    bash startDocker.sh
+    ```
+
+    To connect to the same docker container from another terminal, run
+
+    ```bash
+    bash connectToDocker.sh
+    ```
+
+    ### Step 3: Build the workspace
+
+    Once in the docker container, we build the workspace for the simulation
+
+    ```bash
+    cd ~/enme480_ws
+    colcon build --symlink-install
+    ```
+    `--symlink-install` speeds Python iteration by avoiding rebuilds for script-only changes.
+
+    Once done, source it
+
+    ```bash
+    cd ~/enme480_ws
+    source install/setup.bash
+    ```
+
+    ### Step 4: Complete the scripts
+
+    You need to complete the following scripts:
+
+    - `block_detection_aruco.py`
+    - `main_pipeline.py`
+    - `kinematic_functions.py`
 
 
-## Notes for Fnal Project
+    ### Step 5: Run the programs
 
-You are only expected to do this for today, so that you have the scripts ready. Take backups of your scripts. We will sending the complete project details out by next week where you can simulate the project on your end and come in and test it in the lab in the subsequent weeks.
+      * You can use `tmux` to manage multiple panes. Create panes to work as needed:
+      * `tmux`      # Start a new session
+      * `Ctrl+A b`  # Split horizontally
+      * `Ctrl+A v`  # Split vertically
+
+
+      * **Terminal/Pane 1:** Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
+          ```
+          ros2 launch enme480_gazebo enme480_ur3e_cubes.launch.py
+          ```
+      * **Terminal/Pane 2:** Launch MRC UR3e sim control package in a different `tmux` pane:
+          ```
+          ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+          ```
+
+      * **Terminal/Pane 3:** Run the perspective matrix calculator for Gazebo in a different `tmux` pane:
+          ```
+          ros2 run enme480_project perspective_gazebo
+          ```
+
+          Click the points on the edge of the table in a clockwise order starting from left bottom corner. Press `q` when you see the blue dot near the middle cube in a seperate window.
+
+      * **Terminal/Pane 3:** Once your `main_pipeline` and `block_detection_aruco` scripts are completed, you can use the same `tmux` pane to test your script:
+          ```
+          ros2 run enme480_project main_pipeline
+          ```
+
+=== "Tests in RAL"
+
+    ## Procedure for Setup in RAL
+
+
+    * Update the repository to be on the latest commit
+
+      ```
+      cd ~/rosPackages/ENME480_mrc
+      git checkout .
+      git pull
+      ```
+
+    * Repeat for the ur3e_enme480 repository
+
+      If folder does not exist,
+      ```
+      cd ~/rosPackages/ENME480_mrc/src
+      git clone https://github.com/ENME480/ur3e_enme480.git
+      ```
+
+      else:
+
+      ```
+      cd ~/rosPackages/ENME480_mrc/src/ur3e_enme480
+      git checkout .
+      git pull
+      ```
+
+    * Start the container (run the command from the `docker` folder):
+        ```
+        cd ~/rosPackages/ENME480_mrc/docker
+        docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+        ```
+    * Once inside the container, build your development workspace:
+        ```
+        cd enme480_ws
+        colcon build --symlink-install
+        ```
+    * Source your development workspace:
+        ```
+        source install/setup.bash
+        ```
+    * Use `tmux` to manage multiple panes. Create 4 panes to work with an UR3e arm:
+      * `tmux`      # Start a new session
+      * `Ctrl+A b`  # Split horizontally
+      * `Ctrl+A v`  # Split vertically
+    * Launch the UR3e driver in one of the tmux panes:
+        ```
+        ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.77.22 kinematics_params_file:=${HOME}/enme480_ws/config/ur3e_mrc.yaml
+        ```
+    * On the teaching pendant start the program that allows ROS2 communication:
+        `
+        Programs-->URCaps-->External Control-->Control_by_MRC_ur3e_pc
+        `
+    * Launch MRC UR3e package in a different `tmux` pane:
+        ```
+        ros2 launch ur3e_mrc ur3e_enme480.launch
+        ```
+    * Launch your node to move the arm / run your program in another `tmux` pane: `ros2 run {your node name}` or `ros2 launch {your launch file}`
+
+      Run the prespective warping code to get a new matrix for your tabl. Press `q` when you get a blue dot at `(175,175)` in a seperate window
+
+      ```
+      cd ~/enme480_ws/src/enme480_project/enme480_project
+      python3 get_perspective_warping_with_aruco.py
+      ```
+
+      Testing the `block_detection_aruco` node
+
+      ```
+      ros2 run enme480_project aruco_tracker
+      ```
+
+      Running the main_pipeline (Call TAs before you run this)
+
+      ```
+      ros2 run enme480_project main_pipeline
+      ```
+
+## Submission Requirements
+
+One single PDF containing the following:
+
+- Pseudo code for detecting and moving the block  (no specific format to be followed)
+- Math for camera frame to table frame (your intuition behind the perspective warping, and transformation from camera frame to image frame)
+- Video of pick and place task on UR3e (as a link (GDrive/YouTube) in the report)
