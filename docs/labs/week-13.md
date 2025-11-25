@@ -336,7 +336,7 @@ This script is where you will sequence and strategize the pick-and-place process
       python3 get_perspective_warping_with_aruco.py
       ```
 
-      Testing the `block_detection_aruco` node
+      Testing the `block_detection_aruco` node. You can visualize the marker positions in `rviz` once you run this script.
 
       ```
       ros2 run enme480_project aruco_tracker
