@@ -293,6 +293,7 @@ This script is where you will sequence and strategize the pick-and-place process
 
       ```
       cd ~/rosPackages/ENME480_mrc/src/enme480_project
+      git checkout ral-main
       git checkout .
       git pull
       ```
@@ -345,7 +346,7 @@ This script is where you will sequence and strategize the pick-and-place process
       Running the camera node
 
       ```
-      ros2 launch usb_cam camera.launch.py
+      ros2 run usb_cam usb_cam_node_exe
       ```
 
       Running the main_pipeline (Call TAs before you run this)
