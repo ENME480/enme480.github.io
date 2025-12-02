@@ -79,7 +79,7 @@ You can test this script by running the following commands:
 - In a new terminal in the docker container, launch the camera node:
 
 ```bash
-ros2 launch usb_cam camera.launch.py
+ros2 run usb_cam usb_cam_node_exe
 ```
 
 #### Troubleshooting: 
