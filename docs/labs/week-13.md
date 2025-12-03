@@ -49,23 +49,6 @@ You are recommended to complete each script in the order suggested in the table.
 
 This script will generate a perspective matrix for the camera-to-table frame. You need to edit one line to input the reference points on the table. Ensure that you are entering the values in `mm`. This script will generate a `perspective_matrix.npy` file in the folder, which will be used later by the detection scripts.
 
-Before you run this script, ensure that you are in the correct directory. Assuming you have already entered the docker container, run
-
-```bash
-cd ENME480_ws/src/enme480_project/enme480_project/
-python3 get_perspective_warping_with_aruco.py
-```
-#### Troubleshooting: 
-If you get a missing keyboard package error run the following command
-
-```bash
-pip install keyboard
-```
-
-
-Once run, you will see a window with the live camera feed. Click on the reference points in the same order that you have listed in your script. It will calculate the perspective transform and a new window will pop up showing a blue dot at `(175,175)` on the table coordinate frame. If this is correct, you can proceed to the next script.
-
-
 ### `aruco_detection_test.py`
 
 This script will give you a live detection of the ArUco markers and their location with respect to the table frame in real time. You need to modify the `image_frame_to_table_frame()` function in the script. Use the math from perspective transforms to do the same. You can find a file discussing perspective transforms in the main folder of this repository.
@@ -73,37 +56,6 @@ This script will give you a live detection of the ArUco markers and their locati
 ### `block_detection_aruco.py`
 
 This is the ROS node and a Python class for all the functions in the `aruco_detection_test.py` script. If your `aruco_detection_test.py` could detect the block coordinates correctly, please copy the same function to the snippet for `image_frame_to_table_frame()` function in this script as well.
-
-You can test this script by running the following commands:
-
-- In a new terminal in the docker container, launch the camera node:
-
-```bash
-ros2 run usb_cam usb_cam_node_exe
-```
-
-#### Troubleshooting: 
-If you get a Pydantic error run the following command
-
-```bash
-sudo pip install pydantic==1.10.9
-```
-
-Once the camera node is up and running, run the following command in a seperate terminal:
-
-```bash
-ros2 run enme480_project aruco_tracker
-```
-
-It will publish data under two topics `/aruco_detection/image` and `/aruco_detection/positions`
-
-You can view the image using 
-
-```bash
-ros2 run rqt_image_view rqt_image_view
-```
-
-and it should show the same image in the window as the one you saw with `aruco_detection_test.py`, once you select the topic.
 
 ### `kinematic_functions.py`
 
@@ -339,21 +291,46 @@ This script is where you will sequence and strategize the pick-and-place process
 
       Testing the `block_detection_aruco` node. You can visualize the marker positions in `rviz` once you run this script.
 
-      ```
-      ros2 run enme480_project aruco_tracker
-      ```
+        - In a new terminal in the docker container, launch the camera node:
 
-      Running the camera node
+        ```bash
+        ros2 run usb_cam usb_cam_node_exe --ros-args -p brightness:=200
+        ```
 
-      ```
-      ros2 run usb_cam usb_cam_node_exe
-      ```
+        #### Troubleshooting: 
+        If you get a Pydantic error run the following command
 
-      Running the main_pipeline (Call TAs before you run this)
+        ```bash
+        sudo pip install pydantic==1.10.9
+        ```
 
-      ```
-      ros2 run enme480_project main_pipeline
-      ```
+        Once the camera node is up and running, run the following command in a seperate terminal:
+
+        ```bash
+        ros2 run enme480_project aruco_tracker
+        ```
+
+        It will publish data under two topics `/aruco_detection/image` and `/aruco_detection/positions`
+
+        You can view the image using 
+
+        ```bash
+        ros2 run rqt_image_view rqt_image_view
+        ```
+
+        and it should show the same image in the window as the one you saw with `aruco_detection_test.py`, once you select the topic.
+        
+        Running the camera node
+
+        ```
+        ros2 run usb_cam usb_cam_node_exe --ros-args -p brightness:=200
+        ```
+
+        Running the main_pipeline (Call TAs before you run this)
+
+        ```
+        ros2 run enme480_project main_pipeline
+        ```
 
 ## Submission Requirements
 
