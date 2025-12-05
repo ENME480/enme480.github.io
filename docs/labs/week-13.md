@@ -334,8 +334,13 @@ This script is where you will sequence and strategize the pick-and-place process
 
 ## Submission Requirements
 
-One single PDF containing the following:
+Please submit one single PDF containing the following:
 
-- Pseudo code for detecting and moving the block  (no specific format to be followed)
+- Pseudo code (and optionally flowchart) for detecting and moving the block (no specific format needed)
+    - Do not provide the Python code here, only Pseudo code is needed - What is a pseudo code?
+    - Pseudo code is needed for the entire project, ie. the entire workflow starting from calibrating camera to detecting blocks to moving the blocks
 - Math for camera frame to table frame (your intuition behind the perspective warping, and transformation from camera frame to image frame)
 - Video of pick and place task on UR3e (as a link (GDrive/YouTube) in the report)
+
+
+Note: Running the simulation isn't necessary for the final project. It is just given on the Wiki to aid you in trying out your logic.
