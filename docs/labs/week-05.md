@@ -166,7 +166,7 @@ This message contains a few parts:
 - The "ur3e_mrc/msg/CommandUR3e" message has four fields:
   
   - "destination": a set of 6 angles, one per joint. ***These angles are in RADIANS! Sanity check any angle you're putting in before hitting enter - an angle of +/-90 probably doesn't make sense here, for example.***
-  - "v" and "a": these control the velocity and acceleration of the robots joints, respectively. There are internal afeties set to prevent the robot from moving too fast, but we've also explicitly set the speed here to something low enough that you'll have time to react if the robot moves unexpectedly.
+  - "v" and "a": these control the velocity and acceleration of the robots joints, respectively. There are internal safeties set to prevent the robot from moving too fast, but we've also explicitly set the speed here to something low enough that you'll have time to react if the robot moves unexpectedly.
   
   - "io_0": this field will turn the laser pointer off during the motion of the arm. This is to make sure the laser never accidentally shines in someones eyes.
 
