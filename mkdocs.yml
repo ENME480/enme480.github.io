@@ -105,13 +105,13 @@ nav:
       - Week 8 (UR3e Inverse Kinematics): labs/week-08.md
       - Week 8 Slides: labs/week-8-slides.pptx
       - Week 9 (UR3e IK Lab): labs/week-09.md
-      - Week 10 (FK Robot Lab): labs/week-10.md
-      - Week 11 (Dynamics & Cameras): labs/week-11.md
-      - Week 12 (Project Sprint 1): labs/week-12.md
-      - Week 13 (Project Sprint 2): labs/week-13.md
-      - Week 14 (Final Project Kickoff): labs/week-14.md
-      - Week 15 (Final Project Wrap-up): labs/week-15.md
-      - Final Project Brief: labs/final-project.md
+      # - Week 10 (FK Robot Lab): labs/week-10.md
+      # - Week 11 (Dynamics & Cameras): labs/week-11.md
+      - Week 12 (Camera Lab): labs/week-12.md
+      - Week 13-15 (Final Project): labs/week-13.md
+      # - Week 14 (Final Project Kickoff): labs/week-14.md
+      # - Week 15 (Final Project Wrap-up): labs/week-15.md
+      # - Final Project Brief: labs/final-project.md
 
   - Resources: resources.md
   - Wiki:
