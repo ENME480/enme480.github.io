@@ -77,17 +77,17 @@ extra_javascript:
   - javascripts/calendar.js
   - javascripts/tablesort.js
 
-extra_css:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
-  - styles/calendar.css
+#extra_css:
+#  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+#  - styles/calendar.css
 
 not_in_nav: |
   _labcode/**
 
 nav:
   - Home: index.md
-  - Syllabus: syllabus.md
-  - Schedule: schedule.md
+  #- Syllabus: syllabus.md
+  #- Schedule: schedule.md
   - Labs:
       - Overview: labs/index.md
       - Week 1 (Intro): labs/week-01.md
@@ -121,11 +121,11 @@ nav:
       - Gazebo Setup: gazebo-setup.md
       - Python Basics: python-basics.md
       - Git Basics: git-basics.md
-      - UR3e Guide: ur3e-guide.md
+      #- UR3e Guide: ur3e-guide.md
       - Kinematics Reference: kinematics-reference.md
-      - Math Tools: math-tools.md
-      - Code Examples: code-examples.md
-      - ENAE450 README: enae450_readme.md
+      #- Math Tools: math-tools.md
+      #- Code Examples: code-examples.md
+      #- ENAE450 README: enae450_readme.md
   - Policies: policies.md
   - Help: help.md
   - Blog: blog/index.md
