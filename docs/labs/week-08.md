@@ -47,7 +47,7 @@ Here's a table for the link lengths from the [UR3e Dimensions](../assets/fk/ur3e
 
 ## Solution Steps
 
-In this section, a suggested solution approach is described.
+In this section, a suggested solution approach is described. Some helpful diagrams of the robot are provided at the start and end. It is higly recommended you try to determine how the robot will move relative to the page before continuing, as it will make the math much easier.
 
 
 ### Step 1
@@ -59,12 +59,13 @@ the world frame. Set `𝜃5 = −90°` in unit of radian."
 
 * This is a **pure translation** (axes are parallel). Keep units in **meters**.
 * Convert yaw input **degrees → radians** immediately at the start of your function.
+* You will end up with frames with no free variables. This is a convention used in ROS/Gazebo to indicate that the mount point of an object is not the same as where the first joint is and is totally normal.
 
 ![2](../assets/ik/img2.jpg)
 
 ### Step 2
 
-We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of `𝜃6`’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper `(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)` in the base frame and the yaw angle, find wrist’s center point (`𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛`).
+We will define a “wrist center” at height 𝑧𝑐𝑒𝑛 which is the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of `𝜃6`’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper `(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)` in the base frame and the yaw angle, find wrist’s center point (`𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛`).
 
 **Hints**
 
