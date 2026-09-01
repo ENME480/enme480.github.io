@@ -130,6 +130,6 @@ This will keep moving the robot continously in multiple positions.
 
 ## Assignment
 
-Prepare a report answering the following questions and posting relevant screenshots
+Prepare a report containing relevant screenshots of:
 1. Screenshots of Gazebo & RViz with the UR3 in 3 different positions
-2. Show the topics 
+2. Show the topics reporting back joint angles for each position
