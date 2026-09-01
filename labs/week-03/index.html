@@ -13,10 +13,10 @@
         <link rel="canonical" href="https://enme480.github.io/labs/week-03/">
       
       
-        <link rel="prev" href="../week-2-slides.pptx">
+        <link rel="prev" href="../week-02/">
       
       
-        <link rel="next" href="../week-3-slides.pptx">
+        <link rel="next" href="../week-04/">
       
       
         
@@ -48,10 +48,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../styles/theme.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -202,6 +206,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -295,13 +318,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../resources/" class="md-tabs__link">
+      <a href="../../slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
@@ -322,7 +345,29 @@
   
     
   
-  Wiki
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
 
         </a>
       </li>
@@ -349,6 +394,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,9 +433,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -407,12 +469,37 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
     Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
   
 
     
@@ -438,18 +525,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -490,7 +565,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -512,14 +587,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -545,35 +620,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -601,35 +648,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -668,7 +687,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
+    Week 3 — ROS Tutorial
   
 
     
@@ -688,7 +707,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
+    Week 3 — ROS Tutorial
   
 
     
@@ -812,34 +831,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../week-04/" class="md-nav__link">
         
   
@@ -847,7 +838,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -875,7 +866,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -903,63 +894,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -987,7 +922,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -1015,35 +950,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -1071,7 +978,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -1099,7 +1006,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -1127,7 +1034,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1155,14 +1062,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/" class="md-nav__link">
+      <a href="../../slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1183,8 +1090,6 @@
   
     
     
-      
-        
       
         
       
@@ -1211,17 +1116,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1232,12 +1137,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1258,34 +1163,6 @@
     
   
     Ubuntu Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
   
 
     
@@ -1362,6 +1239,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../python-basics/" class="md-nav__link">
         
   
@@ -1411,6 +1316,101 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
               
                 
   
@@ -1426,6 +1426,34 @@
     
   
     Kinematics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
   
 
     
@@ -1473,12 +1501,148 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-a-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A - Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b-pre-flight-check-510-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B — Pre-flight check (5–10 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c-workspace-package-setup-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C — Workspace &amp; package (setup only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-ros2-talker-listener-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — ROS2 Talker / Listener Demo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-e-turtlesim-drive-in-a-circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E — Turtlesim (drive in a circle)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables-single-pdf-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables (single PDF upload)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deliverables (single PDF upload)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helpful-tips-for-the-turtlesim-velocity-publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helpful tips for the turtlesim velocity publisher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1495,7 +1659,6 @@
 
 <h1 id="week-3-ros-2-humble-with-python">Week 3 · ROS 2 (Humble) with Python</h1>
 <p>This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: <strong>workspaces</strong>, <strong>packages</strong>, <strong>publish/subscribe</strong>, and a tiny sim (<strong>turtlesim</strong>). The steps below point you to the <strong>official Humble tutorials</strong>—follow them carefully.</p>
-<hr />
 <h2 id="part-a-setup">Part A - Setup</h2>
 <p>First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.</p>
 <p>For people <strong>not</strong> using the Nvidia container, run:
@@ -1514,14 +1677,13 @@
 <p>And connect to it from another terminal with:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>connectToDocker.sh
 </span></code></pre></div>
-Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. <em>Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.</em> </p>
+Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. <em>Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.</em></p>
 <p><strong>IMPORTANT:</strong> This the following folders will be linked (outside the docker --&gt; inside the docker)</p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ENME480_mrc/src --&gt; enme480_ws/src
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ENME480_mrc/config --&gt; enme480_ws/config
 </span></code></pre></div>
 This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
 (Credit to Benjamin Ruby for the original version of the script)</p>
-<hr />
 <h2 id="part-b-pre-flight-check-510-min">Part B — Pre-flight check (5–10 min)</h2>
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
 <p>1) Using the commands from above, open your Docker image contianing ROS
@@ -1539,7 +1701,7 @@ It should open up a window with examples to different test environments</p>
 If <code>rqt</code> does not open up anything or throws an error, install any required extenstions
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
 </span></code></pre></div>
-or try reopening it with 
+or try reopening it with
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rqt<span class="w"> </span>--force-discover
 </span></code></pre></div></p>
 <!--
@@ -1554,7 +1716,6 @@ During any of these steps if your display doesn't open up, follow the follwoing 
 This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
 
 <p><strong>Checkpoint B (no submission yet):</strong> You can run the above commands without any errors. This ensures ROS is fully installed and operational.</p>
-<hr />
 <h2 id="part-c-workspace-package-setup-only">Part C — Workspace &amp; package (setup only)</h2>
 <p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
 <p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
@@ -1562,7 +1723,6 @@ This will cause the folder you just created to appear inside the docker image, l
 <p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
    ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
 <p><strong>Checkpoint C:</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
-<hr />
 <h2 id="part-d-ros2-talker-listener-demo">Part D — ROS2 Talker / Listener Demo</h2>
 <p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
 <ul>
@@ -1584,7 +1744,7 @@ Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</
 - Keep node/topic names short and meaningful.
 - Check the Message Type browser in rqt for information about what types to use and how to format the messages.
 - Use rqts Topic monitor to make sure messages are being properly published.
-- If rqt is missing these options under plugins, you may need to run 
+- If rqt is missing these options under plugins, you may need to run
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
 </span></code></pre></div></p>
 </blockquote>
@@ -1592,7 +1752,6 @@ Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</
 - Talker output (brief).<br />
 - Listener output showing a <strong>running sum</strong>.<br />
 - <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of your sum topic.</p>
-<hr />
 <h2 id="part-e-turtlesim-drive-in-a-circle">Part E — Turtlesim (drive in a circle)</h2>
 <p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
 <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></p>
@@ -1609,7 +1768,6 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 - Your velocity publisher terminal (brief output).<br />
 - <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of the pose topic.<br />
 - rqt with <strong>Node Graph</strong> / <strong>Topic Monitor</strong> visible.</p>
-<hr />
 <h2 id="deliverables-single-pdf-upload">Deliverables (single PDF upload)</h2>
 <p>Include <strong>concise</strong> screenshots (one image may show multiple windows):</p>
 <ul>
@@ -1621,11 +1779,11 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <hr />
 <h3 id="helpful-tips-for-the-turtlesim-velocity-publisher">Helpful tips for the turtlesim velocity publisher</h3>
 <ul>
-<li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. </li>
-<li><strong>Message type</strong>: </li>
+<li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context.</li>
+<li><strong>Message type</strong>:</li>
 <li>Make edits to <code>package.xml</code> to include <code>geometry_msgs</code>
 -<code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
-  you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s). </li>
+  you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s).</li>
 <li>If you’re unsure of fields, ask ROS directly:
   <code>bash
   ros2 interface show geometry_msgs/msg/Twist</code></li>
@@ -1656,6 +1814,12 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -1665,7 +1829,7 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week-2-slides.pptx" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 Slides">
+          <a href="../week-02/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 — Ubuntu &amp; Python">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1675,20 +1839,20 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 2 Slides
+                Week 2 — Ubuntu & Python
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week-3-slides.pptx" class="md-footer__link md-footer__link--next" aria-label="Next: Week 3/4 Slides">
+          <a href="../week-04/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 4 — Gazebo Demo">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 3/4 Slides
+                Week 4 — Gazebo Demo
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1752,7 +1916,7 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -1763,11 +1927,7 @@ Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motio
       
         <script src="../../javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../../javascripts/calendar.js"></script>
       
         <script src="../../javascripts/tablesort.js"></script>
       

@@ -6,35 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
+        <meta name="description" content="Every page on the ENME480 site, grouped by what you are trying to do">
       
       
       
-        <link rel="canonical" href="https://enme480.github.io/labs/week-09/">
+        <link rel="canonical" href="https://enme480.github.io/site-map/">
       
       
-        <link rel="prev" href="../week-08/">
+        <link rel="prev" href="../help/">
       
-      
-        <link rel="next" href="../week-12/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Week 9 — UR3e IK Lab - ENME480 — Introduction to Robotics</title>
+        <title>Site Map - ENME480 — Introduction to Robotics</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +53,9 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../styles/theme.css">
+      <link rel="stylesheet" href="../styles/theme.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,17 +63,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Week 9 — UR3e IK Lab - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
-<meta property="og:image" content="https://enme480.github.io/assets/images/social/labs/week-09.png" />
+<meta property="og:title" content="Site Map - ENME480 — Introduction to Robotics" />
+<meta property="og:description" content="Every page on the ENME480 site, grouped by what you are trying to do" />
+<meta property="og:image" content="https://enme480.github.io/assets/images/social/site-map.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://enme480.github.io/labs/week-09/" />
+<meta property="og:url" content="https://enme480.github.io/site-map/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Week 9 — UR3e IK Lab - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
-<meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-09.png" />
+<meta property="twitter:title" content="Site Map - ENME480 — Introduction to Robotics" />
+<meta property="twitter:description" content="Every page on the ENME480 site, grouped by what you are trying to do" />
+<meta property="twitter:image" content="https://enme480.github.io/assets/images/social/site-map.png" />
 </head>
   
   
@@ -95,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-9-ur3e-inverse-kinematics" class="md-skip">
+        <a href="#site-map" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +111,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -133,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 9 — UR3e IK Lab
+              Site Map
             
           </span>
         </div>
@@ -256,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -275,7 +273,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
         
   
   
@@ -292,13 +290,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../labs/" class="md-tabs__link">
           
   
   
@@ -318,7 +314,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../slides/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
@@ -339,7 +335,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ubuntu-setup/" class="md-tabs__link">
+        <a href="../ubuntu-setup/" class="md-tabs__link">
           
   
   
@@ -361,7 +357,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../resources/" class="md-tabs__link">
           
   
   
@@ -381,7 +377,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../help/" class="md-tabs__link">
+      <a href="../help/" class="md-tabs__link">
         
   
   
@@ -398,9 +394,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../../site-map/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -435,7 +433,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -465,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -492,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
         
   
   
@@ -516,8 +514,6 @@
       
   
   
-    
-  
   
   
     
@@ -553,23 +549,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../labs/" class="md-nav__link ">
               
   
   
@@ -587,13 +580,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -613,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-01/" class="md-nav__link">
+      <a href="../labs/week-01/" class="md-nav__link">
         
   
   
@@ -641,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-02/" class="md-nav__link">
+      <a href="../labs/week-02/" class="md-nav__link">
         
   
   
@@ -669,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-03/" class="md-nav__link">
+      <a href="../labs/week-03/" class="md-nav__link">
         
   
   
@@ -699,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-04/" class="md-nav__link">
+      <a href="../labs/week-04/" class="md-nav__link">
         
   
   
@@ -727,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-05/" class="md-nav__link">
+      <a href="../labs/week-05/" class="md-nav__link">
         
   
   
@@ -755,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-06/" class="md-nav__link">
+      <a href="../labs/week-06/" class="md-nav__link">
         
   
   
@@ -783,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-07/" class="md-nav__link">
+      <a href="../labs/week-07/" class="md-nav__link">
         
   
   
@@ -811,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-08/" class="md-nav__link">
+      <a href="../labs/week-08/" class="md-nav__link">
         
   
   
@@ -836,37 +829,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 9 — UR3e IK Lab
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../labs/week-09/" class="md-nav__link">
         
   
   
@@ -882,103 +848,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objectives
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Files
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Procedure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-connect-the-robot-to-the-computer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Connect the Robot to the Computer
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-completeting-your-ik-script-and-publishing-to-the-robot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Completeting Your IK script and publishing to the Robot
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test Cases
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-before-you-leave-the-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Before you leave the lab
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -991,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-12/" class="md-nav__link">
+      <a href="../labs/week-12/" class="md-nav__link">
         
   
   
@@ -1019,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-13/" class="md-nav__link">
+      <a href="../labs/week-13/" class="md-nav__link">
         
   
   
@@ -1054,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slides/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
@@ -1147,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu-setup/" class="md-nav__link">
+      <a href="../ubuntu-setup/" class="md-nav__link">
         
   
   
@@ -1175,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros-setup/" class="md-nav__link">
+      <a href="../ros-setup/" class="md-nav__link">
         
   
   
@@ -1203,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gazebo-setup/" class="md-nav__link">
+      <a href="../gazebo-setup/" class="md-nav__link">
         
   
   
@@ -1231,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev-environment/" class="md-nav__link">
+      <a href="../dev-environment/" class="md-nav__link">
         
   
   
@@ -1259,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-basics/" class="md-nav__link">
+      <a href="../python-basics/" class="md-nav__link">
         
   
   
@@ -1287,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git-basics/" class="md-nav__link">
+      <a href="../git-basics/" class="md-nav__link">
         
   
   
@@ -1382,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   
@@ -1410,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kinematics-reference/" class="md-nav__link">
+      <a href="../kinematics-reference/" class="md-nav__link">
         
   
   
@@ -1438,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
         
   
   
@@ -1473,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/" class="md-nav__link">
+      <a href="../help/" class="md-nav__link">
         
   
   
@@ -1497,10 +1366,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../site-map/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1516,6 +1412,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#start-of-semester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start of semester
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-your-machine-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting your machine working
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weekly labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-while-you-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference while you work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-slides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab slides
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#off-this-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Off this site
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1547,10 +1529,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objectives" class="md-nav__link">
+  <a href="#start-of-semester" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectives
+        Start of semester
       
     </span>
   </a>
@@ -1558,10 +1540,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#files" class="md-nav__link">
+  <a href="#getting-your-machine-working" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Files
+        Getting your machine working
       
     </span>
   </a>
@@ -1569,10 +1551,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
+  <a href="#weekly-labs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Procedure
+        Weekly labs
       
     </span>
   </a>
@@ -1580,10 +1562,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-connect-the-robot-to-the-computer" class="md-nav__link">
+  <a href="#reference-while-you-work" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Connect the Robot to the Computer
+        Reference while you work
       
     </span>
   </a>
@@ -1591,10 +1573,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-completeting-your-ik-script-and-publishing-to-the-robot" class="md-nav__link">
+  <a href="#lab-slides" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Completeting Your IK script and publishing to the Robot
+        Lab slides
       
     </span>
   </a>
@@ -1602,21 +1584,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-cases" class="md-nav__link">
+  <a href="#off-this-site" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test Cases
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-before-you-leave-the-lab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Before you leave the lab
+        Off this site
       
     </span>
   </a>
@@ -1643,142 +1614,243 @@
   
 
 
-<h1 id="week-9-ur3e-inverse-kinematics">Week 9 - UR3e Inverse Kinematics</h1>
-<h2 id="objectives">Objectives</h2>
-<ul>
-<li>Run your IK script on the UR3e Robot</li>
-</ul>
-<h2 id="files">Files</h2>
-<p>Data Collection Sheet: <a href="../../assets/docs/fk_datasheet.pdf">pdf</a>, <a href="../../assets/docs/fk_datasheet.docx">docx</a></p>
-<h2 id="procedure">Procedure</h2>
-<p>First, you will set up the pendant</p>
-<p>Press the power button, shown here:</p>
-<p><img alt="powerbutton" src="../../assets/robot_pics/power.JPG" /></p>
-<p>Once the robot is powered on, it will still be in a disarmed state. Press the button shown below to arm it. You should expect to hear a series of loud clicks; this is the brakes releasing. Note that you will need to press the arm button twice; once to power on the robot and once to release the brakes.</p>
-<p><img alt="arming" src="../../assets/robot_pics/arm.JPG" /></p>
-<p>Next, you can try using free drive to control the robot. To do so, press the black button on the back of the teaching pendant. This will allow you to manually move each joint of the robot. Be careful not to do this too quickly otherwise the robot may lock you out.</p>
-<p><img alt="freedrive" src="../../assets/robot_pics/freedrive.JPG" /></p>
-<!--While holding the freedrive button, you can also add constraints to the robots motion using the screen in the bottom right. Try adding some and seeing how they restrict motion.
+<p class="eyebrow">ENME480 · Index</p>
 
-![constraints](../assets/robot_pics/constraints.JPG) -->
+<h1 id="site-map">Site Map</h1>
+<p class="lede">Everything on this site, grouped by what you are actually trying to do.</p>
 
-<p>The teaching pendant also has an E-Stop button on its face. <em>If the robot ever moves in a way you don't expect, E-Stop it.</em> A stopped robot is better than a hurt classmate or a broken robot. Try pressing it now. In order to release it, you'll need to spin the knob to pop it back up and then re-release the brakes.</p>
-<p><img alt="estop" src="../../assets/robot_pics/estop.JPG" /></p>
-<h2 id="2-connect-the-robot-to-the-computer">2. Connect the Robot to the Computer</h2>
-<ol>
-<li>Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).</li>
-<li>
-<p>Find the <code>README.md</code> file within the <code>ENME480_mrc</code> folder. You can also open up VS Code from the sidebar and open the <code>ENME480_mrc</code> folder and open the <code>README.md</code> file from there. Do <code>Ctrl + Shift + V</code> to enable a more readable view of the README file. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.</p>
-<p>2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
-  <img alt="previewmode" src="../../assets/preview_mode.png" /></p>
-</li>
-<li>
-<p>Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. <em>Warning: E-Stopping the robot while it is controlled by the computer will break the drivers. You need to redo this process if that happens.</em></p>
-<p>3.1. The confirmation command should read: "Robot connected to reverse interface. Redy to receive control commands." and will print in the terminal where you are running ur_robot_control driver.
-  3.2. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver.</p>
-</li>
-</ol>
-<h2 id="3-completeting-your-ik-script-and-publishing-to-the-robot">3. Completeting Your IK script and publishing to the Robot</h2>
-<ol>
-<li>
-<p>Now we are ready to begin publishing joint angles to the robot. To do this, complete the FK and IK scripts in the <code>ur3e_enme480</code> folder as you did for simulations. Do not change the code outside the marked sections.</p>
-</li>
-<li>
-<p>The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:</p>
-</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3e/laser_point<span class="w"> </span>std_msgs/msg/Bool<span class="w"> </span><span class="s2">"data: true"</span>
-</span></code></pre></div>
-<p>From within the docker. Your laser should now be on, so make sure the robot only points down towards the table. <em>If your laser still is not on, call a TA.</em></p>
-<ol>
-<li>Check the data sheets we handed out in lab for the angles you need to populate the command. For this lab, you will be measuring the coordinates of where the laser pointer hits the table after each move. Make sure youre using the set of axes defined on the table.</li>
-</ol>
-<h2 id="test-cases">Test Cases</h2>
+<h2 id="start-of-semester">Start of semester</h2>
 <table>
 <thead>
 <tr>
-<th>Test Point Inputs (x, y, z, Yaw)</th>
-<th style="text-align: center;">Joint Angles (Your Code)  <code>(𝜽𝟏, … 𝜽𝟔)</code></th>
-<th style="text-align: right;">Correct Joint Angles <code>(𝜽𝟏, … 𝜽𝟔)</code></th>
-<th style="text-align: right;">Laser Position on Workbench (Your Prediction) <code>(x, y)</code></th>
-<th style="text-align: right;">Laser Position on Workbench (Correct Prediction) <code>(x, y)</code></th>
-<th style="text-align: right;">Laser Position on Workbench (Measured Prediction) <code>(x, y)</code></th>
-<th style="text-align: right;">End Effector Position (Your Prediction) <code>(x, y, z)</code></th>
-<th style="text-align: right;">End Effector Position (Correct Prediction) <code>(x, y, z)</code></th>
+<th>Page</th>
+<th>What is on it</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>(0.2, 0.3, 0.3, 45)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td><a href="../">Home</a></td>
+<td>Meeting times, rooms, staff, grading, exam dates</td>
 </tr>
 <tr>
-<td>(0.1, 0.4, 0.1, 90)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td><a href="../assets/docs/syllabus-fall2026.pdf">Syllabus (PDF)</a></td>
+<td>The authoritative document: policies, grading, week-by-week outline</td>
 </tr>
 <tr>
-<td>(0.2, 0.2, 0.2, 0)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td><a href="../labs/">Labs overview</a></td>
+<td>How studios and robot sessions work, week-by-week progression, software requirements</td>
 </tr>
 <tr>
-<td>(0.2, -0.2, 0.1, 0)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr>
-<td>(0.2, 0.3, 0.4, 30)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td><a href="../help/">Help</a></td>
+<td>Who to contact, safety rules, first-line troubleshooting</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-before-you-leave-the-lab">5. Before you leave the lab</h2>
-<p>Send yourself the backup/copy of your script and restore the package to its blank version.</p>
-<p>IMPORTANT: The below command will erase your script from the computer so take a backup of it before you run it</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/rosPackages/ENME480_ws/src/ur3e_enme480
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-f<span class="w"> </span>.
-</span></code></pre></div>
-<h1 id="submission">Submission</h1>
-<p>Please create a neatly typed/written report for the lab including the following:
-1. Your IK derivation
-2. Comparsion table for Step 4.
-3. Write a paragraph on the reasons behind discrepancies in measurements and calculations.
-4. What are the potential sources of singlularities and how will avoid them when you are implementing the code? If you found any singularities, be sure to list them and discuss possible causes.
-5. Code snippet of <code>inverse_kinematics()</code> function that you used.</p>
+<h2 id="getting-your-machine-working">Getting your machine working</h2>
+<p>Do these in order. Later labs assume all of them are done.</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>What is on it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ubuntu-setup/">Ubuntu Setup</a></td>
+<td>Installing Ubuntu 22.04 — dual boot, VM and WSL options</td>
+</tr>
+<tr>
+<td><a href="../ros-setup/">ROS Setup</a></td>
+<td>Installing ROS 2 Humble, sourcing, building a workspace</td>
+</tr>
+<tr>
+<td><a href="../gazebo-setup/">Gazebo Setup</a></td>
+<td>Simulator installation and the usual launch failures</td>
+</tr>
+<tr>
+<td><a href="../dev-environment/">Dev Environment</a></td>
+<td>VS Code against the course Docker image</td>
+</tr>
+<tr>
+<td><a href="../python-basics/">Python Basics</a></td>
+<td>The Python subset used in lab</td>
+</tr>
+<tr>
+<td><a href="../git-basics/">Git Basics</a></td>
+<td>Cloning lab code, branching, recovering from mistakes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="weekly-labs">Weekly labs</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Page</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../labs/week-01/">Week 1</a></td>
+<td>Lab intro, safety, accounts</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../labs/week-02/">Week 2</a></td>
+<td>RAL intro, Ubuntu and Python setup</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../labs/week-03/">Week 3</a></td>
+<td>Python intro, ROS intro, Studio 1</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../labs/week-04/">Week 4</a></td>
+<td>Gazebo demo, Studio 2</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../labs/week-05/">Week 5</a></td>
+<td>UR3e intro, FK Lab 1.1</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../labs/week-06/">Week 6</a></td>
+<td>Forward kinematics simulation, FK Lab 1.2</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../labs/week-07/">Week 7</a></td>
+<td>No lab — makeup and office hours</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="../labs/week-08/">Week 8</a></td>
+<td>Inverse kinematics studio</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="../labs/week-09/">Week 9</a></td>
+<td>IK lab on the UR3e</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="../labs/week-12/">Week 12</a></td>
+<td>Camera lab, perspective transforms</td>
+</tr>
+<tr>
+<td>13–15</td>
+<td><a href="../labs/week-13/">Final Project</a></td>
+<td>Vision-guided pick and place</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference-while-you-work">Reference while you work</h2>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>What is on it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../resources/">Resources</a></td>
+<td>Course documents, setup guide index, external documentation, common commands</td>
+</tr>
+<tr>
+<td><a href="../kinematics-reference/">Kinematics Reference</a></td>
+<td>DH conventions, transforms, FK and IK derivations</td>
+</tr>
+<tr>
+<td><a href="../assets/docs/dh_table.pdf">UR3e DH table (PDF)</a></td>
+<td>Denavit-Hartenberg parameters for the arm</td>
+</tr>
+<tr>
+<td><a href="../assets/docs/fk_datasheet.pdf">FK datasheet (PDF)</a></td>
+<td>Forward kinematics worksheet</td>
+</tr>
+<tr>
+<td><a href="../assets/docs/PerspectiveTransformEstimation.pdf">Perspective transform notes (PDF)</a></td>
+<td>Camera lab background</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lab-slides">Lab slides</h2>
+<table>
+<thead>
+<tr>
+<th>Slides</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../labs/week-1-slides.pptx">Week 1</a></td>
+<td>Course and lab introduction</td>
+</tr>
+<tr>
+<td><a href="../labs/week-2-slides.pptx">Week 2</a></td>
+<td>Ubuntu and Python</td>
+</tr>
+<tr>
+<td><a href="../labs/week-3-slides.pptx">Weeks 3 and 4</a></td>
+<td>ROS 2 and Gazebo</td>
+</tr>
+<tr>
+<td><a href="../labs/week-6-slides.pptx">Weeks 5 and 6</a></td>
+<td>Forward kinematics</td>
+</tr>
+<tr>
+<td><a href="../labs/week-8-slides.pptx">Week 8</a></td>
+<td>Inverse kinematics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="off-this-site">Off this site</h2>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://piazza.com/umd/fall2026/enme480">Piazza</a></td>
+<td>Official Q&amp;A, announcements, extension requests</td>
+</tr>
+<tr>
+<td><a href="https://elms.umd.edu">Canvas / ELMS</a></td>
+<td>Submissions, grades, class materials</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ENME480">github.com/ENME480</a></td>
+<td>Lab code and the final project package</td>
+</tr>
+<tr>
+<td><a href="https://academy.universal-robots.com/free-e-learning/e-series-e-learning/e-series-core-track/">UR3e safety training</a></td>
+<td>Required before robot lab access</td>
+</tr>
+<tr>
+<td><a href="https://robotics.umd.edu/minor">Robotics and Autonomous Systems Minor</a></td>
+<td>The minor this course leads into</td>
+</tr>
+</tbody>
+</table>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1810,7 +1882,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week-08/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 8 — Inverse Kinematics">
+          <a href="../help/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Help">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1820,27 +1892,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 8 — Inverse Kinematics
+                Help
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../week-12/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 12 — Camera Lab">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Week 12 — Camera Lab
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
@@ -1897,20 +1953,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
-        <script src="../../javascripts/math.js"></script>
+        <script src="../javascripts/math.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="../../javascripts/tablesort.js"></script>
+        <script src="../javascripts/tablesort.js"></script>
       
     
   </body>

@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project">
+        <meta name="description" content="Kinematics, dynamics, and ROS 2 on UR3e arms — University of Maryland, Fall 2026">
       
       
       
@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="labs/">
+        <link rel="next" href="assets/docs/syllabus-fall2026.pdf">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>ENME480 — Introduction to Robotics (Fall 2025) - ENME480 — Introduction to Robotics</title>
+        <title>ENME480 — Introduction to Robotics - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -46,10 +46,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="styles/theme.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -60,7 +64,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project" />
+<meta property="og:description" content="Kinematics, dynamics, and ROS 2 on UR3e arms — University of Maryland, Fall 2026" />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -68,7 +72,7 @@
 <meta property="og:url" content="https://enme480.github.io/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Hands-on robotics with UR3e arms, ROS 2, simulation, and a vision-enabled final project" />
+<meta property="twitter:description" content="Kinematics, dynamics, and ROS 2 on UR3e arms — University of Maryland, Fall 2026" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/index.png" />
 </head>
   
@@ -89,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enme480-introduction-to-robotics" class="md-skip">
+        <a href="#introduction-to-robotics" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ENME480 — Introduction to Robotics (Fall 2025)
+              ENME480 — Introduction to Robotics
             
           </span>
         </div>
@@ -200,6 +204,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -293,13 +316,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="resources/" class="md-tabs__link">
+      <a href="slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
@@ -320,7 +343,29 @@
   
     
   
-  Wiki
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
 
         </a>
       </li>
@@ -347,6 +392,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -367,9 +431,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -414,8 +476,6 @@
           
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
@@ -433,8 +493,6 @@
       <a href="." class="md-nav__link md-nav__link--active">
         
   
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
   
   <span class="md-ellipsis">
     
@@ -465,10 +523,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#course-overview" class="md-nav__link">
+  <a href="#the-course" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Course overview
+        The course
       
     </span>
   </a>
@@ -476,10 +534,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-facts" class="md-nav__link">
+  <a href="#sections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key facts
+        Sections
       
     </span>
   </a>
@@ -487,10 +545,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#this-week" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        This week
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start here
       
     </span>
   </a>
@@ -511,23 +602,38 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -565,7 +671,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -587,14 +693,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -620,35 +726,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="labs/week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -676,35 +754,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="labs/week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -734,35 +784,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="labs/week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
+    Week 3 — ROS Tutorial
   
 
     
@@ -790,7 +812,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -818,7 +840,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -846,63 +868,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="labs/week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -930,7 +896,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -958,35 +924,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="labs/week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -1014,7 +952,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -1042,7 +980,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -1070,7 +1008,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1098,14 +1036,14 @@
   
   
     <li class="md-nav__item">
-      <a href="resources/" class="md-nav__link">
+      <a href="slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1126,8 +1064,6 @@
   
     
     
-      
-        
       
         
       
@@ -1154,17 +1090,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1175,12 +1111,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1201,34 +1137,6 @@
     
   
     Ubuntu Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
   
 
     
@@ -1305,6 +1213,34 @@
   
   
     <li class="md-nav__item">
+      <a href="dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="python-basics/" class="md-nav__link">
         
   
@@ -1354,6 +1290,101 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
               
                 
   
@@ -1369,6 +1400,34 @@
     
   
     Kinematics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
   
 
     
@@ -1416,12 +1475,131 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The course
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This week
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recently-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recently changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start here
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1436,50 +1614,143 @@
   
 
 
-<h1 id="enme480-introduction-to-robotics">ENME480 — Introduction to Robotics</h1>
-<div align="center">
-
-Fall 2026 • University of Maryland • 3 credits
-
+<div class="hero">
+<p class="eyebrow">University of Maryland · Mechanical Engineering · Fall 2026</p>
+<h1 id="introduction-to-robotics">Introduction to Robotics</h1>
+<p class="lede">Rigid motions, kinematics and control worked out on paper, then run on a six-axis UR3e in the lab.</p>
+<p><a class="md-button md-button--primary" href="assets/docs/syllabus-fall2026.pdf">Syllabus (PDF)</a>
+<a class="md-button" href="labs/">Labs</a>
+<a class="md-button" href="site-map/">Site Map</a></p>
 </div>
-
-<hr />
-<h2 id="course-overview">Course overview</h2>
-<p><strong>ENME480</strong> is the first course in the <a href="https://robotics.umd.edu/minor">Robotics and Autonomous Systems Minor</a>. This couse will cover:</p>
+<h2 id="the-course">The course</h2>
+<p>ENME480 is the first course in the <a href="https://robotics.umd.edu/minor">Robotics and Autonomous Systems Minor</a>. Lectures build the math: rigid-body motions, forward and inverse kinematics, velocity kinematics, dynamics, trajectory planning and joint control. Studios and labs turn each of those into working ROS 2 code, first in simulation and then on a UR3e arm.</p>
+<p>The final project ties the semester together. An overhead camera finds ArUco-tagged blocks on the table, your inverse kinematics solves for the joint angles that reach them, and the arm stacks a tower.</p>
+<dl class="spec">
+<dt>Term</dt>
+<dd>31 August – 9 December 2026 · 3 credits</dd>
+<dt>Lectures</dt>
+<dd>Mon and Wed, 2:00–2:50 pm · CHE 2110</dd>
+<dt>Studios</dt>
+<dd>See the section table below</dd>
+<dt>Instructor</dt>
+<dd>Dr. Nikhil Chopra · <a href="mailto:nchopra@umd.edu">nchopra@umd.edu</a></dd>
+<dt>Office hours</dt>
+<dd>Thu 10:00–11:30 am on <a href="https://umd.zoom.us/my/nikhilchopra">Zoom</a></dd>
+<dt>Teaching assistants</dt>
+<dd>Alex Beyer (<a href="mailto:abeyer@umd.edu">abeyer@umd.edu</a>), Kaustubh Joshi (<a href="mailto:kjoshi@umd.edu">kjoshi@umd.edu</a>) · hours TBD</dd>
+<dt>Textbook</dt>
+<dd>Spong, Hutchinson and Vidyasagar, <em>Robot Modeling and Control</em>, 2nd ed. (2020) · ISBN 978-1119523994</dd>
+<dt>Questions</dt>
+<dd><a href="https://piazza.com/umd/fall2026/enme480">Piazza</a> is the official channel</dd>
+<dt>Materials and grades</dt>
+<dd><a href="https://elms.umd.edu">Canvas / ELMS</a></dd>
+<dt>Lab code</dt>
+<dd><a href="https://github.com/ENME480">github.com/ENME480</a></dd>
+</dl>
+<h2 id="sections">Sections</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Day</th>
+<th>Time</th>
+<th>Rooms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lecture</td>
+<td>Mon, Wed</td>
+<td>2:00–2:50 pm</td>
+<td>CHE 2110</td>
+</tr>
+<tr>
+<td>Studio 0101</td>
+<td>Thu</td>
+<td>12:00–2:00 pm</td>
+<td>KEB 2111 / EAF 3119</td>
+</tr>
+<tr>
+<td>Studio 0102</td>
+<td>Fri</td>
+<td>8:00–10:00 am</td>
+<td>KEB 2111 / EAF 3119</td>
+</tr>
+<tr>
+<td>Studio 0103</td>
+<td>Tue</td>
+<td>12:00–2:00 pm</td>
+<td>KEB 2107 / EAF 3119</td>
+</tr>
+</tbody>
+</table>
+<p>Programming studios run in the Kim Engineering Building. Robot sessions run in the IDEA Factory. Rooms can change during the semester, so watch Piazza.</p>
+<h2 id="this-week">This week</h2>
+<!-- THIS_WEEK:auto:start -->
 <ul>
-<li><strong>Kinematics</strong> — rigid motions, forward/inverse kinematics   </li>
-<li><strong>Dynamics</strong> — planning, control</li>
-<li><strong>ROS 2 &amp; Python</strong> — modern robotics tooling and best practices  </li>
-<li><strong>Studios &amp; Labs</strong> — translate math into code on <strong>UR3e</strong> industrial arms  </li>
-<li><strong>Computer Vision</strong> — aruco tag detection + pick &amp; place for the final project</li>
+<li>Lab intro session. Bring a laptop.</li>
+<li>Start the UR3e safety training. Robot lab access depends on it.</li>
+<li>Install Ubuntu 22.04 and ROS 2 Humble before Week 2.</li>
 </ul>
-<hr />
-<h2 id="key-facts">Key facts</h2>
+<!-- THIS_WEEK:auto:end -->
+
+<h2 id="recently-changed">Recently changed</h2>
+<!-- WHATS_NEW:auto:start -->
 <ul>
-<li><strong>Instructor:</strong> Dr. Nikhil Chopra — <strong>Office Hours:</strong> Thursday 10–11:30, on <a href="https://umd.zoom.us/my/nikhilchopra">Zoom</a>  </li>
-<li><strong>TAs:</strong> Alex Beyer, Kaustubh Joshi — <strong>TA Office Hours:</strong> <em>TBD</em>  </li>
-<li><strong>Course dates:</strong> <strong>Aug 31 2 – Dec 9, 2026</strong>  </li>
-<li><strong>Lectures:</strong> <strong>MW 2:00–2:50pm</strong> (<strong>CHE2110</strong>)  </li>
-<li><strong>Studios (sections):</strong> 0101 Thu 12–2, 0102 Fri 8–10, 0103 Tue 12–2 (<strong>KEB 2111(0101,0102)/2107(0103) / EAF 3119, check syllabus and Piazza for further info</strong>)  </li>
-<li><strong>Channels:</strong> <a href="https://piazza.com/umd/fall2026/enme480">Piazza</a>, <a href="https://elms.umd.edu">Canvas</a>, <a href="https://github.com/ENME480">GitHub</a></li>
+<li>Fall 2026 syllabus posted.</li>
+<li>Site reorganised. See the Site Map for where things moved.</li>
 </ul>
-<!-- > **Note on rooms:** Syllabus mentions EAF **3119** in the section schedule and **3117** elsewhere. We list **EAF 3119** here; confirm via Schedule/Piazza if updated. -->
+<!-- WHATS_NEW:auto:end -->
 
-<hr />
-<!-- <div align="center"> -->
-
-<p><a class="md-button" href="labs/">Start Labs</a>
-<a class="md-button" href="help/">Help</a></p>
-<!-- </div> -->
-
-<hr />
-<h2 id="quick-start">Quick Start</h2>
+<h2 id="grading">Grading</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Midterm 1</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Midterm 2</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Studio and lab assignments</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Final project</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Homework</td>
+<td>7%</td>
+</tr>
+<tr>
+<td>In-class assignments</td>
+<td>3%</td>
+</tr>
+<tr>
+<td>Extra credit</td>
+<td>1%</td>
+</tr>
+</tbody>
+</table>
+<p>Exam 1 falls on Monday 19 October, Exam 2 on Wednesday 18 November. One page of notes, front and back, is allowed in each.</p>
+<p>Cutoffs: A+ 97, A 94, A− 90 · B+ 87, B 84, B− 80 · C+ 77, C 74, C− 70 · D+ 67, D 64, D− 60 · F below 60.</p>
+<h2 id="start-here">Start here</h2>
 <ol>
-<li>Complete <a href="https://academy.universal-robots.com/free-e-learning/e-series-e-learning/e-series-core-track/">Safety Training</a> <em>(required before robot lab)</em>  </li>
-<li>Set up Ubuntu, Python, and ROS 2 — see <a href="labs/week-02/">Week 2</a>, <a href="labs/week-02/">Week 3</a>  </li>
-<li>Practice Linux/Python basics — <a href="labs/week-02/">Week 2</a>  </li>
-<li>Get started with ROS — <a href="labs/week-03/">Week 3</a></li>
+<li>Read the <a href="assets/docs/syllabus-fall2026.pdf">syllabus</a>. It is the authority on grading, policies and the week-by-week schedule.</li>
+<li>Complete the <a href="https://academy.universal-robots.com/free-e-learning/e-series-e-learning/e-series-core-track/">UR3e safety training</a>. Robot lab access depends on it.</li>
+<li>Install Ubuntu and ROS 2 — see <a href="ubuntu-setup/">Ubuntu Setup</a> and <a href="ros-setup/">ROS Setup</a>.</li>
+<li>Work through <a href="labs/week-01/">Week 1</a> before your first session.</li>
 </ol>
+<p class="note-quiet">Not sure where something lives? The <a href="site-map.md">site map</a> lists every page on this site.</p>
 
 
 
@@ -1505,6 +1776,12 @@ Fall 2026 • University of Maryland • 3 credits
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -1515,13 +1792,13 @@ Fall 2026 • University of Maryland • 3 credits
         
         
           
-          <a href="labs/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="assets/docs/syllabus-fall2026.pdf" class="md-footer__link md-footer__link--next" aria-label="Next: Syllabus (PDF)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                Syllabus (PDF)
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1585,7 +1862,7 @@ Fall 2026 • University of Maryland • 3 credits
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -1596,11 +1873,7 @@ Fall 2026 • University of Maryland • 3 credits
       
         <script src="javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="javascripts/calendar.js"></script>
       
         <script src="javascripts/tablesort.js"></script>
       

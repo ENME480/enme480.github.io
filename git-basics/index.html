@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2026)">
+        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../python-basics/">
       
       
-        <link rel="next" href="../kinematics-reference/">
+        <link rel="next" href="../resources/">
       
       
         
@@ -48,10 +48,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../styles/theme.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Git Basics - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/git-basics.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -70,7 +74,7 @@
 <meta property="og:url" content="https://enme480.github.io/git-basics/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Git Basics - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/git-basics.png" />
 </head>
   
@@ -202,6 +206,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -293,13 +316,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../resources/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
@@ -322,7 +345,29 @@
   
     
   
-  Wiki
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
 
         </a>
       </li>
@@ -349,6 +394,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,9 +433,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -407,12 +469,37 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
     Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
   
 
     
@@ -436,18 +523,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -485,7 +560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -507,14 +582,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -540,35 +615,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -596,35 +643,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -654,35 +673,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
+    Week 3 — ROS Tutorial
   
 
     
@@ -710,7 +701,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -738,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -766,63 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -850,7 +785,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -878,35 +813,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -934,7 +841,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -962,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -990,7 +897,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1018,14 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../resources/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1048,8 +955,6 @@
   
     
     
-      
-        
       
         
       
@@ -1079,17 +984,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1100,12 +1005,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1126,34 +1031,6 @@
     
   
     Ubuntu Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
   
 
     
@@ -1210,6 +1087,34 @@
     
   
     Gazebo Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
   
 
     
@@ -1321,7 +1226,7 @@
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Overview
+        Overview
       
     </span>
   </a>
@@ -1332,7 +1237,7 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 Prerequisites
+        Prerequisites
       
     </span>
   </a>
@@ -1343,12 +1248,12 @@
   <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Getting Started
+        Getting Started
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🚀 Getting Started">
+    <nav class="md-nav" aria-label="Getting Started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1382,12 +1287,12 @@
   <a href="#core-git-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 Core Git Concepts
+        Core Git Concepts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📚 Core Git Concepts">
+    <nav class="md-nav" aria-label="Core Git Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1432,12 +1337,12 @@
   <a href="#essential-git-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Essential Git Commands
+        Essential Git Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Essential Git Commands">
+    <nav class="md-nav" aria-label="Essential Git Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1482,12 +1387,12 @@
   <a href="#working-with-github" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌐 Working with GitHub
+        Working with GitHub
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🌐 Working with GitHub">
+    <nav class="md-nav" aria-label="Working with GitHub">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1521,12 +1426,12 @@
   <a href="#common-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Common Workflows
+        Common Workflows
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📝 Common Workflows">
+    <nav class="md-nav" aria-label="Common Workflows">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1560,12 +1465,12 @@
   <a href="#useful-git-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔍 Useful Git Commands
+        Useful Git Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔍 Useful Git Commands">
+    <nav class="md-nav" aria-label="Useful Git Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1610,12 +1515,12 @@
   <a href="#github-desktop-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📱 GitHub Desktop (Optional)
+        GitHub Desktop (Optional)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📱 GitHub Desktop (Optional)">
+    <nav class="md-nav" aria-label="GitHub Desktop (Optional)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1649,12 +1554,12 @@
   <a href="#practice-exercises" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧪 Practice Exercises
+        Practice Exercises
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧪 Practice Exercises">
+    <nav class="md-nav" aria-label="Practice Exercises">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1688,12 +1593,12 @@
   <a href="#troubleshooting-common-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Troubleshooting Common Issues
+        Troubleshooting Common Issues
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Troubleshooting Common Issues">
+    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1738,12 +1643,12 @@
   <a href="#git-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 Git Best Practices
+        Git Best Practices
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📚 Git Best Practices">
+    <nav class="md-nav" aria-label="Git Best Practices">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1788,12 +1693,12 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🆘 Getting Help
+        Getting Help
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🆘 Getting Help">
+    <nav class="md-nav" aria-label="Getting Help">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1827,7 +1732,7 @@
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Next Steps
+        Next Steps
       
     </span>
   </a>
@@ -1838,6 +1743,101 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1858,6 +1858,34 @@
     
   
     Kinematics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
   
 
     
@@ -1905,12 +1933,582 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-git-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Git Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Git Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository (Repo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Essential Git Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Essential Git Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initializing-a-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initializing a Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up SSH Keys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daily-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Git Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Git Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing History
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managing Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undoing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-desktop-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Desktop (Optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Desktop (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-github-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use GitHub Desktop?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-create-a-lab-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Create a Lab Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-work-with-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Work with Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branch Naming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1925,34 +2523,27 @@
   
 
 
-<h1 id="git-github-basics">🔧 Git &amp; GitHub Basics</h1>
-<div align="center">
+<p class="eyebrow">ENME480 · Wiki</p>
 
-**Essential version control for robotics development**
+<h1 id="git-github-basics">Git &amp; GitHub Basics</h1>
+<p class="lede">Learn Git to manage your lab code, collaborate with teammates, and track your progress</p>
 
-*Learn Git to manage your lab code, collaborate with teammates, and track your progress*
-
-</div>
-
-<hr />
-<h2 id="overview">🎯 <strong>Overview</strong></h2>
+<h2 id="overview">Overview</h2>
 <p>Git is a version control system that helps you track changes in your code, collaborate with others, and maintain a history of your work. This guide covers the essential Git commands you'll need for ENME480 labs and projects.</p>
-<hr />
-<h2 id="prerequisites">💻 <strong>Prerequisites</strong></h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <p>Before starting, ensure you have:
-- ✅ <strong>Git installed</strong> on your system
-- ✅ <strong>GitHub account</strong> created
-- ✅ <strong>Basic terminal knowledge</strong></p>
-<hr />
-<h2 id="getting-started">🚀 <strong>Getting Started</strong></h2>
-<h3 id="install-git"><strong>Install Git</strong></h3>
+- <strong>Git installed</strong> on your system
+- <strong>GitHub account</strong> created
+- <strong>Basic terminal knowledge</strong></p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="install-git">Install Git</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Ubuntu/Debian</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Check installation</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>--version
 </span></code></pre></div>
-<h3 id="configure-git"><strong>Configure Git</strong></h3>
+<h3 id="configure-git">Configure Git</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Set your name and email</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your.email@umd.edu"</span>
@@ -1960,30 +2551,28 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Check configuration</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>git<span class="w"> </span>config<span class="w"> </span>--list
 </span></code></pre></div>
-<hr />
-<h2 id="core-git-concepts">📚 <strong>Core Git Concepts</strong></h2>
-<h3 id="repository-repo"><strong>Repository (Repo)</strong></h3>
+<h2 id="core-git-concepts">Core Git Concepts</h2>
+<h3 id="repository-repo">Repository (Repo)</h3>
 <ul>
 <li><strong>Local repository</strong>: Git repository on your computer</li>
 <li><strong>Remote repository</strong>: Git repository on GitHub/GitLab</li>
 <li><strong>Clone</strong>: Copy remote repository to local machine</li>
 </ul>
-<h3 id="working-directory"><strong>Working Directory</strong></h3>
+<h3 id="working-directory">Working Directory</h3>
 <ul>
 <li><strong>Working directory</strong>: Where you edit files</li>
 <li><strong>Staging area</strong>: Area where changes are prepared for commit</li>
 <li><strong>Repository</strong>: Where committed changes are stored</li>
 </ul>
-<h3 id="basic-workflow"><strong>Basic Workflow</strong></h3>
+<h3 id="basic-workflow">Basic Workflow</h3>
 <ol>
 <li><strong>Edit files</strong> in working directory</li>
 <li><strong>Stage changes</strong> to staging area</li>
 <li><strong>Commit changes</strong> to repository</li>
 <li><strong>Push changes</strong> to remote repository</li>
 </ol>
-<hr />
-<h2 id="essential-git-commands">🔧 <strong>Essential Git Commands</strong></h2>
-<h3 id="initializing-a-repository"><strong>Initializing a Repository</strong></h3>
+<h2 id="essential-git-commands">Essential Git Commands</h2>
+<h3 id="initializing-a-repository">Initializing a Repository</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create new repository</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>init
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -1993,7 +2582,7 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Check repository status</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>git<span class="w"> </span>status
 </span></code></pre></div>
-<h3 id="making-changes"><strong>Making Changes</strong></h3>
+<h3 id="making-changes">Making Changes</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Stage all changes</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -2011,7 +2600,7 @@
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>git<span class="w"> </span>log
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
 </span></code></pre></div>
-<h3 id="managing-branches"><strong>Managing Branches</strong></h3>
+<h3 id="managing-branches">Managing Branches</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># List branches</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>branch
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
@@ -2031,9 +2620,8 @@
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Delete branch</span>
 </span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature-name
 </span></code></pre></div>
-<hr />
-<h2 id="working-with-github">🌐 <strong>Working with GitHub</strong></h2>
-<h3 id="setting-up-ssh-keys"><strong>Setting up SSH Keys</strong></h3>
+<h2 id="working-with-github">Working with GitHub</h2>
+<h3 id="setting-up-ssh-keys">Setting up SSH Keys</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Generate SSH key</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"your.email@umd.edu"</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -2046,7 +2634,7 @@
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Copy public key to GitHub</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
 </span></code></pre></div>
-<h3 id="remote-operations"><strong>Remote Operations</strong></h3>
+<h3 id="remote-operations">Remote Operations</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Add remote repository</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/username/repository.git
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
@@ -2062,9 +2650,8 @@
 </span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Fetch changes (without merging)</span>
 </span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
 </span></code></pre></div>
-<hr />
-<h2 id="common-workflows">📝 <strong>Common Workflows</strong></h2>
-<h3 id="daily-workflow"><strong>Daily Workflow</strong></h3>
+<h2 id="common-workflows">Common Workflows</h2>
+<h3 id="daily-workflow">Daily Workflow</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Start of day - get latest changes</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
@@ -2082,7 +2669,7 @@
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1"># Push changes</span>
 </span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
 </span></code></pre></div>
-<h3 id="feature-development"><strong>Feature Development</strong></h3>
+<h3 id="feature-development">Feature Development</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Create feature branch</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/joint-control
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
@@ -2106,9 +2693,8 @@
 </span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="c1"># Delete feature branch</span>
 </span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/joint-control
 </span></code></pre></div>
-<hr />
-<h2 id="useful-git-commands">🔍 <strong>Useful Git Commands</strong></h2>
-<h3 id="viewing-history"><strong>Viewing History</strong></h3>
+<h2 id="useful-git-commands">Useful Git Commands</h2>
+<h3 id="viewing-history">Viewing History</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># View commit history</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -2121,7 +2707,7 @@
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># View staged changes</span>
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>git<span class="w"> </span>diff<span class="w"> </span>--cached
 </span></code></pre></div>
-<h3 id="managing-files"><strong>Managing Files</strong></h3>
+<h3 id="managing-files">Managing Files</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Remove file from Git</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>rm<span class="w"> </span>filename.py
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
@@ -2132,7 +2718,7 @@
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"*.log"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"build/"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
 </span></code></pre></div>
-<h3 id="undoing-changes"><strong>Undoing Changes</strong></h3>
+<h3 id="undoing-changes">Undoing Changes</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Undo last commit (keep changes)</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
@@ -2145,24 +2731,22 @@
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Revert specific commit</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>git<span class="w"> </span>revert<span class="w"> </span>commit_hash
 </span></code></pre></div>
-<hr />
-<h2 id="github-desktop-optional">📱 <strong>GitHub Desktop (Optional)</strong></h2>
-<h3 id="why-use-github-desktop"><strong>Why Use GitHub Desktop?</strong></h3>
+<h2 id="github-desktop-optional">GitHub Desktop (Optional)</h2>
+<h3 id="why-use-github-desktop">Why Use GitHub Desktop?</h3>
 <ul>
 <li><strong>Visual interface</strong> for Git operations</li>
 <li><strong>Easier for beginners</strong> than command line</li>
 <li><strong>Built-in merge conflict resolution</strong></li>
 <li><strong>Good for simple workflows</strong></li>
 </ul>
-<h3 id="installation"><strong>Installation</strong></h3>
+<h3 id="installation">Installation</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Download from GitHub</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># https://desktop.github.com/</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
 </span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Install and authenticate with your GitHub account</span>
 </span></code></pre></div>
-<hr />
-<h2 id="practice-exercises">🧪 <strong>Practice Exercises</strong></h2>
-<h3 id="exercise-1-create-a-lab-repository"><strong>Exercise 1: Create a Lab Repository</strong></h3>
+<h2 id="practice-exercises">Practice Exercises</h2>
+<h3 id="exercise-1-create-a-lab-repository">Exercise 1: Create a Lab Repository</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Create directory for lab work</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mkdir<span class="w"> </span>enme480-labs
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>enme480-labs
@@ -2181,7 +2765,7 @@
 </span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/username/enme480-labs.git
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </span></code></pre></div>
-<h3 id="exercise-2-work-with-branches"><strong>Exercise 2: Work with Branches</strong></h3>
+<h3 id="exercise-2-work-with-branches">Exercise 2: Work with Branches</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Create feature branch</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>lab/week1
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
@@ -2204,9 +2788,8 @@
 </span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="c1"># Push merged changes</span>
 </span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
 </span></code></pre></div>
-<hr />
-<h2 id="troubleshooting-common-issues">🔧 <strong>Troubleshooting Common Issues</strong></h2>
-<h3 id="merge-conflicts"><strong>Merge Conflicts</strong></h3>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="merge-conflicts">Merge Conflicts</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># When you get a merge conflict</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>status<span class="w">  </span><span class="c1"># See conflicted files</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
@@ -2217,14 +2800,14 @@
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Resolve merge conflicts"</span>
 </span></code></pre></div>
-<h3 id="authentication-issues"><strong>Authentication Issues</strong></h3>
+<h3 id="authentication-issues">Authentication Issues</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># If you get authentication errors</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>store
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Or use personal access token</span>
 </span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Generate token on GitHub: Settings → Developer settings → Personal access tokens</span>
 </span></code></pre></div>
-<h3 id="large-files"><strong>Large Files</strong></h3>
+<h3 id="large-files">Large Files</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># If you accidentally commit large files</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>filter-branch<span class="w"> </span>--tree-filter<span class="w"> </span><span class="s1">'rm -f large_file.dat'</span><span class="w"> </span>HEAD
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
@@ -2232,45 +2815,42 @@
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>git<span class="w"> </span>lfs<span class="w"> </span>install
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>git<span class="w"> </span>lfs<span class="w"> </span>track<span class="w"> </span><span class="s2">"*.dat"</span>
 </span></code></pre></div>
-<hr />
-<h2 id="git-best-practices">📚 <strong>Git Best Practices</strong></h2>
-<h3 id="commit-messages"><strong>Commit Messages</strong></h3>
+<h2 id="git-best-practices">Git Best Practices</h2>
+<h3 id="commit-messages">Commit Messages</h3>
 <ul>
 <li><strong>Use present tense</strong>: "Add feature" not "Added feature"</li>
 <li><strong>Be descriptive</strong>: "Implement joint limit checking" not "Fix bug"</li>
 <li><strong>Keep it short</strong>: First line under 50 characters</li>
 <li><strong>Use imperative mood</strong>: "Add", "Fix", "Update", "Remove"</li>
 </ul>
-<h3 id="branch-naming"><strong>Branch Naming</strong></h3>
+<h3 id="branch-naming">Branch Naming</h3>
 <ul>
 <li><strong>Feature branches</strong>: <code>feature/description</code></li>
 <li><strong>Bug fixes</strong>: <code>fix/description</code></li>
 <li><strong>Lab work</strong>: <code>lab/week1</code>, <code>lab/week2</code></li>
 <li><strong>Project work</strong>: <code>project/final-project</code></li>
 </ul>
-<h3 id="when-to-commit"><strong>When to Commit</strong></h3>
+<h3 id="when-to-commit">When to Commit</h3>
 <ul>
 <li><strong>After completing a logical unit</strong> of work</li>
 <li><strong>Before making major changes</strong> to working code</li>
 <li><strong>After fixing a bug</strong> or implementing a feature</li>
 <li><strong>At the end of each lab session</strong></li>
 </ul>
-<hr />
-<h2 id="getting-help">🆘 <strong>Getting Help</strong></h2>
-<h3 id="git-resources"><strong>Git Resources</strong></h3>
+<h2 id="getting-help">Getting Help</h2>
+<h3 id="git-resources">Git Resources</h3>
 <ul>
 <li><strong>Git Documentation</strong>: <a href="https://git-scm.com/doc">git-scm.com</a></li>
 <li><strong>GitHub Guides</strong>: <a href="https://guides.github.com/">guides.github.com</a></li>
 <li><strong>Git Cheat Sheet</strong>: <a href="https://git-scm.com/doc/cheatsheet">git-scm.com</a></li>
 </ul>
-<h3 id="course-support"><strong>Course Support</strong></h3>
+<h3 id="course-support">Course Support</h3>
 <ul>
 <li><strong>Piazza</strong>: Ask questions on course forum</li>
 <li><strong>Office Hours</strong>: Get help from TA or instructor</li>
 <li><strong>Lab Sessions</strong>: Hands-on help during labs</li>
 </ul>
-<hr />
-<h2 id="next-steps">🚀 <strong>Next Steps</strong></h2>
+<h2 id="next-steps">Next Steps</h2>
 <p>After mastering Git basics:</p>
 <ol>
 <li><strong>Set up your lab repository</strong> on GitHub</li>
@@ -2278,19 +2858,9 @@
 <li><strong>Collaborate with teammates</strong> on group projects</li>
 <li><strong>Learn advanced Git features</strong> as needed</li>
 </ol>
-<hr />
-<div align="center">
-
-**Ready to manage your code? Let's set up your lab repository! 📚**
-
-[🐧 Ubuntu Setup](ubuntu-setup.md){ .md-button }
-[🤖 ROS Setup](ros-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
-<hr />
-<p><em>Last updated: Fall 2025 • <a href="../resources/">Back to Resources</a></em></p>
+<p><a class="md-button" href="../ubuntu-setup/">Ubuntu Setup</a>
+<a class="md-button" href="../ros-setup/">ROS Setup</a>
+<a class="md-button" href="../resources/">Back to Resources</a></p>
 
 
 
@@ -2312,6 +2882,12 @@
 
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -2339,13 +2915,13 @@
         
         
           
-          <a href="../kinematics-reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Kinematics Reference">
+          <a href="../resources/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Kinematics Reference
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2409,7 +2985,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -2420,11 +2996,7 @@
       
         <script src="../javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../javascripts/calendar.js"></script>
       
         <script src="../javascripts/tablesort.js"></script>
       

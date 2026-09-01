@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2026)">
+        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
       
       
       
         <link rel="canonical" href="https://enme480.github.io/ubuntu-setup/">
       
       
-        <link rel="prev" href="../resources/">
+        <link rel="prev" href="../slides/">
       
       
-        <link rel="next" href="../dev-environment/">
+        <link rel="next" href="../ros-setup/">
       
       
         
@@ -48,10 +48,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../styles/theme.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Ubuntu Setup - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/ubuntu-setup.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -70,7 +74,7 @@
 <meta property="og:url" content="https://enme480.github.io/ubuntu-setup/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Ubuntu Setup - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/ubuntu-setup.png" />
 </head>
   
@@ -202,6 +206,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -293,13 +316,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../resources/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
@@ -322,7 +345,29 @@
   
     
   
-  Wiki
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
 
         </a>
       </li>
@@ -349,6 +394,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,9 +433,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -407,12 +469,37 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
     Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
   
 
     
@@ -436,18 +523,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -485,7 +560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -507,14 +582,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -540,35 +615,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -596,35 +643,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -654,35 +673,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
+    Week 3 — ROS Tutorial
   
 
     
@@ -710,7 +701,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -738,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -766,63 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -850,7 +785,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -878,35 +813,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -934,7 +841,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -962,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -990,7 +897,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1018,14 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../resources/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1048,8 +955,6 @@
   
     
     
-      
-        
       
         
       
@@ -1079,17 +984,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1100,12 +1005,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1576,34 +1481,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../ros-setup/" class="md-nav__link">
         
   
@@ -1640,6 +1517,34 @@
     
   
     Gazebo Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
   
 
     
@@ -1709,6 +1614,101 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
               
                 
   
@@ -1724,6 +1724,34 @@
     
   
     Kinematics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
   
 
     
@@ -1771,12 +1799,448 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-your-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choose Your Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choose Your Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-utm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Download UTM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-download-ubuntu-2204-arm64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Download Ubuntu 22.04 ARM64
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-new-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create New Virtual Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-start-the-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Start the VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-ubuntu-installation-welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Ubuntu Installation Welcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: First Boot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Download VirtualBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-download-ubuntu-2204-arm64_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Download Ubuntu 22.04 ARM64
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-new-virtual-machine_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create New Virtual Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-start-the-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Start the VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-ubuntu-installation-welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 11: Ubuntu Installation Welcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-first-boot_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: First Boot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Installation Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-Installation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-essential-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Essential Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-docker-to-run-as-non-root-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Configure Docker to Run as Non-Root User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enme480-docker-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ENME480 Docker Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ENME480 Docker Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clone-the-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Clone the Repo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-build-and-run-the-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Build and Run the Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-wslnative-ubuntu-only-configure-docker-to-run-on-nvidia-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-for-week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests for Week 2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tests for Week 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-in-new-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test in New Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Something Goes Wrong
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emergency-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1791,36 +2255,36 @@
   
 
 
-<h1 id="ubuntu-setup-guide">🐧 Ubuntu Setup Guide</h1>
-<hr />
-<h2 id="system-requirements"><strong>System Requirements</strong></h2>
-<h3 id="minimum-requirements"><strong>Minimum Requirements</strong></h3>
+<p class="eyebrow">ENME480 · Wiki</p>
+
+<h1 id="ubuntu-setup-guide">Ubuntu Setup Guide</h1>
+<h2 id="system-requirements">System Requirements</h2>
+<h3 id="minimum-requirements">Minimum Requirements</h3>
 <ul>
 <li><strong>RAM</strong>: 8GB (16GB recommended)</li>
 <li><strong>Storage</strong>: 60GB free space (100GB recommended)</li>
 <li><strong>Processor</strong>: 64-bit processor (Intel/AMD) or ARM64 (Apple Silicon)</li>
 </ul>
-<h3 id="recommended-setup"><strong>Recommended Setup</strong></h3>
+<h3 id="recommended-setup">Recommended Setup</h3>
 <ul>
 <li><strong>RAM</strong>: 16GB or more</li>
 <li><strong>Storage</strong>: 256GB SSD</li>
 <li><strong>Processor</strong>: Multi-core processor</li>
 <li><strong>Graphics</strong>: Dedicated GPU (optional, for simulation)</li>
 </ul>
-<hr />
-<h2 id="choose-your-platform"><strong>Choose Your Platform</strong></h2>
+<h2 id="choose-your-platform">Choose Your Platform</h2>
 <p>If you are on Windows then you have two choices here:
-    - A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
-    - Windows Subsystem for Linux (WSL), Microsofts official way of running Linux code on Windows. This approach has much less overhead and runs faster, but can require some extra steps. </p>
+- A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
+- Windows Subsystem for Linux (WSL), Microsofts official way of running Linux code on Windows. This approach has much less overhead and runs faster, but can require some extra steps.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Apple Silicon) — UTM VM</label><label for="__tabbed_1_2">Windows — WSL 2 (Ubuntu 22.04)</label><label for="__tabbed_1_3">Windows - VM</label><label for="__tabbed_1_4">Linux / Dual-boot (optional)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<h3 id="step-1-download-utm"><strong>Step 1: Download UTM</strong></h3>
+<h3 id="step-1-download-utm">Step 1: Download UTM</h3>
 <p>Download UTM from the official website: <a href="https://mac.getutm.app">https://mac.getutm.app</a></p>
-<h3 id="step-2-download-ubuntu-2204-arm64"><strong>Step 2: Download Ubuntu 22.04 ARM64</strong></h3>
+<h3 id="step-2-download-ubuntu-2204-arm64">Step 2: Download Ubuntu 22.04 ARM64</h3>
 <p>Get Ubuntu 22.04 ARM64 (Desktop or Server): <a href="https://cdimage.ubuntu.mirror.onlime.sl/ubuntu/daily-live/20220417/">https://cdimage.ubuntu.mirror.onlime.sl/ubuntu/daily-live/20220417/</a><br />
 <em>Choose </em><em>22.04 LTS 64-bit (ARM)</em><em>.</em></p>
-<h3 id="step-3-create-new-virtual-machine"><strong>Step 3: Create New Virtual Machine</strong></h3>
+<h3 id="step-3-create-new-virtual-machine">Step 3: Create New Virtual Machine</h3>
 <p>Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.</p>
 <p><img alt="UTM Download" src="../assets/vm_figs/1.webp" /></p>
 <p>Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.</p>
@@ -1834,11 +2298,11 @@
 <p>(Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.</p>
 <p><img alt="System Settings" src="../assets/vm_figs/7.webp" /></p>
 <p>Once done, enter the details for your VM as you want and press done.</p>
-<h3 id="step-4-start-the-vm"><strong>Step 4: Start the VM</strong></h3>
+<h3 id="step-4-start-the-vm">Step 4: Start the VM</h3>
 <p>Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".</p>
 <p><img alt="Display Settings" src="../assets/vm_figs/8.webp" /></p>
 <p><img alt="Review Settings" src="../assets/vm_figs/9.png" /></p>
-<h3 id="step-5-ubuntu-installation-welcome"><strong>Step 5: Ubuntu Installation Welcome</strong></h3>
+<h3 id="step-5-ubuntu-installation-welcome">Step 5: Ubuntu Installation Welcome</h3>
 <p>The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".</p>
 <p><img alt="Start VM" src="../assets/vm_figs/10.png" /></p>
 <p><img alt="Installation Welcome" src="../assets/vm_figs/11.png" /></p>
@@ -1853,12 +2317,12 @@
 <p>Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.</p>
 <p><img alt="Ubuntu Desktop" src="../assets/vm_figs/17.png" /></p>
 <p>Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.</p>
-<h3 id="step-6-first-boot"><strong>Step 6: First Boot</strong></h3>
+<h3 id="step-6-first-boot">Step 6: First Boot</h3>
 <p>After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>If your OS doesn't boot up to the welcome screen, restart the VM and press <code>ESC</code>, and use your arrow keys to go to "Boot Manager", press "ENTER", go to <code>ubuntu</code> and press "ENTER"</p>
 <p>You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.</p>
-<p><strong>References:</strong> </p>
+<p><strong>References:</strong></p>
 <ol>
 <li><a href="https://docs.getutm.app/guides/ubuntu/">UTM's Ubuntu guide</a></li>
 <li><a href="https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1">Blog Post</a>  </li>
@@ -1877,21 +2341,21 @@ Click on the Display tabs on the top to see all available GPUs. If none of them 
 <p>This installs the exact distro we use. Using a different Ubuntu version often breaks ROS compatibility. <em>Note: if you have never used WSL before this command will install some necessary drivers first, then say that it failed to install Ubuntu. If this happens reset your computer and try again, it should work now.</em></p>
 </li>
 <li>
-<p>You should notice that powershell has gona from looking like this: 
+<p>You should notice that powershell has gona from looking like this:
 <img alt="phsell" src="../assets/nvidia-setup/pshell.png" /></p>
 </li>
 </ol>
 <p>to something like this:
 <img alt="wsl" src="../assets/nvidia-setup/wsl.png" /></p>
-<p>This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here. </p>
+<p>This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here.</p>
 </div>
 <div class="tabbed-block">
-<h3 id="step-1-download-virtualbox"><strong>Step 1: Download VirtualBox</strong></h3>
+<h3 id="step-1-download-virtualbox">Step 1: Download VirtualBox</h3>
 <p>Download VirtualBox from the official website: <a href="https://www.virtualbox.org">https://www.virtualbox.org</a></p>
-<h3 id="step-2-download-ubuntu-2204-arm64_1"><strong>Step 2: Download Ubuntu 22.04 ARM64</strong></h3>
+<h3 id="step-2-download-ubuntu-2204-arm64_1">Step 2: Download Ubuntu 22.04 ARM64</h3>
 <p>Get Ubuntu 22.04 ARM64 (Desktop or Server): <a href="https://releases.ubuntu.com/jammy/">https://releases.ubuntu.com/jammy/</a></p>
 <p><em>Choose </em><em>22.04 LTS 64-bit (AMD)</em><em>.</em></p>
-<h3 id="step-3-create-new-virtual-machine_1"><strong>Step 3: Create New Virtual Machine</strong></h3>
+<h3 id="step-3-create-new-virtual-machine_1">Step 3: Create New Virtual Machine</h3>
 <p>Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.</p>
 <p><img alt="UTM Download" src="../assets/vm_figs/1.webp" /></p>
 <p>Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.</p>
@@ -1905,11 +2369,11 @@ Click on the Display tabs on the top to see all available GPUs. If none of them 
 <p>(Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.</p>
 <p><img alt="System Settings" src="../assets/vm_figs/7.webp" /></p>
 <p>Once done, enter the details for your VM as you want and press done.</p>
-<h3 id="step-4-start-the-vm_1"><strong>Step 4: Start the VM</strong></h3>
+<h3 id="step-4-start-the-vm_1">Step 4: Start the VM</h3>
 <p>Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".</p>
 <p><img alt="Display Settings" src="../assets/vm_figs/8.webp" /></p>
 <p><img alt="Review Settings" src="../assets/vm_figs/9.png" /></p>
-<h3 id="step-11-ubuntu-installation-welcome"><strong>Step 11: Ubuntu Installation Welcome</strong></h3>
+<h3 id="step-11-ubuntu-installation-welcome">Step 11: Ubuntu Installation Welcome</h3>
 <p>The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".</p>
 <p><img alt="Start VM" src="../assets/vm_figs/10.png" /></p>
 <p><img alt="Installation Welcome" src="../assets/vm_figs/11.png" /></p>
@@ -1924,12 +2388,12 @@ Click on the Display tabs on the top to see all available GPUs. If none of them 
 <p>Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.</p>
 <p><img alt="Ubuntu Desktop" src="../assets/vm_figs/17.png" /></p>
 <p>Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.</p>
-<h3 id="step-6-first-boot_1"><strong>Step 6: First Boot</strong></h3>
+<h3 id="step-6-first-boot_1">Step 6: First Boot</h3>
 <p>After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.</p>
 <h2 id="troubleshooting_1">Troubleshooting</h2>
 <p>If your OS doesn't boot up to the welcome screen, restart the VM and press <code>ESC</code>, and use your arrow keys to go to "Boot Manager", press "ENTER", go to <code>ubuntu</code> and press "ENTER"</p>
 <p>You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.</p>
-<p><strong>References:</strong> </p>
+<p><strong>References:</strong></p>
 <ol>
 <li><a href="https://docs.getutm.app/guides/ubuntu/">UTM's Ubuntu guide</a></li>
 <li><a href="https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1">Blog Post</a>  </li>
@@ -1940,13 +2404,12 @@ Click on the Display tabs on the top to see all available GPUs. If none of them 
 </div>
 </div>
 </div>
-<hr />
-<h2 id="post-installation-setup"><strong>Post-Installation Setup</strong></h2>
+<h2 id="post-installation-setup">Post-Installation Setup</h2>
 <p>Open up Terminal using <code>Ctrl + Alt + T</code> or from the menu on the bottom left and selecting it.</p>
-<h3 id="step-1-update-system"><strong>Step 1: Update System</strong></h3>
+<h3 id="step-1-update-system">Step 1: Update System</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 </span></code></pre></div>
-<h3 id="step-2-install-essential-tools"><strong>Step 2: Install Essential Tools</strong></h3>
+<h3 id="step-2-install-essential-tools">Step 2: Install Essential Tools</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># add new package sources so we can find everything we want to install</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.gpg<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.gpg
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -1978,7 +2441,7 @@ Click on the Display tabs on the top to see all available GPUs. If none of them 
 </span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c1"># check to make sure ubuntu actually grabbed all the packages we want</span>
 </span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin<span class="w"> </span>git<span class="w"> </span>python-is-python3<span class="w"> </span>docker
 </span></code></pre></div>
-<h3 id="step-3-configure-docker-to-run-as-non-root-user"><strong>Step 3: Configure Docker to Run as Non-Root User</strong></h3>
+<h3 id="step-3-configure-docker-to-run-as-non-root-user">Step 3: Configure Docker to Run as Non-Root User</h3>
 <p>By default Docker can only be run as an admin, which will cause it to throw lots of random, hard to diagnose errors. These steps will set up Docker so it can be run by anyone. Docker is <em>supposed</em> to run these steps manually, but sometimes doesn't so you may see some random warnings or errors about groups already existing or users already being in the group. This is totally fine, we want to rerun these commands to make sure the entire process worked.</p>
 <p>Create the docker group if it does not exist:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
@@ -1995,7 +2458,6 @@ Check if Docker can be run without root:
 This should download a small program and print a short message confirming that Docker works. If it doesn't, reboot using the command:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>reboot
 </span></code></pre></div></p>
-<hr />
 <h2 id="enme480-docker-installation">ENME480 Docker Installation</h2>
 <h3 id="step-1-clone-the-repo">Step 1: Clone the Repo</h3>
 <p>Open up <a href="https://github.com/MarylandRoboticsCenter/ENME480_mrc">MRC's ENME480 GitHub Repo</a>. You can either download the zip or open up your terminal</p>
@@ -2003,7 +2465,7 @@ This should download a small program and print a short message confirming that D
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
 </span></code></pre></div>
 <p>This will download the repository content into your <code>HOME</code> directory. Next, build Docker image (run the command from the docker folder). This needs to be done every time the Docker file is changed. Here's the commands to do that:</p>
-<p><strong>For MacOS users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code> </p>
+<p><strong>For MacOS users</strong>, change Line no. 4 in the docker file <code>humble-enme480_ur3e.Dockerfile</code></p>
 <p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># BEFORE
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>FROM osrf/ros:humble-desktop AS humble-mod_desktop
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
@@ -2067,7 +2529,6 @@ To spawn a new terminal in the already running container. If you repeatedly run 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>&lt;hit<span class="w"> </span>your<span class="w"> </span>tab<span class="w"> </span>button&gt;<span class="w"> </span>bash
 </span></code></pre></div>
 <p>You should see that your name in the terminal has changed from what is was before to <em>enme480_mrc</em>. This means you are inside the Docker container and can run ROS code.</p>
-<hr />
 <h2 id="tests-for-week-2">Tests for Week 2</h2>
 <p>From within the docker iamge, ensure the demo nodes are actually downloaded by running:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-demo-nodes-cpp
@@ -2079,28 +2540,25 @@ To spawn a new terminal in the already running container. If you repeatedly run 
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener
 </span></code></pre></div>
 <p>This second script should output the messages being sent by the talker.</p>
-<h3 id="test-in-new-terminal"><strong>Test in New Terminal</strong></h3>
+<h3 id="test-in-new-terminal">Test in New Terminal</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Open new terminal and run</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>ros2<span class="w"> </span>--help
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># test gazebo, our simulation suite</span>
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>ign<span class="w"> </span>gazebo
 </span></code></pre></div>
-<hr />
-<h2 id="getting-help"><strong>Getting Help</strong></h2>
-<h3 id="if-something-goes-wrong"><strong>If Something Goes Wrong</strong></h3>
+<h2 id="getting-help">Getting Help</h2>
+<h3 id="if-something-goes-wrong">If Something Goes Wrong</h3>
 <ol>
 <li><strong>Check Ubuntu Forums</strong>: <a href="https://ubuntuforums.org/">ubuntuforums.org</a></li>
 <li><strong>Ask on Piazza</strong>: Course Q&amp;A forum</li>
 <li><strong>Office Hours</strong>: Get help from TA or instructor</li>
 <li><strong>Ubuntu Documentation</strong>: <a href="https://help.ubuntu.com/">help.ubuntu.com</a></li>
 </ol>
-<h3 id="emergency-recovery"><strong>Emergency Recovery</strong></h3>
+<h3 id="emergency-recovery">Emergency Recovery</h3>
 <ul>
 <li><strong>Boot from USB</strong> and use "Try Ubuntu" mode</li>
 <li><strong>Reinstall Ubuntu</strong> as last resort</li>
 </ul>
-<hr />
-<p><em>Last updated: Fall 2025 • <a href="../resources/">Back to Resources</a></em></p>
 
 
 
@@ -2123,6 +2581,12 @@ To spawn a new terminal in the already running container. If you repeatedly run 
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -2132,7 +2596,7 @@ To spawn a new terminal in the already running container. If you repeatedly run 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../resources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resources">
+          <a href="../slides/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Slides">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2142,20 +2606,20 @@ To spawn a new terminal in the already running container. If you repeatedly run 
                 Previous
               </span>
               <div class="md-ellipsis">
-                Resources
+                Slides
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dev-environment/" class="md-footer__link md-footer__link--next" aria-label="Next: Dev Environment">
+          <a href="../ros-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: ROS Setup">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Dev Environment
+                ROS Setup
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2219,7 +2683,7 @@ To spawn a new terminal in the already running container. If you repeatedly run 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -2230,11 +2694,7 @@ To spawn a new terminal in the already running container. If you repeatedly run 
       
         <script src="../javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../javascripts/calendar.js"></script>
       
         <script src="../javascripts/tablesort.js"></script>
       

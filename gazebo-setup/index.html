@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2026)">
+        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../ros-setup/">
       
       
-        <link rel="next" href="../python-basics/">
+        <link rel="next" href="../dev-environment/">
       
       
         
@@ -48,10 +48,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../styles/theme.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Gazebo Setup - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/gazebo-setup.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -70,7 +74,7 @@
 <meta property="og:url" content="https://enme480.github.io/gazebo-setup/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Gazebo Setup - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/gazebo-setup.png" />
 </head>
   
@@ -202,6 +206,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -293,13 +316,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../resources/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
@@ -322,7 +345,29 @@
   
     
   
-  Wiki
+  Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../resources/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
 
         </a>
       </li>
@@ -349,6 +394,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,9 +433,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -407,12 +469,37 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
     Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
   
 
     
@@ -436,18 +523,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -485,7 +560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -507,14 +582,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -540,35 +615,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -596,35 +643,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -654,35 +673,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
+    Week 3 — ROS Tutorial
   
 
     
@@ -710,7 +701,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -738,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -766,63 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -850,7 +785,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -878,35 +813,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -934,7 +841,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -962,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -990,7 +897,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1018,14 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../resources/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1048,8 +955,6 @@
   
     
     
-      
-        
       
         
       
@@ -1079,17 +984,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1100,12 +1005,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1126,34 +1031,6 @@
     
   
     Ubuntu Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
   
 
     
@@ -1265,7 +1142,7 @@
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Overview
+        Overview
       
     </span>
   </a>
@@ -1276,7 +1153,7 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 Prerequisites
+        Prerequisites
       
     </span>
   </a>
@@ -1287,12 +1164,12 @@
   <a href="#install-gazebo-for-ros-2-humble-ubuntu-2204" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
+        Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🚀 Install Gazebo for ROS 2 Humble (Ubuntu 22.04)">
+    <nav class="md-nav" aria-label="Install Gazebo for ROS 2 Humble (Ubuntu 22.04)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1337,12 +1214,12 @@
   <a href="#basic-gazebo-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Basic Gazebo Concepts
+        Basic Gazebo Concepts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Basic Gazebo Concepts">
+    <nav class="md-nav" aria-label="Basic Gazebo Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1376,12 +1253,12 @@
   <a href="#launching-gazebo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎮 Launching Gazebo
+        Launching Gazebo
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🎮 Launching Gazebo">
+    <nav class="md-nav" aria-label="Launching Gazebo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1415,12 +1292,12 @@
   <a href="#creating-a-simple-world" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🏗️ Creating a Simple World
+        Creating a Simple World
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🏗️ Creating a Simple World">
+    <nav class="md-nav" aria-label="Creating a Simple World">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1454,12 +1331,12 @@
   <a href="#adding-robot-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🤖 Adding Robot Models
+        Adding Robot Models
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🤖 Adding Robot Models">
+    <nav class="md-nav" aria-label="Adding Robot Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1493,12 +1370,12 @@
   <a href="#basic-gazebo-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Basic Gazebo Operations
+        Basic Gazebo Operations
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🎯 Basic Gazebo Operations">
+    <nav class="md-nav" aria-label="Basic Gazebo Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1543,12 +1420,12 @@
   <a href="#using-gazebo-gui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔍 Using Gazebo GUI
+        Using Gazebo GUI
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔍 Using Gazebo GUI">
+    <nav class="md-nav" aria-label="Using Gazebo GUI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1593,12 +1470,12 @@
   <a href="#ros-2-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📡 ROS 2 Integration
+        ROS 2 Integration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📡 ROS 2 Integration">
+    <nav class="md-nav" aria-label="ROS 2 Integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1632,12 +1509,12 @@
   <a href="#basic-simulation-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧪 Basic Simulation Examples
+        Basic Simulation Examples
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧪 Basic Simulation Examples">
+    <nav class="md-nav" aria-label="Basic Simulation Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1671,12 +1548,12 @@
   <a href="#troubleshooting-common-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Troubleshooting Common Issues
+        Troubleshooting Common Issues
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Troubleshooting Common Issues">
+    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1721,12 +1598,12 @@
   <a href="#advanced-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 Advanced Features
+        Advanced Features
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📚 Advanced Features">
+    <nav class="md-nav" aria-label="Advanced Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1760,7 +1637,7 @@
   <a href="#verification-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Verification Checklist
+        Verification Checklist
       
     </span>
   </a>
@@ -1771,12 +1648,12 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🆘 Getting Help
+        Getting Help
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🆘 Getting Help">
+    <nav class="md-nav" aria-label="Getting Help">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1810,7 +1687,7 @@
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Next Steps
+        Next Steps
       
     </span>
   </a>
@@ -1821,6 +1698,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1882,6 +1787,101 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
               
                 
   
@@ -1897,6 +1897,34 @@
     
   
     Kinematics Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
   
 
     
@@ -1944,12 +1972,621 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gazebo-for-ros-2-humble-ubuntu-2204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Gazebo for ROS 2 Humble (Ubuntu 22.04)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-gazebo-classic-gazebo11-ros-interface-simple-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-gazebo-gz-ignition-via-ros_gz-newer-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-gazebo-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Gazebo Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Gazebo Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#world-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching Gazebo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launching Gazebo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch-from-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch from Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-from-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch from ROS 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-simple-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Simple World
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a Simple World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-world-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic World File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-and-load-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save and Load World
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-robot-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Robot Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Robot Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-ur3e-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install UR3e Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-ur3e-in-gazebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch UR3e in Gazebo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-gazebo-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Gazebo Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Gazebo Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Manipulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-gazebo-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Gazebo GUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Gazebo GUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Toolbar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#left-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros-2-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS 2 Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS 2 Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gazebo-ros-2-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gazebo ROS 2 Plugins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-file-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch File Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-simulation-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Simulation Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Simulation Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-simple-robot-movement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Simple Robot Movement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-camera-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Camera Visualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graphics Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros-2-integration-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS 2 Integration Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physics-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gazebo-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gazebo Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1964,59 +2601,51 @@
   
 
 
-<h1 id="gazebo-setup-guide">🎮 Gazebo Setup Guide</h1>
-<div align="center">
+<p class="eyebrow">ENME480 · Wiki</p>
 
-**Set up and configure Gazebo for robot simulation**
+<h1 id="gazebo-setup-guide">Gazebo Setup Guide</h1>
+<p class="lede">Learn to use Gazebo for simulating robots, testing algorithms, and visualizing robot behavior</p>
 
-*Learn to use Gazebo for simulating robots, testing algorithms, and visualizing robot behavior*
-
-</div>
-
-<hr />
-<h2 id="overview">🎯 <strong>Overview</strong></h2>
+<h2 id="overview">Overview</h2>
 <p>Gazebo is a powerful 3D robot simulator that we'll use throughout ENME480 for testing robot control algorithms, visualizing robot movements, and simulating real-world scenarios. This guide covers installation, basic usage, and integration with ROS 2.</p>
-<hr />
-<h2 id="prerequisites">💻 <strong>Prerequisites</strong></h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <p>Before starting, ensure you have:
-- ✅ <strong>Ubuntu 22.04 LTS</strong> installed (ROS 2 Humble Tier-1 platform)
-- ✅ <strong>ROS 2 Humble</strong> installed and configured
-- ✅ <strong>Graphics drivers</strong> installed and working
-- ✅ <strong>At least 4GB RAM</strong> (8GB recommended)</p>
+- <strong>Ubuntu 22.04 LTS</strong> installed (ROS 2 Humble Tier-1 platform)
+- <strong>ROS 2 Humble</strong> installed and configured
+- <strong>Graphics drivers</strong> installed and working
+- <strong>At least 4GB RAM</strong> (8GB recommended)</p>
 <hr />
 <div class="admonition tip">
 <p class="admonition-title">WSL/VM graphics</p>
 <p>In WSLg and VMs (UTM), Gazebo's GUI can be slower. Install the proper <strong>vGPU driver</strong> on Windows (WSLg) or drop graphics quality / use headless sim as needed.</p>
 </div>
-<hr />
-<h2 id="install-gazebo-for-ros-2-humble-ubuntu-2204">🚀 <strong>Install Gazebo for ROS 2 Humble (Ubuntu 22.04)</strong></h2>
-<h3 id="option-a-gazebo-classic-gazebo11-ros-interface-simple-stable"><strong>Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)</strong></h3>
+<h2 id="install-gazebo-for-ros-2-humble-ubuntu-2204">Install Gazebo for ROS 2 Humble (Ubuntu 22.04)</h2>
+<h3 id="option-a-gazebo-classic-gazebo11-ros-interface-simple-stable">Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gazebo<span class="w">    </span><span class="c1"># installs Gazebo Classic (gazebo11) on Ubuntu 22.04</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-humble-gazebo-ros-pkgs
 </span></code></pre></div>
-<h3 id="option-b-gazebo-gz-ignition-via-ros_gz-newer-stack"><strong>Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)</strong></h3>
+<h3 id="option-b-gazebo-gz-ignition-via-ros_gz-newer-stack">Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)</h3>
 <ul>
 <li>For advanced users who want modern GZ features, see the official guide and <code>ros_gz</code> packages.</li>
 <li>Start here: <a href="https://gazebosim.org/docs/latest/ros_installation/">https://gazebosim.org/docs/latest/ros_installation/</a> (migration notes: <a href="https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/">https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/</a>)</li>
 </ul>
-<h3 id="verify-installation"><strong>Verify Installation</strong></h3>
+<h3 id="verify-installation">Verify Installation</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check Gazebo version</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gazebo<span class="w"> </span>--version
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Launch Gazebo</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gazebo
 </span></code></pre></div>
-<hr />
-<h2 id="basic-gazebo-concepts">🔧 <strong>Basic Gazebo Concepts</strong></h2>
-<h3 id="world-files"><strong>World Files</strong></h3>
+<h2 id="basic-gazebo-concepts">Basic Gazebo Concepts</h2>
+<h3 id="world-files">World Files</h3>
 <ul>
 <li><strong>World files</strong> (<code>.world</code>) define the simulation environment</li>
 <li><strong>Models</strong> represent robots, objects, and environments</li>
 <li><strong>Physics engine</strong> handles collisions and dynamics</li>
 <li><strong>Sensors</strong> provide simulated sensor data</li>
 </ul>
-<h3 id="key-components"><strong>Key Components</strong></h3>
+<h3 id="key-components">Key Components</h3>
 <ul>
 <li><strong>World</strong>: 3D environment with physics</li>
 <li><strong>Models</strong>: Robots, objects, buildings</li>
@@ -2024,9 +2653,8 @@
 <li><strong>Joints</strong>: Connections between links</li>
 <li><strong>Sensors</strong>: Cameras, lasers, IMUs</li>
 </ul>
-<hr />
-<h2 id="launching-gazebo">🎮 <strong>Launching Gazebo</strong></h2>
-<h3 id="launch-from-terminal"><strong>Launch from Terminal</strong></h3>
+<h2 id="launching-gazebo">Launching Gazebo</h2>
+<h3 id="launch-from-terminal">Launch from Terminal</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Launch empty world</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gazebo
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -2036,16 +2664,15 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Launch with specific physics settings</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>gazebo<span class="w"> </span>--physics-engine<span class="w"> </span>ode
 </span></code></pre></div>
-<h3 id="launch-from-ros-2"><strong>Launch from ROS 2</strong></h3>
+<h3 id="launch-from-ros-2">Launch from ROS 2</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Launch Gazebo with ROS 2 integration</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>gazebo_ros<span class="w"> </span>gazebo.launch.py
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Launch with specific world</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>gazebo_ros<span class="w"> </span>gazebo.launch.py<span class="w"> </span>world:<span class="o">=</span>/path/to/world.world
 </span></code></pre></div>
-<hr />
-<h2 id="creating-a-simple-world">🏗️ <strong>Creating a Simple World</strong></h2>
-<h3 id="basic-world-file"><strong>Basic World File</strong></h3>
+<h2 id="creating-a-simple-world">Creating a Simple World</h2>
+<h3 id="basic-world-file">Basic World File</h3>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.6"</span><span class="nt">&gt;</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">"default"</span><span class="nt">&gt;</span>
@@ -2087,16 +2714,15 @@
 </span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">  </span><span class="nt">&lt;/world&gt;</span>
 </span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="nt">&lt;/sdf&gt;</span>
 </span></code></pre></div>
-<h3 id="save-and-load-world"><strong>Save and Load World</strong></h3>
+<h3 id="save-and-load-world">Save and Load World</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Save world file</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Copy the XML above to ~/gazebo_worlds/simple.world</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Launch custom world</span>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>gazebo<span class="w"> </span>~/gazebo_worlds/simple.world
 </span></code></pre></div>
-<hr />
-<h2 id="adding-robot-models">🤖 <strong>Adding Robot Models</strong></h2>
-<h3 id="install-ur3e-model"><strong>Install UR3e Model</strong></h3>
+<h2 id="adding-robot-models">Adding Robot Models</h2>
+<h3 id="install-ur3e-model">Install UR3e Model</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Clone UR3e model repository</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
@@ -2108,68 +2734,65 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Source workspace</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
-<h3 id="launch-ur3e-in-gazebo"><strong>Launch UR3e in Gazebo</strong></h3>
+<h3 id="launch-ur3e-in-gazebo">Launch UR3e in Gazebo</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Launch UR3e in Gazebo</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_gazebo<span class="w"> </span>ur3e_bringup.launch.py
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Or launch with custom world</span>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_gazebo<span class="w"> </span>ur3e_bringup.launch.py<span class="w"> </span>world:<span class="o">=</span>~/gazebo_worlds/simple.world
 </span></code></pre></div>
-<hr />
-<h2 id="basic-gazebo-operations">🎯 <strong>Basic Gazebo Operations</strong></h2>
-<h3 id="camera-controls"><strong>Camera Controls</strong></h3>
+<h2 id="basic-gazebo-operations">Basic Gazebo Operations</h2>
+<h3 id="camera-controls">Camera Controls</h3>
 <ul>
 <li><strong>Mouse</strong>: Rotate view</li>
 <li><strong>Scroll wheel</strong>: Zoom in/out</li>
 <li><strong>Right-click + drag</strong>: Pan view</li>
 <li><strong>Middle-click + drag</strong>: Rotate around point</li>
 </ul>
-<h3 id="model-manipulation"><strong>Model Manipulation</strong></h3>
+<h3 id="model-manipulation">Model Manipulation</h3>
 <ul>
 <li><strong>Select model</strong>: Click on it</li>
 <li><strong>Move model</strong>: Drag with left mouse button</li>
 <li><strong>Rotate model</strong>: Drag with right mouse button</li>
 <li><strong>Scale model</strong>: Use the scale handles</li>
 </ul>
-<h3 id="time-controls"><strong>Time Controls</strong></h3>
+<h3 id="time-controls">Time Controls</h3>
 <ul>
 <li><strong>Play/Pause</strong>: Spacebar</li>
 <li><strong>Step</strong>: Step button in toolbar</li>
 <li><strong>Reset</strong>: Reset button in toolbar</li>
 <li><strong>Real-time factor</strong>: Adjust in toolbar</li>
 </ul>
-<hr />
-<h2 id="using-gazebo-gui">🔍 <strong>Using Gazebo GUI</strong></h2>
-<h3 id="main-toolbar"><strong>Main Toolbar</strong></h3>
+<h2 id="using-gazebo-gui">Using Gazebo GUI</h2>
+<h3 id="main-toolbar">Main Toolbar</h3>
 <ul>
 <li><strong>Play/Pause</strong>: Start/stop simulation</li>
 <li><strong>Step</strong>: Advance simulation one step</li>
 <li><strong>Reset</strong>: Reset simulation to initial state</li>
 <li><strong>Real-time factor</strong>: Speed up/slow down simulation</li>
 </ul>
-<h3 id="left-panel"><strong>Left Panel</strong></h3>
+<h3 id="left-panel">Left Panel</h3>
 <ul>
 <li><strong>World</strong>: View world hierarchy</li>
 <li><strong>Models</strong>: List all models in world</li>
 <li><strong>Joints</strong>: View joint properties</li>
 <li><strong>Sensors</strong>: Configure sensors</li>
 </ul>
-<h3 id="right-panel"><strong>Right Panel</strong></h3>
+<h3 id="right-panel">Right Panel</h3>
 <ul>
 <li><strong>Properties</strong>: Edit selected object properties</li>
 <li><strong>Material</strong>: Change object appearance</li>
 <li><strong>Physics</strong>: Adjust physics properties</li>
 </ul>
-<hr />
-<h2 id="ros-2-integration">📡 <strong>ROS 2 Integration</strong></h2>
-<h3 id="gazebo-ros-2-plugins"><strong>Gazebo ROS 2 Plugins</strong></h3>
+<h2 id="ros-2-integration">ROS 2 Integration</h2>
+<h3 id="gazebo-ros-2-plugins">Gazebo ROS 2 Plugins</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Install Gazebo ROS 2 plugins</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-gazebo-ros-pkgs
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Check available plugins</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>gazebo<span class="w"> </span>--help
 </span></code></pre></div>
-<h3 id="launch-file-example"><strong>Launch File Example</strong></h3>
+<h3 id="launch-file-example">Launch File Example</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/usr/bin/env python3</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
@@ -2203,9 +2826,8 @@
 </span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>        <span class="n">gazebo</span>
 </span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>    <span class="p">])</span>
 </span></code></pre></div>
-<hr />
-<h2 id="basic-simulation-examples">🧪 <strong>Basic Simulation Examples</strong></h2>
-<h3 id="example-1-simple-robot-movement"><strong>Example 1: Simple Robot Movement</strong></h3>
+<h2 id="basic-simulation-examples">Basic Simulation Examples</h2>
+<h3 id="example-1-simple-robot-movement">Example 1: Simple Robot Movement</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/usr/bin/env python3</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
@@ -2271,7 +2893,7 @@
 </span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
 </span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="example-2-camera-visualization"><strong>Example 2: Camera Visualization</strong></h3>
+<h3 id="example-2-camera-visualization">Example 2: Camera Visualization</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="ch">#!/usr/bin/env python3</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
@@ -2313,9 +2935,8 @@
 </span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
 </span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<hr />
-<h2 id="troubleshooting-common-issues">🔧 <strong>Troubleshooting Common Issues</strong></h2>
-<h3 id="performance-issues"><strong>Performance Issues</strong></h3>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="performance-issues">Performance Issues</h3>
 <table>
 <thead>
 <tr>
@@ -2338,7 +2959,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="graphics-issues"><strong>Graphics Issues</strong></h3>
+<h3 id="graphics-issues">Graphics Issues</h3>
 <table>
 <thead>
 <tr>
@@ -2361,7 +2982,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="ros-2-integration-issues"><strong>ROS 2 Integration Issues</strong></h3>
+<h3 id="ros-2-integration-issues">ROS 2 Integration Issues</h3>
 <table>
 <thead>
 <tr>
@@ -2384,9 +3005,8 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="advanced-features">📚 <strong>Advanced Features</strong></h2>
-<h3 id="custom-models"><strong>Custom Models</strong></h3>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="custom-models">Custom Models</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Create model directory</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.gazebo/models/my_robot
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
@@ -2404,7 +3024,7 @@
 </span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># Create model.sdf file (similar to world file)</span>
 </span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># ... create SDF file ...</span>
 </span></code></pre></div>
-<h3 id="physics-parameters"><strong>Physics Parameters</strong></h3>
+<h3 id="physics-parameters">Physics Parameters</h3>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">&lt;!-- In world file --&gt;</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;physics</span><span class="w"> </span><span class="na">type=</span><span class="s">"ode"</span><span class="nt">&gt;</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&lt;max_step_size&gt;</span>0.001<span class="nt">&lt;/max_step_size&gt;</span>
@@ -2413,8 +3033,7 @@
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">&lt;gravity&gt;</span>0<span class="w"> </span>0<span class="w"> </span>-9.81<span class="nt">&lt;/gravity&gt;</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nt">&lt;/physics&gt;</span>
 </span></code></pre></div>
-<hr />
-<h2 id="verification-checklist">✅ <strong>Verification Checklist</strong></h2>
+<h2 id="verification-checklist">Verification Checklist</h2>
 <ul>
 <li>[ ] Gazebo launches successfully</li>
 <li>[ ] ROS 2 integration working</li>
@@ -2424,22 +3043,20 @@
 <li>[ ] Joint control functional</li>
 <li>[ ] Physics simulation realistic</li>
 </ul>
-<hr />
-<h2 id="getting-help">🆘 <strong>Getting Help</strong></h2>
-<h3 id="gazebo-resources"><strong>Gazebo Resources</strong></h3>
+<h2 id="getting-help">Getting Help</h2>
+<h3 id="gazebo-resources">Gazebo Resources</h3>
 <ul>
 <li><strong>Official Docs</strong>: <a href="http://gazebosim.org/tutorials">gazebosim.org</a></li>
 <li><strong>ROS 2 Integration</strong>: <a href="https://docs.ros.org/en/humble/Guides/Gazebo.html">docs.ros.org</a></li>
 <li><strong>Community Forum</strong>: <a href="https://answers.gazebosim.org/">answers.gazebosim.org</a></li>
 </ul>
-<h3 id="course-support"><strong>Course Support</strong></h3>
+<h3 id="course-support">Course Support</h3>
 <ul>
 <li><strong>Piazza</strong>: Ask questions on course forum</li>
 <li><strong>Office Hours</strong>: Get help from TA or instructor</li>
 <li><strong>Lab Sessions</strong>: Hands-on help during labs</li>
 </ul>
-<hr />
-<h2 id="next-steps">🚀 <strong>Next Steps</strong></h2>
+<h2 id="next-steps">Next Steps</h2>
 <p>After setting up Gazebo:</p>
 <ol>
 <li><strong>Practice basic operations</strong> in empty world</li>
@@ -2447,19 +3064,9 @@
 <li><strong>Start Week 4 lab</strong>: See <a href="../labs/week-04/">Week 4 Lab</a></li>
 <li><strong>Experiment with different worlds</strong> and models</li>
 </ol>
-<hr />
-<div align="center">
-
-**Ready to simulate robots? Let's start the Week 4 lab! 🎮**
-
-[🐍 Python Basics](python-basics.md){ .md-button }
-[🤖 ROS Setup](ros-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
-<hr />
-<p><em>Last updated: Fall 2025 • <a href="../resources/">Back to Resources</a></em></p>
+<p><a class="md-button" href="../python-basics/">Python Basics</a>
+<a class="md-button" href="../ros-setup/">ROS Setup</a>
+<a class="md-button" href="../resources/">Back to Resources</a></p>
 
 
 
@@ -2481,6 +3088,12 @@
 
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -2508,13 +3121,13 @@
         
         
           
-          <a href="../python-basics/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Basics">
+          <a href="../dev-environment/" class="md-footer__link md-footer__link--next" aria-label="Next: Dev Environment">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Python Basics
+                Dev Environment
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2578,7 +3191,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -2589,11 +3202,7 @@
       
         <script src="../javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../javascripts/calendar.js"></script>
       
         <script src="../javascripts/tablesort.js"></script>
       

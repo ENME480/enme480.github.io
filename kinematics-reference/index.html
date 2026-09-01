@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Intro to Robotics at UMD (Fall 2026)">
+        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
       
       
       
         <link rel="canonical" href="https://enme480.github.io/kinematics-reference/">
       
       
-        <link rel="prev" href="../git-basics/">
+        <link rel="prev" href="../resources/">
       
       
-        <link rel="next" href="../help/">
+        <link rel="next" href="../assets/docs/dh_table.pdf">
       
       
         
@@ -48,10 +48,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../styles/theme.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +66,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Kinematics Reference - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/kinematics-reference.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -70,7 +74,7 @@
 <meta property="og:url" content="https://enme480.github.io/kinematics-reference/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Kinematics Reference - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Intro to Robotics at UMD (Fall 2026)" />
+<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/kinematics-reference.png" />
 </head>
   
@@ -202,6 +206,8 @@
         </button>
       </nav>
       
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -255,10 +261,27 @@
   
   
     
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-    
   
   Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Syllabus (PDF)
 
       </a>
     </li>
@@ -293,16 +316,38 @@
   
   
     <li class="md-tabs__item">
-      <a href="../resources/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
     
   
-  Resources
+  Slides
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ubuntu-setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup
+
+        </a>
+      </li>
+    
   
 
       
@@ -316,13 +361,13 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../ubuntu-setup/" class="md-tabs__link">
+        <a href="../resources/" class="md-tabs__link">
           
   
   
     
   
-  Wiki
+  Resources
 
         </a>
       </li>
@@ -349,6 +394,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../site-map/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Site Map
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,9 +433,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
@@ -407,12 +469,37 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
-  
   <span class="md-ellipsis">
     
   
     Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus (PDF)
   
 
     
@@ -436,18 +523,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -485,7 +560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -507,14 +582,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -540,35 +615,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-1-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 Slides
+    Week 1 — Lab Intro
   
 
     
@@ -596,35 +643,7 @@
   <span class="md-ellipsis">
     
   
-    Week 2 (Software)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-2-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 Slides
+    Week 2 — Ubuntu & Python
   
 
     
@@ -654,35 +673,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 (ROS Tutorial)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-3-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3/4 Slides
+    Week 3 — ROS Tutorial
   
 
     
@@ -710,7 +701,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 (Gazebo Demo)
+    Week 4 — Gazebo Demo
   
 
     
@@ -738,7 +729,7 @@
   <span class="md-ellipsis">
     
   
-    Week 5 (UR3e Intro, FK Lab Part 1)
+    Week 5 — UR3e Intro, FK Lab 1.1
   
 
     
@@ -766,63 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Week 6 (UR3e Forward Kinematics Simulation)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-6-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5/6 Slides
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    UR3e DH Table
+    Week 6 — FK Simulation, FK Lab 1.2
   
 
     
@@ -850,7 +785,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 (No Lab)
+    Week 7 — No Lab
   
 
     
@@ -878,35 +813,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 (UR3e Inverse Kinematics)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../labs/week-8-slides.pptx" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 Slides
+    Week 8 — Inverse Kinematics
   
 
     
@@ -934,7 +841,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 (UR3e IK Lab)
+    Week 9 — UR3e IK Lab
   
 
     
@@ -962,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 (Camera Lab)
+    Week 12 — Camera Lab
   
 
     
@@ -990,7 +897,7 @@
   <span class="md-ellipsis">
     
   
-    Week 13-15 (Final Project)
+    Weeks 13-15 — Final Project
   
 
     
@@ -1018,14 +925,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../resources/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Resources
+    Slides
   
 
     
@@ -1042,14 +949,10 @@
       
   
   
-    
   
   
-  
     
     
-      
-        
       
         
       
@@ -1067,29 +970,26 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Wiki
+    Setup
   
 
     
@@ -1100,12 +1000,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Wiki
+    Setup
   
 
           </label>
@@ -1126,34 +1026,6 @@
     
   
     Ubuntu Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dev-environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dev Environment
   
 
     
@@ -1230,6 +1102,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../python-basics/" class="md-nav__link">
         
   
@@ -1266,6 +1166,106 @@
     
   
     Git Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
   
 
     
@@ -1349,7 +1349,7 @@
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Overview
+        Overview
       
     </span>
   </a>
@@ -1360,12 +1360,12 @@
   <a href="#mathematical-fundamentals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔢 Mathematical Fundamentals
+        Mathematical Fundamentals
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔢 Mathematical Fundamentals">
+    <nav class="md-nav" aria-label="Mathematical Fundamentals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1399,12 +1399,12 @@
   <a href="#dh-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🤖 DH Parameters
+        DH Parameters
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🤖 DH Parameters">
+    <nav class="md-nav" aria-label="DH Parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1438,12 +1438,12 @@
   <a href="#ur3e-dh-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🦾 UR3e DH Parameters
+        UR3e DH Parameters
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🦾 UR3e DH Parameters">
+    <nav class="md-nav" aria-label="UR3e DH Parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1477,12 +1477,12 @@
   <a href="#forward-kinematics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ➡️ Forward Kinematics
+        Forward Kinematics
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="➡️ Forward Kinematics">
+    <nav class="md-nav" aria-label="Forward Kinematics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1516,12 +1516,12 @@
   <a href="#inverse-kinematics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⬅️ Inverse Kinematics
+        Inverse Kinematics
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="⬅️ Inverse Kinematics">
+    <nav class="md-nav" aria-label="Inverse Kinematics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1555,12 +1555,12 @@
   <a href="#jacobian-matrix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔄 Jacobian Matrix
+        Jacobian Matrix
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔄 Jacobian Matrix">
+    <nav class="md-nav" aria-label="Jacobian Matrix">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1594,12 +1594,12 @@
   <a href="#trajectory-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 Trajectory Generation
+        Trajectory Generation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📊 Trajectory Generation">
+    <nav class="md-nav" aria-label="Trajectory Generation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1633,12 +1633,12 @@
   <a href="#utility-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Utility Functions
+        Utility Functions
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Utility Functions">
+    <nav class="md-nav" aria-label="Utility Functions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1672,12 +1672,12 @@
   <a href="#common-formulas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 Common Formulas
+        Common Formulas
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📚 Common Formulas">
+    <nav class="md-nav" aria-label="Common Formulas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1711,12 +1711,12 @@
   <a href="#verification-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Verification Examples
+        Verification Examples
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="✅ Verification Examples">
+    <nav class="md-nav" aria-label="Verification Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1739,12 +1739,12 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🆘 Getting Help
+        Getting Help
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🆘 Getting Help">
+    <nav class="md-nav" aria-label="Getting Help">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1778,7 +1778,7 @@
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Next Steps
+        Next Steps
       
     </span>
   </a>
@@ -1789,6 +1789,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UR3e DH Table
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1828,12 +1856,505 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../site-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathematical-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Fundamentals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mathematical Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotation-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation Matrices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homogeneous-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homogeneous Transformations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DH Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DH Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dh-parameter-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DH Parameter Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dh-transformation-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DH Transformation Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ur3e-dh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UR3e DH Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UR3e DH Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-dh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard DH Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modified-dh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modified DH Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forward-kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Kinematics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Forward Kinematics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-forward-kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Forward Kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-and-orientation-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position and Orientation Extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inverse Kinematics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inverse Kinematics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytical-ik-for-ur3e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytical IK for UR3e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerical-ik-jacobian-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerical IK (Jacobian Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jacobian-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jacobian Matrix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jacobian Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytical-jacobian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytical Jacobian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jacobian-based-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jacobian-Based Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trajectory-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trajectory Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trajectory Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Trajectory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joint-space-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joint Space Trajectory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utility Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Utility Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distance-and-angle-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance and Angle Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matrix Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Formulas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Formulas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigonometric-identities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigonometric Identities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-forward-kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Forward Kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           
@@ -1848,21 +2369,15 @@
   
 
 
-<h1 id="kinematics-reference">📐 Kinematics Reference</h1>
-<div align="center">
+<p class="eyebrow">ENME480 · Wiki</p>
 
-**Essential kinematics formulas and reference materials**
+<h1 id="kinematics-reference">Kinematics Reference</h1>
+<p class="lede">DH parameters, transformation matrices, forward/inverse kinematics for robotics</p>
 
-*DH parameters, transformation matrices, forward/inverse kinematics for robotics*
-
-</div>
-
-<hr />
-<h2 id="overview">🎯 <strong>Overview</strong></h2>
+<h2 id="overview">Overview</h2>
 <p>This reference guide contains essential kinematics formulas, DH parameters, and mathematical tools you'll need for ENME480. Keep this handy during labs and homework assignments.</p>
-<hr />
-<h2 id="mathematical-fundamentals">🔢 <strong>Mathematical Fundamentals</strong></h2>
-<h3 id="rotation-matrices"><strong>Rotation Matrices</strong></h3>
+<h2 id="mathematical-fundamentals">Mathematical Fundamentals</h2>
+<h3 id="rotation-matrices">Rotation Matrices</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Rotation around X-axis (roll)</span>
@@ -1893,7 +2408,7 @@
 </span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">Rzyx</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">pitch</span><span class="p">,</span> <span class="n">yaw</span><span class="p">):</span>
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="k">return</span> <span class="n">Rz</span><span class="p">(</span><span class="n">yaw</span><span class="p">)</span> <span class="o">@</span> <span class="n">Ry</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span> <span class="o">@</span> <span class="n">Rx</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="homogeneous-transformations"><strong>Homogeneous Transformations</strong></h3>
+<h3 id="homogeneous-transformations">Homogeneous Transformations</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">homogeneous_transform</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">"""Create 4x4 homogeneous transformation matrix."""</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -1916,9 +2431,8 @@
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">T</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
 </span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">return</span> <span class="n">T</span>
 </span></code></pre></div>
-<hr />
-<h2 id="dh-parameters">🤖 <strong>DH Parameters</strong></h2>
-<h3 id="dh-parameter-table"><strong>DH Parameter Table</strong></h3>
+<h2 id="dh-parameters">DH Parameters</h2>
+<h3 id="dh-parameter-table">DH Parameter Table</h3>
 <table>
 <thead>
 <tr>
@@ -1974,7 +2488,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="dh-transformation-matrix"><strong>DH Transformation Matrix</strong></h3>
+<h3 id="dh-transformation-matrix">DH Transformation Matrix</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">dh_transform</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">"""Compute DH transformation matrix."""</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
@@ -1991,9 +2505,8 @@
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="n">T</span>
 </span></code></pre></div>
-<hr />
-<h2 id="ur3e-dh-parameters">🦾 <strong>UR3e DH Parameters</strong></h2>
-<h3 id="standard-dh-parameters"><strong>Standard DH Parameters</strong></h3>
+<h2 id="ur3e-dh-parameters">UR3e DH Parameters</h2>
+<h3 id="standard-dh-parameters">Standard DH Parameters</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># UR3e DH parameters (in meters and radians)</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">ur3e_dh</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="c1"># [theta, d, a, alpha]</span>
@@ -2015,7 +2528,7 @@
 </span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]</span>     <span class="c1"># Wrist 3</span>
 </span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">]</span>
 </span></code></pre></div>
-<h3 id="modified-dh-parameters"><strong>Modified DH Parameters</strong></h3>
+<h3 id="modified-dh-parameters">Modified DH Parameters</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Modified DH parameters (alternative convention)</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">ur3e_mdh</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="c1"># [theta, d, a, alpha]</span>
@@ -2027,9 +2540,8 @@
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0819</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>              <span class="c1"># Wrist 3</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">]</span>
 </span></code></pre></div>
-<hr />
-<h2 id="forward-kinematics">➡️ <strong>Forward Kinematics</strong></h2>
-<h3 id="basic-forward-kinematics"><strong>Basic Forward Kinematics</strong></h3>
+<h2 id="forward-kinematics">Forward Kinematics</h2>
+<h3 id="basic-forward-kinematics">Basic Forward Kinematics</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward_kinematics</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">dh_params</span><span class="p">):</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">"""Compute forward kinematics using DH parameters."""</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -2054,7 +2566,7 @@
 </span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="n">position</span> <span class="o">=</span> <span class="n">T_end_effector</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="n">orientation</span> <span class="o">=</span> <span class="n">T_end_effector</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </span></code></pre></div>
-<h3 id="position-and-orientation-extraction"><strong>Position and Orientation Extraction</strong></h3>
+<h3 id="position-and-orientation-extraction">Position and Orientation Extraction</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">extract_pose</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">"""Extract position and orientation from transformation matrix."""</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">position</span> <span class="o">=</span> <span class="n">T</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -2076,9 +2588,8 @@
 </span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
 </span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">as_quat</span><span class="p">()</span>  <span class="c1"># [x, y, z, w]</span>
 </span></code></pre></div>
-<hr />
-<h2 id="inverse-kinematics">⬅️ <strong>Inverse Kinematics</strong></h2>
-<h3 id="analytical-ik-for-ur3e"><strong>Analytical IK for UR3e</strong></h3>
+<h2 id="inverse-kinematics">Inverse Kinematics</h2>
+<h3 id="analytical-ik-for-ur3e">Analytical IK for UR3e</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">ur3e_inverse_kinematics</span><span class="p">(</span><span class="n">T_desired</span><span class="p">,</span> <span class="n">elbow_config</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="sd">    Analytical inverse kinematics for UR3e.</span>
@@ -2139,7 +2650,7 @@
 </span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="numerical-ik-jacobian-method"><strong>Numerical IK (Jacobian Method)</strong></h3>
+<h3 id="numerical-ik-jacobian-method">Numerical IK (Jacobian Method)</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">numerical_inverse_kinematics</span><span class="p">(</span><span class="n">T_desired</span><span class="p">,</span> <span class="n">initial_guess</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="sd">"""Numerical inverse kinematics using Jacobian method."""</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
@@ -2174,9 +2685,8 @@
 </span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
-<hr />
-<h2 id="jacobian-matrix">🔄 <strong>Jacobian Matrix</strong></h2>
-<h3 id="analytical-jacobian"><strong>Analytical Jacobian</strong></h3>
+<h2 id="jacobian-matrix">Jacobian Matrix</h2>
+<h3 id="analytical-jacobian">Analytical Jacobian</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_jacobian</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">dh_params</span><span class="p">):</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">"""Compute analytical Jacobian matrix."""</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">n_joints</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dh_params</span><span class="p">)</span>
@@ -2209,7 +2719,7 @@
 </span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="n">J</span> <span class="o">=</span> <span class="n">compute_jacobian</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">ur3e_dh</span><span class="p">)</span>
 </span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Jacobian shape: </span><span class="si">{</span><span class="n">J</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="jacobian-based-control"><strong>Jacobian-Based Control</strong></h3>
+<h3 id="jacobian-based-control">Jacobian-Based Control</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">jacobian_control</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">desired_velocity</span><span class="p">,</span> <span class="n">dh_params</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="sd">"""Simple Jacobian-based velocity control."""</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">J</span> <span class="o">=</span> <span class="n">compute_jacobian</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">dh_params</span><span class="p">)</span>
@@ -2229,9 +2739,8 @@
 </span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">desired_velocity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Move in X direction</span>
 </span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="n">new_angles</span> <span class="o">=</span> <span class="n">jacobian_control</span><span class="p">(</span><span class="n">joint_angles</span><span class="p">,</span> <span class="n">desired_velocity</span><span class="p">,</span> <span class="n">ur3e_dh</span><span class="p">)</span>
 </span></code></pre></div>
-<hr />
-<h2 id="trajectory-generation">📊 <strong>Trajectory Generation</strong></h2>
-<h3 id="linear-trajectory"><strong>Linear Trajectory</strong></h3>
+<h2 id="trajectory-generation">Trajectory Generation</h2>
+<h3 id="linear-trajectory">Linear Trajectory</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">linear_trajectory</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">,</span> <span class="n">num_points</span><span class="p">):</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="sd">"""Generate linear trajectory between two points."""</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
@@ -2248,7 +2757,7 @@
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">end_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">trajectory</span> <span class="o">=</span> <span class="n">linear_trajectory</span><span class="p">(</span><span class="n">start_pos</span><span class="p">,</span> <span class="n">end_pos</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="joint-space-trajectory"><strong>Joint Space Trajectory</strong></h3>
+<h3 id="joint-space-trajectory">Joint Space Trajectory</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">joint_trajectory</span><span class="p">(</span><span class="n">start_angles</span><span class="p">,</span> <span class="n">end_angles</span><span class="p">,</span> <span class="n">num_points</span><span class="p">):</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="sd">"""Generate trajectory in joint space."""</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
@@ -2265,9 +2774,8 @@
 </span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">end_angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="n">joint_traj</span> <span class="o">=</span> <span class="n">joint_trajectory</span><span class="p">(</span><span class="n">start_angles</span><span class="p">,</span> <span class="n">end_angles</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </span></code></pre></div>
-<hr />
-<h2 id="utility-functions">🔧 <strong>Utility Functions</strong></h2>
-<h3 id="distance-and-angle-calculations"><strong>Distance and Angle Calculations</strong></h3>
+<h2 id="utility-functions">Utility Functions</h2>
+<h3 id="distance-and-angle-calculations">Distance and Angle Calculations</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Calculate Euclidean distance between two points."""</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p2</span><span class="p">))</span>
@@ -2282,7 +2790,7 @@
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">    </span><span class="sd">"""Normalize angle to [-π, π]."""</span>
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
 </span></code></pre></div>
-<h3 id="matrix-operations"><strong>Matrix Operations</strong></h3>
+<h3 id="matrix-operations">Matrix Operations</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">skew_symmetric</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">"""Create skew-symmetric matrix from vector."""</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -2307,9 +2815,8 @@
 </span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
 </span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>    <span class="k">return</span> <span class="n">axis</span><span class="p">,</span> <span class="n">theta</span>
 </span></code></pre></div>
-<hr />
-<h2 id="common-formulas">📚 <strong>Common Formulas</strong></h2>
-<h3 id="trigonometric-identities"><strong>Trigonometric Identities</strong></h3>
+<h2 id="common-formulas">Common Formulas</h2>
+<h3 id="trigonometric-identities">Trigonometric Identities</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Sum and difference formulas</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">sin_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -2324,7 +2831,7 @@
 </span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">cos_double</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
 </span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </span></code></pre></div>
-<h3 id="vector-operations"><strong>Vector Operations</strong></h3>
+<h3 id="vector-operations">Vector Operations</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">cross_product</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="sd">"""Cross product of two 3D vectors."""</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
@@ -2337,9 +2844,8 @@
 </span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="sd">"""Dot product of two vectors."""</span>
 </span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">v1</span> <span class="o">*</span> <span class="n">v2</span><span class="p">)</span>
 </span></code></pre></div>
-<hr />
-<h2 id="verification-examples">✅ <strong>Verification Examples</strong></h2>
-<h3 id="test-forward-kinematics"><strong>Test Forward Kinematics</strong></h3>
+<h2 id="verification-examples">Verification Examples</h2>
+<h3 id="test-forward-kinematics">Test Forward Kinematics</h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_forward_kinematics</span><span class="p">():</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="sd">"""Test forward kinematics with known values."""</span>
 </span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="c1"># Test home position</span>
@@ -2361,22 +2867,20 @@
 </span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="c1"># Run test</span>
 </span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="n">test_forward_kinematics</span><span class="p">()</span>
 </span></code></pre></div>
-<hr />
-<h2 id="getting-help">🆘 <strong>Getting Help</strong></h2>
-<h3 id="mathematical-resources"><strong>Mathematical Resources</strong></h3>
+<h2 id="getting-help">Getting Help</h2>
+<h3 id="mathematical-resources">Mathematical Resources</h3>
 <ul>
 <li><strong>Linear Algebra</strong>: <a href="https://www.khanacademy.org/math/linear-algebra">Khan Academy</a></li>
 <li><strong>Robotics Math</strong>: <a href="http://hades.mech.northwestern.edu/index.php/Modern_Robotics">Modern Robotics</a></li>
 <li><strong>Python Math</strong>: <a href="https://docs.scipy.org/doc/scipy/reference/">SciPy Documentation</a></li>
 </ul>
-<h3 id="course-support"><strong>Course Support</strong></h3>
+<h3 id="course-support">Course Support</h3>
 <ul>
 <li><strong>Piazza</strong>: Ask questions on course forum</li>
 <li><strong>Office Hours</strong>: Get help from TA or instructor</li>
 <li><strong>Lab Sessions</strong>: Hands-on help during labs</li>
 </ul>
-<hr />
-<h2 id="next-steps">🚀 <strong>Next Steps</strong></h2>
+<h2 id="next-steps">Next Steps</h2>
 <p>After mastering kinematics:</p>
 <ol>
 <li><strong>Practice with Python examples</strong> above</li>
@@ -2384,19 +2888,9 @@
 <li><strong>Start Week 6 lab</strong>: See <a href="../labs/week-06/">Week 6 Lab</a></li>
 <li><strong>Work on homework problems</strong> using these formulas</li>
 </ol>
-<hr />
-<div align="center">
-
-**Ready to solve kinematics problems? Let's start the Week 6 lab! 📐**
-
-[🐍 Python Basics](python-basics.md){ .md-button }
-[🤖 ROS Setup](ros-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
-<hr />
-<p><em>Last updated: Fall 2025 • <a href="../resources/">Back to Resources</a></em></p>
+<p><a class="md-button" href="../python-basics/">Python Basics</a>
+<a class="md-button" href="../ros-setup/">ROS Setup</a>
+<a class="md-button" href="../resources/">Back to Resources</a></p>
 
 
 
@@ -2419,6 +2913,12 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
@@ -2428,7 +2928,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../git-basics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Git Basics">
+          <a href="../resources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2438,20 +2938,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Git Basics
+                Overview
               </div>
             </div>
           </a>
         
         
           
-          <a href="../help/" class="md-footer__link md-footer__link--next" aria-label="Next: Help">
+          <a href="../assets/docs/dh_table.pdf" class="md-footer__link md-footer__link--next" aria-label="Next: UR3e DH Table">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Help
+                UR3e DH Table
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2515,7 +3015,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
@@ -2526,11 +3026,7 @@
       
         <script src="../javascripts/math.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-      
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../javascripts/calendar.js"></script>
       
         <script src="../javascripts/tablesort.js"></script>
       
