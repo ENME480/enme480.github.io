@@ -2023,7 +2023,7 @@ be the joint angles <code>θ1 to θ6</code>.</p>
 </tbody>
 </table>
 <h2 id="solution-steps">Solution Steps</h2>
-<p>In this section, a suggested solution approach is described.</p>
+<p>In this section, a suggested solution approach is described. Some helpful diagrams of the robot are provided at the start and end. It is higly recommended you try to determine how the robot will move relative to the page before continuing, as it will make the math much easier.</p>
 <h3 id="step-1">Step 1</h3>
 <p>Establish the world coordinate frame (<code>frame w</code>) centered at the corner of the UR3’s base shown in the image below. We will solve the inverse kinematics problem in the base frame (<code>frame 0</code>), so we will convert the coordinates (𝑥𝑤−𝑔𝑟𝑖𝑝, 𝑦𝑤−𝑔𝑟𝑖𝑝, 𝑧𝑤−𝑔𝑟𝑖𝑝) entered by the user to base frame coordinates (<code>𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝</code>). The origin of the base frame is at (<code>-0.15, 0.15, 0.01</code>) in
 the world frame. Set <code>𝜃5 = −90°</code> in unit of radian."</p>
@@ -2031,10 +2031,11 @@ the world frame. Set <code>𝜃5 = −90°</code> in unit of radian."</p>
 <ul>
 <li>This is a <strong>pure translation</strong> (axes are parallel). Keep units in <strong>meters</strong>.</li>
 <li>Convert yaw input <strong>degrees → radians</strong> immediately at the start of your function.</li>
+<li>You will end up with frames with no free variables. This is a convention used in ROS/Gazebo to indicate that the mount point of an object is not the same as where the first joint is and is totally normal.</li>
 </ul>
 <p><img alt="2" src="../../assets/ik/img2.jpg" /></p>
 <h3 id="step-2">Step 2</h3>
-<p>We will define a “wrist center” as 𝑧𝑐𝑒𝑛 which equals the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of <code>𝜃6</code>’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper <code>(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)</code> in the base frame and the yaw angle, find wrist’s center point (<code>𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛</code>).</p>
+<p>We will define a “wrist center” at height 𝑧𝑐𝑒𝑛 which is the same desired 𝑧 value of the vacuum gripper, and 𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛 are the coordinates of <code>𝜃6</code>’s 𝑧 axis (see Figure 1). Link 9 (gripper plate) has a length of 0.0535 meters from the center line of the gripper to the center line of Joint 6. Given the desired position of the gripper <code>(𝑥𝑔𝑟𝑖𝑝, 𝑦𝑔𝑟𝑖𝑝, 𝑧𝑔𝑟𝑖𝑝)</code> in the base frame and the yaw angle, find wrist’s center point (<code>𝑥𝑐𝑒𝑛, 𝑦𝑐𝑒𝑛, 𝑧𝑐𝑒𝑛</code>).</p>
 <p><strong>Hints</strong></p>
 <ul>
 <li>Think: “from the gripper target, walk <strong>back</strong> along its yaw direction by 0.0535 m to reach Joint 6.”</li>
