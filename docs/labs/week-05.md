@@ -144,10 +144,7 @@ Don't forget to add the node to your ```setup.py``` in your package. -->
       2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
       ![previewmode](../assets/preview_mode.png)
 
-3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
-
-      3.1. The confirmation command should read: "Robot connected to reverse interface. Redy to receive control commands." and will print in the terminal where you are running ur_robot_control driver.
-      3.2. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver.
+3. Follow the steps as laid out in the file. You'll know it worked when the "Control by MRC" script on the robot arm runs succesfully and the computer prints a confirmation message in the terminal. The confirmation command should read: "Robot connected to reverse interface. Redy to receive control commands." and will print in the terminal where you are running ur_robot_control driver. Be careful not to use the touchpad functions on the pendant once you've launched the driver. If you do, you'll have to relaunch the driver. *Warning: E-Stopping the robot while it is controlled by the computer will breka the drivers. You need to redo this process if that happens.*
 
 ## 3. Enabling the Laser and Publishing Joint Angles to the Robot
 
