@@ -10,7 +10,7 @@
 
 ---
 
-## 🚀 **Quick Start Guides**
+## **Quick Start Guides**
 
 <div class="grid cards" markdown>
 
@@ -50,7 +50,7 @@
 
 ---
 
-## 🧪 **Lab Tools & Software**
+## **Lab Tools & Software**
 
 <div class="grid cards" markdown>
 
@@ -82,7 +82,7 @@
 
 ---
 
-## 📖 **Reference Materials**
+## **Reference Materials**
 
 <div class="grid cards" markdown>
 
@@ -114,7 +114,7 @@
 
 ---
 
-## 🔗 **External Resources**
+## **External Resources**
 
 ### **Official Documentation**
 - [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html) - Complete ROS 2 reference
@@ -135,7 +135,7 @@
 
 ---
 
-## 🆘 **Troubleshooting**
+## **Troubleshooting**
 
 | **Common Issue** | **Quick Fix** | **Detailed Guide** |
 |------------------|---------------|-------------------|
@@ -146,8 +146,6 @@
 | Simulation problems | Restart Gazebo, check models | [Gazebo Setup](gazebo-setup.md) |
 
 ---
-
-## 📱 **Mobile-Friendly Quick Links**
 
 ### **Essential Commands**
 ```bash
@@ -168,12 +166,6 @@ git add .
 git commit -m "message"
 ```
 
-### **Quick File Locations**
-- **ROS workspace**: `~/ros2_ws/`
-- **Python packages**: `~/.local/lib/python3.x/site-packages/`
-- **Git repos**: `~/` (or wherever you cloned them)
-- **Lab materials**: `~/enme480-labs/`
-
 ---
 
 <div align="center">
@@ -181,7 +173,3 @@ git commit -m "message"
 **Need help with something specific? Check the guides above or ask on [Piazza](https://piazza.com/umd/fall2025/enme480)!**
 
 </div>
-
----
-
-*Last updated: Fall 2025 • [Back to Home](index.md)*

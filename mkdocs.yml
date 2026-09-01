@@ -1,5 +1,5 @@
 site_name: ENME480 — Introduction to Robotics
-site_description: Intro to Robotics at UMD (Fall 2025) — lectures, labs on UR3e, ROS 2, and a vision-enabled final project
+site_description: Intro to Robotics at UMD (Fall 2026)
 site_url: https://enme480.github.io/
 repo_url: https://github.com/ENME480/enme480.github.io
 
@@ -126,9 +126,9 @@ nav:
       #- Math Tools: math-tools.md
       #- Code Examples: code-examples.md
       #- ENAE450 README: enae450_readme.md
-  - Policies: policies.md
+  #- Policies: policies.md
   - Help: help.md
-  - Blog: blog/index.md
+  #- Blog: blog/index.md
 
 # Note: _labcode files are automatically hidden from navigation
 # as they are included via the include-markdown plugin

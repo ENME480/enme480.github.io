@@ -10,22 +10,22 @@
 
 ---
 
-## 🎯 **Overview**
+## **Overview**
 
-This guide covers essential Python concepts for robotics programming. You'll learn the basics needed to write ROS 2 nodes, control robots, process sensor data, and work with mathematical operations.
+This is a nonexhaustive guide to soem of the Python concepts used in this course. It should be enough to get you going on most assignments or at least get you far enough that you can ask an informed quesiton on Piazza or Google your issue. 
 
 ---
 
 ## 💻 **Prerequisites**
 
 Before starting, ensure you have:
-- ✅ **Ubuntu with Python 3.8+** installed
-- ✅ **Basic terminal knowledge**
-- ✅ **Text editor** (VS Code, gedit, or nano)
+- **Ubuntu with Python 3.8+** installed
+- **Basic Terminal knowledge**
+- **Text/Code editor** (VS Code, gedit, or nano)
 
 ---
 
-## 🚀 **Getting Started**
+## **Getting Started**
 
 ### **Check Python Installation**
 ```bash
@@ -38,6 +38,8 @@ pip3 --version
 # Start Python interpreter
 python3
 ```
+ROS2 versions are compiled against specific Python versions, ensuring the correct one is installed is a good way to make sure everyhting is working. 
+Similarly, python uses pip to install new packages, so bad pip installs are a good first thing to check.
 
 ### **Install Essential Packages**
 ```bash
@@ -47,10 +49,10 @@ pip3 install numpy matplotlib scipy
 # Install ROS 2 Python client
 sudo apt install python3-rclpy
 ```
-
+numpy, matplotlib and scipy are commonly used extensions that allow a wide variety of math and plotting operations. python3-rclpy is the ROS2 client library for python, and is needed to allow your python scripts to interact with ROS.
 ---
 
-## 📚 **Core Python Concepts**
+## **Core Python Concepts**
 
 ### **1. Variables and Data Types**
 ```python
@@ -105,7 +107,7 @@ while count < 5:
 
 ### **3. Functions**
 ```python
-def calculate_distance(point1, point2):
+def calculate_distance(point1, point2): # no default input values
     """Calculate Euclidean distance between two points."""
     import math
     dx = point2[0] - point1[0]
@@ -117,16 +119,16 @@ def calculate_distance(point1, point2):
 def move_robot(x=0.0, y=0.0, z=0.0, speed=1.0):
     """Move robot to specified position."""
     print(f"Moving to ({x}, {y}, {z}) at speed {speed}")
-    return True
+    return True # typically, there would be a blocking call here that would only reach this statement when the robot finishes moving
 
 # Call functions
 distance = calculate_distance((0, 0, 0), (1, 1, 1))
 move_robot(1.0, 2.0, 3.0)
 ```
-
+Note that python has significant whitespace; the indentation after the funiton block tells python where functinos begin and end.
 ---
 
-## 🔢 **Mathematics and NumPy**
+## **Mathematics and NumPy**
 
 ### **NumPy Basics**
 ```python
@@ -173,7 +175,7 @@ random_position = np.random.randn(3)  # 3D normal distribution
 
 ---
 
-## 📊 **Data Visualization with Matplotlib**
+## **Data Visualization with Matplotlib**
 
 ### **Basic Plotting**
 ```python
@@ -226,6 +228,7 @@ plt.show()
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
+# the below messages canbe viewed in rqts Message Type Browser
 from std_msgs.msg import String, Float64MultiArray
 from geometry_msgs.msg import Pose
 
@@ -278,7 +281,7 @@ if __name__ == '__main__':
 
 ---
 
-## 🔧 **File I/O and Data Handling**
+## **File I/O and Data Handling**
 
 ### **Reading and Writing Files**
 ```python
@@ -320,8 +323,9 @@ with open('robot_data.csv', 'r') as f:
 
 ---
 
-## 🧪 **Testing and Debugging**
+## **Testing and Debugging**
 
+<!--
 ### **Basic Testing**
 ```python
 def test_calculate_distance():
@@ -341,6 +345,7 @@ def test_calculate_distance():
 # Run tests
 test_calculate_distance()
 ```
+-->
 
 ### **Debugging Tips**
 ```python
@@ -356,8 +361,16 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 logger.debug(f"Joint angles: {joint_angles}")
-```
 
+# Use a try/except/finally block
+try:
+    raise Runtimeerror("This code will crash!")
+except _ as e: # grab all errors from the try block and assign them to e
+    logging.info(f"The code threw the error: {type(e)}")
+finally: # this code will ALWAYS RUN LAST, regardless of anything that happens before
+    0
+```
+There are many ways to debug code in python, and how you accomplish this is largely up to you. In addition to the methods above you can alos use the built in debugger in VSCode for testing purposes, which will automatically pause the code and drop you into an interactive terminal wherever an error is raised. Note that the code for this course makes extensive use of try/except/finally blocks for safe execution.
 ---
 
 ## 📱 **Common Robotics Patterns**
@@ -393,6 +406,7 @@ class RobotController:
         return True
 ```
 
+<!--
 ### **PID Controller**
 ```python
 class PIDController:
@@ -481,15 +495,16 @@ end = (1, 1, 1)
 trajectory = generate_trajectory(start, end, 10)
 print(f"Trajectory: {trajectory}")
 ```
-
+-->
 ---
 
-## 🆘 **Getting Help**
+## **Getting Help**
 
 ### **Python Resources**
 - **Official Docs**: [python.org](https://docs.python.org/3/)
 - **NumPy Docs**: [numpy.org](https://numpy.org/doc/)
 - **Matplotlib Docs**: [matplotlib.org](https://matplotlib.org/)
+- **rclpy Docs**: [docs.ros.org](https://docs.ros.org/en/humble/p/rclpy/)
 
 ### **Course Support**
 - **Piazza**: Ask questions on course forum
@@ -498,7 +513,7 @@ print(f"Trajectory: {trajectory}")
 
 ---
 
-## 🚀 **Next Steps**
+## **Next Steps**
 
 After mastering Python basics:
 
@@ -513,12 +528,9 @@ After mastering Python basics:
 
 **Ready to control robots? Let's set up ROS 2 next! 🤖**
 
-[🤖 ROS Setup](ros-setup.md){ .md-button .md-button--primary }
-[🎮 Gazebo Setup](gazebo-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
+[ROS Setup](ros-setup.md){ .md-button .md-button--primary }
+[Gazebo Setup](gazebo-setup.md){ .md-button }
+[Back to Resources](resources.md){ .md-button }
 
 </div>
 
----
-
-*Last updated: Fall 2025 • [Back to Resources](resources.md)*

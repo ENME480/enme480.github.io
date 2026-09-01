@@ -1,4 +1,4 @@
-# 🤖 ROS 2 Setup Guide
+# ROS 2 Setup Guide
 
 <div align="center">
 
@@ -10,19 +10,31 @@
 
 ---
 
-## 🎯 **Overview**
+## **Overview**
 
 This guide will help you install ROS 2 Humble (Hawksbill) on Ubuntu 22.04. ROS 2 is the Robot Operating System that we'll use throughout the course for robot programming and simulation.
 
 ---
 
-## 💻 **Prerequisites**
+## **Prerequisites**
 
 Before starting, ensure you have:
-- ✅ **Ubuntu 22.04 LTS** installed (ROS 2 Humble Tier-1 platform)
-- ✅ **Internet connection** for downloading packages
-- ✅ **Basic Ubuntu knowledge** (terminal commands)
-- ✅ **At least 10GB free space**
+- **Ubuntu 22.04 LTS** installed (ROS 2 Humble Tier-1 platform)
+- **Internet connection** for downloading packages
+- **Basic Ubuntu knowledge** (terminal commands)
+- **At least 10GB free space**
+
+---
+
+## **Verification Checklist**
+
+- [ ] ROS 2 Humble installed successfully
+- [ ] Environment sourced correctly
+- [ ] Basic commands working (`ros2 --help`)
+- [ ] Demo nodes running (`ros2 run demo_nodes_cpp talker`)
+- [ ] Workspace created and building
+- [ ] First custom node working
+- [ ] Tools installed (rqt, rviz2)
 
 ---
 ## After setting up Ubuntu 22.04
@@ -111,7 +123,7 @@ Before starting, ensure you have:
 	This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.
 
 ---
-## 🧪 **Verify Installation**
+## **Verify Installation**
 
 ### **Test Basic Installation**
 From within the docker image, run the following command:
@@ -133,7 +145,7 @@ ign gazebo
 
 ---
 
-## 🔧 **Common Issues & Solutions**
+## **Common Issues & Solutions**
 
 ### **Installation Problems**
 | **Error** | **Solution** |
@@ -151,7 +163,7 @@ ign gazebo
 
 ---
 
-## 📚 **Essential ROS 2 Concepts**
+## **Essential ROS 2 Concepts**
 
 ### **Core Concepts**
 - **Nodes**: Individual processes that perform computation
@@ -320,19 +332,7 @@ ros2 param get /node_name parameter_name
 
 ---
 
-## ✅ **Verification Checklist**
-
-- [ ] ROS 2 Humble installed successfully
-- [ ] Environment sourced correctly
-- [ ] Basic commands working (`ros2 --help`)
-- [ ] Demo nodes running (`ros2 run demo_nodes_cpp talker`)
-- [ ] Workspace created and building
-- [ ] First custom node working
-- [ ] Tools installed (rqt, rviz2)
-
----
-
-## 🆘 **Getting Help**
+## **Getting Help**
 
 ### **ROS 2 Resources**
 - **Official Docs**: [docs.ros.org](https://docs.ros.org/en/humble/)
@@ -346,7 +346,7 @@ ros2 param get /node_name parameter_name
 
 ---
 
-## 🚀 **Next Steps**
+## **Next Steps**
 
 After completing ROS 2 setup:
 
@@ -354,19 +354,3 @@ After completing ROS 2 setup:
 2. **Set up Gazebo**: See [Gazebo Setup](gazebo-setup.md)
 3. **Start Week 3 lab**: See [Week 3 Lab](labs/week-03.md)
 4. **Practice ROS 2**: Run tutorials and examples
-
----
-
-<div align="center">
-
-**Ready to start programming robots? Let's learn Python next! 🐍**
-
-[🐍 Python Basics](python-basics.md){ .md-button .md-button--primary }
-[🎮 Gazebo Setup](gazebo-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
----
-
-*Last updated: Fall 2025 • [Back to Resources](resources.md)*

@@ -2,7 +2,7 @@
 
 ---
 
-## 💻 **System Requirements**
+## **System Requirements**
 
 ### **Minimum Requirements**
 - **RAM**: 8GB (16GB recommended)
@@ -17,7 +17,7 @@
 
 ---
 
-## 💻 **Choose Your Platform**
+## **Choose Your Platform**
 
 If you are on Windows then you have two choices here:
     - A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
@@ -73,7 +73,7 @@ If you are on Windows then you have two choices here:
     
     ![Review Settings](assets/vm_figs/9.png)
 
-    ### **Step 11: Ubuntu Installation Welcome**
+    ### **Step 5: Ubuntu Installation Welcome**
     
     The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".
 
@@ -254,7 +254,7 @@ If you are on Windows then you have two choices here:
 ---
 
 
-## ⚙️ **Post-Installation Setup**
+## **Post-Installation Setup**
 
 Open up Terminal using `Ctrl + Alt + T` or from the menu on the bottom left and selecting it.
 
@@ -476,7 +476,7 @@ ign gazebo
 
 ---
 
-## 🆘 **Getting Help**
+## **Getting Help**
 
 ### **If Something Goes Wrong**
 1. **Check Ubuntu Forums**: [ubuntuforums.org](https://ubuntuforums.org/)
