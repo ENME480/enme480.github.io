@@ -37,7 +37,7 @@ And connect to it from another terminal with:
 ```bash
 bash connectToDocker.sh
 ```
-Provided you are in the folder where these files are.
+Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. *Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.* 
 
 **IMPORTANT:** This the following folders will be linked (outside the docker --> inside the docker)
 
@@ -50,7 +50,7 @@ This is where you should place any files you want to keep when the docker shuts 
 
 ---
 
-## 🛫 Part B — Pre-flight check (5–10 min)
+## Part B — Pre-flight check (5–10 min)
 
 <!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
 1) Using the commands from above, open your Docker image contianing ROS
@@ -78,12 +78,12 @@ or try reopening it with
 ```bash
 rqt --force-discover
 ```
-
+<!--
 ### Troubleshooting
 
 During any of these steps if your display doesn't open up, follow the follwoing steps
 
-<!--4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
+4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
 
 ```bash
 docker exec <HIT TAB> ln -s ~/<NAME OF THE FOLDER YOU JUST MADE> ~/<NAME YOU WANT THE FOLDER TO HAVE INSIDE DOCKER> 
@@ -91,11 +91,11 @@ docker exec <HIT TAB> ln -s ~/<NAME OF THE FOLDER YOU JUST MADE> ~/<NAME YOU WAN
 This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
 
 
-**Checkpoint B (no submission yet):** You can run the above commands without any errors.
+**Checkpoint B (no submission yet):** You can run the above commands without any errors. This ensures ROS is fully installed and operational.
 
 ---
 
-## 📦 Part C — Workspace & package (setup only)
+## Part C — Workspace & package (setup only)
 
 Follow the **official Humble tutorials** step-by-step (do not copy solution code from elsewhere):
 
@@ -109,7 +109,7 @@ Follow the **official Humble tutorials** step-by-step (do not copy solution code
 
 ---
 
-## 📡 Part D — Talker / Listener
+## Part D — ROS2 Talker / Listener Demo
 
 Use the **publisher/subscriber (Python)** tutorial as your primary reference:
 
@@ -131,6 +131,12 @@ Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum
 > - Topic names must **match exactly**; message types must be consistent.  
 > - If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.  
 > - Keep node/topic names short and meaningful.
+> - Check the Message Type browser in rqt for information about what types to use and how to format the messages.
+> - Use rqts Topic monitor to make sure messages are being properly published.
+> - If rqt is missing these options under plugins, you may need to run 
+```bash
+sudo apt install ros-humble-rqt*
+```
 
 **Checkpoint D — Screenshots to capture:**  
 - Talker output (brief).  
@@ -139,7 +145,7 @@ Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum
 
 ---
 
-## 🐢 Part E — Turtlesim (drive in a circle)
+## Part E — Turtlesim (drive in a circle)
 
 Read the **turtlesim, ros2, and rqt** tutorial first:  
 [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
@@ -149,7 +155,7 @@ Start the turtlesim simulator in one terminal (see tutorial).
 
 **Task D2 — Velocity publisher**  
 In your package, create a node that **publishes velocity commands** to turtlesim so the turtle moves in a **circle** (non-zero linear \(x\) and angular \(z\)).  
-*(You’ll find the correct topic name in the tutorial; use the CLI to explore message fields.)*
+*(You’ll find the correct topic name in the tutorial; use the CLI or rqt to explore message fields.)*
 
 **Task D3 — Observe & Inspect**  
 Use `ros2 topic list` / `ros2 topic echo` to confirm motion and pose updates; open **rqt** and view the **Node Graph** and **Topic Monitor**.  
@@ -163,15 +169,7 @@ Use `ros2 topic list` / `ros2 topic echo` to confirm motion and pose updates; op
 
 ---
 
-## 🔎 What we’re assessing
-
-- You can follow **official Humble docs** and adapt examples to a new task.  
-- Your nodes **publish/subscribe** correctly and use appropriate **topic names** and **message types**.  
-- You can **inspect** systems via CLI and **rqt** and explain what you see.
-
----
-
-## 📤 Deliverables (single PDF upload)
+## Deliverables (single PDF upload)
 
 Include **concise** screenshots (one image may show multiple windows):
 
@@ -192,4 +190,5 @@ Also submit the **three Python files** you created this week as separate attachm
   you’ll typically set **`linear.x`** and **`angular.z`** only (m/s and rad/s). 
 - If you’re unsure of fields, ask ROS directly:
   ```bash
-  ros2 interface show geometry_msgs/msg/Twist
+  ros2 interface show geometry_msgs/msg/Twist```
+- The Message Type Viewer and Topic Monitor rqt plugins may be especially useful for debugging.

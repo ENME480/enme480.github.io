@@ -16,8 +16,3 @@ In this lab, we will follow the pages on the wiki to:
 [Software Setup](https://enme480.github.io/ubuntu-setup/)
 
 [Dev Environmnet Information](https://enme480.github.io/dev-environment/)
-
-## Next Steps:
-
-## Additional Resources:
-[Piazza](https://umd.instructure.com/courses/1389037/external_tools/42711)
