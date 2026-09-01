@@ -1,7 +1,6 @@
 # Week 04 — Gazebo Demo (Studio 2)
 
 
-
 <!-- BEGIN:AUTO-INCLUDE-README -->
 ## Lab handout (from Lab-Code)
 
@@ -9,6 +8,4 @@
 
 {% include-markdown "../_labcode/Week 4 - Gazebo & Python/Studio-4_1-Gazebo.md" heading-offset=1 %}
 <!-- END:AUTO-INCLUDE-README -->
-
-
 

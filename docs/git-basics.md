@@ -1,33 +1,26 @@
-# 🔧 Git & GitHub Basics
+<p class="eyebrow">ENME480 · Wiki</p>
 
-<div align="center">
+# Git & GitHub Basics
 
-**Essential version control for robotics development**
+<p class="lede">Learn Git to manage your lab code, collaborate with teammates, and track your progress</p>
 
-*Learn Git to manage your lab code, collaborate with teammates, and track your progress*
 
-</div>
-
----
-
-## 🎯 **Overview**
+## Overview
 
 Git is a version control system that helps you track changes in your code, collaborate with others, and maintain a history of your work. This guide covers the essential Git commands you'll need for ENME480 labs and projects.
 
----
 
-## 💻 **Prerequisites**
+## Prerequisites
 
 Before starting, ensure you have:
-- ✅ **Git installed** on your system
-- ✅ **GitHub account** created
-- ✅ **Basic terminal knowledge**
+- **Git installed** on your system
+- **GitHub account** created
+- **Basic terminal knowledge**
 
----
 
-## 🚀 **Getting Started**
+## Getting Started
 
-### **Install Git**
+### Install Git
 ```bash
 # Ubuntu/Debian
 sudo apt install git
@@ -36,7 +29,7 @@ sudo apt install git
 git --version
 ```
 
-### **Configure Git**
+### Configure Git
 ```bash
 # Set your name and email
 git config --global user.name "Your Name"
@@ -46,31 +39,29 @@ git config --global user.email "your.email@umd.edu"
 git config --list
 ```
 
----
 
-## 📚 **Core Git Concepts**
+## Core Git Concepts
 
-### **Repository (Repo)**
+### Repository (Repo)
 - **Local repository**: Git repository on your computer
 - **Remote repository**: Git repository on GitHub/GitLab
 - **Clone**: Copy remote repository to local machine
 
-### **Working Directory**
+### Working Directory
 - **Working directory**: Where you edit files
 - **Staging area**: Area where changes are prepared for commit
 - **Repository**: Where committed changes are stored
 
-### **Basic Workflow**
+### Basic Workflow
 1. **Edit files** in working directory
 2. **Stage changes** to staging area
 3. **Commit changes** to repository
 4. **Push changes** to remote repository
 
----
 
-## 🔧 **Essential Git Commands**
+## Essential Git Commands
 
-### **Initializing a Repository**
+### Initializing a Repository
 ```bash
 # Create new repository
 git init
@@ -82,7 +73,7 @@ git clone https://github.com/username/repository.git
 git status
 ```
 
-### **Making Changes**
+### Making Changes
 ```bash
 # Stage all changes
 git add .
@@ -102,7 +93,7 @@ git log
 git log --oneline
 ```
 
-### **Managing Branches**
+### Managing Branches
 ```bash
 # List branches
 git branch
@@ -124,11 +115,10 @@ git merge feature-name
 git branch -d feature-name
 ```
 
----
 
-## 🌐 **Working with GitHub**
+## Working with GitHub
 
-### **Setting up SSH Keys**
+### Setting up SSH Keys
 ```bash
 # Generate SSH key
 ssh-keygen -t ed25519 -C "your.email@umd.edu"
@@ -143,7 +133,7 @@ ssh-add ~/.ssh/id_ed25519
 cat ~/.ssh/id_ed25519.pub
 ```
 
-### **Remote Operations**
+### Remote Operations
 ```bash
 # Add remote repository
 git remote add origin https://github.com/username/repository.git
@@ -161,11 +151,10 @@ git pull origin main
 git fetch origin
 ```
 
----
 
-## 📝 **Common Workflows**
+## Common Workflows
 
-### **Daily Workflow**
+### Daily Workflow
 ```bash
 # Start of day - get latest changes
 git pull origin main
@@ -185,7 +174,7 @@ git commit -m "Implement joint limit checking"
 git push origin main
 ```
 
-### **Feature Development**
+### Feature Development
 ```bash
 # Create feature branch
 git checkout -b feature/joint-control
@@ -211,11 +200,10 @@ git pull origin main
 git branch -d feature/joint-control
 ```
 
----
 
-## 🔍 **Useful Git Commands**
+## Useful Git Commands
 
-### **Viewing History**
+### Viewing History
 ```bash
 # View commit history
 git log --oneline --graph
@@ -230,7 +218,7 @@ git diff
 git diff --cached
 ```
 
-### **Managing Files**
+### Managing Files
 ```bash
 # Remove file from Git
 git rm filename.py
@@ -243,7 +231,7 @@ echo "*.log" >> .gitignore
 echo "build/" >> .gitignore
 ```
 
-### **Undoing Changes**
+### Undoing Changes
 ```bash
 # Undo last commit (keep changes)
 git reset --soft HEAD~1
@@ -258,17 +246,16 @@ git checkout -- filename.py
 git revert commit_hash
 ```
 
----
 
-## 📱 **GitHub Desktop (Optional)**
+## GitHub Desktop (Optional)
 
-### **Why Use GitHub Desktop?**
+### Why Use GitHub Desktop?
 - **Visual interface** for Git operations
 - **Easier for beginners** than command line
 - **Built-in merge conflict resolution**
 - **Good for simple workflows**
 
-### **Installation**
+### Installation
 ```bash
 # Download from GitHub
 # https://desktop.github.com/
@@ -276,11 +263,10 @@ git revert commit_hash
 # Install and authenticate with your GitHub account
 ```
 
----
 
-## 🧪 **Practice Exercises**
+## Practice Exercises
 
-### **Exercise 1: Create a Lab Repository**
+### Exercise 1: Create a Lab Repository
 ```bash
 # Create directory for lab work
 mkdir enme480-labs
@@ -301,7 +287,7 @@ git remote add origin https://github.com/username/enme480-labs.git
 git push -u origin main
 ```
 
-### **Exercise 2: Work with Branches**
+### Exercise 2: Work with Branches
 ```bash
 # Create feature branch
 git checkout -b lab/week1
@@ -326,11 +312,10 @@ git merge lab/week1
 git push origin main
 ```
 
----
 
-## 🔧 **Troubleshooting Common Issues**
+## Troubleshooting Common Issues
 
-### **Merge Conflicts**
+### Merge Conflicts
 ```bash
 # When you get a merge conflict
 git status  # See conflicted files
@@ -343,7 +328,7 @@ git add .
 git commit -m "Resolve merge conflicts"
 ```
 
-### **Authentication Issues**
+### Authentication Issues
 ```bash
 # If you get authentication errors
 git config --global credential.helper store
@@ -352,7 +337,7 @@ git config --global credential.helper store
 # Generate token on GitHub: Settings → Developer settings → Personal access tokens
 ```
 
-### **Large Files**
+### Large Files
 ```bash
 # If you accidentally commit large files
 git filter-branch --tree-filter 'rm -f large_file.dat' HEAD
@@ -362,45 +347,42 @@ git lfs install
 git lfs track "*.dat"
 ```
 
----
 
-## 📚 **Git Best Practices**
+## Git Best Practices
 
-### **Commit Messages**
+### Commit Messages
 - **Use present tense**: "Add feature" not "Added feature"
 - **Be descriptive**: "Implement joint limit checking" not "Fix bug"
 - **Keep it short**: First line under 50 characters
 - **Use imperative mood**: "Add", "Fix", "Update", "Remove"
 
-### **Branch Naming**
+### Branch Naming
 - **Feature branches**: `feature/description`
 - **Bug fixes**: `fix/description`
 - **Lab work**: `lab/week1`, `lab/week2`
 - **Project work**: `project/final-project`
 
-### **When to Commit**
+### When to Commit
 - **After completing a logical unit** of work
 - **Before making major changes** to working code
 - **After fixing a bug** or implementing a feature
 - **At the end of each lab session**
 
----
 
-## 🆘 **Getting Help**
+## Getting Help
 
-### **Git Resources**
+### Git Resources
 - **Git Documentation**: [git-scm.com](https://git-scm.com/doc)
 - **GitHub Guides**: [guides.github.com](https://guides.github.com/)
 - **Git Cheat Sheet**: [git-scm.com](https://git-scm.com/doc/cheatsheet)
 
-### **Course Support**
+### Course Support
 - **Piazza**: Ask questions on course forum
 - **Office Hours**: Get help from TA or instructor
 - **Lab Sessions**: Hands-on help during labs
 
----
 
-## 🚀 **Next Steps**
+## Next Steps
 
 After mastering Git basics:
 
@@ -409,18 +391,6 @@ After mastering Git basics:
 3. **Collaborate with teammates** on group projects
 4. **Learn advanced Git features** as needed
 
----
-
-<div align="center">
-
-**Ready to manage your code? Let's set up your lab repository! 📚**
-
-[🐧 Ubuntu Setup](ubuntu-setup.md){ .md-button }
-[🤖 ROS Setup](ros-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
----
-
-*Last updated: Fall 2025 • [Back to Resources](resources.md)*
+[Ubuntu Setup](ubuntu-setup.md){ .md-button }
+[ROS Setup](ros-setup.md){ .md-button }
+[Back to Resources](resources.md){ .md-button }

@@ -36,7 +36,7 @@ The teaching pendant also has an E-Stop button on its face. *If the robot ever m
 ## 2. Connect the Robot to the Computer
 1. Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).
 2. Find the `README.md` file within the `ENME480_mrc` folder. You can also open up VS Code from the sidebar and open the `ENME480_mrc` folder and open the `README.md` file from there. Do `Ctrl + Shift + V` to enable a more readable view of the README file. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.
-  
+
       2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
       ![previewmode](../assets/preview_mode.png)
 
@@ -63,7 +63,7 @@ From within the docker. Your laser should now be on, so make sure the robot only
 
 ## Test Cases
 
-| Test Point Inputs (x, y, z, Yaw)    | Joint Angles (Your Code)  `(𝜽𝟏, … 𝜽𝟔) `  | Correct Joint Angles `(𝜽𝟏, … 𝜽𝟔) ` | Laser Position on Workbench (Your Prediction) `(x, y)` |  Laser Position on Workbench (Correct Prediction) `(x, y)` | Laser Position on Workbench (Measured Prediction) `(x, y)` | End Effector Position (Your Prediction) `(x, y, z)`| End Effector Position (Correct Prediction) `(x, y, z)`| 
+| Test Point Inputs (x, y, z, Yaw)    | Joint Angles (Your Code)  `(𝜽𝟏, … 𝜽𝟔) `  | Correct Joint Angles `(𝜽𝟏, … 𝜽𝟔) ` | Laser Position on Workbench (Your Prediction) `(x, y)` |  Laser Position on Workbench (Correct Prediction) `(x, y)` | Laser Position on Workbench (Measured Prediction) `(x, y)` | End Effector Position (Your Prediction) `(x, y, z)`| End Effector Position (Correct Prediction) `(x, y, z)`|
 | ------------- |:-------------:| --------:| --------:| --------:| --------:| --------:| --------:|
 | (0.2, 0.3, 0.3, 45) | | | | | | |
 |(0.1, 0.4, 0.1, 90) | | | | | | |
@@ -85,7 +85,7 @@ git checkout -f .
 # Submission
 
 Please create a neatly typed/written report for the lab including the following:
-1. Your IK derivation 
+1. Your IK derivation
 2. Comparsion table for Step 4.
 3. Write a paragraph on the reasons behind discrepancies in measurements and calculations.
 4. What are the potential sources of singlularities and how will avoid them when you are implementing the code? If you found any singularities, be sure to list them and discuss possible causes.

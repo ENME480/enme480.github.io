@@ -4,7 +4,7 @@
 
 Location: **KEB 2111**
 
-✅ Deliverables:
+ Deliverables:
 
   - Complete [UR3e safety training checkpoint](https://academy.universal-robots.com/free-e-learning/e-series-e-learning/e-series-core-track/) (submit pdf certificate in Canvas/Piazza)
   - [Lab Survey](https://go.umd.edu/ENME480-26-Survey)

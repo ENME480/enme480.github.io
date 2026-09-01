@@ -14,7 +14,7 @@ and making sure the proper graphical output is displayed.
 # PC with Ubuntu 20.04 and later, installation steps with Docker
 This is a simplified visualization of what we are trying to achive:\
 OS => Docker (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
-It doesn't matter if you launching Ubuntu using dual booting, or single booting, or using VM software. 
+It doesn't matter if you launching Ubuntu using dual booting, or single booting, or using VM software.
 
 1. Installing Docker using apt repository ([full guide](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository))
     * Uninstall old Docker versions
@@ -112,7 +112,7 @@ It doesn't matter if you launching Ubuntu using dual booting, or single booting,
     sudo apt-get install -y build-essential curl git make cmake iproute2 iputils-ping mc mesa-utils nano tmux 
     ```
 
-3. Install ROS2 Humble 
+3. Install ROS2 Humble
 
     Follow official instructions from [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
@@ -188,7 +188,7 @@ Windows 10 => WSL2 with Ubuntu 20.04 (virtualization software) => Docker (virtua
 # Mac laptops
 There are some issues with GPU acceleration support for Docker applications running on Mac. Mac users should use VMware Fusion virtualization software instead. This is a simplified visualization of what we are trying to achive:\
 Mac OS => VMware Fusion (virtualization software) => Ubuntu 22.04 + ROS2 Humble (container)\
-Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Docker as a middle virtualization layer. Instead 
+Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Docker as a middle virtualization layer. Instead
 
 1. Download VMware Fusion 13. Use *one* of these options:
     * Follow UMD Terpware [instructions](https://terpware.umd.edu/Mac/title/4092)
@@ -218,7 +218,7 @@ Since VMware Fusion can be taxing on resources of Mac laptops, we won't use Dock
 # IDE installation (optional)
 Install your IDE of choice, e.g. [VS Code](https://code.visualstudio.com/download)
 
-# Troubleshooting 
+# Troubleshooting
 
 ## General
 1. Tmux shortcuts don't work (e.g. when trying to create new panes)

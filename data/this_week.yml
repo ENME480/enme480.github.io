@@ -1,16 +1,37 @@
+# Drives the "This week" and "Recently changed" blocks on the homepage.
+# scripts/update_home.py reads this during CI and writes between the
+# <!-- THIS_WEEK:auto --> / <!-- WHATS_NEW:auto --> markers in docs/index.md.
+# Bump current_week each week; keep entries short and factual.
+
 current_week: 1
 weeks:
   - week: 1
     this_week:
-      - "Safety training due by end of Week 1"
-      - "Environment setup (Ubuntu, Python, ROS 2)"
-      - "Account verification for lab access"
+      - "Lab intro session. Bring a laptop."
+      - "Start the UR3e safety training. Robot lab access depends on it."
+      - "Install Ubuntu 22.04 and ROS 2 Humble before Week 2."
     whats_new:
-      - "Course website launched 🎉"
-      - "Lab materials synced from GitHub"
+      - "Fall 2026 syllabus posted."
+      - "Site reorganised. See the Site Map for where things moved."
   - week: 2
     this_week:
-      - "Ubuntu & Python fundamentals"
-      - "Canvas: Homework posted Fri 11:59pm"
+      - "RAL intro and environment setup in EAF 3119."
+      - "Finish the safety training if you have not already."
+      - "Homework is posted Fridays at 11:59 pm and due a week later on Canvas."
     whats_new:
-      - "Added Week 2 Studio checklist"
+      - "Week 2 slides posted."
+  - week: 3
+    this_week:
+      - "Python intro, ROS 2 intro, Studio 1."
+      - "Lecture moves to rigid motions."
+    whats_new:
+      - "Week 3 lab page updated."
+  - week: 4
+    this_week:
+      - "Gazebo demo and Studio 2."
+    whats_new: []
+  - week: 5
+    this_week:
+      - "FK Lab 1.1 in EAF 3119."
+      - "Review the DH table before the session."
+    whats_new: []

@@ -21,18 +21,18 @@ The project package should be located on the local lab machines in RAL. You can 
 
 The nodes have been added to the `setup.py` file, so you do not need to add that. You will find five scripts as listed in the table below:
 
-| Script Name  | Description       | 
+| Script Name  | Description       |
 | :---------------: |:---------------|
 | `get_perspective_warping_with_aruco.py` | Script to create the perspective matrix |
 | `perspective_gazebo.py` | Script to create the perspective matrix in Gazebo |
-| `aruco_detection_test.py` | Script to test the perspective transform and get coordinates of the blocks in table frame | 
-| `block_detection_aruco.py` | ROS Node for detecting blocks, uses the same function and changes from `aruco_detection_test.py`| 
-| `kinematic_functions.py` | Script to insert all of your FK and IK functions from previous labs | 
-| `main_pipeline.py` | The main pipeline to strategize and sequence movement of the blocks | 
+| `aruco_detection_test.py` | Script to test the perspective transform and get coordinates of the blocks in table frame |
+| `block_detection_aruco.py` | ROS Node for detecting blocks, uses the same function and changes from `aruco_detection_test.py`|
+| `kinematic_functions.py` | Script to insert all of your FK and IK functions from previous labs |
+| `main_pipeline.py` | The main pipeline to strategize and sequence movement of the blocks |
 
 Please do not edit anything outside the given code snippets (it will lead to errors which will be difficult to identify)
 
-You can try out the code in simulation before coming to the lab to check if your logic works. 
+You can try out the code in simulation before coming to the lab to check if your logic works.
 
 
 ## Script Descriptions
@@ -297,7 +297,7 @@ This script is where you will sequence and strategize the pick-and-place process
     ros2 run usb_cam usb_cam_node_exe --ros-args -p brightness:=200
     ```
 
-    #### Troubleshooting: 
+    #### Troubleshooting:
     If you get a Pydantic error run the following command
 
     ```bash
@@ -312,14 +312,14 @@ This script is where you will sequence and strategize the pick-and-place process
 
     It will publish data under two topics `/aruco_detection/image` and `/aruco_detection/positions`
 
-    You can view the image using 
+    You can view the image using
 
     ```bash
     ros2 run rqt_image_view rqt_image_view
     ```
 
     and it should show the same image in the window as the one you saw with `aruco_detection_test.py`, once you select the topic.
-    
+
     Running the camera node
 
     ```

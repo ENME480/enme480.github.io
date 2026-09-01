@@ -1,83 +1,73 @@
-# 🆘 Help & Support
-
-<div align="center">
-
-**Need assistance? You're in the right place!**  
-*Everything you need to succeed in ENME480.*
-
-</div>
-
+---
+title: Help
+description: Who to contact, how to ask, safety procedures, and first-line troubleshooting
 ---
 
-## 📞 Contact
+<p class="eyebrow">ENME480 · Support</p>
 
-| **Who** | **Details** | **Best for** |
+# Help
+
+<p class="lede">Piazza first for anything the whole class might hit. Email only for things specific to you.</p>
+
+## Who to ask
+
+| Channel | Contact | Use it for |
 |---|---|---|
-| 🎓 **Instructor – Dr. Nikhil Chopra** | **Office Hours:** Wed 10–11:30, **2149 Martin Hall** • **Email:** nchopra@umd.edu • [Zoom (syllabus link)](https://umd.zoom.us/j/99088503503?pwd=pQKi2zBOaUWaaRqNaEESbRxLlDzqh.1) | Course content, grades, personal issues |
-| 👨‍💻 **TAs – Alex Beyer, Kaustubh Joshi** | **Emails:** abeyer@umd.edu, kjoshi@umd.edu • **Office Hours:** *TBD* | Labs & technical questions |
-| 💬 **Piazza** | [piazza.com/umd/fall2025/enme480](https://piazza.com/umd/fall2025/enme480) | Official Q&A and announcements |
-| 📧 **Canvas (ELMS)** | [elms.umd.edu](https://elms.umd.edu) | Materials, submissions, grades |
-| 🧑‍💻 **GitHub** | [github.com/ENME480](https://github.com/ENME480) | Lab code & updates |
+| Piazza | [piazza.com/umd/fall2026/enme480](https://piazza.com/umd/fall2026/enme480) | Course and lab questions, extension requests, announcements |
+| Instructor | Dr. Nikhil Chopra · <nchopra@umd.edu> | Course content, grades, personal circumstances |
+| Office hours | Thu 10:00–11:30 am on [Zoom](https://umd.zoom.us/my/nikhilchopra) | Anything above, in person |
+| Teaching assistants | Alex Beyer <abeyer@umd.edu> · Kaustubh Joshi <kjoshi@umd.edu> | Labs, setup, debugging |
+| Canvas / ELMS | [elms.umd.edu](https://elms.umd.edu) | Materials, submissions, grades |
+| GitHub | [github.com/ENME480](https://github.com/ENME480) | Lab code and updates |
 
----
+TA office hours are TBD and will be posted on Piazza. Email is likely to get buried, and ELMS messages are not monitored closely, so Piazza really is the fastest route.
 
-## 🚨 Emergency & Safety
+## Safety
 
-- Complete required **safety training** before entering RAL and using robots.  
-- Never bypass safety systems; stay clear of the robot workspace; hit **E-Stop** when in doubt.  
-- For medical or fire emergencies, call **911** / campus police; follow posted lab procedures.
+!!! danger "Robot lab"
+    Safety training is a prerequisite for entry. Never bypass an interlock or remove a guard. Stay outside the arm's reach while it is powered. If you are unsure what the robot is about to do, hit the emergency stop first and ask afterwards.
 
----
+Running AI-generated code on a physical system is unsafe for you, your classmates, the TAs and the robots. Anyone caught doing it risks losing robot access for the rest of the semester.
 
-## 🧪 Lab Support
+For a medical or fire emergency call 911 or the University Police, then follow the posted evacuation procedure. Report equipment damage to a TA immediately and log it on Piazza so the next group knows.
 
-**Before lab:** finish pre-lab reading, set up ROS 2, review safety.  
-**During lab:** ask TAs early; report equipment issues immediately.  
-**Attendance:** Studios are **mandatory**; late/missed attendance may affect grades; coordinate via Piazza if conflicts arise.  
-**Homework cadence:** posted **Fridays 11:59pm**, due a week later via Canvas.
+## Lab expectations
 
----
+- **Before:** finish the pre-lab reading and have your environment working. Studio time is for debugging your code, not your install.
+- **During:** ask early. A TA can unblock in two minutes what will otherwise cost you the session.
+- **Attendance:** studios are mandatory. If you have a conflict, post on Piazza in advance and coordinate with your group.
+- **Homework:** posted Fridays at 11:59 pm, due one week later on Canvas. Extensions go through Piazza and are given sparingly, since solutions are released soon after the deadline.
 
-## 💻 Quick Troubleshooting
+## First-line troubleshooting
 
-### Ubuntu
+Try these before posting. Most lab problems are one of them.
+
 ```bash
+# Which Ubuntu am I actually on?
 lsb_release -a
-sudo apt update && sudo apt upgrade
+
+# ROS 2 environment sourced?
+printenv | grep ROS_DISTRO      # expect: humble
+source /opt/ros/humble/setup.bash
+
+# Workspace overlay sourced? (needed again after every build)
+source ~/ros2_ws/install/setup.bash
+
+# Is the node running and publishing?
+ros2 node list
+ros2 topic list
+ros2 topic hz /joint_states
+
+# Out of disk? A full partition breaks colcon in confusing ways.
 df -h
 ```
 
-### Python
+## Posting a question that gets answered fast
 
-```bash
-python3 --version
-python3 -m pip install --upgrade pip
-```
+Search Piazza first, then include four things: what you ran, what you expected, the full error text, and what you already tried.
 
-### ROS 2
+> `ros2 run enme480_labs fk_node` exits with `ImportError: cannot import name 'kinematic_functions'`.
+> I re-sourced `install/setup.bash`, confirmed the file is listed in `setup.py` under `packages`, and rebuilt with `--symlink-install`.
+> Full traceback: ...
 
-```bash
-ros2 --help
-source /opt/ros/humble/setup.bash
-ros2 topic list
-```
-
----
-
-## 📚 Learning Resources
-
-* [ROS 2 Docs (Humble)](https://docs.ros.org/en/humble/index.html)
-* [Python Docs](https://docs.python.org/3/) • [Ubuntu Help](https://help.ubuntu.com/)
-* [Gazebo Tutorials](https://gazebosim.org/docs) (or Ignition Gazebo)
-* [Stack Overflow](https://stackoverflow.com/) • [ROS Answers](https://answers.ros.org/)
-
----
-
-## 🎯 Asking Great Questions
-
-1. Search Piazza/Canvas first → 2) Try a fix → 3) Share error + steps tried → 4) Minimal code reproducer.
-   Example: *"`ros2 run my_pkg node` fails with `ImportError: …`. I re-sourced `setup.bash`, verified `PYTHONPATH`, and rebuilt. Full stack trace: …"*
-
----
-
-*Last updated: Fall 2025 • [Back to Home](index.md)*
+A screenshot of a terminal is harder to help with than pasted text. Paste the text.

@@ -1,175 +1,132 @@
-# 📚 Resources & Wiki
-
-<div align="center">
-
-**Your one-stop reference for all robotics tools and resources**
-
-*Quick links, installation guides, and helpful references*
-
-</div>
-
+---
+title: Resources
+description: Setup guides, references, and external documentation for ENME480
 ---
 
-## **Quick Start Guides**
+<p class="eyebrow">ENME480 · Reference</p>
+
+# Resources
+
+<p class="lede">Setup guides for the toolchain, references for the math, and the handful of external docs worth bookmarking.</p>
+
+## Course documents
+
+<dl class="spec" markdown>
+<dt>Syllabus</dt>
+<dd markdown="span"><a href="assets/docs/syllabus-fall2026.pdf">Fall 2026 syllabus (PDF)</a> — grading, policies, week-by-week outline</dd>
+<dt>UR3e DH table</dt>
+<dd markdown="span"><a href="assets/docs/dh_table.pdf">Denavit-Hartenberg parameters (PDF)</a></dd>
+<dt>FK datasheet</dt>
+<dd markdown="span"><a href="assets/docs/fk_datasheet.pdf">Forward kinematics datasheet (PDF)</a></dd>
+<dt>Camera notes</dt>
+<dd markdown="span"><a href="assets/docs/PerspectiveTransformEstimation.pdf">Perspective transform estimation (PDF)</a></dd>
+</dl>
+
+## Setup guides
+
+Work through these in order the first time. Everything after Week 1 assumes they are done.
 
 <div class="grid cards" markdown>
 
--   :material-ubuntu:{ .lg .middle } __Ubuntu Setup__
+-   :material-ubuntu:{ .lg .middle } **Ubuntu**
 
     ---
 
-    **Complete Ubuntu installation and setup guide**
-    
-    [:octicons-arrow-right-24: Ubuntu Guide](ubuntu-setup.md)
+    Installing 22.04, dual boot and VM options, partitioning, drivers.
 
--   :material-robot:{ .lg .middle } __ROS Installation__
+    [Ubuntu Setup](ubuntu-setup.md)
 
-    ---
-
-    **Install and configure ROS 2 (Humble)**
-    
-    [:octicons-arrow-right-24: ROS Guide](ros-setup.md)
-
--   :material-language-python:{ .lg .middle } __Python Basics__
+-   :material-robot-outline:{ .lg .middle } **ROS 2**
 
     ---
 
-    **Essential Python for robotics programming**
-    
-    [:octicons-arrow-right-24: Python Guide](python-basics.md)
+    Installing Humble, sourcing the environment, building a workspace.
 
--   :material-git:{ .lg .middle } __Git & GitHub__
+    [ROS Setup](ros-setup.md)
+
+-   :material-cube-outline:{ .lg .middle } **Gazebo**
 
     ---
 
-    **Version control basics for lab work**
-    
-    [:octicons-arrow-right-24: Git Guide](git-basics.md)
+    Launching the simulated UR3e cell and troubleshooting the usual failures.
+
+    [Gazebo Setup](gazebo-setup.md)
+
+-   :material-laptop:{ .lg .middle } **Dev environment**
+
+    ---
+
+    VS Code against the course Docker image, and a terminal setup that will not fight you.
+
+    [Dev Environment](dev-environment.md)
 
 </div>
 
----
-
-## **Lab Tools & Software**
+## Language and tooling
 
 <div class="grid cards" markdown>
 
--   :material-gazebo:{ .lg .middle } __Gazebo Simulation__
+-   :material-language-python:{ .lg .middle } **Python**
 
     ---
 
-    **Set up and use Gazebo for robot simulation**
-    
-    [:octicons-arrow-right-24: Gazebo Guide](gazebo-setup.md)
+    The subset used in lab: NumPy arrays, classes, callbacks, and the ROS 2 client library.
 
--   :material-laptop:{ .lg .middle } __Development Environment__
+    [Python Basics](python-basics.md)
 
-    ---
-
-    **Configure your IDE and development tools**
-    
-    [:octicons-arrow-right-24: Dev Setup](dev-environment.md)
-
--   :material-database:{ .lg .middle } __UR3e Robot__
+-   :material-git:{ .lg .middle } **Git**
 
     ---
 
-    **Understanding and programming the UR3e arm**
-    
-    [:octicons-arrow-right-24: UR3e Guide](ur3e-guide.md)
+    Cloning lab code, branching, and getting out of the states you will end up in.
+
+    [Git Basics](git-basics.md)
+
+-   :material-function-variant:{ .lg .middle } **Kinematics**
+
+    ---
+
+    DH conventions, homogeneous transforms, the UR3e parameter table, FK and IK derivations.
+
+    [Kinematics Reference](kinematics-reference.md)
 
 </div>
 
----
+## External documentation
 
-## **Reference Materials**
+| Source | Use it for |
+|---|---|
+| [ROS 2 Humble docs](https://docs.ros.org/en/humble/index.html) | Concepts, tutorials, `rclpy` API |
+| [Gazebo docs](https://gazebosim.org/docs) | Worlds, plugins, spawning models |
+| [NumPy reference](https://numpy.org/doc/stable/reference/) | Array and linear algebra operations |
+| [OpenCV Python tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html) | ArUco detection, perspective warps |
+| [Universal Robots UR3e](https://www.universal-robots.com/products/ur3-robot/) | Hardware specifications and reach |
+| [Robotics Stack Exchange](https://robotics.stackexchange.com/) | Where ROS Answers questions live now |
+| [UMD Robotics Minor](https://robotics.umd.edu/minor) | The minor this course leads into |
 
-<div class="grid cards" markdown>
+## Course repositories
 
--   :material-book-open-page-variant:{ .lg .middle } __Kinematics Reference__
+| Repository | Contents |
+|---|---|
+| [ENME480/Lab-Code](https://github.com/ENME480/Lab-Code) | Lab handouts and starter packages |
+| [ENME480/enme480_project](https://github.com/ENME480/enme480_project) | Final project package with redacted scripts |
+| [github.com/ENME480](https://github.com/ENME480) | Everything else |
 
-    ---
+## Commands worth memorizing
 
-    **DH parameters, transformations, FK/IK formulas**
-    
-    [:octicons-arrow-right-24: Kinematics](kinematics-reference.md)
-
--   :material-math-integral:{ .lg .middle } __Math Tools__
-
-    ---
-
-    **Linear algebra, matrices, and math utilities**
-    
-    [:octicons-arrow-right-24: Math Tools](math-tools.md)
-
--   :material-code-braces:{ .lg .middle } __Code Examples__
-
-    ---
-
-    **Common code snippets and examples**
-    
-    [:octicons-arrow-right-24: Examples](code-examples.md)
-
-</div>
-
----
-
-## **External Resources**
-
-### **Official Documentation**
-- [ROS 2 Documentation](https://docs.ros.org/en/humble/index.html) - Complete ROS 2 reference
-- [Gazebo Tutorials](http://gazebosim.org/tutorials) - Simulation guides
-- [Python Documentation](https://docs.python.org/3/) - Python language reference
-- [Ubuntu Help](https://help.ubuntu.com/) - Ubuntu system help
-
-### **Community Resources**
-- [ROS Answers](https://answers.ros.org/) - Q&A forum
-- [Stack Overflow](https://stackoverflow.com/) - Programming help
-- [Reddit r/robotics](https://www.reddit.com/r/robotics/) - Community discussions
-- [YouTube Robotics Channels](https://www.youtube.com/results?search_query=robotics+tutorial) - Video tutorials
-
-### **Course-Specific**
-- [Lab Code Repository](https://github.com/ENME480/Lab-Code) - All lab materials
-- [Course Schedule](schedule.md) - Weekly topics and deadlines
-- [Lab Instructions](labs/index.md) - Detailed lab guides
-
----
-
-## **Troubleshooting**
-
-| **Common Issue** | **Quick Fix** | **Detailed Guide** |
-|------------------|---------------|-------------------|
-| Ubuntu won't boot | Check USB drive, try different port | [Ubuntu Setup](ubuntu-setup.md) |
-| ROS not working | Restart terminal, source environment | [ROS Setup](ros-setup.md) |
-| Python errors | Check syntax, verify installations | [Python Basics](python-basics.md) |
-| Git issues | Check credentials, verify remote | [Git Basics](git-basics.md) |
-| Simulation problems | Restart Gazebo, check models | [Gazebo Setup](gazebo-setup.md) |
-
----
-
-### **Essential Commands**
 ```bash
-# Ubuntu
-sudo apt update && sudo apt upgrade
-
-# ROS 2
+# ROS 2 — source before anything else, in every new terminal
 source /opt/ros/humble/setup.bash
-ros2 --help
+source ~/ros2_ws/install/setup.bash
 
-# Python
-python3 --version
-pip3 install package_name
+# Inspect a running system
+ros2 node list
+ros2 topic list
+ros2 topic echo /joint_states
 
-# Git
-git status
-git add .
-git commit -m "message"
+# Build only the package you changed
+cd ~/ros2_ws && colcon build --packages-select <pkg> --symlink-install
 ```
 
----
-
-<div align="center">
-
-**Need help with something specific? Check the guides above or ask on [Piazza](https://piazza.com/umd/fall2025/enme480)!**
-
-</div>
+!!! tip "When something breaks after a rebuild"
+    Re-source `install/setup.bash`. A stale environment explains most "my node disappeared" reports.

@@ -1,33 +1,26 @@
-# 🐍 Python Basics for Robotics
+<p class="eyebrow">ENME480 · Wiki</p>
 
-<div align="center">
+# Python Basics for Robotics
 
-**Essential Python programming for robotics development**
+<p class="lede">Learn the Python fundamentals you'll need for ROS 2, robot control, and simulation</p>
 
-*Learn the Python fundamentals you'll need for ROS 2, robot control, and simulation*
 
-</div>
+## Overview
 
----
+This is a nonexhaustive guide to soem of the Python concepts used in this course. It should be enough to get you going on most assignments or at least get you far enough that you can ask an informed quesiton on Piazza or Google your issue.
 
-## **Overview**
 
-This is a nonexhaustive guide to soem of the Python concepts used in this course. It should be enough to get you going on most assignments or at least get you far enough that you can ask an informed quesiton on Piazza or Google your issue. 
-
----
-
-## 💻 **Prerequisites**
+## Prerequisites
 
 Before starting, ensure you have:
 - **Ubuntu with Python 3.8+** installed
 - **Basic Terminal knowledge**
 - **Text/Code editor** (VS Code, gedit, or nano)
 
----
 
-## **Getting Started**
+## Getting Started
 
-### **Check Python Installation**
+### Check Python Installation
 ```bash
 # Check Python version
 python3 --version
@@ -38,10 +31,10 @@ pip3 --version
 # Start Python interpreter
 python3
 ```
-ROS2 versions are compiled against specific Python versions, ensuring the correct one is installed is a good way to make sure everyhting is working. 
+ROS2 versions are compiled against specific Python versions, ensuring the correct one is installed is a good way to make sure everyhting is working.
 Similarly, python uses pip to install new packages, so bad pip installs are a good first thing to check.
 
-### **Install Essential Packages**
+### Install Essential Packages
 ```bash
 # Install common robotics packages
 pip3 install numpy matplotlib scipy
@@ -50,11 +43,10 @@ pip3 install numpy matplotlib scipy
 sudo apt install python3-rclpy
 ```
 numpy, matplotlib and scipy are commonly used extensions that allow a wide variety of math and plotting operations. python3-rclpy is the ROS2 client library for python, and is needed to allow your python scripts to interact with ROS.
----
 
-## **Core Python Concepts**
+## Core Python Concepts
 
-### **1. Variables and Data Types**
+### 1. Variables and Data Types
 ```python
 # Numbers
 x = 10          # integer
@@ -84,7 +76,7 @@ robot_config = {
 }
 ```
 
-### **2. Control Flow**
+### 2. Control Flow
 ```python
 # If statements
 if joint_angle > 1.57:
@@ -105,7 +97,7 @@ while count < 5:
     count += 1
 ```
 
-### **3. Functions**
+### 3. Functions
 ```python
 def calculate_distance(point1, point2): # no default input values
     """Calculate Euclidean distance between two points."""
@@ -126,11 +118,10 @@ distance = calculate_distance((0, 0, 0), (1, 1, 1))
 move_robot(1.0, 2.0, 3.0)
 ```
 Note that python has significant whitespace; the indentation after the funiton block tells python where functinos begin and end.
----
 
-## **Mathematics and NumPy**
+## Mathematics and NumPy
 
-### **NumPy Basics**
+### NumPy Basics
 ```python
 import numpy as np
 
@@ -153,7 +144,7 @@ rotation_matrix = np.array([
 new_position = rotation_matrix @ position
 ```
 
-### **Common Mathematical Operations**
+### Common Mathematical Operations
 ```python
 import numpy as np
 import math
@@ -173,11 +164,10 @@ random_angle = np.random.uniform(-np.pi, np.pi)
 random_position = np.random.randn(3)  # 3D normal distribution
 ```
 
----
 
-## **Data Visualization with Matplotlib**
+## Data Visualization with Matplotlib
 
-### **Basic Plotting**
+### Basic Plotting
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -197,7 +187,7 @@ plt.legend()
 plt.show()
 ```
 
-### **Multiple Plots**
+### Multiple Plots
 ```python
 # Create subplots
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8))
@@ -219,11 +209,10 @@ plt.tight_layout()
 plt.show()
 ```
 
----
 
-## 🤖 **ROS 2 Integration**
+## ROS 2 Integration
 
-### **Basic ROS 2 Node**
+### Basic ROS 2 Node
 ```python
 #!/usr/bin/env python3
 import rclpy
@@ -279,11 +268,10 @@ if __name__ == '__main__':
     main()
 ```
 
----
 
-## **File I/O and Data Handling**
+## File I/O and Data Handling
 
-### **Reading and Writing Files**
+### Reading and Writing Files
 ```python
 # Write data to file
 joint_data = [0.0, 1.57, 0.0, 0.0, 0.0, 0.0]
@@ -301,7 +289,7 @@ with open('joint_angles.txt', 'r') as f:
 print(f"Read angles: {angles}")
 ```
 
-### **CSV Files**
+### CSV Files
 ```python
 import csv
 
@@ -321,12 +309,11 @@ with open('robot_data.csv', 'r') as f:
         print(f"Time: {time}, Joints: [{j1}, {j2}, {j3}]")
 ```
 
----
 
-## **Testing and Debugging**
+## Testing and Debugging
 
 <!--
-### **Basic Testing**
+### Basic Testing
 ```python
 def test_calculate_distance():
     """Test the calculate_distance function."""
@@ -347,7 +334,7 @@ test_calculate_distance()
 ```
 -->
 
-### **Debugging Tips**
+### Debugging Tips
 ```python
 # Use print statements
 print(f"Debug: joint_angles = {joint_angles}")
@@ -371,11 +358,10 @@ finally: # this code will ALWAYS RUN LAST, regardless of anything that happens b
     0
 ```
 There are many ways to debug code in python, and how you accomplish this is largely up to you. In addition to the methods above you can alos use the built in debugger in VSCode for testing purposes, which will automatically pause the code and drop you into an interactive terminal wherever an error is raised. Note that the code for this course makes extensive use of try/except/finally blocks for safe execution.
----
 
-## 📱 **Common Robotics Patterns**
+## Common Robotics Patterns
 
-### **State Machine**
+### State Machine
 ```python
 class RobotState:
     IDLE = "IDLE"
@@ -407,7 +393,7 @@ class RobotController:
 ```
 
 <!--
-### **PID Controller**
+### PID Controller
 ```python
 class PIDController:
     def __init__(self, kp, ki, kd):
@@ -443,11 +429,10 @@ pid = PIDController(kp=1.0, ki=0.1, kd=0.01)
 control_output = pid.compute(setpoint=1.0, measurement=0.5, dt=0.01)
 ```
 
----
 
-## ✅ **Practice Exercises**
+## Practice Exercises
 
-### **Exercise 1: Joint Limit Checker**
+### Exercise 1: Joint Limit Checker
 ```python
 def check_joint_limits(joint_angles, limits):
     """
@@ -472,7 +457,7 @@ results = check_joint_limits(joints, limits)
 print(f"Joint limits check: {results}")
 ```
 
-### **Exercise 2: Trajectory Generator**
+### Exercise 2: Trajectory Generator
 ```python
 def generate_trajectory(start_pos, end_pos, num_points):
     """
@@ -496,24 +481,22 @@ trajectory = generate_trajectory(start, end, 10)
 print(f"Trajectory: {trajectory}")
 ```
 -->
----
 
-## **Getting Help**
+## Getting Help
 
-### **Python Resources**
+### Python Resources
 - **Official Docs**: [python.org](https://docs.python.org/3/)
 - **NumPy Docs**: [numpy.org](https://numpy.org/doc/)
 - **Matplotlib Docs**: [matplotlib.org](https://matplotlib.org/)
 - **rclpy Docs**: [docs.ros.org](https://docs.ros.org/en/humble/p/rclpy/)
 
-### **Course Support**
+### Course Support
 - **Piazza**: Ask questions on course forum
 - **Office Hours**: Get help from TA or instructor
 - **Lab Sessions**: Hands-on help during labs
 
----
 
-## **Next Steps**
+## Next Steps
 
 After mastering Python basics:
 
@@ -522,15 +505,6 @@ After mastering Python basics:
 3. **Start Week 3 lab**: See [Week 3 Lab](labs/week-03.md)
 4. **Practice coding**: Work on exercises and small projects
 
----
-
-<div align="center">
-
-**Ready to control robots? Let's set up ROS 2 next! 🤖**
-
 [ROS Setup](ros-setup.md){ .md-button .md-button--primary }
 [Gazebo Setup](gazebo-setup.md){ .md-button }
 [Back to Resources](resources.md){ .md-button }
-
-</div>
-

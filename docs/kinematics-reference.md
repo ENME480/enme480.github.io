@@ -1,24 +1,18 @@
-# 📐 Kinematics Reference
+<p class="eyebrow">ENME480 · Wiki</p>
 
-<div align="center">
+# Kinematics Reference
 
-**Essential kinematics formulas and reference materials**
+<p class="lede">DH parameters, transformation matrices, forward/inverse kinematics for robotics</p>
 
-*DH parameters, transformation matrices, forward/inverse kinematics for robotics*
 
-</div>
-
----
-
-## 🎯 **Overview**
+## Overview
 
 This reference guide contains essential kinematics formulas, DH parameters, and mathematical tools you'll need for ENME480. Keep this handy during labs and homework assignments.
 
----
 
-## 🔢 **Mathematical Fundamentals**
+## Mathematical Fundamentals
 
-### **Rotation Matrices**
+### Rotation Matrices
 ```python
 import numpy as np
 
@@ -51,7 +45,7 @@ def Rzyx(roll, pitch, yaw):
     return Rz(yaw) @ Ry(pitch) @ Rx(roll)
 ```
 
-### **Homogeneous Transformations**
+### Homogeneous Transformations
 ```python
 def homogeneous_transform(R, p):
     """Create 4x4 homogeneous transformation matrix."""
@@ -76,11 +70,10 @@ def rotation_matrix(R):
     return T
 ```
 
----
 
-## 🤖 **DH Parameters**
+## DH Parameters
 
-### **DH Parameter Table**
+### DH Parameter Table
 | **Joint** | **θ** | **d** | **a** | **α** |
 |-----------|-------|-------|-------|--------|
 | **Base** | θ₁ | d₁ | a₁ | α₁ |
@@ -90,7 +83,7 @@ def rotation_matrix(R):
 | **Wrist 2** | θ₅ | d₅ | a₅ | α₅ |
 | **Wrist 3** | θ₆ | d₆ | a₆ | α₆ |
 
-### **DH Transformation Matrix**
+### DH Transformation Matrix
 ```python
 def dh_transform(theta, d, a, alpha):
     """Compute DH transformation matrix."""
@@ -109,11 +102,10 @@ def dh_transform(theta, d, a, alpha):
     return T
 ```
 
----
 
-## 🦾 **UR3e DH Parameters**
+## UR3e DH Parameters
 
-### **Standard DH Parameters**
+### Standard DH Parameters
 ```python
 # UR3e DH parameters (in meters and radians)
 ur3e_dh = [
@@ -137,7 +129,7 @@ ur3e_limits = [
 ]
 ```
 
-### **Modified DH Parameters**
+### Modified DH Parameters
 ```python
 # Modified DH parameters (alternative convention)
 ur3e_mdh = [
@@ -151,11 +143,10 @@ ur3e_mdh = [
 ]
 ```
 
----
 
-## ➡️ **Forward Kinematics**
+## Forward Kinematics
 
-### **Basic Forward Kinematics**
+### Basic Forward Kinematics
 ```python
 def forward_kinematics(joint_angles, dh_params):
     """Compute forward kinematics using DH parameters."""
@@ -182,7 +173,7 @@ position = T_end_effector[:3, 3]
 orientation = T_end_effector[:3, :3]
 ```
 
-### **Position and Orientation Extraction**
+### Position and Orientation Extraction
 ```python
 def extract_pose(T):
     """Extract position and orientation from transformation matrix."""
@@ -206,11 +197,10 @@ def extract_quaternion(T):
     return r.as_quat()  # [x, y, z, w]
 ```
 
----
 
-## ⬅️ **Inverse Kinematics**
+## Inverse Kinematics
 
-### **Analytical IK for UR3e**
+### Analytical IK for UR3e
 ```python
 def ur3e_inverse_kinematics(T_desired, elbow_config=1):
     """
@@ -273,7 +263,7 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-### **Numerical IK (Jacobian Method)**
+### Numerical IK (Jacobian Method)
 ```python
 def numerical_inverse_kinematics(T_desired, initial_guess, max_iter=100, tol=1e-6):
     """Numerical inverse kinematics using Jacobian method."""
@@ -310,11 +300,10 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
----
 
-## 🔄 **Jacobian Matrix**
+## Jacobian Matrix
 
-### **Analytical Jacobian**
+### Analytical Jacobian
 ```python
 def compute_jacobian(joint_angles, dh_params):
     """Compute analytical Jacobian matrix."""
@@ -349,7 +338,7 @@ J = compute_jacobian(joint_angles, ur3e_dh)
 print(f"Jacobian shape: {J.shape}")
 ```
 
-### **Jacobian-Based Control**
+### Jacobian-Based Control
 ```python
 def jacobian_control(joint_angles, desired_velocity, dh_params, dt=0.01):
     """Simple Jacobian-based velocity control."""
@@ -371,11 +360,10 @@ desired_velocity = np.array([0.1, 0, 0, 0, 0, 0])  # Move in X direction
 new_angles = jacobian_control(joint_angles, desired_velocity, ur3e_dh)
 ```
 
----
 
-## 📊 **Trajectory Generation**
+## Trajectory Generation
 
-### **Linear Trajectory**
+### Linear Trajectory
 ```python
 def linear_trajectory(start_pos, end_pos, num_points):
     """Generate linear trajectory between two points."""
@@ -394,7 +382,7 @@ end_pos = np.array([0.5, 0.2, 0.3])
 trajectory = linear_trajectory(start_pos, end_pos, 50)
 ```
 
-### **Joint Space Trajectory**
+### Joint Space Trajectory
 ```python
 def joint_trajectory(start_angles, end_angles, num_points):
     """Generate trajectory in joint space."""
@@ -413,11 +401,10 @@ end_angles = [np.pi/4, -np.pi/3, -np.pi/6, 0, 0, 0]
 joint_traj = joint_trajectory(start_angles, end_angles, 100)
 ```
 
----
 
-## 🔧 **Utility Functions**
+## Utility Functions
 
-### **Distance and Angle Calculations**
+### Distance and Angle Calculations
 ```python
 def euclidean_distance(p1, p2):
     """Calculate Euclidean distance between two points."""
@@ -434,7 +421,7 @@ def normalize_angle(angle):
     return np.arctan2(np.sin(angle), np.cos(angle))
 ```
 
-### **Matrix Operations**
+### Matrix Operations
 ```python
 def skew_symmetric(v):
     """Create skew-symmetric matrix from vector."""
@@ -461,11 +448,10 @@ def rotation_matrix_to_axis_angle(R):
     return axis, theta
 ```
 
----
 
-## 📚 **Common Formulas**
+## Common Formulas
 
-### **Trigonometric Identities**
+### Trigonometric Identities
 ```python
 # Sum and difference formulas
 def sin_sum(a, b):
@@ -482,7 +468,7 @@ def cos_double(a):
     return np.cos(a)**2 - np.sin(a)**2
 ```
 
-### **Vector Operations**
+### Vector Operations
 ```python
 def cross_product(v1, v2):
     """Cross product of two 3D vectors."""
@@ -497,11 +483,10 @@ def dot_product(v1, v2):
     return np.sum(v1 * v2)
 ```
 
----
 
-## ✅ **Verification Examples**
+## Verification Examples
 
-### **Test Forward Kinematics**
+### Test Forward Kinematics
 ```python
 def test_forward_kinematics():
     """Test forward kinematics with known values."""
@@ -525,23 +510,21 @@ def test_forward_kinematics():
 test_forward_kinematics()
 ```
 
----
 
-## 🆘 **Getting Help**
+## Getting Help
 
-### **Mathematical Resources**
+### Mathematical Resources
 - **Linear Algebra**: [Khan Academy](https://www.khanacademy.org/math/linear-algebra)
 - **Robotics Math**: [Modern Robotics](http://hades.mech.northwestern.edu/index.php/Modern_Robotics)
 - **Python Math**: [SciPy Documentation](https://docs.scipy.org/doc/scipy/reference/)
 
-### **Course Support**
+### Course Support
 - **Piazza**: Ask questions on course forum
 - **Office Hours**: Get help from TA or instructor
 - **Lab Sessions**: Hands-on help during labs
 
----
 
-## 🚀 **Next Steps**
+## Next Steps
 
 After mastering kinematics:
 
@@ -550,18 +533,6 @@ After mastering kinematics:
 3. **Start Week 6 lab**: See [Week 6 Lab](labs/week-06.md)
 4. **Work on homework problems** using these formulas
 
----
-
-<div align="center">
-
-**Ready to solve kinematics problems? Let's start the Week 6 lab! 📐**
-
-[🐍 Python Basics](python-basics.md){ .md-button }
-[🤖 ROS Setup](ros-setup.md){ .md-button }
-[📚 Back to Resources](resources.md){ .md-button }
-
-</div>
-
----
-
-*Last updated: Fall 2025 • [Back to Resources](resources.md)*
+[Python Basics](python-basics.md){ .md-button }
+[ROS Setup](ros-setup.md){ .md-button }
+[Back to Resources](resources.md){ .md-button }

@@ -4,7 +4,7 @@
 
 - Implement a ROS 2 publisher node (Python/rclpy) to command a UR3e in Gazebo.
 - Derive the Forward Kinematics for the UR3e using DH Transformations
-- Validate FK numerically against the simulator’s reported pose and reason about modeling error sources. Compare against the values obtained from last week's lab 
+- Validate FK numerically against the simulator’s reported pose and reason about modeling error sources. Compare against the values obtained from last week's lab
 
 ## Useful Files
 
@@ -171,7 +171,6 @@ Tool dimensions.
 This is a schematic showing the lengths of the different links on the robot.
 
 
-
 Tips:
 
 - The physical robots are set up assuming that the z-axis is always pointing *out of* the blue caps.
@@ -194,12 +193,12 @@ You are encouraged to write the entire publisher script on your own, but we have
 
 The script is located at `~/enme480_ws/src/ur3e_enme480/ur3e_enme480/ur3e_fk.py`.
 
-In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin `(0,0)` for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations. 
+In the helper script, we have added an approximately correct end effector transformation matrix relative to the table's origin `(0,0)` for reference. The script also calculates an estimated position where the laser pointer will hit the workbench depending on the DH calculations.
 
 Some tips for finishing the script:
 
 - Finish the `send_command()` first with a placeholder matrix for the transformation
-- To finish the `send_command()` function, the message definition for `CommandUR3e.msg` is 
+- To finish the `send_command()` function, the message definition for `CommandUR3e.msg` is
 
 ```
 float64[] destination
@@ -229,7 +228,7 @@ This will provide a final position and orientation of your end effector. Another
 
 Since you know the position and orientation of the end effector (attached with a laser pointer), you have to predict where the laser point will land on the workbench. (Hint: Think in terms of vector and plane intersection)
 
-Assume the `z_table = 0`. 
+Assume the `z_table = 0`.
 
 We are providing you with the code in lab (hidden in the backend), but you need to show the math behind it in your lab report.
 
@@ -252,7 +251,7 @@ Run the robot for the following test points:
 
 - Clear frame assignments & axes drawings.
 
-- DH table with your chosen convention and parameter definitions. 
+- DH table with your chosen convention and parameter definitions.
 
 - Step-by-step derivation for the laser–plane intersection.
 

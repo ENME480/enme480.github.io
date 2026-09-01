@@ -11,7 +11,7 @@ The objective of this lab is to derive and implement a solution to the inverse k
 
 ## Helpful Resources
 
-- [Trignometry & Geometry Cheat Sheet](../assets/ik/trig_cheat_sheet.pdf) 
+- [Trignometry & Geometry Cheat Sheet](../assets/ik/trig_cheat_sheet.pdf)
   - Ref: https://tutorial.math.lamar.edu/pdf/trig_cheat_sheet.pdf
 
 
@@ -32,8 +32,8 @@ be the joint angles `θ1 to θ6`.
 Here's a table for the link lengths from the [UR3e Dimensions](../assets/fk/ur3eschem.png). Write your math in terms of the variables for the links, instead of using their numerical value.
 
 
-| Link   | Length (in m)         | 
-| ------------- |:-------------:| 
+| Link   | Length (in m)         |
+| ------------- |:-------------:|
 | L1 | 0.152
 |L2 | 0.120
 |L3| 0.244

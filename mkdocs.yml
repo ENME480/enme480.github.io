@@ -1,5 +1,5 @@
 site_name: ENME480 — Introduction to Robotics
-site_description: Intro to Robotics at UMD (Fall 2026)
+site_description: ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project
 site_url: https://enme480.github.io/
 repo_url: https://github.com/ENME480/enme480.github.io
 
@@ -9,12 +9,19 @@ theme:
     - navigation.instant
     - navigation.tabs
     - navigation.sections
-    - toc.integrate
     - content.code.copy
     - content.tabs.link
     - navigation.indexes
     - navigation.footer
     - content.tooltips
+    - toc.follow
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   icon:
     logo: material/robot
   palette:
@@ -42,7 +49,11 @@ plugins:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
@@ -72,63 +83,53 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
   - javascripts/math.js
-  - https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js
   - https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/calendar.js
   - javascripts/tablesort.js
 
-#extra_css:
-#  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
-#  - styles/calendar.css
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
+  - styles/theme.css
 
 not_in_nav: |
   _labcode/**
+  labs/week-10.md
+  labs/week-11.md
+  labs/week-14.md
+  labs/week-15.md
+  labs/final-project.md
+  ur3e-guide.md
+  math-tools.md
+  code-examples.md
+  enae450_readme.md
+  blog/**
 
 nav:
   - Home: index.md
-  #- Syllabus: syllabus.md
-  #- Schedule: schedule.md
+  - Syllabus (PDF): assets/docs/syllabus-fall2026.pdf
   - Labs:
       - Overview: labs/index.md
-      - Week 1 (Intro): labs/week-01.md
-      - Week 1 Slides: labs/week-1-slides.pptx
-      - Week 2 (Software): labs/week-02.md
-      - Week 2 Slides: labs/week-2-slides.pptx
-      - Week 3 (ROS Tutorial): labs/week-03.md
-      - Week 3/4 Slides: labs/week-3-slides.pptx
-      - Week 4 (Gazebo Demo): labs/week-04.md
-      - Week 5 (UR3e Intro, FK Lab Part 1): labs/week-05.md
-      - Week 6 (UR3e Forward Kinematics Simulation): labs/week-06.md
-      - Week 5/6 Slides: labs/week-6-slides.pptx
-      - UR3e DH Table: assets/docs/dh_table.pdf
-      - Week 7 (No Lab): labs/week-07.md
-      - Week 8 (UR3e Inverse Kinematics): labs/week-08.md
-      - Week 8 Slides: labs/week-8-slides.pptx
-      - Week 9 (UR3e IK Lab): labs/week-09.md
-      # - Week 10 (FK Robot Lab): labs/week-10.md
-      # - Week 11 (Dynamics & Cameras): labs/week-11.md
-      - Week 12 (Camera Lab): labs/week-12.md
-      - Week 13-15 (Final Project): labs/week-13.md
-      # - Week 14 (Final Project Kickoff): labs/week-14.md
-      # - Week 15 (Final Project Wrap-up): labs/week-15.md
-      # - Final Project Brief: labs/final-project.md
-
-  - Resources: resources.md
-  - Wiki:
+      - Week 1 — Lab Intro: labs/week-01.md
+      - Week 2 — Ubuntu & Python: labs/week-02.md
+      - Week 3 — ROS Tutorial: labs/week-03.md
+      - Week 4 — Gazebo Demo: labs/week-04.md
+      - Week 5 — UR3e Intro, FK Lab 1.1: labs/week-05.md
+      - Week 6 — FK Simulation, FK Lab 1.2: labs/week-06.md
+      - Week 7 — No Lab: labs/week-07.md
+      - Week 8 — Inverse Kinematics: labs/week-08.md
+      - Week 9 — UR3e IK Lab: labs/week-09.md
+      - Week 12 — Camera Lab: labs/week-12.md
+      - Weeks 13-15 — Final Project: labs/week-13.md
+  - Slides: slides.md
+  - Setup:
       - Ubuntu Setup: ubuntu-setup.md
-      - Dev Environment: dev-environment.md
       - ROS Setup: ros-setup.md
       - Gazebo Setup: gazebo-setup.md
+      - Dev Environment: dev-environment.md
       - Python Basics: python-basics.md
       - Git Basics: git-basics.md
-      #- UR3e Guide: ur3e-guide.md
+  - Resources:
+      - Overview: resources.md
       - Kinematics Reference: kinematics-reference.md
-      #- Math Tools: math-tools.md
-      #- Code Examples: code-examples.md
-      #- ENAE450 README: enae450_readme.md
-  #- Policies: policies.md
+      - UR3e DH Table: assets/docs/dh_table.pdf
   - Help: help.md
-  #- Blog: blog/index.md
-
-# Note: _labcode files are automatically hidden from navigation
-# as they are included via the include-markdown plugin
+  - Site Map: site-map.md

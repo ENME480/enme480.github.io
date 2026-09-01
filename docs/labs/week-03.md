@@ -8,7 +8,6 @@ description: Create a ROS 2 workspace and package; implement a talker/listener; 
 
 This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: **workspaces**, **packages**, **publish/subscribe**, and a tiny sim (**turtlesim**). The steps below point you to the **official Humble tutorials**—follow them carefully.
 
----
 
 ## Part A - Setup
 
@@ -37,7 +36,7 @@ And connect to it from another terminal with:
 ```bash
 bash connectToDocker.sh
 ```
-Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. *Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.* 
+Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. *Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.*
 
 **IMPORTANT:** This the following folders will be linked (outside the docker --> inside the docker)
 
@@ -48,7 +47,6 @@ ENME480_mrc/config --> enme480_ws/config
 This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
 (Credit to Benjamin Ruby for the original version of the script)
 
----
 
 ## Part B — Pre-flight check (5–10 min)
 
@@ -74,7 +72,7 @@ If `rqt` does not open up anything or throws an error, install any required exte
 ```bash
 sudo apt install ros-humble-rqt*
 ```
-or try reopening it with 
+or try reopening it with
 ```bash
 rqt --force-discover
 ```
@@ -93,7 +91,6 @@ This will cause the folder you just created to appear inside the docker image, l
 
 **Checkpoint B (no submission yet):** You can run the above commands without any errors. This ensures ROS is fully installed and operational.
 
----
 
 ## Part C — Workspace & package (setup only)
 
@@ -107,7 +104,6 @@ Follow the **official Humble tutorials** step-by-step (do not copy solution code
 
 **Checkpoint C:** Your workspace builds with `colcon` and your package appears in the build output.
 
----
 
 ## Part D — ROS2 Talker / Listener Demo
 
@@ -133,7 +129,7 @@ Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum
 > - Keep node/topic names short and meaningful.
 > - Check the Message Type browser in rqt for information about what types to use and how to format the messages.
 > - Use rqts Topic monitor to make sure messages are being properly published.
-> - If rqt is missing these options under plugins, you may need to run 
+> - If rqt is missing these options under plugins, you may need to run
 ```bash
 sudo apt install ros-humble-rqt*
 ```
@@ -143,7 +139,6 @@ sudo apt install ros-humble-rqt*
 - Listener output showing a **running sum**.  
 - `ros2 topic list` and a short `ros2 topic echo` of your sum topic.
 
----
 
 ## Part E — Turtlesim (drive in a circle)
 
@@ -167,7 +162,6 @@ Use `ros2 topic list` / `ros2 topic echo` to confirm motion and pose updates; op
 - `ros2 topic list` and a short `ros2 topic echo` of the pose topic.  
 - rqt with **Node Graph** / **Topic Monitor** visible.
 
----
 
 ## Deliverables (single PDF upload)
 
@@ -183,11 +177,11 @@ Also submit the **three Python files** you created this week as separate attachm
 
 ### Helpful tips for the turtlesim velocity publisher
 
-- **Topic to command motion**: `/turtle1/cmd_vel`. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context. 
-- **Message type**: 
+- **Topic to command motion**: `/turtle1/cmd_vel`. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context.
+- **Message type**:
 - Make edits to `package.xml` to include `geometry_msgs`
 -`geometry_msgs/Twist` with two parts: `linear` and `angular`, each a 3-D vector (`x`, `y`, `z`). For a planar turtle,
-  you’ll typically set **`linear.x`** and **`angular.z`** only (m/s and rad/s). 
+  you’ll typically set **`linear.x`** and **`angular.z`** only (m/s and rad/s).
 - If you’re unsure of fields, ask ROS directly:
   ```bash
   ros2 interface show geometry_msgs/msg/Twist```

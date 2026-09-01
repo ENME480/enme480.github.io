@@ -12,7 +12,7 @@ The lab environment is shown below:
 
 ![Top View of UR3](../assets/robot_pics/ENME480_Intro.jpg)
 
-You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform. 
+You will be given 3 blocks with different Aruco markers. Your task is to move them out of the workspace into predefined positions. To do so, you will need to find the centroid postion of the top side of each block with an image from the camera mounted above the table, facing down on the workspace. You will convert the detected pixel coordinates to the table frame using a persepctive transform.
 
 ## Overview of the ROS Package
 
@@ -20,13 +20,13 @@ The project package should be located on the local lab machines in RAL. You can 
 
 The nodes have been added to the `setup.py` file, so you do not need to add that. You will find five scripts as listed in the table below:
 
-| Script Name  | Description       | 
+| Script Name  | Description       |
 | :---------------: |:---------------|
 | `get_perspective_warping_with_aruco.py` | Script to create the perspective matrix |
-| `aruco_detection_test.py` | Script to test the perspective transform and get coordinates of the blocks in table frame | 
-| `block_detection_aruco.py` | ROS Node for detecting blocks, uses the same function and changes from `aruco_detection_test.py`| 
-| `kinematic_functions.py` | Script to insert all of your FK and IK functions from previous labs | 
-| `main_pipeline.py` | The main pipeline to strategize and sequence movement of the blocks | 
+| `aruco_detection_test.py` | Script to test the perspective transform and get coordinates of the blocks in table frame |
+| `block_detection_aruco.py` | ROS Node for detecting blocks, uses the same function and changes from `aruco_detection_test.py`|
+| `kinematic_functions.py` | Script to insert all of your FK and IK functions from previous labs |
+| `main_pipeline.py` | The main pipeline to strategize and sequence movement of the blocks |
 
 Please do not edit anything outside the given code snippets (it will lead to errors which will be difficult to identify)
 
@@ -74,7 +74,7 @@ git pull
 
 ## Script Descriptions
 
-You are recommended to complete each script in the order suggested in the table. 
+You are recommended to complete each script in the order suggested in the table.
 
 ### `get_perspective_warping_with_aruco.py`
 
@@ -86,7 +86,7 @@ Before you run this script, ensure that you are in the correct directory. Assumi
 cd ~/enme480_ws/src/enme480_project/enme480_project/
 python3 get_perspective_warping_with_aruco.py
 ```
-#### Troubleshooting: 
+#### Troubleshooting:
 If you get a missing keyboard package error run the following command
 
 ```bash

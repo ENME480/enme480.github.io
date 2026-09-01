@@ -1,22 +1,16 @@
+<p class="eyebrow">ENME480 · Wiki</p>
+
 # ROS 2 Setup Guide
 
-<div align="center">
+<p class="lede">Get ROS 2 running on Ubuntu for ENME480 labs and projects</p>
 
-**Install and configure ROS 2 Humble for robotics development**
 
-*Get ROS 2 running on Ubuntu for ENME480 labs and projects*
-
-</div>
-
----
-
-## **Overview**
+## Overview
 
 This guide will help you install ROS 2 Humble (Hawksbill) on Ubuntu 22.04. ROS 2 is the Robot Operating System that we'll use throughout the course for robot programming and simulation.
 
----
 
-## **Prerequisites**
+## Prerequisites
 
 Before starting, ensure you have:
 - **Ubuntu 22.04 LTS** installed (ROS 2 Humble Tier-1 platform)
@@ -24,9 +18,8 @@ Before starting, ensure you have:
 - **Basic Ubuntu knowledge** (terminal commands)
 - **At least 10GB free space**
 
----
 
-## **Verification Checklist**
+## Verification Checklist
 
 - [ ] ROS 2 Humble installed successfully
 - [ ] Environment sourced correctly
@@ -36,14 +29,14 @@ Before starting, ensure you have:
 - [ ] First custom node working
 - [ ] Tools installed (rqt, rviz2)
 
----
+
 ## After setting up Ubuntu 22.04
 
 1. First, we will make sure our dependencies are in place. Within WSL2 run:
-   
+
         sudo apt update && sudo apt upgrade
    In order to update all system packages (you may need to enter your password)
-   
+
          sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
         sudo apt update && sudo apt upgrade -y
@@ -58,19 +51,19 @@ Before starting, ensure you have:
 	These commands set up package registries within WSL, which is how Ubuntu knows where to look for packages (apps) we want to install. If you'd like a more detailed breakdown of what each command here does, feel free to ask a TA.
 
         sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
-	This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code. 
+	This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code.
 
 2. Now, we will download the code from GitHub. To do this, run:
-   
+
          cd ~/ && git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
 	To move to the right folder and download the GitHub repo containing the docker image we need.
 
 3. With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:
 
-        sudo groupadd docker 
-        
-        sudo usermod -aG docker $USER 
-        
+        sudo groupadd docker
+
+        sudo usermod -aG docker $USER
+
         newgrp docker
 
         sudo systemctl restart docker
@@ -91,18 +84,18 @@ Before starting, ensure you have:
 5. Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:
 
         sudo touch /etc/docker/daemon.json
-	
+
 		sudo chmod 777 /etc/docker/daemon.json
-	
+
 		curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
 	          && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
 	            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
 	            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-		
+
 		sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
-		
+
 		sudo apt-get update
-	
+
         export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
         sudo apt-get install -y \
               nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
@@ -110,7 +103,7 @@ Before starting, ensure you have:
               libnvidia-container-tools=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
               libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
 	This will install the Nvidia container toolkit which allows Docker to use your GPU.
-6. With the container toolkit installed, we can now configure docker and compose our image. 
+6. With the container toolkit installed, we can now configure docker and compose our image.
 
 		echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' > /etc/docker/daemon.json && sudo systemctl restart docker
  	This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.
@@ -122,10 +115,10 @@ Before starting, ensure you have:
 		docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
 	This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.
 
----
-## **Verify Installation**
 
-### **Test Basic Installation**
+## Verify Installation
+
+### Test Basic Installation
 From within the docker image, run the following command:
 ```
 ros2 run demo_nodes_cpp talker
@@ -135,7 +128,7 @@ This shouuld begin outputting a list of number to the terminal. Open a new termi
 ros2 run demo_nodes_cpp listener
 ```
 This second script should output the messages being sent by the talker.
-### **Test in New Terminal**
+### Test in New Terminal
 ```
 # Open new terminal and run
 ros2 --help
@@ -143,36 +136,34 @@ ros2 --help
 ign gazebo
 ```
 
----
 
-## **Common Issues & Solutions**
+## Common Issues & Solutions
 
-### **Installation Problems**
+### Installation Problems
 | **Error** | **Solution** |
 |-----------|--------------|
 | **GPG error** | Re-run GPG key commands |
 | **Package not found** | Check Ubuntu version compatibility |
 | **Permission denied** | Use `sudo` for system commands |
 
-### **Environment Issues**
+### Environment Issues
 | **Problem** | **Solution** |
 |-------------|--------------|
 | **Command not found** | Source setup.bash or restart terminal |
 | **Package not found** | Check if package is installed |
 | **Version mismatch** | Ensure Ubuntu and ROS versions match |
 
----
 
-## **Essential ROS 2 Concepts**
+## Essential ROS 2 Concepts
 
-### **Core Concepts**
+### Core Concepts
 - **Nodes**: Individual processes that perform computation
 - **Topics**: Asynchronous communication mechanism
 - **Services**: Synchronous request-response communication
 - **Actions**: Long-running tasks with feedback
 - **Messages**: Data structures for communication
 
-### **Basic Commands**
+### Basic Commands
 ```bash
 # List running nodes
 ros2 node list
@@ -190,11 +181,10 @@ ros2 service list
 ros2 service call /service_name service_type "data"
 ```
 
----
 
-## 🛠️ **Development Setup**
+## Development Setup
 
-### **Create ROS 2 Workspace**
+### Create ROS 2 Workspace
 ```bash
 # Create workspace directory
 mkdir -p ~/ros2_ws/src
@@ -210,7 +200,7 @@ source install/setup.bash
 echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
 ```
 
-### **Install Useful Tools**
+### Install Useful Tools
 ```bash
 # Install rqt (GUI tools)
 sudo apt install ros-humble-rqt
@@ -222,11 +212,10 @@ sudo apt install ros-humble-rviz2
 sudo apt install ros-humble-turtlesim
 ```
 
----
 
-## 🎮 **First ROS 2 Program**
+## First ROS 2 Program
 
-### **Create a Simple Publisher**
+### Create a Simple Publisher
 ```bash
 # Navigate to workspace
 cd ~/ros2_ws/src
@@ -241,7 +230,7 @@ cd my_first_pkg/src
 touch my_first_node.py
 ```
 
-### **Add Code to my_first_node.py**
+### Add Code to my_first_node.py
 ```python
 #!/usr/bin/env python3
 import rclpy
@@ -272,7 +261,7 @@ if __name__ == '__main__':
     main()
 ```
 
-### **Build and Run**
+### Build and Run
 ```bash
 # Build workspace
 cd ~/ros2_ws
@@ -285,11 +274,10 @@ source install/setup.bash
 ros2 run my_first_pkg my_first_node
 ```
 
----
 
-## 🔍 **Debugging & Troubleshooting**
+## Debugging & Troubleshooting
 
-### **Useful Debugging Commands**
+### Useful Debugging Commands
 ```bash
 # Check node status
 ros2 node info /node_name
@@ -307,46 +295,43 @@ ros2 param list
 ros2 param get /node_name parameter_name
 ```
 
-### **Common Debugging Steps**
+### Common Debugging Steps
 1. **Check if node is running**: `ros2 node list`
 2. **Verify topic exists**: `ros2 topic list`
 3. **Check message data**: `ros2 topic echo /topic_name`
 4. **Monitor system resources**: `htop`, `ros2 topic hz`
 
----
 
-## 📱 **ROS 2 Tools & GUIs**
+## ROS 2 Tools & GUIs
 
-### **Command Line Tools**
+### Command Line Tools
 - **ros2**: Main command line interface
 - **ros2 topic**: Topic management
 - **ros2 service**: Service management
 - **ros2 node**: Node management
 - **ros2 param**: Parameter management
 
-### **Graphical Tools**
+### Graphical Tools
 - **rqt**: Plugin-based GUI framework
 - **rviz2**: 3D visualization tool
 - **plotjuggler**: Data plotting and analysis
 - **rqt_graph**: Node and topic visualization
 
----
 
-## **Getting Help**
+## Getting Help
 
-### **ROS 2 Resources**
+### ROS 2 Resources
 - **Official Docs**: [docs.ros.org](https://docs.ros.org/en/humble/)
 - **ROS Answers**: [answers.ros.org](https://answers.ros.org/)
 - **ROS Wiki**: [wiki.ros.org](https://wiki.ros.org/)
 
-### **Course Support**
+### Course Support
 - **Piazza**: Ask questions on course forum
 - **Office Hours**: Get help from TA or instructor
 - **Lab Sessions**: Hands-on help during labs
 
----
 
-## **Next Steps**
+## Next Steps
 
 After completing ROS 2 setup:
 

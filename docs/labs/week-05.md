@@ -35,7 +35,7 @@ The teaching pendant also has an E-Stop button on its face. *If the robot ever m
 ## 2. Connect the Robot to the Computer
 1. Wake the computer up and log in to the enme480 user using the password ENME480 (all caps).
 2. Find the `README.md` file within the `ENME480_mrc` folder. You can also open up VS Code from the sidebar and open the `ENME480_mrc` folder and open the `README.md` file from there. Do `Ctrl + Shift + V` to enable a more readable view of the README file. This will contain a list of steps to connect the robot to the computer. You should be dropped into a Docker envrionment similar to the one you've alrady been working in.
-  
+
       2.1. For easier readability, you can open the README file in preview mode by clicking the preview button. This will render all the formatting.
       ![previewmode](../assets/preview_mode.png)
 
@@ -56,10 +56,10 @@ This message contains a few parts:
 - "ros2 topic pub --once" will publish a message on a certain topic once, then stop (instead of endlessly republishing the same message).
 - We are publishing on the topic "ur3/command" with a message type "ur3e_mrc/msg/CommandUR3e"
 - The "ur3e_mrc/msg/CommandUR3e" message has four fields:
-  
+
   - "destination": a set of 6 angles, one per joint. ***These angles are in RADIANS! Sanity check any angle you're putting in before hitting enter - an angle of +/-90 probably doesn't make sense here, for example.***
   - "v" and "a": these control the velocity and acceleration of the robots joints, respectively. There are internal safeties set to prevent the robot from moving too fast, but we've also explicitly set the speed here to something low enough that you'll have time to react if the robot moves unexpectedly.
-  
+
   - "io_0": this field will turn the laser pointer off during the motion of the arm. This is to make sure the laser never accidentally shines in someones eyes.
 
 2. The TAs should have attached a laser pointer to your robot. In order to enable the laser pointer run the command:
@@ -74,10 +74,9 @@ From within the docker. Your laser should now be on, so make sure the robot only
 
 ## Wrap Up and Shutdown
 
-Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood. 
+Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood.
 
 Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the mvoe is complete. *Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!*
-
 
 
 ## Next Steps
@@ -86,5 +85,5 @@ In next weeks lab we will show you how to calculate the forward kinematics for o
 
 ## Submission
 
-No submissions for this week. However, make sure you collect the data for this week properly. There will be a joint submission with next week's studio covering the entire forward kinematics assignment, which will require this weeks data. 
+No submissions for this week. However, make sure you collect the data for this week properly. There will be a joint submission with next week's studio covering the entire forward kinematics assignment, which will require this weeks data.
 

@@ -1,103 +1,102 @@
-# 🐧 Ubuntu Setup Guide
+<p class="eyebrow">ENME480 · Wiki</p>
 
----
+# Ubuntu Setup Guide
 
-## **System Requirements**
 
-### **Minimum Requirements**
+## System Requirements
+
+### Minimum Requirements
 - **RAM**: 8GB (16GB recommended)
 - **Storage**: 60GB free space (100GB recommended)
 - **Processor**: 64-bit processor (Intel/AMD) or ARM64 (Apple Silicon)
 
-### **Recommended Setup**
+### Recommended Setup
 - **RAM**: 16GB or more
 - **Storage**: 256GB SSD
 - **Processor**: Multi-core processor
 - **Graphics**: Dedicated GPU (optional, for simulation)
 
----
 
-## **Choose Your Platform**
+## Choose Your Platform
 
 If you are on Windows then you have two choices here:
-    - A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
-    - Windows Subsystem for Linux (WSL), Microsofts official way of running Linux code on Windows. This approach has much less overhead and runs faster, but can require some extra steps. 
+- A Virtual Machine (VM). This will emulate a second computer running Ubuntu 22.04 inside on your computer. This approach usually works well but can come with a lot of overhead, leading to programms running slowly and crashes.
+- Windows Subsystem for Linux (WSL), Microsofts official way of running Linux code on Windows. This approach has much less overhead and runs faster, but can require some extra steps.
 
 
 === "macOS (Apple Silicon) — UTM VM"
 
-    ### **Step 1: Download UTM**
-    
+    ### Step 1: Download UTM
+
     Download UTM from the official website: <https://mac.getutm.app>
 
-    ### **Step 2: Download Ubuntu 22.04 ARM64**
-    
+    ### Step 2: Download Ubuntu 22.04 ARM64
+
     Get Ubuntu 22.04 ARM64 (Desktop or Server): <https://cdimage.ubuntu.mirror.onlime.sl/ubuntu/daily-live/20220417/>  
     *Choose **22.04 LTS 64-bit (ARM)**.*
 
-    ### **Step 3: Create New Virtual Machine**
-    
+    ### Step 3: Create New Virtual Machine
+
     Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.
-    
+
     ![UTM Download](assets/vm_figs/1.webp)
-    
+
     Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.
 
     ![Ubuntu Download](assets/vm_figs/2.webp)
-    
+
     ![Create VM](assets/vm_figs/3.webp)
-    
+
     Click on Browse and select the ISO file you downloaded in Step 2
-    
+
     ![Choose Virtualization](assets/vm_figs/4.webp)
 
     On the next screen, leave the memory at 4096 MB and CPU Cores at [Default]. Then specify the amount of space you want to allocate to the virtual machine. It is recommended that you don’t go below around 30GB. Leaving it at the default 64GB is fine, or allocate a higher number if you prefer. Preferred space is around 50GB
 
     ![Select Linux](assets/vm_figs/5.webp)
-    
-   
+
+
     ![Browse ISO](assets/vm_figs/6.webp)
-    
+
     (Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.
-    
+
     ![System Settings](assets/vm_figs/7.webp)
 
     Once done, enter the details for your VM as you want and press done.
 
-    ### **Step 4: Start the VM**
-    
+    ### Step 4: Start the VM
+
     Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".
 
     ![Display Settings](assets/vm_figs/8.webp)
 
-    
+
     ![Review Settings](assets/vm_figs/9.png)
 
-    ### **Step 5: Ubuntu Installation Welcome**
-    
+    ### Step 5: Ubuntu Installation Welcome
+
     The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".
 
     ![Start VM](assets/vm_figs/10.png)
 
-   
-    
+
     ![Installation Welcome](assets/vm_figs/11.png)
-    
+
      Choose your keyboard layout. "English (US)" is selected by default. You can test your keyboard in the text field below. (Normally, you can leave it as is and just press continue)
-    
+
     ![Installation Type](assets/vm_figs/12.png)
-    
+
     Uncheck the "Download updates while installing" so that you have a faster installation
-    
+
     ![User Setup](assets/vm_figs/13.png)
 
      Select "Erase disk and install Ubuntu" since this is a virtual machine. The installer will show a warning about deleting all files.
 
-    
+
     ![Installation Progress](assets/vm_figs/14.png)
-    
+
     ![Installation Complete](assets/vm_figs/15.png)
-    
+
     ![Ubuntu Login](assets/vm_figs/16.png)
 
     Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.
@@ -106,20 +105,20 @@ If you are on Windows then you have two choices here:
 
     Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.
 
-    ### **Step 6: First Boot**
-    
+    ### Step 6: First Boot
+
     After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.
-    
+
     ## Troubleshooting
 
     If your OS doesn't boot up to the welcome screen, restart the VM and press `ESC`, and use your arrow keys to go to "Boot Manager", press "ENTER", go to `ubuntu` and press "ENTER"
 
-    
-    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
-    
 
-    **References:** 
-    
+    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
+
+
+    **References:**
+
     1. [UTM's Ubuntu guide](https://docs.getutm.app/guides/ubuntu/)
     2. [Blog Post](https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1)  
 
@@ -137,90 +136,89 @@ If you are on Windows then you have two choices here:
 
         This installs the exact distro we use. Using a different Ubuntu version often breaks ROS compatibility. *Note: if you have never used WSL before this command will install some necessary drivers first, then say that it failed to install Ubuntu. If this happens reset your computer and try again, it should work now.*
 
-    3. You should notice that powershell has gona from looking like this: 
+    3. You should notice that powershell has gona from looking like this:
     ![phsell](assets/nvidia-setup/pshell.png)
-    
+
     to something like this:
     ![wsl](assets/nvidia-setup/wsl.png)
 
-    This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here. 
-        
+    This means you are inside WSL. The green part of the lowest line shows your username and domain, while the blue part shows the folder the terminal is currently inside. From here on out, assume that any command we don't explicilty say to run outside WSL should be run from here.
+
 
 === "Windows - VM"
 
-    ### **Step 1: Download VirtualBox**
-    
+    ### Step 1: Download VirtualBox
+
     Download VirtualBox from the official website: <https://www.virtualbox.org>
 
-    ### **Step 2: Download Ubuntu 22.04 ARM64**
-    
+    ### Step 2: Download Ubuntu 22.04 ARM64
+
     Get Ubuntu 22.04 ARM64 (Desktop or Server): <https://releases.ubuntu.com/jammy/>
-    
+
     *Choose **22.04 LTS 64-bit (AMD)**.*
 
-    ### **Step 3: Create New Virtual Machine**
-    
+    ### Step 3: Create New Virtual Machine
+
     Open UTM and you'll see the welcome screen with options to create a new virtual machine, browse the gallery, or access user guides.
-    
+
     ![UTM Download](assets/vm_figs/1.webp)
-    
+
     Choose [Virtualize] then [Linux], choose your downloaded iso image file, and click [Continue] with all of the boxes unchecked.
 
     ![Ubuntu Download](assets/vm_figs/2.webp)
-    
+
     ![Create VM](assets/vm_figs/3.webp)
-    
+
     Click on Browse and select the ISO file you downloaded in Step 2
-    
+
     ![Choose Virtualization](assets/vm_figs/4.webp)
 
     On the next screen, leave the memory at 4096 MB and CPU Cores at [Default]. Then specify the amount of space you want to allocate to the virtual machine. It is recommended that you don’t go below around 30GB. Leaving it at the default 64GB is fine, or allocate a higher number if you prefer. Preferred space is around 50GB
 
     ![Select Linux](assets/vm_figs/5.webp)
-    
-   
+
+
     ![Browse ISO](assets/vm_figs/6.webp)
-    
+
     (Optional) Here you can select a storage location for the VM or just leave it as is. This is to configure a shared directory to make files accessible between macOS and your Ubuntu VM. Click "Browse..." to select a folder.
-    
+
     ![System Settings](assets/vm_figs/7.webp)
 
     Once done, enter the details for your VM as you want and press done.
 
-    ### **Step 4: Start the VM**
-    
+    ### Step 4: Start the VM
+
     Click the play button to start your virtual machine. You'll see the GRUB boot menu where you can select "Try or Install Ubuntu".
 
     ![Display Settings](assets/vm_figs/8.webp)
 
-    
+
     ![Review Settings](assets/vm_figs/9.png)
 
-    ### **Step 11: Ubuntu Installation Welcome**
-    
+    ### Step 11: Ubuntu Installation Welcome
+
     The below window will be shown and once done, open up "Install Ubuntu 22.04 LTS". The Ubuntu installer will start and show the welcome screen. Select your language and click "Continue".
 
     ![Start VM](assets/vm_figs/10.png)
 
-   
-    
+
     ![Installation Welcome](assets/vm_figs/11.png)
-    
+
      Choose your keyboard layout. "English (US)" is selected by default. You can test your keyboard in the text field below. (Normally, you can leave it as is and just press continue)
-    
+
     ![Installation Type](assets/vm_figs/12.png)
-    
+
     Uncheck the "Download updates while installing" so that you have a faster installation
-    
+
     ![User Setup](assets/vm_figs/13.png)
 
      Select "Erase disk and install Ubuntu" since this is a virtual machine. The installer will show a warning about deleting all files.
 
-    
+
     ![Installation Progress](assets/vm_figs/14.png)
-    
+
     ![Installation Complete](assets/vm_figs/15.png)
-    
+
     ![Ubuntu Login](assets/vm_figs/16.png)
 
     Enter the details you want and press "Continue". The installer will copy files and install Ubuntu. This process may take several minutes depending on your system performance.
@@ -229,41 +227,38 @@ If you are on Windows then you have two choices here:
 
     Once installation is complete, you'll see the "Installation Complete" screen. Click "Restart Now" to finish the setup.
 
-    ### **Step 6: First Boot**
-    
+    ### Step 6: First Boot
+
     After restart, you'll see the Ubuntu login screen. Enter your username and password to log in.
-    
+
     ## Troubleshooting
 
     If your OS doesn't boot up to the welcome screen, restart the VM and press `ESC`, and use your arrow keys to go to "Boot Manager", press "ENTER", go to `ubuntu` and press "ENTER"
 
-    
-    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
-    
 
-    **References:** 
-    
+    You'll be greeted with the Ubuntu desktop environment with the default jellyfish wallpaper. The dock on the left contains common applications.
+
+
+    **References:**
+
     1. [UTM's Ubuntu guide](https://docs.getutm.app/guides/ubuntu/)
     2. [Blog Post](https://techblog.shippio.io/how-to-run-an-ubuntu-22-04-vm-on-m1-m2-apple-silicon-9554adf4fda1)  
-
 
 
 === "Linux / Dual-boot (optional)"
 
     Ubuntu 22.04 LTS native install is fine if you prefer dual-boot. Ensure disk space ≥ **60 GB**.
----
 
-
-## **Post-Installation Setup**
+## Post-Installation Setup
 
 Open up Terminal using `Ctrl + Alt + T` or from the menu on the bottom left and selecting it.
 
-### **Step 1: Update System**
+### Step 1: Update System
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-### **Step 2: Install Essential Tools**
+### Step 2: Install Essential Tools
 ```bash
 # add new package sources so we can find everything we want to install
 sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -298,7 +293,7 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 
 ```
 
-### **Step 3: Configure Docker to Run as Non-Root User**
+### Step 3: Configure Docker to Run as Non-Root User
 
 By default Docker can only be run as an admin, which will cause it to throw lots of random, hard to diagnose errors. These steps will set up Docker so it can be run by anyone. Docker is *supposed* to run these steps manually, but sometimes doesn't so you may see some random warnings or errors about groups already existing or users already being in the group. This is totally fine, we want to rerun these commands to make sure the entire process worked.
 
@@ -322,7 +317,6 @@ This should download a small program and print a short message confirming that D
 ```bash
 reboot
 ```
----
 
 ## ENME480 Docker Installation
 
@@ -337,7 +331,7 @@ git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
 
 This will download the repository content into your `HOME` directory. Next, build Docker image (run the command from the docker folder). This needs to be done every time the Docker file is changed. Here's the commands to do that:
 
-**For MacOS users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile` 
+**For MacOS users**, change Line no. 4 in the docker file `humble-enme480_ur3e.Dockerfile`
 
 ```
 # BEFORE
@@ -440,7 +434,6 @@ docker exec -ti <hit your tab button> bash
 
 You should see that your name in the terminal has changed from what is was before to *enme480_mrc*. This means you are inside the Docker container and can run ROS code.
 
----
 
 ## Tests for Week 2
 
@@ -464,7 +457,7 @@ ros2 run demo_nodes_cpp listener
 
 
 This second script should output the messages being sent by the talker.
-### **Test in New Terminal**
+### Test in New Terminal
 
 
 ```bash
@@ -474,20 +467,15 @@ ros2 --help
 ign gazebo
 ```
 
----
 
-## **Getting Help**
+## Getting Help
 
-### **If Something Goes Wrong**
+### If Something Goes Wrong
 1. **Check Ubuntu Forums**: [ubuntuforums.org](https://ubuntuforums.org/)
 2. **Ask on Piazza**: Course Q&A forum
 3. **Office Hours**: Get help from TA or instructor
 4. **Ubuntu Documentation**: [help.ubuntu.com](https://help.ubuntu.com/)
 
-### **Emergency Recovery**
+### Emergency Recovery
 - **Boot from USB** and use "Try Ubuntu" mode
 - **Reinstall Ubuntu** as last resort
-
----
-
-*Last updated: Fall 2025 • [Back to Resources](resources.md)*
