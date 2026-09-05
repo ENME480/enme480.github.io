@@ -1383,10 +1383,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-wslnative-ubuntu-only-configure-docker-to-run-on-nvidia-gpu" class="md-nav__link">
+  <a href="#step-3-wslnative-ubuntu-with-an-nvidia-gpu-only-configure-docker-to-run-on-nvidia-gpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
+        Step 3 (WSL/Native Ubuntu with an NVIDIA GPU ONLY): Configure Docker to run on NVIDIA GPU
       
     </span>
   </a>
@@ -2153,10 +2153,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-wslnative-ubuntu-only-configure-docker-to-run-on-nvidia-gpu" class="md-nav__link">
+  <a href="#step-3-wslnative-ubuntu-with-an-nvidia-gpu-only-configure-docker-to-run-on-nvidia-gpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
+        Step 3 (WSL/Native Ubuntu with an NVIDIA GPU ONLY): Configure Docker to run on NVIDIA GPU
       
     </span>
   </a>
@@ -2486,14 +2486,23 @@ This should download a small program and print a short message confirming that D
 </span></code></pre></div>
 To spawn a new terminal in the already running container. If you repeatedly run the <em>docker compose</em> command you will either get errors or create clones of the container which can not talk to one another.</p>
 <p>You should see that your name in the terminal has changed from what is was before to <em>enme480_mrc</em>. This means you are inside the Docker container and can run ROS code.</p>
-<h3 id="step-3-wslnative-ubuntu-only-configure-docker-to-run-on-nvidia-gpu">Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU</h3>
+<h3 id="step-3-wslnative-ubuntu-with-an-nvidia-gpu-only-configure-docker-to-run-on-nvidia-gpu">Step 3 (WSL/Native Ubuntu with an NVIDIA GPU ONLY): Configure Docker to run on NVIDIA GPU</h3>
+<div class="admonition important">
+<p class="admonition-title">Check your GPU before continuing</p>
+<p>This step applies only if your computer has an <strong>NVIDIA GPU</strong>.</p>
+<ul>
+<li><strong>Native Ubuntu with only an Intel or AMD GPU:</strong> Skip this entire step. Continue using the standard <code>humble-enme480_ur3e-compose.yml</code> configuration from Step 2.</li>
+<li><strong>Windows using WSL with only an Intel or AMD GPU:</strong> The course's WSL setup is not supported without an NVIDIA GPU. Return to the Windows installation choices and follow the <strong>Windows - VM</strong> instructions instead.</li>
+</ul>
+<p>Do not install one of the suggested <code>nvidia-utils</code> packages when your computer does not have an NVIDIA GPU. Those packages provide NVIDIA utilities; they cannot add NVIDIA GPU support to Intel or AMD hardware.</p>
+</div>
 <p>First, try running:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>nvidia-smi
 </span></code></pre></div>
 <p>You should get an output which looks something like:</p>
 <p><img alt="smiout" src="../assets/nvidia-setup/smiout.png" /></p>
-<p><em>If you do not see an output like this you either don't have an Nvidia GPU or it is not set up correctly. You will not be able to complete the rest of these steps.</em></p>
-<p>Getting the correct output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. Now, we will enable the GPU within docker to speed up our simulations. First, run the following commands:</p>
+<p><em>If you do not see an output like this, you either do not have an NVIDIA GPU or its drivers are not configured correctly. Do not continue with the rest of this NVIDIA configuration step. If your computer does have an NVIDIA GPU, ask an instructor or TA for help configuring its drivers before continuing.</em></p>
+<p>Getting the correct output from <code>nvidia-smi</code> means you have an NVIDIA GPU installed in your computer with its drivers properly configured. Now, we will enable the GPU within Docker to speed up our simulations. First, run the following commands:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/etc/docker/daemon.json
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>/etc/docker/daemon.json
