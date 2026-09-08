@@ -1380,6 +1380,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2: Build and Run the Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2150,6 +2167,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 2: Build and Run the Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2486,6 +2520,12 @@ This should download a small program and print a short message confirming that D
 </span></code></pre></div>
 To spawn a new terminal in the already running container. If you repeatedly run the <em>docker compose</em> command you will either get errors or create clones of the container which can not talk to one another.</p>
 <p>You should see that your name in the terminal has changed from what is was before to <em>enme480_mrc</em>. This means you are inside the Docker container and can run ROS code.</p>
+<h4 id="troubleshooting_2">Troubleshooting</h4>
+<p>If you are on WSL and the above compose commands throw an error about an invalid or missing XAuthority, run the following commands:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s1">'\ntouch ~/.Xauthority\nexport XAUTHORITY=$HOME/.Xauthority\n'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+This will create a blank file called .Xauthority in your home directory and tell Ubuntu to look for it. The second line simply reload your environment so Ubuntu trakcs the changes. </p>
 <h3 id="step-3-wslnative-ubuntu-with-an-nvidia-gpu-only-configure-docker-to-run-on-nvidia-gpu">Step 3 (WSL/Native Ubuntu with an NVIDIA GPU ONLY): Configure Docker to run on NVIDIA GPU</h3>
 <div class="admonition important">
 <p class="admonition-title">Check your GPU before continuing</p>
@@ -2497,63 +2537,63 @@ To spawn a new terminal in the already running container. If you repeatedly run 
 <p>Do not install one of the suggested <code>nvidia-utils</code> packages when your computer does not have an NVIDIA GPU. Those packages provide NVIDIA utilities; they cannot add NVIDIA GPU support to Intel or AMD hardware.</p>
 </div>
 <p>First, try running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>nvidia-smi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nvidia-smi
 </span></code></pre></div>
 <p>You should get an output which looks something like:</p>
 <p><img alt="smiout" src="../assets/nvidia-setup/smiout.png" /></p>
 <p><em>If you do not see an output like this, you either do not have an NVIDIA GPU or its drivers are not configured correctly. Do not continue with the rest of this NVIDIA configuration step. If your computer does have an NVIDIA GPU, ask an instructor or TA for help configuring its drivers before continuing.</em></p>
 <p>Getting the correct output from <code>nvidia-smi</code> means you have an NVIDIA GPU installed in your computer with its drivers properly configured. Now, we will enable the GPU within Docker to speed up our simulations. First, run the following commands:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/etc/docker/daemon.json
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>/etc/docker/daemon.json
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span>sed<span class="w"> </span><span class="s1">'s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'/experimental/ s/^#//g'</span><span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="o">=</span><span class="m">1</span>.17.8-1
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span>nvidia-container-toolkit<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span>nvidia-container-toolkit-base<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span>libnvidia-container-tools<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span>libnvidia-container1<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/etc/docker/daemon.json
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>/etc/docker/daemon.json
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span>sed<span class="w"> </span><span class="s1">'s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span><span class="s1">'/experimental/ s/^#//g'</span><span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="o">=</span><span class="m">1</span>.17.8-1
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span>nvidia-container-toolkit<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span>nvidia-container-toolkit-base<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span>libnvidia-container-tools<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span>libnvidia-container1<span class="o">=</span><span class="si">${</span><span class="nv">NVIDIA_CONTAINER_TOOLKIT_VERSION</span><span class="si">}</span>
 </span></code></pre></div>
 <p>This will install the Nvidia container toolkit which allows Docker to use your GPU. With the container toolkit installed, we can now configure docker and compose our image:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">$'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}'</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/docker/daemon.json<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">$'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}'</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/docker/daemon.json<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </span></code></pre></div>
 <p>This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>build
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker/
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
 <p>Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. From now on, this is the command you will use to launch the docker image.</p>
 <p>If you do this step you will launch the container with the command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>enme480_ur3e-docker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>enme480_ur3e-docker
 </span></code></pre></div>
 <p>From now on. The command to connect to a running Docker conatiner (i.e. one you have open in a nother terminal) is still:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>&lt;hit<span class="w"> </span>your<span class="w"> </span>tab<span class="w"> </span>button&gt;<span class="w"> </span>bash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>&lt;hit<span class="w"> </span>your<span class="w"> </span>tab<span class="w"> </span>button&gt;<span class="w"> </span>bash
 </span></code></pre></div>
 <p>You should see that your name in the terminal has changed from what is was before to <em>enme480_mrc</em>. This means you are inside the Docker container and can run ROS code.</p>
 <h2 id="tests-for-week-2">Tests for Week 2</h2>
 <p>From within the docker iamge, ensure the demo nodes are actually downloaded by running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-demo-nodes-cpp
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-demo-nodes-cpp
 </span></code></pre></div>
 <p>To ensure everything is running sucessfully launch the following commands from within the Docker image:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
 </span></code></pre></div>
 <p>This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the Docker image and run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener
 </span></code></pre></div>
 <p>This second script should output the messages being sent by the talker.</p>
 <h3 id="test-in-new-terminal">Test in New Terminal</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Open new terminal and run</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>ros2<span class="w"> </span>--help
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># test gazebo, our simulation suite</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>ign<span class="w"> </span>gazebo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Open new terminal and run</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>ros2<span class="w"> </span>--help
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># test gazebo, our simulation suite</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>ign<span class="w"> </span>gazebo
 </span></code></pre></div>
 <h2 id="getting-help">Getting Help</h2>
 <h3 id="if-something-goes-wrong">If Something Goes Wrong</h3>
