@@ -375,7 +375,16 @@ source ~/.bashrc
 ```
 This will create a blank file called .Xauthority in your home directory and tell Ubuntu to look for it. The second line simply reload your environment so Ubuntu trakcs the changes. 
 
-### Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
+### Step 3 (WSL/Native Ubuntu with an NVIDIA GPU ONLY): Configure Docker to run on NVIDIA GPU
+
+!!! important "Check your GPU before continuing"
+    This step applies only if your computer has an **NVIDIA GPU**.
+
+    - **Native Ubuntu with only an Intel or AMD GPU:** Skip this entire step. Continue using the standard `humble-enme480_ur3e-compose.yml` configuration from Step 2.
+    - **Windows using WSL with only an Intel or AMD GPU:** The course's WSL setup is not supported without an NVIDIA GPU. Return to the Windows installation choices and follow the **Windows - VM** instructions instead.
+
+    Do not install one of the suggested `nvidia-utils` packages when your computer does not have an NVIDIA GPU. Those packages provide NVIDIA utilities; they cannot add NVIDIA GPU support to Intel or AMD hardware.
+
 First, try running:
 
 ```bash
@@ -386,9 +395,9 @@ You should get an output which looks something like:
 
 ![smiout](assets/nvidia-setup/smiout.png)
 
-*If you do not see an output like this you either don't have an Nvidia GPU or it is not set up correctly. You will not be able to complete the rest of these steps.*
+*If you do not see an output like this, you either do not have an NVIDIA GPU or its drivers are not configured correctly. Do not continue with the rest of this NVIDIA configuration step. If your computer does have an NVIDIA GPU, ask an instructor or TA for help configuring its drivers before continuing.*
 
-Getting the correct output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. Now, we will enable the GPU within docker to speed up our simulations. First, run the following commands:
+Getting the correct output from `nvidia-smi` means you have an NVIDIA GPU installed in your computer with its drivers properly configured. Now, we will enable the GPU within Docker to speed up our simulations. First, run the following commands:
 
 ```bash
 sudo touch /etc/docker/daemon.json
