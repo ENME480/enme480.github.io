@@ -367,6 +367,13 @@ To spawn a new terminal in the already running container. If you repeatedly run 
 
 You should see that your name in the terminal has changed from what is was before to *enme480_mrc*. This means you are inside the Docker container and can run ROS code.
 
+#### Troubleshooting
+If you are on WSL and the above compose commands throw an error about an invalid or missing XAuthority, run the following commands:
+```bash
+printf '\ntouch ~/.Xauthority\nexport XAUTHORITY=$HOME/.Xauthority\n' >> ~/.bashrc
+source ~/.bashrc
+```
+This will create a blank file called .Xauthority in your home directory and tell Ubuntu to look for it. The second line simply reload your environment so Ubuntu trakcs the changes. 
 
 ### Step 3 (WSL/Native Ubuntu ONLY): Configure Docker to run on NVIDIA GPU
 First, try running:
