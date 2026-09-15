@@ -151,14 +151,6 @@ bash connectToDocker.sh
 
 Once in the docker dcontainer:
 
-#### Preliminary instllations
-
-```bash
-sudo apt update
-sudo apt install ros-humble-tf-transformations
-sudo apt install ros-humble-rqt*
-```
-
 Now, we build the workspace for the simulation
 
 ```bash

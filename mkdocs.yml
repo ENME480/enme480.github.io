@@ -46,6 +46,9 @@ plugins:
   - include-markdown
   - social
 
+hooks:
+  - scripts/mkdocs_hooks.py
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -83,6 +86,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
   - javascripts/math.js
+  - javascripts/refresh.js
   - https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
 
@@ -122,7 +126,7 @@ nav:
   - Slides: slides.md
   - Setup:
       - Ubuntu Setup: ubuntu-setup.md
-      - ROS Setup: ros-setup.md
+      - ROS 2 in the Container: ros-setup.md
       - Gazebo Setup: gazebo-setup.md
       - Dev Environment: dev-environment.md
       - Python Basics: python-basics.md

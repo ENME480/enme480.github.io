@@ -49,7 +49,7 @@ Exam 1 is Monday 19 October and Exam 2 is Wednesday 18 November, both during lec
 
 ## What you need installed
 
-Set this up before Week 2. [Ubuntu Setup](../ubuntu-setup.md) and [ROS Setup](../ros-setup.md) walk through it, and a small number of loaner machines are available if you cannot get a stable install.
+Set this up before Week 2. [Ubuntu Setup](../ubuntu-setup.md) walks through it, and [ROS 2 in the Container](../ros-setup.md) explains what the image already gives you, and a small number of loaner machines are available if you cannot get a stable install.
 
 | Requirement | Version | Notes |
 |---|---|---|

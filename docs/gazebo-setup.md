@@ -1,469 +1,147 @@
-<p class="eyebrow">ENME480 · Wiki</p>
-
-# Gazebo Setup Guide
-
-<p class="lede">Learn to use Gazebo for simulating robots, testing algorithms, and visualizing robot behavior</p>
-
-
-## Overview
-
-Gazebo is a powerful 3D robot simulator that we'll use throughout ENME480 for testing robot control algorithms, visualizing robot movements, and simulating real-world scenarios. This guide covers installation, basic usage, and integration with ROS 2.
-
-
-## Prerequisites
-
-Before starting, ensure you have:
-- **Ubuntu 22.04 LTS** installed (ROS 2 Humble Tier-1 platform)
-- **ROS 2 Humble** installed and configured
-- **Graphics drivers** installed and working
-- **At least 4GB RAM** (8GB recommended)
-
+---
+title: Gazebo in this course
+description: Gazebo ships with the course Docker image. What is in it, how to launch the course simulations, and how to drive the GUI.
 ---
 
-!!! tip "WSL/VM graphics"
-    In WSLg and VMs (UTM), Gazebo's GUI can be slower. Install the proper **vGPU driver** on Windows (WSLg) or drop graphics quality / use headless sim as needed.
+<p class="eyebrow">ENME480 · Wiki</p>
 
+# Gazebo in this course
 
-## Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
+<p class="lede">You do not install Gazebo. It is already in the course Docker image.</p>
 
-### Option A — Gazebo Classic (gazebo11) + ROS interface (simple & stable)
+!!! danger "Do not run `sudo apt install gazebo`"
+    That installs **Gazebo Classic** (`gazebo11`), which is a different,
+    older simulator from the one this course uses. Installing it gives you two
+    simulators fighting over the same ROS topics and model paths, and the
+    failures are confusing — worlds that will not load, plugins that are not
+    found, robots that appear but do not move.
+
+    The image ships **Gazebo (GZ, formerly Ignition)** with the `ros_gz` bridge.
+    That is what every lab uses.
+
+## What the image gives you
+
+Installed as part of the course image, nothing for you to add:
+
+| | |
+|---|---|
+| **Simulator** | Gazebo (GZ), launched as `ign gazebo` |
+| **ROS 2 bridge** | `ros_gz_bridge`, `ros_gz_image`, `ros_gz_sim` |
+| **Robot** | Universal Robots description and UR3e MoveIt config |
+| **Course packages** | `enme480_sim`, `ur3e_mrc_sim` (from the course repo) |
+
+## Checking it runs
+
+Inside the container:
+
 ```bash
-sudo apt update
-sudo apt install -y gazebo    # installs Gazebo Classic (gazebo11) on Ubuntu 22.04
-sudo apt install -y ros-humble-gazebo-ros-pkgs
+ign gazebo
 ```
 
-### Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)
-* For advanced users who want modern GZ features, see the official guide and `ros_gz` packages.
-* Start here: [https://gazebosim.org/docs/latest/ros_installation/](https://gazebosim.org/docs/latest/ros_installation/) (migration notes: [https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/](https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/))
+A window should open with a list of example worlds. That is the whole check —
+close it again.
 
-### Verify Installation
+If no window appears, the problem is the container reaching your display, not
+Gazebo. See the troubleshooting section in [Ubuntu Setup](ubuntu-setup.md), and
+confirm you started the container with the right compose file for your machine.
+
+## Launching the course simulation
+
+You will not write your own world files. The labs use prepared launch files.
+From [Week 6](labs/week-06.md) onward, in separate terminals or `tmux` panes:
+
 ```bash
-# Check Gazebo version
-gazebo --version
+# the UR3e in Gazebo
+ros2 launch enme480_sim enme480_ur3e_sim.launch.py
 
-# Launch Gazebo
-gazebo
+# the simulated robot's control interface
+ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+
+# the ENME480 command layer
+ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 ```
 
+Then commands go to the robot over a topic, exactly as they do on the real arm:
 
-## Basic Gazebo Concepts
-
-### World Files
-- **World files** (`.world`) define the simulation environment
-- **Models** represent robots, objects, and environments
-- **Physics engine** handles collisions and dynamics
-- **Sensors** provide simulated sensor data
-
-### Key Components
-- **World**: 3D environment with physics
-- **Models**: Robots, objects, buildings
-- **Links**: Rigid bodies connected by joints
-- **Joints**: Connections between links
-- **Sensors**: Cameras, lasers, IMUs
-
-
-## Launching Gazebo
-
-### Launch from Terminal
 ```bash
-# Launch empty world
-gazebo
-
-# Launch specific world file
-gazebo /usr/share/gazebo-11/worlds/empty.world
-
-# Launch with specific physics settings
-gazebo --physics-engine ode
+ros2 topic pub --once /ur3e/command ur3e_mrc_msgs/msg/CommandUR3e "destination: [0, -1.57, -1.57, 0, 0, 0]
+v: 1.0
+a: 1.0
+io_0: false"
 ```
 
-### Launch from ROS 2
-```bash
-# Launch Gazebo with ROS 2 integration
-ros2 launch gazebo_ros gazebo.launch.py
+The point of the simulator in this course is that the **same topic interface**
+drives the real UR3e. Code that works in Gazebo should work on the arm, which is
+why we develop in simulation first.
 
-# Launch with specific world
-ros2 launch gazebo_ros gazebo.launch.py world:=/path/to/world.world
+!!! tip "Use tmux for the panes"
+    The image has `tmux` configured. `tmux` to start, `Ctrl+A b` to split
+    horizontally, `Ctrl+A v` to split vertically. Much easier than juggling four
+    `connectToDocker.sh` terminals.
+
+## Driving the GUI
+
+### Camera
+
+| Action | Control |
+|---|---|
+| Orbit | Left click and drag |
+| Pan | Middle click and drag, or Shift + left drag |
+| Zoom | Scroll wheel |
+| Look at a model | Double click it |
+
+### Simulation
+
+| Action | Control |
+|---|---|
+| Play / pause | Buttons at the bottom left |
+| Step one frame | Step button, while paused |
+| Reset | World menu, Reset |
+
+Pausing is genuinely useful. If a robot is moving unexpectedly, pause and step
+through rather than trying to read a blur.
+
+## Troubleshooting
+
+**No window opens.** The container cannot reach your display. This is the same
+problem `rqt` has, and it is covered in
+[Ubuntu Setup](ubuntu-setup.md). Check you used the right compose file for your
+machine (NVIDIA or standard).
+
+**Very slow, or a black window.** Usually software rendering because the GPU is
+not available to the container. On a machine with an NVIDIA GPU, confirm you did
+the NVIDIA step in Ubuntu Setup. In a VM it will be slow regardless — reduce the
+window size and expect low frame rates.
+
+**The robot appears but does not move.** The simulator is running but the
+control layer is not. Check all three launch files above are up, then:
+
+```bash
+ros2 topic list
+ros2 topic info /ur3e/command
 ```
 
+If the publisher or subscriber count is 0, one of the launch files is not
+running or died on startup. Read its terminal.
 
-## Creating a Simple World
+**A launch file is not found.** Your workspace is not sourced, or the package is
+not built:
 
-### Basic World File
-```xml
-<?xml version="1.0" ?>
-<sdf version="1.6">
-  <world name="default">
-    <!-- A global light source -->
-    <include>
-      <uri>model://sun</uri>
-    </include>
-    
-    <!-- A ground plane -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    
-    <!-- A simple box -->
-    <model name="box">
-      <static>true</static>
-      <link name="link">
-        <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 1 1</size>
-            </box>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 1 1</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>1 0 0 1</ambient>
-            <diffuse>1 0 0 1</diffuse>
-          </material>
-        </visual>
-      </link>
-      <pose>0 0 0.5 0 0 0</pose>
-    </model>
-  </world>
-</sdf>
-```
-
-### Save and Load World
 ```bash
-# Save world file
-# Copy the XML above to ~/gazebo_worlds/simple.world
-
-# Launch custom world
-gazebo ~/gazebo_worlds/simple.world
-```
-
-
-## Adding Robot Models
-
-### Install UR3e Model
-```bash
-# Clone UR3e model repository
-cd ~/ros2_ws/src
-git clone https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
-
-# Build workspace
-cd ~/ros2_ws
-colcon build
-
-# Source workspace
+cd ~/enme480_ws
+colcon build --symlink-install
 source install/setup.bash
 ```
 
-### Launch UR3e in Gazebo
-```bash
-# Launch UR3e in Gazebo
-ros2 launch ur_gazebo ur3e_bringup.launch.py
+Remember that a terminal opened before a build does not know about it.
 
-# Or launch with custom world
-ros2 launch ur_gazebo ur3e_bringup.launch.py world:=~/gazebo_worlds/simple.world
-```
+## Getting help
 
+- **Gazebo docs**: [gazebosim.org/docs](https://gazebosim.org/docs)
+- **ros_gz**: [github.com/gazebosim/ros_gz](https://github.com/gazebosim/ros_gz)
+- **Piazza**, office hours, and lab sessions for anything course-specific
 
-## Basic Gazebo Operations
+## Next
 
-### Camera Controls
-- **Mouse**: Rotate view
-- **Scroll wheel**: Zoom in/out
-- **Right-click + drag**: Pan view
-- **Middle-click + drag**: Rotate around point
-
-### Model Manipulation
-- **Select model**: Click on it
-- **Move model**: Drag with left mouse button
-- **Rotate model**: Drag with right mouse button
-- **Scale model**: Use the scale handles
-
-### Time Controls
-- **Play/Pause**: Spacebar
-- **Step**: Step button in toolbar
-- **Reset**: Reset button in toolbar
-- **Real-time factor**: Adjust in toolbar
-
-
-## Using Gazebo GUI
-
-### Main Toolbar
-- **Play/Pause**: Start/stop simulation
-- **Step**: Advance simulation one step
-- **Reset**: Reset simulation to initial state
-- **Real-time factor**: Speed up/slow down simulation
-
-### Left Panel
-- **World**: View world hierarchy
-- **Models**: List all models in world
-- **Joints**: View joint properties
-- **Sensors**: Configure sensors
-
-### Right Panel
-- **Properties**: Edit selected object properties
-- **Material**: Change object appearance
-- **Physics**: Adjust physics properties
-
-
-## ROS 2 Integration
-
-### Gazebo ROS 2 Plugins
-```bash
-# Install Gazebo ROS 2 plugins
-sudo apt install ros-humble-gazebo-ros-pkgs
-
-# Check available plugins
-gazebo --help
-```
-
-### Launch File Example
-```python
-#!/usr/bin/env python3
-import os
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
-from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
-
-def generate_launch_description():
-    # Get the path to the package
-    pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    
-    # Declare launch arguments
-    world_file = LaunchConfiguration('world')
-    
-    # Launch Gazebo
-    gazebo = Node(
-        package='gazebo_ros',
-        executable='gazebo',
-        name='gazebo',
-        output='screen',
-        arguments=[world_file]
-    )
-    
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'world',
-            default_value=os.path.join(pkg_gazebo_ros, 'worlds', 'empty.world'),
-            description='Path to world file'
-        ),
-        gazebo
-    ])
-```
-
-
-## Basic Simulation Examples
-
-### Example 1: Simple Robot Movement
-```python
-#!/usr/bin/env python3
-import rclpy
-from rclpy.node import Node
-from std_msgs.msg import Float64MultiArray
-from sensor_msgs.msg import JointState
-
-class UR3eController(Node):
-    def __init__(self):
-        super().__init__('ur3e_controller')
-        
-        # Publisher for joint commands
-        self.joint_pub = self.create_publisher(
-            Float64MultiArray,
-            '/joint_group_position_controller/commands',
-            10
-        )
-        
-        # Subscriber for joint states
-        self.joint_sub = self.create_subscription(
-            JointState,
-            '/joint_states',
-            self.joint_callback,
-            10
-        )
-        
-        # Timer for periodic commands
-        self.timer = self.create_timer(2.0, self.timer_callback)
-        
-        self.get_logger().info('UR3e controller started')
-    
-    def joint_callback(self, msg):
-        """Callback for joint state updates."""
-        if len(msg.position) >= 6:
-            self.get_logger().info(f'Joint angles: {[f"{x:.2f}" for x in msg.position[:6]]}')
-    
-    def timer_callback(self):
-        """Send periodic joint commands."""
-        # Simple sinusoidal movement
-        import math
-        import time
-        
-        t = time.time()
-        joint_angles = [
-            0.0,  # Base
-            math.sin(t) * 0.5,  # Shoulder
-            math.cos(t) * 0.5,  # Elbow
-            0.0,  # Wrist 1
-            0.0,  # Wrist 2
-            0.0   # Wrist 3
-        ]
-        
-        joint_msg = Float64MultiArray()
-        joint_msg.data = joint_angles
-        self.joint_pub.publish(joint_msg)
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = UR3eController()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
-```
-
-### Example 2: Camera Visualization
-```python
-#!/usr/bin/env python3
-import rclpy
-from rclpy.node import Node
-from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
-import cv2
-
-class CameraViewer(Node):
-    def __init__(self):
-        super().__init__('camera_viewer')
-        
-        # Subscribe to camera topic
-        self.camera_sub = self.create_subscription(
-            Image,
-            '/camera/image_raw',
-            self.camera_callback,
-            10
-        )
-        
-        self.bridge = CvBridge()
-        self.get_logger().info('Camera viewer started')
-    
-    def camera_callback(self, msg):
-        """Display camera image."""
-        try:
-            cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            cv2.imshow("Camera Feed", cv_image)
-            cv2.waitKey(1)
-        except Exception as e:
-            self.get_logger().error(f'Error processing image: {e}')
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = CameraViewer()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
-```
-
-
-## Troubleshooting Common Issues
-
-### Performance Issues
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **Slow simulation** | Reduce physics update rate, use simpler models |
-| **High CPU usage** | Close other applications, reduce model complexity |
-| **Memory issues** | Use fewer models, restart Gazebo |
-
-### Graphics Issues
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **Black screen** | Check graphics drivers, try software rendering |
-| **Low FPS** | Reduce graphics quality, use simpler models |
-| **Model not visible** | Check model URDF, verify file paths |
-
-### ROS 2 Integration Issues
-| **Problem** | **Solution** |
-|-------------|--------------|
-| **Topics not appearing** | Check launch file, verify package installation |
-| **Models not loading** | Check URDF files, verify package paths |
-| **Physics not working** | Check physics engine, verify model collision |
-
-
-## Advanced Features
-
-### Custom Models
-```bash
-# Create model directory
-mkdir -p ~/.gazebo/models/my_robot
-
-# Create model.config file
-cat > ~/.gazebo/models/my_robot/model.config << EOF
-<?xml version="1.0"?>
-<model>
-  <name>My Robot</name>
-  <version>1.0</version>
-  <sdf version="1.6">model.sdf</sdf>
-  <description>My custom robot model</description>
-</model>
-EOF
-
-# Create model.sdf file (similar to world file)
-# ... create SDF file ...
-```
-
-### Physics Parameters
-```xml
-<!-- In world file -->
-<physics type="ode">
-  <max_step_size>0.001</max_step_size>
-  <real_time_factor>1.0</real_time_factor>
-  <real_time_update_rate>1000</real_time_update_rate>
-  <gravity>0 0 -9.81</gravity>
-</physics>
-```
-
-
-## Verification Checklist
-
-- [ ] Gazebo launches successfully
-- [ ] ROS 2 integration working
-- [ ] UR3e model loads correctly
-- [ ] Basic simulation runs
-- [ ] Camera visualization working
-- [ ] Joint control functional
-- [ ] Physics simulation realistic
-
-
-## Getting Help
-
-### Gazebo Resources
-- **Official Docs**: [gazebosim.org](http://gazebosim.org/tutorials)
-- **ROS 2 Integration**: [docs.ros.org](https://docs.ros.org/en/humble/Guides/Gazebo.html)
-- **Community Forum**: [answers.gazebosim.org](https://answers.gazebosim.org/)
-
-### Course Support
-- **Piazza**: Ask questions on course forum
-- **Office Hours**: Get help from TA or instructor
-- **Lab Sessions**: Hands-on help during labs
-
-
-## Next Steps
-
-After setting up Gazebo:
-
-1. **Practice basic operations** in empty world
-2. **Load and control UR3e** robot
-3. **Start Week 4 lab**: See [Week 4 Lab](labs/week-04.md)
-4. **Experiment with different worlds** and models
-
-[Python Basics](python-basics.md){ .md-button }
-[ROS Setup](ros-setup.md){ .md-button }
-[Back to Resources](resources.md){ .md-button }
+1. [ROS 2 in the Container](ros-setup.md) — the commands you will use alongside it
+2. [Week 4 Lab](labs/week-04.md) — first Gazebo studio

@@ -558,13 +558,8 @@ You should see that your name in the terminal has changed from what is was befor
 
 ## Tests for Week 2
 
-From within the docker iamge, ensure the demo nodes are actually downloaded by running:
-
-```bash
-sudo apt update && sudo apt install ros-humble-demo-nodes-cpp
-```
-
-To ensure everything is running sucessfully launch the following commands from within the Docker image:
+To check everything is running, launch the following from within the Docker
+image. The demo nodes are already in the image, so there is nothing to install:
 
 ```bash
 ros2 run demo_nodes_cpp talker

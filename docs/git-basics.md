@@ -392,5 +392,5 @@ After mastering Git basics:
 4. **Learn advanced Git features** as needed
 
 [Ubuntu Setup](ubuntu-setup.md){ .md-button }
-[ROS Setup](ros-setup.md){ .md-button }
+[ROS 2 in the Container](ros-setup.md){ .md-button }
 [Back to Resources](resources.md){ .md-button }
