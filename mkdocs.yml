@@ -127,6 +127,12 @@ nav:
       - Dev Environment: dev-environment.md
       - Python Basics: python-basics.md
       - Git Basics: git-basics.md
+  - ROS 2 Tutorials:
+      - Overview: ros2-tutorials/index.md
+      - Creating a workspace: ros2-tutorials/creating-a-workspace.md
+      - Creating a package: ros2-tutorials/creating-a-package.md
+      - Publisher and subscriber: ros2-tutorials/writing-a-publisher-subscriber.md
+      - Understanding topics: ros2-tutorials/understanding-topics.md
   - Resources:
       - Overview: resources.md
       - Kinematics Reference: kinematics-reference.md

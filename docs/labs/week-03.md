@@ -18,6 +18,15 @@ across two files.
 
 **Time:** about 2 hours. Parts A to D are setup and should take 30 minutes.
 
+!!! tip "Reference reading"
+    The official ROS 2 tutorials explain the ideas behind all of this in much
+    more depth. They are mirrored on this site so you can read them alongside
+    the lab: [ROS 2 Tutorials](../ros2-tutorials/index.md).
+
+    The one worth reading before Part F is
+    [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md),
+    which walks through every line of a talker node.
+
 !!! note "Where this picks up from"
     You should have finished the [Ubuntu Setup](../ubuntu-setup.md) guide in
     Week 2, up to and including the "Tests for Week 2" section. Part A checks
@@ -244,6 +253,10 @@ are publishing and subscribing to it.
 **Checkpoint:** you can see `/numbers` in the topic list, and `echo` prints a
 number roughly once a second.
 
+**Read more:** [Understanding topics](../ros2-tutorials/understanding-topics.md)
+covers `list`, `echo`, `info` and `pub` properly, and shows how to draw the same
+picture with `rqt_graph`.
+
 
 ## Part F — Finish `listener_sum.py`
 
@@ -260,6 +273,11 @@ The pattern is:
 3. Inside that function, update the total and publish it.
 
 Everything you need is either in the TODO comments or in `talker.py`.
+
+**Read more:**
+[Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md)
+explains the talker and listener line by line. Note that it builds both as
+separate nodes; yours has to do both jobs in one.
 
 Test it with the talker running in one terminal:
 
@@ -320,6 +338,27 @@ rqt
 From the menu, open **Plugins → Introspection → Node Graph**. It draws your
 nodes as boxes and your topics as arrows between them. Try **Plugins → Topics →
 Topic Monitor** as well.
+
+
+## Further reading
+
+You did not have to create the workspace or the package this week, because we
+gave them to you. You will want to know how that is done, and these are the
+official ROS 2 tutorials that explain it. Mirrored here, with a link to the
+original on each page.
+
+| Tutorial | Why you would read it |
+|----------|----------------------|
+| [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md) | Every line of a talker and a listener, explained |
+| [Understanding topics](../ros2-tutorials/understanding-topics.md) | The CLI tools you used in Parts E to G |
+| [Creating a package](../ros2-tutorials/creating-a-package.md) | What `package.xml` and `setup.py` actually do |
+| [Creating a workspace](../ros2-tutorials/creating-a-workspace.md) | Overlays, underlays, and why sourcing matters |
+
+!!! warning "One difference from our setup"
+    Those tutorials create a workspace at `~/ros2_ws`. **Do not follow that
+    part.** Your workspace is `~/enme480_ws`, and it is the only location that
+    survives the container shutting down. Read them for the concepts, not for
+    the paths.
 
 
 ## Deliverables

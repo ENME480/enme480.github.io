@@ -31,6 +31,19 @@ Do these in order. Later labs assume all of them are done.
 | [Python Basics](python-basics.md) | The Python subset used in lab |
 | [Git Basics](git-basics.md) | Cloning lab code, branching, recovering from mistakes |
 
+## ROS 2 tutorials
+
+Mirrors of the official ROS 2 Humble tutorials, reproduced under CC BY 4.0 with a
+link to the source on each page.
+
+| Page | What it covers |
+|---|---|
+| [Overview](ros2-tutorials/index.md) | Index, and where these differ from our Docker setup |
+| [Creating a workspace](ros2-tutorials/creating-a-workspace.md) | Overlays, underlays, sourcing, `colcon build` |
+| [Creating a package](ros2-tutorials/creating-a-package.md) | `package.xml`, `setup.py`, entry points |
+| [Publisher and subscriber](ros2-tutorials/writing-a-publisher-subscriber.md) | The talker/listener pattern in Python |
+| [Understanding topics](ros2-tutorials/understanding-topics.md) | `ros2 topic` CLI and `rqt_graph` |
+
 ## Weekly labs
 
 | Week | Page | Topic |
