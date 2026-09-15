@@ -93,10 +93,14 @@ Then rebuild the image:
     userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
     ```
 
-!!! note "This is much faster than Week 2"
-    Docker reuses everything it already built. Only the changed step and the
-    few steps after it are redone, so expect a few minutes, not the long wait
-    you had the first time. Most of that is downloading the `rqt` packages.
+!!! note "This takes a while — start it and read on"
+    Expect this to run for **20 to 40 minutes**. The updated image changes an
+    early step, so Docker has to redo most of the build rather than reusing
+    what it cached in Week 2.
+
+    Start it now and read
+    [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md)
+    while it runs. You will need it for Part F. Do not close the terminal.
 
 Use the same one of these two tabs for the whole lab. If you did the NVIDIA
 step in Week 2, you are on the NVIDIA tab. Otherwise you are on the standard
