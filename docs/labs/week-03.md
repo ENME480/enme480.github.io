@@ -44,15 +44,27 @@ Run these on your own machine, **outside** Docker.
 | 2 | `docker --version` | a version number, not "command not found" |
 | 3 | `docker images` | a row whose name contains `enme480_ur3e` |
 
-If check 1 fails, you never cloned the course repo. If check 2 fails, Docker is
-not installed. If check 3 fails, you never built the image. All three are in the
-[Ubuntu Setup](../ubuntu-setup.md) guide under "ENME480 Docker Installation".
+If check 1 fails, you never cloned the course repo. If check 3 fails, you never
+built the image. Both are in the [Ubuntu Setup](../ubuntu-setup.md) guide under
+"ENME480 Docker Installation".
 
-!!! tip "If any of those fail, or Week 2 threw errors you scrolled past"
-    Run the full dependency check in
-    [Ubuntu Setup, Step 4](../ubuntu-setup.md#step-4-check-your-install). It
-    tests every package Week 2 was supposed to install and prints OK or FAIL for
-    each one, and the Repair section right below it fixes the common failures.
+Then run the full dependency check:
+
+```bash
+curl -fsSL https://enme480.github.io/assets/check_setup.sh | bash
+```
+
+Every line must say `OK` before you go on. It tests everything Week 2 was
+supposed to install — build tools, Python, Docker, Compose, your group
+membership — and reads only, changing nothing. You can
+[read it first](../assets/check_setup.sh).
+
+!!! warning "Do this even if Week 2 seemed fine"
+    `apt` does not stop when one command fails. It is completely normal to have
+    a broken install and not know, because the error scrolled past hundreds of
+    lines ago. If anything reports `FAIL`, the
+    [Repair section](../ubuntu-setup.md#repair-fixing-a-partly-broken-install)
+    fixes the common causes.
 
 
 ## Part B — Update the container

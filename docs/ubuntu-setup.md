@@ -343,62 +343,47 @@ apt does not stop when one command fails. If something broke earlier, the
 commands after it still ran, printed hundreds of lines, and looked like they
 worked. This checks what actually ended up on your machine.
 
-Paste this whole block into a terminal. It only reads, it does not install
-anything.
+Run this one command:
 
 ```bash
-ok=0; bad=0
-chk() { if eval "$2" >/dev/null 2>&1; then printf '  \033[32mOK  \033[0m %s\n' "$1"; ok=$((ok+1));
-        else printf '  \033[31mFAIL\033[0m %s\n' "$1"; bad=$((bad+1)); fi; }
-
-echo; echo "Build tools"
-chk "curl"                 "command -v curl"
-chk "wget"                 "command -v wget"
-chk "git"                  "command -v git"
-chk "gcc / build-essential" "command -v gcc && command -v g++ && command -v make"
-chk "cmake"                "command -v cmake"
-
-echo; echo "Python"
-chk "python3"              "command -v python3"
-chk "pip3"                 "command -v pip3"
-chk "python -> python3"    "command -v python && python --version 2>&1 | grep -q 'Python 3'"
-chk "venv module"          "python3 -c 'import venv'"
-
-echo; echo "Docker"
-chk "docker is real Docker, not wmdocker" "docker --version 2>/dev/null | grep -q '^Docker version'"
-chk "wmdocker NOT installed" "! dpkg -l docker wmdocker 2>/dev/null | grep -q '^ii'"
-chk "docker compose v2"    "docker compose version 2>/dev/null | grep -qi 'compose version'"
-chk "containerd.io"        "dpkg -l containerd.io 2>/dev/null | grep -q '^ii'"
-chk "buildx plugin"        "docker buildx version"
-chk "you are in the docker group" "id -nG | tr ' ' '\n' | grep -qx docker"
-chk "docker works without sudo"   "docker info"
-
-echo; echo "Package system health"
-chk "no half-installed packages"  "[ -z \"\$(dpkg --audit 2>/dev/null)\" ]"
-
-echo; echo "Course files"
-chk "ENME480_mrc cloned"    "[ -d \"\$HOME/ENME480_mrc\" ]"
-chk "course image built"    "docker images --format '{{.Repository}}' | grep -q enme480"
-
-echo
-if [ "$bad" -eq 0 ]; then
-  echo "All $ok checks passed. Setup is complete."
-else
-  echo "$ok passed, $bad FAILED. See the Repair section on the setup page."
-fi
+curl -fsSL https://enme480.github.io/assets/check_setup.sh | bash
 ```
 
-Every line should say `OK`. If any say `FAIL`, fix those before continuing —
-the Docker image will not build otherwise.
+It only reads. It installs nothing and changes nothing. You can
+[read it first](assets/check_setup.sh) if you like.
 
-??? question "What each check is for"
+Every line should say `OK`:
+
+```text
+ENME480 setup check
+
+Build tools
+  OK   curl
+  OK   wget
+  ...
+
+Docker
+  OK   docker is real Docker, not wmdocker
+  OK   docker compose v2
+  ...
+
+All 16 checks passed. Your setup is complete.
+```
+
+If any line says `FAIL`, fix it using the Repair section below before going on.
+The Docker image will not build otherwise.
+
+!!! note "If the command itself fails with `curl: command not found`"
+    That is the answer — `curl` never installed. Go back and run the first block
+    of [Step 2](#step-2-install-essential-tools), then try again.
+
+??? question "What the less obvious checks are for"
     | Check | Why it matters |
     |-------|----------------|
-    | `docker is real Docker, not wmdocker` | Ubuntu has a package called `docker` that is a desktop dock applet. If it is installed instead of Docker, `docker` exists as a command but nothing works |
-    | `docker compose v2` | We use `docker compose` (no hyphen). The old hyphenated `docker-compose` is a different, older tool |
-    | `you are in the docker group` | Without this every Docker command needs `sudo`, which breaks file ownership in the container |
+    | `docker is real Docker, not wmdocker` | Ubuntu has a package called `docker` that is a desktop dock applet. If that got installed instead, `docker` exists as a command but nothing works |
+    | `docker compose v2` | We use `docker compose` (no hyphen). The older hyphenated `docker-compose` is a different tool |
+    | `your user is in the docker group` | Without it every Docker command needs `sudo`, which breaks file ownership inside the container |
     | `no half-installed packages` | Catches an install that died part way through, which is easy to miss in the scrollback |
-    | `course image built` | Only passes after you finish the Docker Installation section below |
 
 ### Repair: fixing a partly broken install
 
