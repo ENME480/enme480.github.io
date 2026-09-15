@@ -48,6 +48,12 @@ If check 1 fails, you never cloned the course repo. If check 2 fails, Docker is
 not installed. If check 3 fails, you never built the image. All three are in the
 [Ubuntu Setup](../ubuntu-setup.md) guide under "ENME480 Docker Installation".
 
+!!! tip "If any of those fail, or Week 2 threw errors you scrolled past"
+    Run the full dependency check in
+    [Ubuntu Setup, Step 4](../ubuntu-setup.md#step-4-check-your-install). It
+    tests every package Week 2 was supposed to install and prints OK or FAIL for
+    each one, and the Repair section right below it fixes the common failures.
+
 
 ## Part B — Update the container
 
