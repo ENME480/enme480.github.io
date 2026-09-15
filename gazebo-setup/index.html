@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
+        <meta name="description" content="Gazebo ships with the course Docker image. What is in it, how to launch the course simulations, and how to drive the GUI.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Gazebo Setup - ENME480 — Introduction to Robotics</title>
+        <title>Gazebo in this course - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -65,18 +65,18 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Gazebo Setup - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="og:title" content="Gazebo in this course - ENME480 — Introduction to Robotics" />
+<meta property="og:description" content="Gazebo ships with the course Docker image. What is in it, how to launch the course simulations, and how to drive the GUI." />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/gazebo-setup.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://enme480.github.io/gazebo-setup/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Gazebo Setup - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="twitter:title" content="Gazebo in this course - ENME480 — Introduction to Robotics" />
+<meta property="twitter:description" content="Gazebo ships with the course Docker image. What is in it, how to launch the course simulations, and how to drive the GUI." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/gazebo-setup.png" />
-</head>
+<meta name="site-build" content="6010a83e4086"></head>
   
   
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gazebo-setup-guide" class="md-skip">
+        <a href="#gazebo-in-this-course" class="md-skip">
           Skip to content
         </a>
       
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gazebo Setup
+              Gazebo in this course
             
           </span>
         </div>
@@ -1080,7 +1080,7 @@
   <span class="md-ellipsis">
     
   
-    ROS Setup
+    ROS 2 in the Container
   
 
     
@@ -1161,10 +1161,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#what-the-image-gives-you" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        What the image gives you
       
     </span>
   </a>
@@ -1172,10 +1172,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#checking-it-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Checking it runs
       
     </span>
   </a>
@@ -1183,22 +1183,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-gazebo-for-ros-2-humble-ubuntu-2204" class="md-nav__link">
+  <a href="#launching-the-course-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
+        Launching the course simulation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Install Gazebo for ROS 2 Humble (Ubuntu 22.04)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driving-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driving the GUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Driving the GUI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-a-gazebo-classic-gazebo11-ros-interface-simple-stable" class="md-nav__link">
+  <a href="#camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)
+        Camera
       
     </span>
   </a>
@@ -1206,21 +1217,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#option-b-gazebo-gz-ignition-via-ros_gz-newer-stack" class="md-nav__link">
+  <a href="#simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Installation
+        Simulation
       
     </span>
   </a>
@@ -1233,433 +1233,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-gazebo-concepts" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic Gazebo Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Gazebo Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Components
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#launching-gazebo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launching Gazebo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Launching Gazebo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launch-from-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch from Terminal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-from-ros-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch from ROS 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-simple-world" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating a Simple World
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating a Simple World">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-world-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic World File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#save-and-load-world" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Save and Load World
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-robot-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding Robot Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding Robot Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ur3e-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install UR3e Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-ur3e-in-gazebo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch UR3e in Gazebo
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-gazebo-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Gazebo Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Gazebo Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#camera-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Camera Controls
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-manipulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model Manipulation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#time-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Time Controls
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-gazebo-gui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using Gazebo GUI
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using Gazebo GUI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-toolbar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main Toolbar
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#left-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Left Panel
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#right-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Right Panel
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Integration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS 2 Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gazebo-ros-2-plugins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gazebo ROS 2 Plugins
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-file-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch File Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-simulation-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Simulation Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Simulation Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-simple-robot-movement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Simple Robot Movement
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-camera-visualization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Camera Visualization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting Common Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphics-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphics Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros-2-integration-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Integration Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#physics-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Physics Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification Checklist
+        Troubleshooting
       
     </span>
   </a>
@@ -1670,46 +1247,18 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Help
+        Getting help
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Getting Help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gazebo-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gazebo Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#course-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Course Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next
       
     </span>
   </a>
@@ -2242,10 +1791,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#what-the-image-gives-you" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        What the image gives you
       
     </span>
   </a>
@@ -2253,10 +1802,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#checking-it-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Checking it runs
       
     </span>
   </a>
@@ -2264,22 +1813,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-gazebo-for-ros-2-humble-ubuntu-2204" class="md-nav__link">
+  <a href="#launching-the-course-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install Gazebo for ROS 2 Humble (Ubuntu 22.04)
+        Launching the course simulation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Install Gazebo for ROS 2 Humble (Ubuntu 22.04)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driving-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Driving the GUI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Driving the GUI">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-a-gazebo-classic-gazebo11-ros-interface-simple-stable" class="md-nav__link">
+  <a href="#camera" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)
+        Camera
       
     </span>
   </a>
@@ -2287,21 +1847,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#option-b-gazebo-gz-ignition-via-ros_gz-newer-stack" class="md-nav__link">
+  <a href="#simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Installation
+        Simulation
       
     </span>
   </a>
@@ -2314,433 +1863,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-gazebo-concepts" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic Gazebo Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Gazebo Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#world-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        World Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Components
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#launching-gazebo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launching Gazebo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Launching Gazebo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launch-from-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch from Terminal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-from-ros-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch from ROS 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-simple-world" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating a Simple World
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating a Simple World">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-world-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic World File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#save-and-load-world" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Save and Load World
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-robot-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding Robot Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Adding Robot Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ur3e-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install UR3e Model
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-ur3e-in-gazebo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch UR3e in Gazebo
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-gazebo-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Gazebo Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Gazebo Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#camera-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Camera Controls
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-manipulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model Manipulation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#time-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Time Controls
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-gazebo-gui" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using Gazebo GUI
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using Gazebo GUI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#main-toolbar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main Toolbar
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#left-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Left Panel
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#right-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Right Panel
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Integration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS 2 Integration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gazebo-ros-2-plugins" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gazebo ROS 2 Plugins
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#launch-file-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launch File Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-simulation-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Simulation Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Simulation Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-simple-robot-movement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 1: Simple Robot Movement
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-camera-visualization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example 2: Camera Visualization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting Common Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Common Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#graphics-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Graphics Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros-2-integration-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Integration Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#physics-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Physics Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verification-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verification Checklist
+        Troubleshooting
       
     </span>
   </a>
@@ -2751,46 +1877,18 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Help
+        Getting help
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Getting Help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gazebo-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gazebo Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#course-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Course Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next
       
     </span>
   </a>
@@ -2819,476 +1917,179 @@
 
 <p class="eyebrow">ENME480 · Wiki</p>
 
-<h1 id="gazebo-setup-guide">Gazebo Setup Guide</h1>
-<p class="lede">Learn to use Gazebo for simulating robots, testing algorithms, and visualizing robot behavior</p>
+<h1 id="gazebo-in-this-course">Gazebo in this course</h1>
+<p class="lede">You do not install Gazebo. It is already in the course Docker image.</p>
 
-<h2 id="overview">Overview</h2>
-<p>Gazebo is a powerful 3D robot simulator that we'll use throughout ENME480 for testing robot control algorithms, visualizing robot movements, and simulating real-world scenarios. This guide covers installation, basic usage, and integration with ROS 2.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Before starting, ensure you have:
-- <strong>Ubuntu 22.04 LTS</strong> installed (ROS 2 Humble Tier-1 platform)
-- <strong>ROS 2 Humble</strong> installed and configured
-- <strong>Graphics drivers</strong> installed and working
-- <strong>At least 4GB RAM</strong> (8GB recommended)</p>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">WSL/VM graphics</p>
-<p>In WSLg and VMs (UTM), Gazebo's GUI can be slower. Install the proper <strong>vGPU driver</strong> on Windows (WSLg) or drop graphics quality / use headless sim as needed.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do not run <code>sudo apt install gazebo</code></p>
+<p>That installs <strong>Gazebo Classic</strong> (<code>gazebo11</code>), which is a different,
+older simulator from the one this course uses. Installing it gives you two
+simulators fighting over the same ROS topics and model paths, and the
+failures are confusing — worlds that will not load, plugins that are not
+found, robots that appear but do not move.</p>
+<p>The image ships <strong>Gazebo (GZ, formerly Ignition)</strong> with the <code>ros_gz</code> bridge.
+That is what every lab uses.</p>
 </div>
-<h2 id="install-gazebo-for-ros-2-humble-ubuntu-2204">Install Gazebo for ROS 2 Humble (Ubuntu 22.04)</h2>
-<h3 id="option-a-gazebo-classic-gazebo11-ros-interface-simple-stable">Option A — Gazebo Classic (gazebo11) + ROS interface (simple &amp; stable)</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gazebo<span class="w">    </span><span class="c1"># installs Gazebo Classic (gazebo11) on Ubuntu 22.04</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-humble-gazebo-ros-pkgs
+<h2 id="what-the-image-gives-you">What the image gives you</h2>
+<p>Installed as part of the course image, nothing for you to add:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simulator</strong></td>
+<td>Gazebo (GZ), launched as <code>ign gazebo</code></td>
+</tr>
+<tr>
+<td><strong>ROS 2 bridge</strong></td>
+<td><code>ros_gz_bridge</code>, <code>ros_gz_image</code>, <code>ros_gz_sim</code></td>
+</tr>
+<tr>
+<td><strong>Robot</strong></td>
+<td>Universal Robots description and UR3e MoveIt config</td>
+</tr>
+<tr>
+<td><strong>Course packages</strong></td>
+<td><code>enme480_sim</code>, <code>ur3e_mrc_sim</code> (from the course repo)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="checking-it-runs">Checking it runs</h2>
+<p>Inside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ign<span class="w"> </span>gazebo
 </span></code></pre></div>
-<h3 id="option-b-gazebo-gz-ignition-via-ros_gz-newer-stack">Option B — Gazebo (GZ / Ignition) via ros_gz (newer stack)</h3>
-<ul>
-<li>For advanced users who want modern GZ features, see the official guide and <code>ros_gz</code> packages.</li>
-<li>Start here: <a href="https://gazebosim.org/docs/latest/ros_installation/">https://gazebosim.org/docs/latest/ros_installation/</a> (migration notes: <a href="https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/">https://gazebosim.org/docs/latest/migrating_gazebo_classic_ros2_packages/</a>)</li>
-</ul>
-<h3 id="verify-installation">Verify Installation</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check Gazebo version</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gazebo<span class="w"> </span>--version
+<p>A window should open with a list of example worlds. That is the whole check —
+close it again.</p>
+<p>If no window appears, the problem is the container reaching your display, not
+Gazebo. See the troubleshooting section in <a href="../ubuntu-setup/">Ubuntu Setup</a>, and
+confirm you started the container with the right compose file for your machine.</p>
+<h2 id="launching-the-course-simulation">Launching the course simulation</h2>
+<p>You will not write your own world files. The labs use prepared launch files.
+From <a href="../labs/week-06/">Week 6</a> onward, in separate terminals or <code>tmux</code> panes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># the UR3e in Gazebo</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_sim<span class="w"> </span>enme480_ur3e_sim.launch.py
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Launch Gazebo</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gazebo
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># the simulated robot's control interface</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_mrc_sim<span class="w"> </span>ur3e_enme480.launch.py
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># the ENME480 command layer</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_sim_enme480.launch.py
 </span></code></pre></div>
-<h2 id="basic-gazebo-concepts">Basic Gazebo Concepts</h2>
-<h3 id="world-files">World Files</h3>
-<ul>
-<li><strong>World files</strong> (<code>.world</code>) define the simulation environment</li>
-<li><strong>Models</strong> represent robots, objects, and environments</li>
-<li><strong>Physics engine</strong> handles collisions and dynamics</li>
-<li><strong>Sensors</strong> provide simulated sensor data</li>
-</ul>
-<h3 id="key-components">Key Components</h3>
-<ul>
-<li><strong>World</strong>: 3D environment with physics</li>
-<li><strong>Models</strong>: Robots, objects, buildings</li>
-<li><strong>Links</strong>: Rigid bodies connected by joints</li>
-<li><strong>Joints</strong>: Connections between links</li>
-<li><strong>Sensors</strong>: Cameras, lasers, IMUs</li>
-</ul>
-<h2 id="launching-gazebo">Launching Gazebo</h2>
-<h3 id="launch-from-terminal">Launch from Terminal</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Launch empty world</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gazebo
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Launch specific world file</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>gazebo<span class="w"> </span>/usr/share/gazebo-11/worlds/empty.world
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Launch with specific physics settings</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>gazebo<span class="w"> </span>--physics-engine<span class="w"> </span>ode
+<p>Then commands go to the robot over a topic, exactly as they do on the real arm:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3e/command<span class="w"> </span>ur3e_mrc_msgs/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [0, -1.57, -1.57, 0, 0, 0]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">v: 1.0</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">a: 1.0</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">io_0: false"</span>
 </span></code></pre></div>
-<h3 id="launch-from-ros-2">Launch from ROS 2</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Launch Gazebo with ROS 2 integration</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>gazebo_ros<span class="w"> </span>gazebo.launch.py
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Launch with specific world</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>gazebo_ros<span class="w"> </span>gazebo.launch.py<span class="w"> </span>world:<span class="o">=</span>/path/to/world.world
-</span></code></pre></div>
-<h2 id="creating-a-simple-world">Creating a Simple World</h2>
-<h3 id="basic-world-file">Basic World File</h3>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.6"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">"default"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="cm">&lt;!-- A global light source --&gt;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">&lt;include&gt;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&lt;uri&gt;</span>model://sun<span class="nt">&lt;/uri&gt;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&lt;/include&gt;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="cm">&lt;!-- A ground plane --&gt;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">&lt;include&gt;</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">&lt;uri&gt;</span>model://ground_plane<span class="nt">&lt;/uri&gt;</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">&lt;/include&gt;</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="cm">&lt;!-- A simple box --&gt;</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">"box"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="nt">&lt;static&gt;</span>true<span class="nt">&lt;/static&gt;</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">"link"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">"collision"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">          </span><span class="nt">&lt;geometry&gt;</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="nt">&lt;box&gt;</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">              </span><span class="nt">&lt;size&gt;</span>1<span class="w"> </span>1<span class="w"> </span>1<span class="nt">&lt;/size&gt;</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">            </span><span class="nt">&lt;/box&gt;</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">          </span><span class="nt">&lt;/geometry&gt;</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">        </span><span class="nt">&lt;/collision&gt;</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">"visual"</span><span class="nt">&gt;</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">          </span><span class="nt">&lt;geometry&gt;</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">            </span><span class="nt">&lt;box&gt;</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">              </span><span class="nt">&lt;size&gt;</span>1<span class="w"> </span>1<span class="w"> </span>1<span class="nt">&lt;/size&gt;</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">            </span><span class="nt">&lt;/box&gt;</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">          </span><span class="nt">&lt;/geometry&gt;</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">          </span><span class="nt">&lt;material&gt;</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">            </span><span class="nt">&lt;ambient&gt;</span>1<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>1<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
-</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">          </span><span class="nt">&lt;/material&gt;</span>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">        </span><span class="nt">&lt;/visual&gt;</span>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">      </span><span class="nt">&lt;/link&gt;</span>
-</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">      </span><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0.5<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
-</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">    </span><span class="nt">&lt;/model&gt;</span>
-</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">  </span><span class="nt">&lt;/world&gt;</span>
-</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="nt">&lt;/sdf&gt;</span>
-</span></code></pre></div>
-<h3 id="save-and-load-world">Save and Load World</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Save world file</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Copy the XML above to ~/gazebo_worlds/simple.world</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Launch custom world</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>gazebo<span class="w"> </span>~/gazebo_worlds/simple.world
-</span></code></pre></div>
-<h2 id="adding-robot-models">Adding Robot Models</h2>
-<h3 id="install-ur3e-model">Install UR3e Model</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Clone UR3e model repository</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Description.git
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Build workspace</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>colcon<span class="w"> </span>build
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Source workspace</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
-</span></code></pre></div>
-<h3 id="launch-ur3e-in-gazebo">Launch UR3e in Gazebo</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Launch UR3e in Gazebo</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_gazebo<span class="w"> </span>ur3e_bringup.launch.py
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Or launch with custom world</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_gazebo<span class="w"> </span>ur3e_bringup.launch.py<span class="w"> </span>world:<span class="o">=</span>~/gazebo_worlds/simple.world
-</span></code></pre></div>
-<h2 id="basic-gazebo-operations">Basic Gazebo Operations</h2>
-<h3 id="camera-controls">Camera Controls</h3>
-<ul>
-<li><strong>Mouse</strong>: Rotate view</li>
-<li><strong>Scroll wheel</strong>: Zoom in/out</li>
-<li><strong>Right-click + drag</strong>: Pan view</li>
-<li><strong>Middle-click + drag</strong>: Rotate around point</li>
-</ul>
-<h3 id="model-manipulation">Model Manipulation</h3>
-<ul>
-<li><strong>Select model</strong>: Click on it</li>
-<li><strong>Move model</strong>: Drag with left mouse button</li>
-<li><strong>Rotate model</strong>: Drag with right mouse button</li>
-<li><strong>Scale model</strong>: Use the scale handles</li>
-</ul>
-<h3 id="time-controls">Time Controls</h3>
-<ul>
-<li><strong>Play/Pause</strong>: Spacebar</li>
-<li><strong>Step</strong>: Step button in toolbar</li>
-<li><strong>Reset</strong>: Reset button in toolbar</li>
-<li><strong>Real-time factor</strong>: Adjust in toolbar</li>
-</ul>
-<h2 id="using-gazebo-gui">Using Gazebo GUI</h2>
-<h3 id="main-toolbar">Main Toolbar</h3>
-<ul>
-<li><strong>Play/Pause</strong>: Start/stop simulation</li>
-<li><strong>Step</strong>: Advance simulation one step</li>
-<li><strong>Reset</strong>: Reset simulation to initial state</li>
-<li><strong>Real-time factor</strong>: Speed up/slow down simulation</li>
-</ul>
-<h3 id="left-panel">Left Panel</h3>
-<ul>
-<li><strong>World</strong>: View world hierarchy</li>
-<li><strong>Models</strong>: List all models in world</li>
-<li><strong>Joints</strong>: View joint properties</li>
-<li><strong>Sensors</strong>: Configure sensors</li>
-</ul>
-<h3 id="right-panel">Right Panel</h3>
-<ul>
-<li><strong>Properties</strong>: Edit selected object properties</li>
-<li><strong>Material</strong>: Change object appearance</li>
-<li><strong>Physics</strong>: Adjust physics properties</li>
-</ul>
-<h2 id="ros-2-integration">ROS 2 Integration</h2>
-<h3 id="gazebo-ros-2-plugins">Gazebo ROS 2 Plugins</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Install Gazebo ROS 2 plugins</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-gazebo-ros-pkgs
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Check available plugins</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>gazebo<span class="w"> </span>--help
-</span></code></pre></div>
-<h3 id="launch-file-example">Launch File Example</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/usr/bin/env python3</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchConfiguration</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ament_index_python.packages</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_package_share_directory</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="c1"># Get the path to the package</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="n">pkg_gazebo_ros</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">'gazebo_ros'</span><span class="p">)</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="c1"># Declare launch arguments</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="n">world_file</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'world'</span><span class="p">)</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="c1"># Launch Gazebo</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    <span class="n">gazebo</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        <span class="n">package</span><span class="o">=</span><span class="s1">'gazebo_ros'</span><span class="p">,</span>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>        <span class="n">executable</span><span class="o">=</span><span class="s1">'gazebo'</span><span class="p">,</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="n">name</span><span class="o">=</span><span class="s1">'gazebo'</span><span class="p">,</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        <span class="n">output</span><span class="o">=</span><span class="s1">'screen'</span><span class="p">,</span>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="n">world_file</span><span class="p">]</span>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>    <span class="p">)</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>            <span class="s1">'world'</span><span class="p">,</span>
-</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>            <span class="n">default_value</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pkg_gazebo_ros</span><span class="p">,</span> <span class="s1">'worlds'</span><span class="p">,</span> <span class="s1">'empty.world'</span><span class="p">),</span>
-</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>            <span class="n">description</span><span class="o">=</span><span class="s1">'Path to world file'</span>
-</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>        <span class="p">),</span>
-</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>        <span class="n">gazebo</span>
-</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>    <span class="p">])</span>
-</span></code></pre></div>
-<h2 id="basic-simulation-examples">Basic Simulation Examples</h2>
-<h3 id="example-1-simple-robot-movement">Example 1: Simple Robot Movement</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/usr/bin/env python3</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Float64MultiArray</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">JointState</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">UR3eController</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">'ur3e_controller'</span><span class="p">)</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="c1"># Publisher for joint commands</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">joint_pub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>            <span class="n">Float64MultiArray</span><span class="p">,</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>            <span class="s1">'/joint_group_position_controller/commands'</span><span class="p">,</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>            <span class="mi">10</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>        <span class="p">)</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="c1"># Subscriber for joint states</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">joint_sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>            <span class="n">JointState</span><span class="p">,</span>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>            <span class="s1">'/joint_states'</span><span class="p">,</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">joint_callback</span><span class="p">,</span>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>            <span class="mi">10</span>
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        <span class="p">)</span>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>        <span class="c1"># Timer for periodic commands</span>
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'UR3e controller started'</span><span class="p">)</span>
-</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">joint_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">        </span><span class="sd">"""Callback for joint state updates."""</span>
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">position</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
-</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Joint angles: </span><span class="si">{</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">msg</span><span class="o">.</span><span class="n">position</span><span class="p">[:</span><span class="mi">6</span><span class="p">]]</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="w">        </span><span class="sd">"""Send periodic joint commands."""</span>
-</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>        <span class="c1"># Simple sinusoidal movement</span>
-</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>
-</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>        <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>        <span class="n">joint_angles</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>            <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Base</span>
-</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>            <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Shoulder</span>
-</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>            <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Elbow</span>
-</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>            <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Wrist 1</span>
-</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>            <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Wrist 2</span>
-</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>            <span class="mf">0.0</span>   <span class="c1"># Wrist 3</span>
-</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>        <span class="p">]</span>
-</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>
-</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>        <span class="n">joint_msg</span> <span class="o">=</span> <span class="n">Float64MultiArray</span><span class="p">()</span>
-</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>        <span class="n">joint_msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">joint_angles</span>
-</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">joint_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">joint_msg</span><span class="p">)</span>
-</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>
-</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">UR3eController</span><span class="p">()</span>
-</span><span id="__span-10-59"><a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span><span id="__span-10-60"><a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a>    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
-</span><span id="__span-10-61"><a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
-</span><span id="__span-10-62"><a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a>
-</span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-</span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>    <span class="n">main</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="example-2-camera-visualization">Example 2: Camera Visualization</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="ch">#!/usr/bin/env python3</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cv_bridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">CvBridge</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">CameraViewer</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">'camera_viewer'</span><span class="p">)</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="c1"># Subscribe to camera topic</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">camera_sub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>            <span class="n">Image</span><span class="p">,</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>            <span class="s1">'/camera/image_raw'</span><span class="p">,</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">camera_callback</span><span class="p">,</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>            <span class="mi">10</span>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>        <span class="p">)</span>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span> <span class="o">=</span> <span class="n">CvBridge</span><span class="p">()</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Camera viewer started'</span><span class="p">)</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">camera_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="sd">"""Display camera image."""</span>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>            <span class="n">cv_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bridge</span><span class="o">.</span><span class="n">imgmsg_to_cv2</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s2">"bgr8"</span><span class="p">)</span>
-</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"Camera Feed"</span><span class="p">,</span> <span class="n">cv_image</span><span class="p">)</span>
-</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Error processing image: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>
-</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">CameraViewer</span><span class="p">()</span>
-</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
-</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
-</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>
-</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>    <span class="n">main</span><span class="p">()</span>
-</span></code></pre></div>
-<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
-<h3 id="performance-issues">Performance Issues</h3>
+<p>The point of the simulator in this course is that the <strong>same topic interface</strong>
+drives the real UR3e. Code that works in Gazebo should work on the arm, which is
+why we develop in simulation first.</p>
+<div class="admonition tip">
+<p class="admonition-title">Use tmux for the panes</p>
+<p>The image has <code>tmux</code> configured. <code>tmux</code> to start, <code>Ctrl+A b</code> to split
+horizontally, <code>Ctrl+A v</code> to split vertically. Much easier than juggling four
+<code>connectToDocker.sh</code> terminals.</p>
+</div>
+<h2 id="driving-the-gui">Driving the GUI</h2>
+<h3 id="camera">Camera</h3>
 <table>
 <thead>
 <tr>
-<th><strong>Problem</strong></th>
-<th><strong>Solution</strong></th>
+<th>Action</th>
+<th>Control</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Slow simulation</strong></td>
-<td>Reduce physics update rate, use simpler models</td>
+<td>Orbit</td>
+<td>Left click and drag</td>
 </tr>
 <tr>
-<td><strong>High CPU usage</strong></td>
-<td>Close other applications, reduce model complexity</td>
+<td>Pan</td>
+<td>Middle click and drag, or Shift + left drag</td>
 </tr>
 <tr>
-<td><strong>Memory issues</strong></td>
-<td>Use fewer models, restart Gazebo</td>
+<td>Zoom</td>
+<td>Scroll wheel</td>
+</tr>
+<tr>
+<td>Look at a model</td>
+<td>Double click it</td>
 </tr>
 </tbody>
 </table>
-<h3 id="graphics-issues">Graphics Issues</h3>
+<h3 id="simulation">Simulation</h3>
 <table>
 <thead>
 <tr>
-<th><strong>Problem</strong></th>
-<th><strong>Solution</strong></th>
+<th>Action</th>
+<th>Control</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Black screen</strong></td>
-<td>Check graphics drivers, try software rendering</td>
+<td>Play / pause</td>
+<td>Buttons at the bottom left</td>
 </tr>
 <tr>
-<td><strong>Low FPS</strong></td>
-<td>Reduce graphics quality, use simpler models</td>
+<td>Step one frame</td>
+<td>Step button, while paused</td>
 </tr>
 <tr>
-<td><strong>Model not visible</strong></td>
-<td>Check model URDF, verify file paths</td>
+<td>Reset</td>
+<td>World menu, Reset</td>
 </tr>
 </tbody>
 </table>
-<h3 id="ros-2-integration-issues">ROS 2 Integration Issues</h3>
-<table>
-<thead>
-<tr>
-<th><strong>Problem</strong></th>
-<th><strong>Solution</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Topics not appearing</strong></td>
-<td>Check launch file, verify package installation</td>
-</tr>
-<tr>
-<td><strong>Models not loading</strong></td>
-<td>Check URDF files, verify package paths</td>
-</tr>
-<tr>
-<td><strong>Physics not working</strong></td>
-<td>Check physics engine, verify model collision</td>
-</tr>
-</tbody>
-</table>
-<h2 id="advanced-features">Advanced Features</h2>
-<h3 id="custom-models">Custom Models</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Create model directory</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.gazebo/models/my_robot
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Create model.config file</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/.gazebo/models/my_robot/model.config<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s">&lt;?xml version="1.0"?&gt;</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s">&lt;model&gt;</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s">  &lt;name&gt;My Robot&lt;/name&gt;</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s">  &lt;version&gt;1.0&lt;/version&gt;</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s">  &lt;sdf version="1.6"&gt;model.sdf&lt;/sdf&gt;</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s">  &lt;description&gt;My custom robot model&lt;/description&gt;</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="s">&lt;/model&gt;</span>
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="s">EOF</span>
-</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># Create model.sdf file (similar to world file)</span>
-</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># ... create SDF file ...</span>
+<p>Pausing is genuinely useful. If a robot is moving unexpectedly, pause and step
+through rather than trying to read a blur.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>No window opens.</strong> The container cannot reach your display. This is the same
+problem <code>rqt</code> has, and it is covered in
+<a href="../ubuntu-setup/">Ubuntu Setup</a>. Check you used the right compose file for your
+machine (NVIDIA or standard).</p>
+<p><strong>Very slow, or a black window.</strong> Usually software rendering because the GPU is
+not available to the container. On a machine with an NVIDIA GPU, confirm you did
+the NVIDIA step in Ubuntu Setup. In a VM it will be slow regardless — reduce the
+window size and expect low frame rates.</p>
+<p><strong>The robot appears but does not move.</strong> The simulator is running but the
+control layer is not. Check all three launch files above are up, then:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/ur3e/command
 </span></code></pre></div>
-<h3 id="physics-parameters">Physics Parameters</h3>
-<div class="language-xml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">&lt;!-- In world file --&gt;</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;physics</span><span class="w"> </span><span class="na">type=</span><span class="s">"ode"</span><span class="nt">&gt;</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&lt;max_step_size&gt;</span>0.001<span class="nt">&lt;/max_step_size&gt;</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">&lt;real_time_factor&gt;</span>1.0<span class="nt">&lt;/real_time_factor&gt;</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">&lt;real_time_update_rate&gt;</span>1000<span class="nt">&lt;/real_time_update_rate&gt;</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">&lt;gravity&gt;</span>0<span class="w"> </span>0<span class="w"> </span>-9.81<span class="nt">&lt;/gravity&gt;</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nt">&lt;/physics&gt;</span>
+<p>If the publisher or subscriber count is 0, one of the launch files is not
+running or died on startup. Read its terminal.</p>
+<p><strong>A launch file is not found.</strong> Your workspace is not sourced, or the package is
+not built:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
-<h2 id="verification-checklist">Verification Checklist</h2>
+<p>Remember that a terminal opened before a build does not know about it.</p>
+<h2 id="getting-help">Getting help</h2>
 <ul>
-<li>[ ] Gazebo launches successfully</li>
-<li>[ ] ROS 2 integration working</li>
-<li>[ ] UR3e model loads correctly</li>
-<li>[ ] Basic simulation runs</li>
-<li>[ ] Camera visualization working</li>
-<li>[ ] Joint control functional</li>
-<li>[ ] Physics simulation realistic</li>
+<li><strong>Gazebo docs</strong>: <a href="https://gazebosim.org/docs">gazebosim.org/docs</a></li>
+<li><strong>ros_gz</strong>: <a href="https://github.com/gazebosim/ros_gz">github.com/gazebosim/ros_gz</a></li>
+<li><strong>Piazza</strong>, office hours, and lab sessions for anything course-specific</li>
 </ul>
-<h2 id="getting-help">Getting Help</h2>
-<h3 id="gazebo-resources">Gazebo Resources</h3>
-<ul>
-<li><strong>Official Docs</strong>: <a href="http://gazebosim.org/tutorials">gazebosim.org</a></li>
-<li><strong>ROS 2 Integration</strong>: <a href="https://docs.ros.org/en/humble/Guides/Gazebo.html">docs.ros.org</a></li>
-<li><strong>Community Forum</strong>: <a href="https://answers.gazebosim.org/">answers.gazebosim.org</a></li>
-</ul>
-<h3 id="course-support">Course Support</h3>
-<ul>
-<li><strong>Piazza</strong>: Ask questions on course forum</li>
-<li><strong>Office Hours</strong>: Get help from TA or instructor</li>
-<li><strong>Lab Sessions</strong>: Hands-on help during labs</li>
-</ul>
-<h2 id="next-steps">Next Steps</h2>
-<p>After setting up Gazebo:</p>
+<h2 id="next">Next</h2>
 <ol>
-<li><strong>Practice basic operations</strong> in empty world</li>
-<li><strong>Load and control UR3e</strong> robot</li>
-<li><strong>Start Week 4 lab</strong>: See <a href="../labs/week-04/">Week 4 Lab</a></li>
-<li><strong>Experiment with different worlds</strong> and models</li>
+<li><a href="../ros-setup/">ROS 2 in the Container</a> — the commands you will use alongside it</li>
+<li><a href="../labs/week-04/">Week 4 Lab</a> — first Gazebo studio</li>
 </ol>
-<p><a class="md-button" href="../python-basics/">Python Basics</a>
-<a class="md-button" href="../ros-setup/">ROS Setup</a>
-<a class="md-button" href="../resources/">Back to Resources</a></p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -3320,7 +2121,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ros-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ROS Setup">
+          <a href="../ros-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ROS 2 in the Container">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3330,7 +2131,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                ROS Setup
+                ROS 2 in the Container
               </div>
             </div>
           </a>
@@ -3417,6 +2218,8 @@
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
         <script src="../javascripts/math.js"></script>
+      
+        <script src="../javascripts/refresh.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

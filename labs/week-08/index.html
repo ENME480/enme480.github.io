@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 8 — Inverse Kinematics - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-08.png" />
-</head>
+<meta name="site-build" content="6010a83e4086"></head>
   
   
     
@@ -1051,23 +1051,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 3: Build the workspace">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preliminary-instllations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preliminary instllations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1354,7 +1337,7 @@
   <span class="md-ellipsis">
     
   
-    ROS Setup
+    ROS 2 in the Container
   
 
     
@@ -2071,23 +2054,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 3: Build the workspace">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preliminary-instllations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preliminary instllations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2302,19 +2268,14 @@ x-y plane of the world frame.</p>
 </span></code></pre></div>
 <h3 id="step-3-build-the-workspace">Step 3: Build the workspace</h3>
 <p>Once in the docker dcontainer:</p>
-<h4 id="preliminary-instllations">Preliminary instllations</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-tf-transformations
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
-</span></code></pre></div>
 <p>Now, we build the workspace for the simulation</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
 </span></code></pre></div>
 <code>--symlink-install</code> speeds Python iteration by avoiding rebuilds for script-only changes.</p>
 <p>Once done, source it</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
 <h3 id="step-4-complete-the-ik-script-node">Step 4: Complete the IK Script Node</h3>
 <p>Find the script in <code>~/ENME480_mrc/src/ur3e_enme480/ur3e_enme480/ur3e_ik.py</code> and complete the function <code>inverse_kinematics()</code></p>
@@ -2329,22 +2290,22 @@ x-y plane of the world frame.</p>
 </li>
 <li>
 <p><strong>Terminal/Pane 1:</strong> Launch MRC UR3e Gazebo simulation in one of the <code>tmux</code> panes:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ros2 launch enme480_sim enme480_ur3e_sim.launch.py
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Terminal/Pane 2:</strong> Launch MRC UR3e sim control package in a different <code>tmux</code> pane:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Terminal/Pane 3:</strong> Launch ENME480 UR3e sim control package in a different <code>tmux</code> pane:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 </span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Terminal/Pane 4:</strong> Run the IK node once script is completed in a different <code>tmux</code> pane:
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2 run ur3e_enme480 ur3e_ik &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;yawAngle&gt;
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ros2 run ur3e_enme480 ur3e_ik &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;yawAngle&gt;
 </span></code></pre></div></p>
 </li>
 </ul>
@@ -2527,6 +2488,8 @@ x-y plane of the world frame.</p>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
         <script src="../../javascripts/math.js"></script>
+      
+        <script src="../../javascripts/refresh.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       

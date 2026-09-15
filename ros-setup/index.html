@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
+        <meta name="description" content="You do not install ROS 2 for ENME480 - it comes with the Docker image. What is in the image, how to check it works, and the commands you will use.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>ROS Setup - ENME480 — Introduction to Robotics</title>
+        <title>ROS 2 in this course - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -65,18 +65,18 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="ROS Setup - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="og:title" content="ROS 2 in this course - ENME480 — Introduction to Robotics" />
+<meta property="og:description" content="You do not install ROS 2 for ENME480 - it comes with the Docker image. What is in the image, how to check it works, and the commands you will use." />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/ros-setup.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://enme480.github.io/ros-setup/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="ROS Setup - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="twitter:title" content="ROS 2 in this course - ENME480 — Introduction to Robotics" />
+<meta property="twitter:description" content="You do not install ROS 2 for ENME480 - it comes with the Docker image. What is in the image, how to check it works, and the commands you will use." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/ros-setup.png" />
-</head>
+<meta name="site-build" content="6010a83e4086"></head>
   
   
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ros-2-setup-guide" class="md-skip">
+        <a href="#ros-2-in-this-course" class="md-skip">
           Skip to content
         </a>
       
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS Setup
+              ROS 2 in this course
             
           </span>
         </div>
@@ -1089,7 +1089,7 @@
   <span class="md-ellipsis">
     
   
-    ROS Setup
+    ROS 2 in the Container
   
 
     
@@ -1107,7 +1107,7 @@
   <span class="md-ellipsis">
     
   
-    ROS Setup
+    ROS 2 in the Container
   
 
     
@@ -1133,10 +1133,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#where-ros-2-comes-from" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Where ROS 2 comes from
       
     </span>
   </a>
@@ -1144,10 +1144,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#getting-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Getting in
       
     </span>
   </a>
@@ -1155,10 +1155,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification-checklist" class="md-nav__link">
+  <a href="#checking-ros-2-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verification Checklist
+        Checking ROS 2 works
       
     </span>
   </a>
@@ -1166,44 +1166,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#after-setting-up-ubuntu-2204" class="md-nav__link">
+  <a href="#your-workspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        After setting up Ubuntu 22.04
+        Your workspace
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Installation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Verify Installation">
+    <nav class="md-nav" aria-label="Your workspace">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-basic-installation" class="md-nav__link">
+  <a href="#sourcing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test Basic Installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-in-new-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test in New Terminal
+        Sourcing
       
     </span>
   </a>
@@ -1216,22 +1194,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-issues-solutions" class="md-nav__link">
+  <a href="#command-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Issues &amp; Solutions
+        Command reference
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Issues &amp; Solutions">
+    <nav class="md-nav" aria-label="Command reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-problems" class="md-nav__link">
+  <a href="#looking-at-a-running-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation Problems
+        Looking at a running system
       
     </span>
   </a>
@@ -1239,38 +1217,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment-issues" class="md-nav__link">
+  <a href="#running-things" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#essential-ros-2-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Essential ROS 2 Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Essential ROS 2 Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Concepts
+        Running things
       
     </span>
   </a>
@@ -1278,166 +1228,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-commands" class="md-nav__link">
+  <a href="#parameters-and-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Development Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-ros-2-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create ROS 2 Workspace
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-useful-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install Useful Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-ros-2-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        First ROS 2 Program
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="First ROS 2 Program">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-simple-publisher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create a Simple Publisher
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-code-to-my_first_nodepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add Code to my_first_node.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build and Run
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debugging &amp; Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Debugging &amp; Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-debugging-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Debugging Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-debugging-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Debugging Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-tools-guis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Tools &amp; GUIs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS 2 Tools &amp; GUIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#command-line-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Command Line Tools
+        Parameters and services
       
     </span>
   </a>
@@ -1448,7 +1242,7 @@
   <a href="#graphical-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Graphical Tools
+        Graphical tools
       
     </span>
   </a>
@@ -1457,6 +1251,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning ROS 2
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1464,46 +1269,18 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Help
+        Getting help
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Getting Help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-2-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#course-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Course Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next
       
     </span>
   </a>
@@ -2064,10 +1841,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#where-ros-2-comes-from" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Where ROS 2 comes from
       
     </span>
   </a>
@@ -2075,10 +1852,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#getting-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Getting in
       
     </span>
   </a>
@@ -2086,10 +1863,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification-checklist" class="md-nav__link">
+  <a href="#checking-ros-2-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verification Checklist
+        Checking ROS 2 works
       
     </span>
   </a>
@@ -2097,44 +1874,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#after-setting-up-ubuntu-2204" class="md-nav__link">
+  <a href="#your-workspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        After setting up Ubuntu 22.04
+        Your workspace
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Installation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Verify Installation">
+    <nav class="md-nav" aria-label="Your workspace">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#test-basic-installation" class="md-nav__link">
+  <a href="#sourcing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test Basic Installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-in-new-terminal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test in New Terminal
+        Sourcing
       
     </span>
   </a>
@@ -2147,22 +1902,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-issues-solutions" class="md-nav__link">
+  <a href="#command-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Issues &amp; Solutions
+        Command reference
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Issues &amp; Solutions">
+    <nav class="md-nav" aria-label="Command reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation-problems" class="md-nav__link">
+  <a href="#looking-at-a-running-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation Problems
+        Looking at a running system
       
     </span>
   </a>
@@ -2170,38 +1925,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment-issues" class="md-nav__link">
+  <a href="#running-things" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#essential-ros-2-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Essential ROS 2 Concepts
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Essential ROS 2 Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Concepts
+        Running things
       
     </span>
   </a>
@@ -2209,166 +1936,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-commands" class="md-nav__link">
+  <a href="#parameters-and-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Development Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-ros-2-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create ROS 2 Workspace
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-useful-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install Useful Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-ros-2-program" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        First ROS 2 Program
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="First ROS 2 Program">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-a-simple-publisher" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create a Simple Publisher
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-code-to-my_first_nodepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add Code to my_first_node.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-and-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build and Run
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debugging &amp; Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Debugging &amp; Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#useful-debugging-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Debugging Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-debugging-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Debugging Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros-2-tools-guis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Tools &amp; GUIs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROS 2 Tools &amp; GUIs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#command-line-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Command Line Tools
+        Parameters and services
       
     </span>
   </a>
@@ -2379,7 +1950,7 @@
   <a href="#graphical-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Graphical Tools
+        Graphical tools
       
     </span>
   </a>
@@ -2388,6 +1959,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning ROS 2
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2395,46 +1977,18 @@
   <a href="#getting-help" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Help
+        Getting help
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Getting Help">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ros-2-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROS 2 Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#course-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Course Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Next
       
     </span>
   </a>
@@ -2463,342 +2017,176 @@
 
 <p class="eyebrow">ENME480 · Wiki</p>
 
-<h1 id="ros-2-setup-guide">ROS 2 Setup Guide</h1>
-<p class="lede">Get ROS 2 running on Ubuntu for ENME480 labs and projects</p>
+<h1 id="ros-2-in-this-course">ROS 2 in this course</h1>
+<p class="lede">You do not install ROS 2. It is already in the course Docker image.</p>
 
-<h2 id="overview">Overview</h2>
-<p>This guide will help you install ROS 2 Humble (Hawksbill) on Ubuntu 22.04. ROS 2 is the Robot Operating System that we'll use throughout the course for robot programming and simulation.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Before starting, ensure you have:
-- <strong>Ubuntu 22.04 LTS</strong> installed (ROS 2 Humble Tier-1 platform)
-- <strong>Internet connection</strong> for downloading packages
-- <strong>Basic Ubuntu knowledge</strong> (terminal commands)
-- <strong>At least 10GB free space</strong></p>
-<h2 id="verification-checklist">Verification Checklist</h2>
-<ul>
-<li>[ ] ROS 2 Humble installed successfully</li>
-<li>[ ] Environment sourced correctly</li>
-<li>[ ] Basic commands working (<code>ros2 --help</code>)</li>
-<li>[ ] Demo nodes running (<code>ros2 run demo_nodes_cpp talker</code>)</li>
-<li>[ ] Workspace created and building</li>
-<li>[ ] First custom node working</li>
-<li>[ ] Tools installed (rqt, rviz2)</li>
-</ul>
-<h2 id="after-setting-up-ubuntu-2204">After setting up Ubuntu 22.04</h2>
-<ol>
-<li>
-<p>First, we will make sure our dependencies are in place. Within WSL2 run:</p>
-<div class="language-text highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt upgrade
-</code></pre></div>
-<p>In order to update all system packages (you may need to enter your password)</p>
-<div class="language-text highlight"><pre><span></span><code> sudo install -m 0755 -d /etc/apt/keyrings &amp;&amp; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg &amp;&amp; sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-sudo apt update &amp;&amp; sudo apt upgrade -y
-
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-
-sudo apt update
-</code></pre></div>
-<p>These commands set up package registries within WSL, which is how Ubuntu knows where to look for packages (apps) we want to install. If you'd like a more detailed breakdown of what each command here does, feel free to ask a TA.</p>
-<div class="language-text highlight"><pre><span></span><code>sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
-</code></pre></div>
-<p>This command will install docker (which we use to standarize everyones ROS installation), git (which we use to sync code across computers) and remaps the name "python3" to "python" to make Ubuntu happier when running our code.</p>
-</li>
-<li>
-<p>Now, we will download the code from GitHub. To do this, run:</p>
-<div class="language-text highlight"><pre><span></span><code> cd ~/ &amp;&amp; git clone https://github.com/MarylandRoboticsCenter/ENME480_mrc.git
-</code></pre></div>
-<p>To move to the right folder and download the GitHub repo containing the docker image we need.</p>
-</li>
-<li>
-<p>With that done, we need to make sure the user groups are set up to allow us to compile and run docker images. Run:</p>
-<div class="language-text highlight"><pre><span></span><code>sudo groupadd docker
-
-sudo usermod -aG docker $USER
-
-newgrp docker
-
-sudo systemctl restart docker
-</code></pre></div>
-<p>So that you are able to build and run docker images. These commands make a gruop who can manage docker images, then add you to it, then resets part of Ubuntu so it recognizes the new group. Once this is done, all the parts are in place to build our docker image.</p>
-</li>
-<li>
-<p>Now, we will build our image.</p>
-<div class="language-text highlight"><pre><span></span><code>cd ~/ENME480_mrc/docker &amp;&amp; userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
-</code></pre></div>
-<p>The first part of this command (before the &amp;&amp;) puts you in the folder containing the docker image we want to build, while the second part actually builds our image. This step can take a while, since you have to download a lot of data. If you get a permission error at this step try restarting wsl.</p>
-<p>Next, try running</p>
-<div class="language-text highlight"><pre><span></span><code>nvidia-smi
-</code></pre></div>
-<p>You should get an output which looks something like</p>
-<p><em>If you do, follow the next step, if not skip to step 7.</em></p>
-</li>
-<li>
-<p>Getting the an output from nvidia-smi means you have a Nvidia GPU installed in your computer with drivers properly configured. In this step, we will enable the GPU within docker to speed up our simulations. First, run the following commands:</p>
-<div class="language-text highlight"><pre><span></span><code>sudo touch /etc/docker/daemon.json
-
-sudo chmod 777 /etc/docker/daemon.json
-
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-      &amp;&amp; curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-sudo apt-get update
-
-export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
-sudo apt-get install -y \
-      nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      nvidia-container-toolkit-base=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      libnvidia-container-tools=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      libnvidia-container1=${NVIDIA_CONTAINER_TOOLKIT_VERSION}
-</code></pre></div>
-<p>This will install the Nvidia container toolkit which allows Docker to use your GPU.
-6. With the container toolkit installed, we can now configure docker and compose our image.</p>
-<div class="language-text highlight"><pre><span></span><code>echo $'{"runtimes": {"nvidia": {"path": "nvidia-container-runtime", "runtimeArgs": []}}}' &gt; /etc/docker/daemon.json &amp;&amp; sudo systemctl restart docker
-</code></pre></div>
-<p>This command will add a line to the settings file to enable running with the Nvidia GPU then resets Docker to reload the configuration.</p>
-<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
-</code></pre></div>
-<p>Finally, this command will compose and run our image. This is the command you will want to run in order to get into the Docker and use ROS. Once it finishes you should see that the username in the terminal will have changed to "enme480_docker" to let you know that you are in the docker container. You can skip step 7 if you've done this, step 7 is for people not running with Nvidia GPUs. From here, you can go to the VSCode setup or continue to set up what ever IDE you'd like to use.
-7. If you are not running with an Nvidia GPU you can skip setting up the Nvidia toolkit and instead just run:</p>
-<div class="language-text highlight"><pre><span></span><code>docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
-</code></pre></div>
-<p>This is the command you will need to run to enter the Docker and use ROS. The next step is to configure what ever IDE you'd like to use. We recommend VSCode for it's Docker integration, but you are free to use any IDE you'd like.</p>
-</li>
-</ol>
-<h2 id="verify-installation">Verify Installation</h2>
-<h3 id="test-basic-installation">Test Basic Installation</h3>
-<p>From within the docker image, run the following command:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2 run demo_nodes_cpp talker
-</span></code></pre></div>
-This shouuld begin outputting a list of number to the terminal. Open a new terminal, enter the docer image and run:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ros2 run demo_nodes_cpp listener
-</span></code></pre></div>
-This second script should output the messages being sent by the talker.</p>
-<h3 id="test-in-new-terminal">Test in New Terminal</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Open new terminal and run
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ros2 --help
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a># test gazebo, our simulation suite
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ign gazebo
-</span></code></pre></div>
-<h2 id="common-issues-solutions">Common Issues &amp; Solutions</h2>
-<h3 id="installation-problems">Installation Problems</h3>
+<div class="admonition warning">
+<p class="admonition-title">Do not follow a ROS 2 installation guide</p>
+<p>Every ROS 2 tutorial online starts by telling you to install ROS 2 Humble on
+Ubuntu. <strong>Skip that.</strong> Installing ROS 2 on your own machine on top of the
+course image gives you two copies that shadow each other, and the symptoms
+are miserable to debug — packages that exist but will not import, nodes that
+cannot see each other, sourcing that silently picks the wrong one.</p>
+<p>Everything you need is inside the container. If a guide says
+<code>sudo apt install ros-humble-desktop</code>, you are on the wrong page.</p>
+</div>
+<h2 id="where-ros-2-comes-from">Where ROS 2 comes from</h2>
+<p>The image built in <a href="../ubuntu-setup/">Ubuntu Setup</a> is based on
+<code>osrf/ros:humble-desktop</code> and already contains:</p>
 <table>
 <thead>
 <tr>
-<th><strong>Error</strong></th>
-<th><strong>Solution</strong></th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>GPG error</strong></td>
-<td>Re-run GPG key commands</td>
+<td><strong>ROS 2</strong></td>
+<td>Humble Hawksbill, full desktop install</td>
 </tr>
 <tr>
-<td><strong>Package not found</strong></td>
-<td>Check Ubuntu version compatibility</td>
+<td><strong>Build tools</strong></td>
+<td><code>colcon</code>, <code>rosdep</code>, <code>vcstool</code></td>
 </tr>
 <tr>
-<td><strong>Permission denied</strong></td>
-<td>Use <code>sudo</code> for system commands</td>
+<td><strong>Simulation</strong></td>
+<td>Gazebo (GZ), <code>ros_gz</code> bridge, <code>turtlesim</code></td>
+</tr>
+<tr>
+<td><strong>GUI tools</strong></td>
+<td><code>rqt</code> and its plugins, <code>rviz2</code></td>
+</tr>
+<tr>
+<td><strong>Robot drivers</strong></td>
+<td>Universal Robots driver and UR3e MoveIt config</td>
+</tr>
+<tr>
+<td><strong>Extras</strong></td>
+<td><code>tf_transformations</code>, <code>usb-cam</code>, MoveIt</td>
 </tr>
 </tbody>
 </table>
-<h3 id="environment-issues">Environment Issues</h3>
+<p>So your job is to get <strong>into</strong> the container, not to install anything.</p>
+<h2 id="getting-in">Getting in</h2>
+<p>Covered in <a href="../ubuntu-setup/">Ubuntu Setup</a>, and again in
+<a href="../labs/week-03/#part-c-start-the-container">Week 3, Part C</a>. Short version:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>bash<span class="w"> </span>startDocker.sh<span class="w">        </span><span class="c1"># start it once</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>bash<span class="w"> </span>connectToDocker.sh<span class="w">    </span><span class="c1"># every additional terminal</span>
+</span></code></pre></div>
+<p>Your prompt changes when you are inside.</p>
+<div class="admonition danger">
+<p class="admonition-title">The container is deleted every time you exit</p>
+<p>It runs with <code>--rm</code>. Anything you install or create inside is gone when you
+type <code>exit</code> — <code>sudo apt install</code> included.</p>
+<p>Two directories survive, because they are shared with your own machine:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~/ENME480_mrc/src     &lt;--&gt;  ~/enme480_ws/src
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>~/ENME480_mrc/config  &lt;--&gt;  ~/enme480_ws/config
+</span></code></pre></div>
+<p>Put your work there and nowhere else.</p>
+</div>
+<h2 id="checking-ros-2-works">Checking ROS 2 works</h2>
+<p>Inside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span></code></pre></div>
+<p>You should see <code>/parameter_events</code> and <code>/rosout</code>. That is ROS 2 running.</p>
+<p>For a fuller check, in two terminals:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker<span class="w">      </span><span class="c1"># terminal 1</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>listener<span class="w">    </span><span class="c1"># terminal 2</span>
+</span></code></pre></div>
+<p>The listener should print what the talker sends.</p>
+<p>To check graphical programs can reach your screen, which is the thing most
+likely to be broken:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rqt
+</span></code></pre></div>
+<p>If no window appears, see the troubleshooting section in
+<a href="../ubuntu-setup/">Ubuntu Setup</a>.</p>
+<h2 id="your-workspace">Your workspace</h2>
+<p><strong>It already exists, at <code>~/enme480_ws</code>.</strong> Do not create one.</p>
+<p>This matters: the official ROS 2 tutorials have you build a workspace at
+<code>~/ros2_ws</code>, which is outside the shared folders above. Work there and it is
+destroyed when the container shuts down, with no warning.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</span></code></pre></div>
+<p><code>--symlink-install</code> links to your Python files rather than copying them, so
+editing a node does not need a rebuild. You only need <code>colcon build</code> again after
+adding a file or changing <code>setup.py</code>.</p>
+<h3 id="sourcing">Sourcing</h3>
+<p>Handled for you. The image writes this into <code>~/.bashrc</code>, so every new terminal
+sources ROS 2 and your workspace automatically.</p>
+<p>One exception worth remembering: a terminal opened <strong>before</strong> a <code>colcon build</code>
+does not know about anything built since. Either open a new terminal or run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">source</span><span class="w"> </span>~/enme480_ws/install/setup.bash
+</span></code></pre></div>
+<p><code>Package not found</code> immediately after a successful build is almost always this.</p>
+<h2 id="command-reference">Command reference</h2>
+<h3 id="looking-at-a-running-system">Looking at a running system</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ros2<span class="w"> </span>node<span class="w"> </span>list<span class="w">                  </span><span class="c1"># what is running</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w">                 </span><span class="c1"># what topics exist</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/topic_name<span class="w">     </span><span class="c1"># watch messages go past</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/topic_name<span class="w">     </span><span class="c1"># message type, publisher and subscriber counts</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/topic_name<span class="w">       </span><span class="c1"># publishing rate</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>&lt;msg<span class="w"> </span>type&gt;<span class="w">  </span><span class="c1"># the fields inside a message</span>
+</span></code></pre></div>
+<p><code>ros2 topic info</code> is the one to reach for when two nodes will not talk. A
+mismatched topic name throws no error — the nodes just never find each other.
+If a count is 0 when you expect 1, you have a name or type mismatch, or
+something is not running.</p>
+<h3 id="running-things">Running things</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;executable&gt;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;launch<span class="w"> </span>file&gt;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ros2<span class="w"> </span>pkg<span class="w"> </span>executables<span class="w"> </span>&lt;package&gt;<span class="w">      </span><span class="c1"># what a package can run</span>
+</span></code></pre></div>
+<h3 id="parameters-and-services">Parameters and services</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>param<span class="w"> </span>list
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ros2<span class="w"> </span>param<span class="w"> </span>get<span class="w"> </span>/node_name<span class="w"> </span>parameter_name
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>ros2<span class="w"> </span>service<span class="w"> </span>list
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/service_name<span class="w"> </span>&lt;service<span class="w"> </span>type&gt;<span class="w"> </span><span class="s2">"data"</span>
+</span></code></pre></div>
+<h3 id="graphical-tools">Graphical tools</h3>
 <table>
 <thead>
 <tr>
-<th><strong>Problem</strong></th>
-<th><strong>Solution</strong></th>
+<th>Tool</th>
+<th>What it is for</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Command not found</strong></td>
-<td>Source setup.bash or restart terminal</td>
+<td><code>rqt</code></td>
+<td>Plugin GUI. Node Graph and Topic Monitor are the useful ones</td>
 </tr>
 <tr>
-<td><strong>Package not found</strong></td>
-<td>Check if package is installed</td>
-</tr>
-<tr>
-<td><strong>Version mismatch</strong></td>
-<td>Ensure Ubuntu and ROS versions match</td>
+<td><code>rviz2</code></td>
+<td>3D visualisation of robot state and sensor data</td>
 </tr>
 </tbody>
 </table>
-<h2 id="essential-ros-2-concepts">Essential ROS 2 Concepts</h2>
-<h3 id="core-concepts">Core Concepts</h3>
+<h2 id="learning-ros-2">Learning ROS 2</h2>
+<p>The official beginner tutorials are mirrored on this site, so you can read them
+without being sent to a guide whose paths do not match our setup:</p>
 <ul>
-<li><strong>Nodes</strong>: Individual processes that perform computation</li>
-<li><strong>Topics</strong>: Asynchronous communication mechanism</li>
-<li><strong>Services</strong>: Synchronous request-response communication</li>
-<li><strong>Actions</strong>: Long-running tasks with feedback</li>
-<li><strong>Messages</strong>: Data structures for communication</li>
+<li><a href="../ros2-tutorials/">ROS 2 Tutorials</a></li>
 </ul>
-<h3 id="basic-commands">Basic Commands</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># List running nodes</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>node<span class="w"> </span>list
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># List topics</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Echo topic data</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/topic_name
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># List services</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>ros2<span class="w"> </span>service<span class="w"> </span>list
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Call a service</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/service_name<span class="w"> </span>service_type<span class="w"> </span><span class="s2">"data"</span>
-</span></code></pre></div>
-<h2 id="development-setup">Development Setup</h2>
-<h3 id="create-ros-2-workspace">Create ROS 2 Workspace</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create workspace directory</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_ws/src
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Build workspace</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>colcon<span class="w"> </span>build
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Source workspace</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># Add to bashrc</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"source ~/ros2_ws/install/setup.bash"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span></code></pre></div>
-<h3 id="install-useful-tools">Install Useful Tools</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Install rqt (GUI tools)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Install rviz2 (3D visualization)</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rviz2
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Install turtlesim (tutorial package)</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-turtlesim
-</span></code></pre></div>
-<h2 id="first-ros-2-program">First ROS 2 Program</h2>
-<h3 id="create-a-simple-publisher">Create a Simple Publisher</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Navigate to workspace</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Create package</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>my_first_pkg
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Navigate to package</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nb">cd</span><span class="w"> </span>my_first_pkg/src
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Create Python file</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>touch<span class="w"> </span>my_first_node.py
-</span></code></pre></div>
-<h3 id="add-code-to-my_first_nodepy">Add Code to my_first_node.py</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/usr/bin/env python3</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyFirstNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">'my_first_node'</span><span class="p">)</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">'my_topic'</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="n">timer_period</span> <span class="o">=</span> <span class="mf">1.0</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="n">timer_period</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="n">msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s1">'Hello from my first ROS 2 node!'</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Publishing: "</span><span class="si">%s</span><span class="s1">"'</span> <span class="o">%</span> <span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="n">node</span> <span class="o">=</span> <span class="n">MyFirstNode</span><span class="p">()</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="n">node</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="n">main</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="build-and-run">Build and Run</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Build workspace</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>colcon<span class="w"> </span>build
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Source workspace</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Run node</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>ros2<span class="w"> </span>run<span class="w"> </span>my_first_pkg<span class="w"> </span>my_first_node
-</span></code></pre></div>
-<h2 id="debugging-troubleshooting">Debugging &amp; Troubleshooting</h2>
-<h3 id="useful-debugging-commands">Useful Debugging Commands</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Check node status</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/node_name
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Monitor topic frequency</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/topic_name
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Check message type</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">type</span><span class="w"> </span>/topic_name
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># List node parameters</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>ros2<span class="w"> </span>param<span class="w"> </span>list
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1"># Get parameter value</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>ros2<span class="w"> </span>param<span class="w"> </span>get<span class="w"> </span>/node_name<span class="w"> </span>parameter_name
-</span></code></pre></div>
-<h3 id="common-debugging-steps">Common Debugging Steps</h3>
-<ol>
-<li><strong>Check if node is running</strong>: <code>ros2 node list</code></li>
-<li><strong>Verify topic exists</strong>: <code>ros2 topic list</code></li>
-<li><strong>Check message data</strong>: <code>ros2 topic echo /topic_name</code></li>
-<li><strong>Monitor system resources</strong>: <code>htop</code>, <code>ros2 topic hz</code></li>
-</ol>
-<h2 id="ros-2-tools-guis">ROS 2 Tools &amp; GUIs</h2>
-<h3 id="command-line-tools">Command Line Tools</h3>
+<p>Start with
+<a href="../ros2-tutorials/writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a>.
+It explains every line of a talker node, which is the pattern nearly everything
+in this course is built from.</p>
+<p>Read them for the concepts. Ignore the parts that create a workspace or a
+package — you already have both.</p>
+<h2 id="getting-help">Getting help</h2>
 <ul>
-<li><strong>ros2</strong>: Main command line interface</li>
-<li><strong>ros2 topic</strong>: Topic management</li>
-<li><strong>ros2 service</strong>: Service management</li>
-<li><strong>ros2 node</strong>: Node management</li>
-<li><strong>ros2 param</strong>: Parameter management</li>
-</ul>
-<h3 id="graphical-tools">Graphical Tools</h3>
-<ul>
-<li><strong>rqt</strong>: Plugin-based GUI framework</li>
-<li><strong>rviz2</strong>: 3D visualization tool</li>
-<li><strong>plotjuggler</strong>: Data plotting and analysis</li>
-<li><strong>rqt_graph</strong>: Node and topic visualization</li>
-</ul>
-<h2 id="getting-help">Getting Help</h2>
-<h3 id="ros-2-resources">ROS 2 Resources</h3>
-<ul>
-<li><strong>Official Docs</strong>: <a href="https://docs.ros.org/en/humble/">docs.ros.org</a></li>
+<li><strong>Official docs</strong>: <a href="https://docs.ros.org/en/humble/">docs.ros.org/en/humble</a></li>
 <li><strong>ROS Answers</strong>: <a href="https://answers.ros.org/">answers.ros.org</a></li>
-<li><strong>ROS Wiki</strong>: <a href="https://wiki.ros.org/">wiki.ros.org</a></li>
+<li><strong>Piazza</strong>, office hours, and lab sessions for anything course-specific</li>
 </ul>
-<h3 id="course-support">Course Support</h3>
-<ul>
-<li><strong>Piazza</strong>: Ask questions on course forum</li>
-<li><strong>Office Hours</strong>: Get help from TA or instructor</li>
-<li><strong>Lab Sessions</strong>: Hands-on help during labs</li>
-</ul>
-<h2 id="next-steps">Next Steps</h2>
-<p>After completing ROS 2 setup:</p>
+<h2 id="next">Next</h2>
 <ol>
-<li><strong>Learn Python basics</strong>: See <a href="../python-basics/">Python Basics</a></li>
-<li><strong>Set up Gazebo</strong>: See <a href="../gazebo-setup/">Gazebo Setup</a></li>
-<li><strong>Start Week 3 lab</strong>: See <a href="../labs/week-03/">Week 3 Lab</a></li>
-<li><strong>Practice ROS 2</strong>: Run tutorials and examples</li>
+<li><a href="../dev-environment/">Dev Environment</a> — VS Code against the container</li>
+<li><a href="../labs/week-03/">Week 3 Lab</a> — your first ROS 2 nodes</li>
 </ol>
 
 
@@ -2806,6 +2194,9 @@ This second script should output the messages being sent by the talker.</p>
 
 
 
+
+  
+  
 
 
 
@@ -2934,6 +2325,8 @@ This second script should output the messages being sent by the talker.</p>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
         <script src="../javascripts/math.js"></script>
+      
+        <script src="../javascripts/refresh.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
