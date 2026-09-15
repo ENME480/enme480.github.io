@@ -259,39 +259,58 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ### Step 2: Install Essential Tools
+
+Run these one block at a time and **watch for errors**. A failure part way
+through does not stop the later commands, so it is easy to miss one scrolling
+past. [Step 4](#step-4-check-your-install) checks the result, so run that when
+you are done either way.
+
 ```bash
-# add new package sources so we can find everything we want to install
-sudo install -m 0755 -d /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg && sudo chmod a+r /etc/apt/keyrings/docker.gpg
-
-# reload lists
-sudo apt update && sudo apt upgrade -y
-
-# install packages we will use to download other things
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-# grab docker from the internet
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# write the new package sources to our list
-echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# reload lists again
+# Tools we need in order to fetch everything else.
+# curl has to be installed before anything tries to use it.
 sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl gnupg software-properties-common
+```
 
+```bash
+# Add Docker's package signing key, so apt trusts what it downloads
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo chmod a+r /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+```bash
+# Tell apt where to find Docker, then reload the package lists
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+```
+
+```bash
 # Development tools
-sudo apt install build-essential cmake git curl wget
+sudo apt install -y build-essential cmake git wget
 
 # Python tools
-sudo apt install python3-pip python3-venv python-is-python3
-
-# Docker
-sudo apt install docker
-sudo apt install docker-compose*
-
-# check to make sure ubuntu actually grabbed all the packages we want
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git python-is-python3 docker
-
+sudo apt install -y python3-pip python3-venv python-is-python3
 ```
+
+```bash
+# Docker itself
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+!!! warning "Two package names to avoid"
+    **Do not run `sudo apt install docker`.** There is an unrelated Ubuntu
+    package called `docker` which is a WindowMaker dock applet. It installs
+    cleanly, does nothing useful, and makes it look like Docker is installed
+    when it is not.
+
+    **Do not use a `docker-compose*` wildcard.** It matches both
+    `docker-compose-v2` from Ubuntu and `docker-compose-plugin` from Docker.
+    Both ship the same file, so dpkg aborts with
+    `trying to overwrite '/usr/libexec/docker/cli-plugins/docker-compose'` and
+    the rest of the install is skipped.
+
+    The single command above installs the right things. Compose is included as
+    `docker compose` (a subcommand, no hyphen).
 
 ### Step 3: Configure Docker to Run as Non-Root User
 
@@ -317,6 +336,92 @@ This should download a small program and print a short message confirming that D
 ```bash
 reboot
 ```
+
+### Step 4: Check your install
+
+apt does not stop when one command fails. If something broke earlier, the
+commands after it still ran, printed hundreds of lines, and looked like they
+worked. This checks what actually ended up on your machine.
+
+Run this one command:
+
+```bash
+curl -fsSL https://enme480.github.io/assets/check_setup.sh | bash
+```
+
+It only reads. It installs nothing and changes nothing. You can
+[read it first](assets/check_setup.sh) if you like.
+
+Every line should say `OK`:
+
+```text
+ENME480 setup check
+
+Build tools
+  OK   curl
+  OK   wget
+  ...
+
+Docker
+  OK   docker is real Docker, not wmdocker
+  OK   docker compose v2
+  ...
+
+All 16 checks passed. Your setup is complete.
+```
+
+If any line says `FAIL`, fix it using the Repair section below before going on.
+The Docker image will not build otherwise.
+
+!!! note "If the command itself fails with `curl: command not found`"
+    That is the answer — `curl` never installed. Go back and run the first block
+    of [Step 2](#step-2-install-essential-tools), then try again.
+
+??? question "What the less obvious checks are for"
+    | Check | Why it matters |
+    |-------|----------------|
+    | `docker is real Docker, not wmdocker` | Ubuntu has a package called `docker` that is a desktop dock applet. If that got installed instead, `docker` exists as a command but nothing works |
+    | `docker compose v2` | We use `docker compose` (no hyphen). The older hyphenated `docker-compose` is a different tool |
+    | `your user is in the docker group` | Without it every Docker command needs `sudo`, which breaks file ownership inside the container |
+    | `no half-installed packages` | Catches an install that died part way through, which is easy to miss in the scrollback |
+
+### Repair: fixing a partly broken install
+
+Skip this unless Step 4 reported a failure.
+
+**If `wmdocker` was installed**, remove it. It is not Docker and it is not used
+by anything:
+
+```bash
+sudo apt remove -y docker wmdocker
+```
+
+**If the install died on `trying to overwrite '/usr/libexec/docker/cli-plugins/docker-compose'`**,
+two conflicting Compose packages were pulled in. Keep Docker's, drop Ubuntu's:
+
+```bash
+sudo apt remove -y docker-compose-v2 docker-compose
+sudo dpkg --configure -a
+sudo apt --fix-broken install -y
+```
+
+**If you saw `gpg: no valid OpenPGP data found`**, an empty key file was written
+before `curl` existed. Delete it — nothing uses it:
+
+```bash
+sudo rm -f /etc/apt/keyrings/docker.gpg
+```
+
+**Then reinstall the Docker packages properly and tidy up:**
+
+```bash
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt autoremove -y
+```
+
+Run Step 4 again. If anything still fails, bring the output to office hours or
+post it on Piazza rather than guessing.
 
 ## ENME480 Docker Installation
 
