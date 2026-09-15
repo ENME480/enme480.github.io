@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt.">
+        <meta name="description" content="Verify your Week 2 setup, then write a ROS 2 subscriber that keeps a running sum and a publisher that drives turtlesim in a circle.">
       
       
       
@@ -66,7 +66,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." />
+<meta property="og:description" content="Verify your Week 2 setup, then write a ROS 2 subscriber that keeps a running sum and a publisher that drives turtlesim in a circle." />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/labs/week-03.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -74,7 +74,7 @@
 <meta property="og:url" content="https://enme480.github.io/labs/week-03/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Week 3 — ROS 2 Basics (Python) - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt." />
+<meta property="twitter:description" content="Verify your Week 2 setup, then write a ROS 2 subscriber that keeps a running sum and a publisher that drives turtlesim in a circle." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-03.png" />
 </head>
   
@@ -346,6 +346,28 @@
     
   
   Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ros2-tutorials/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS 2 Tutorials
 
         </a>
       </li>
@@ -733,10 +755,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#part-a-setup" class="md-nav__link">
+  <a href="#part-a-check-your-week-2-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part A - Setup
+        Part A — Check your Week 2 setup
       
     </span>
   </a>
@@ -744,10 +766,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-b-pre-flight-check-510-min" class="md-nav__link">
+  <a href="#part-b-update-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part B — Pre-flight check (5–10 min)
+        Part B — Update the container
       
     </span>
   </a>
@@ -755,55 +777,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-c-workspace-package-setup-only" class="md-nav__link">
+  <a href="#part-c-start-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part C — Workspace &amp; package (setup only)
+        Part C — Start the container
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-d-ros2-talker-listener-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part D — ROS2 Talker / Listener Demo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-e-turtlesim-drive-in-a-circle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part E — Turtlesim (drive in a circle)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deliverables-single-pdf-upload" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deliverables (single PDF upload)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deliverables (single PDF upload)">
+    <nav class="md-nav" aria-label="Part C — Start the container">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#helpful-tips-for-the-turtlesim-velocity-publisher" class="md-nav__link">
+  <a href="#c1-make-two-shortcut-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Helpful tips for the turtlesim velocity publisher
+        C1. Make two shortcut scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2-start-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C2. Start it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c3-pre-flight-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C3. Pre-flight checks
       
     </span>
   </a>
@@ -812,6 +823,83 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-get-the-week-3-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Get the Week 3 package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-e-read-and-run-the-talker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E — Read and run the talker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-f-finish-listener_sumpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part F — Finish listener_sum.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-g-finish-turtle_circlepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part G — Finish turtle_circle.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1333,6 +1421,12 @@
     
       
         
+          
+        
+      
+        
+      
+        
       
         
       
@@ -1354,7 +1448,195 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ros2-tutorials/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS 2 Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS 2 Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2-tutorials/creating-a-workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2-tutorials/creating-a-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2-tutorials/writing-a-publisher-subscriber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publisher and subscriber
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2-tutorials/understanding-topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -1372,8 +1654,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1555,10 +1837,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#part-a-setup" class="md-nav__link">
+  <a href="#part-a-check-your-week-2-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part A - Setup
+        Part A — Check your Week 2 setup
       
     </span>
   </a>
@@ -1566,10 +1848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-b-pre-flight-check-510-min" class="md-nav__link">
+  <a href="#part-b-update-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part B — Pre-flight check (5–10 min)
+        Part B — Update the container
       
     </span>
   </a>
@@ -1577,55 +1859,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-c-workspace-package-setup-only" class="md-nav__link">
+  <a href="#part-c-start-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part C — Workspace &amp; package (setup only)
+        Part C — Start the container
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-d-ros2-talker-listener-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part D — ROS2 Talker / Listener Demo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-e-turtlesim-drive-in-a-circle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part E — Turtlesim (drive in a circle)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deliverables-single-pdf-upload" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Deliverables (single PDF upload)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deliverables (single PDF upload)">
+    <nav class="md-nav" aria-label="Part C — Start the container">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#helpful-tips-for-the-turtlesim-velocity-publisher" class="md-nav__link">
+  <a href="#c1-make-two-shortcut-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Helpful tips for the turtlesim velocity publisher
+        C1. Make two shortcut scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2-start-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C2. Start it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c3-pre-flight-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C3. Pre-flight checks
       
     </span>
   </a>
@@ -1634,6 +1905,83 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-get-the-week-3-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Get the Week 3 package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-e-read-and-run-the-talker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E — Read and run the talker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-f-finish-listener_sumpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part F — Finish listener_sum.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-g-finish-turtle_circlepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part G — Finish turtle_circle.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1658,137 +2006,396 @@
 
 
 <h1 id="week-3-ros-2-humble-with-python">Week 3 · ROS 2 (Humble) with Python</h1>
-<p>This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: <strong>workspaces</strong>, <strong>packages</strong>, <strong>publish/subscribe</strong>, and a tiny sim (<strong>turtlesim</strong>). The steps below point you to the <strong>official Humble tutorials</strong>—follow them carefully.</p>
-<h2 id="part-a-setup">Part A - Setup</h2>
-<p>First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.</p>
-<p>For people <strong>not</strong> using the Nvidia container, run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"#"</span><span class="s1">'!'</span><span class="s2">"/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker"</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"#"</span><span class="s1">'!'</span><span class="s2">"/bin/bash\ncontainer="</span><span class="s1">'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'</span><span class="s2">"\necho Found running container "</span><span class="s1">'$container'</span><span class="s2">". Connecting...\ndocker exec -ti "</span><span class="s1">'$container'</span><span class="s2">" bash"</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
-</span></code></pre></div></p>
-<p>For people who <strong>are</strong> using the Nvidia container, run:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"#"</span><span class="s1">'!'</span><span class="s2">"/bin/bash\nexport userid=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2"> groupid=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker"</span><span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"#"</span><span class="s1">'!'</span><span class="s2">"/bin/bash\ncontainer="</span><span class="s1">'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'</span><span class="s2">"\necho Found running container "</span><span class="s1">'$container'</span><span class="s2">". Connecting...\ndocker exec -ti "</span><span class="s1">'$container'</span><span class="s2">" bash"</span><span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh
-</span></code></pre></div></p>
-<p>These commands will create two bash files (essentially just lists of other commands) that will allow you to launch the Docker container with:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bash<span class="w"> </span>startDocker.sh
-</span></code></pre></div></p>
-<p>And connect to it from another terminal with:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>bash<span class="w"> </span>connectToDocker.sh
+<p>This week you write your first two ROS 2 nodes.</p>
+<p>The point of this lab is <strong>not</strong> to learn all of ROS 2. It is to get comfortable
+with the loop you will use for the rest of the semester: a workspace, a package
+inside it, Python files inside that, build, source, run. The ROS concepts you
+need (publishers, subscribers, topics, messages) show up along the way.</p>
+<p>We have given you the package already built and wired up. You fill in ten lines
+across two files.</p>
+<p><strong>Time:</strong> about 2 hours. Parts A to D are setup and should take 30 minutes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Reference reading</p>
+<p>The official ROS 2 tutorials explain the ideas behind all of this in much
+more depth. They are mirrored on this site so you can read them alongside
+the lab: <a href="../../ros2-tutorials/">ROS 2 Tutorials</a>.</p>
+<p>The one worth reading before Part F is
+<a href="../../ros2-tutorials/writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a>,
+which walks through every line of a talker node.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Where this picks up from</p>
+<p>You should have finished the <a href="../../ubuntu-setup/">Ubuntu Setup</a> guide in
+Week 2, up to and including the "Tests for Week 2" section. Part A checks
+that. If any of it fails, fix that before going further, and ask a TA if you
+are stuck.</p>
+</div>
+<h2 id="part-a-check-your-week-2-setup">Part A — Check your Week 2 setup</h2>
+<p>Run these on your own machine, <strong>outside</strong> Docker.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Run this</th>
+<th>You should see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ls ~/ENME480_mrc</code></td>
+<td>folders including <code>docker</code>, <code>src</code>, <code>config</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>docker --version</code></td>
+<td>a version number, not "command not found"</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>docker images</code></td>
+<td>a row whose name contains <code>enme480_ur3e</code></td>
+</tr>
+</tbody>
+</table>
+<p>If check 1 fails, you never cloned the course repo. If check 3 fails, you never
+built the image. Both are in the <a href="../../ubuntu-setup/">Ubuntu Setup</a> guide under
+"ENME480 Docker Installation".</p>
+<p>Then run the full dependency check:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://enme480.github.io/assets/check_setup.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
-Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. <em>Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.</em></p>
-<p><strong>IMPORTANT:</strong> This the following folders will be linked (outside the docker --&gt; inside the docker)</p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ENME480_mrc/src --&gt; enme480_ws/src
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ENME480_mrc/config --&gt; enme480_ws/config
+<p>Every line must say <code>OK</code> before you go on. It tests everything Week 2 was
+supposed to install — build tools, Python, Docker, Compose, your group
+membership — and reads only, changing nothing. You can
+<a href="../../assets/check_setup.sh">read it first</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do this even if Week 2 seemed fine</p>
+<p><code>apt</code> does not stop when one command fails. It is completely normal to have
+a broken install and not know, because the error scrolled past hundreds of
+lines ago. If anything reports <code>FAIL</code>, the
+<a href="../../ubuntu-setup/#repair-fixing-a-partly-broken-install">Repair section</a>
+fixes the common causes.</p>
+</div>
+<h2 id="part-b-update-the-container">Part B — Update the container</h2>
+<p>The course image has been updated since Week 2 to include <code>rqt</code>, which you need
+this week. Pull the changes and rebuild.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
-This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
-(Credit to Benjamin Ruby for the original version of the script)</p>
-<h2 id="part-b-pre-flight-check-510-min">Part B — Pre-flight check (5–10 min)</h2>
-<!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
-<p>1) Using the commands from above, open your Docker image contianing ROS
-2) Open a new terminal and verify ROS 2 is available (e.g., <code>ros2 --version</code> or <code>ros2 --help</code>).<br />
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+<p>Then rebuild the image:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Standard (no NVIDIA GPU)</label><label for="__tabbed_1_2">NVIDIA GPU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
-It will show you a list of topics, most likely <code>/rosout</code> and <code>/parameter_events</code></p>
-<p>3) Try opening up Gazebo
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ign<span class="w"> </span>gazebo
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
-It should open up a window with examples to different test environments</p>
-<p>4) Try opening up <code>rqt</code>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rqt
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">This takes a while — start it and read on</p>
+<p>Expect this to run for <strong>20 to 40 minutes</strong>. The updated image changes an
+early step, so Docker has to redo most of the build rather than reusing
+what it cached in Week 2.</p>
+<p>Start it now and read
+<a href="../../ros2-tutorials/writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a>
+while it runs. You will need it for Part F. Do not close the terminal.</p>
+</div>
+<p>Use the same one of these two tabs for the whole lab. If you did the NVIDIA
+step in Week 2, you are on the NVIDIA tab. Otherwise you are on the standard
+tab.</p>
+<h2 id="part-c-start-the-container">Part C — Start the container</h2>
+<h3 id="c1-make-two-shortcut-scripts">C1. Make two shortcut scripts</h3>
+<p>Typing the full <code>docker compose</code> command every time gets old fast. These two
+small scripts do it for you. Run this once, from your home folder:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Standard (no NVIDIA GPU)</label><label for="__tabbed_2_2">NVIDIA GPU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s">export userid=$(id -u) groupid=$(id -g)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s">cd ~/ENME480_mrc/docker</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s">docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s">EOF</span>
 </span></code></pre></div>
-If <code>rqt</code> does not open up anything or throws an error, install any required extenstions
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>startDocker.sh<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">export userid=$(id -u) groupid=$(id -g)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s">cd ~/ENME480_mrc/docker</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s">docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s">EOF</span>
 </span></code></pre></div>
-or try reopening it with
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rqt<span class="w"> </span>--force-discover
-</span></code></pre></div></p>
-<!--
-### Troubleshooting
-
-During any of these steps if your display doesn't open up, follow the follwoing steps
-
-4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
-
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;HIT<span class="w"> </span>TAB&gt;<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/&lt;NAME<span class="w"> </span>OF<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>YOU<span class="w"> </span>JUST<span class="w"> </span>MADE&gt;<span class="w"> </span>~/&lt;NAME<span class="w"> </span>YOU<span class="w"> </span>WANT<span class="w"> </span>THE<span class="w"> </span>FOLDER<span class="w"> </span>TO<span class="w"> </span>HAVE<span class="w"> </span>INSIDE<span class="w"> </span>DOCKER&gt;<span class="w"> </span>
+</div>
+</div>
+</div>
+<p>Then, for everyone:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>connectToDocker.sh<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">container=$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">echo "Found running container $container. Connecting..."</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">docker exec -ti "$container" bash</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s">EOF</span>
 </span></code></pre></div>
-This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
-
-<p><strong>Checkpoint B (no submission yet):</strong> You can run the above commands without any errors. This ensures ROS is fully installed and operational.</p>
-<h2 id="part-c-workspace-package-setup-only">Part C — Workspace &amp; package (setup only)</h2>
-<p>Follow the <strong>official Humble tutorials</strong> step-by-step (do not copy solution code from elsewhere):</p>
-<p>1) <strong>Create a workspace:</strong> Use the <strong>Create a workspace</strong> guide and build once so the structure is valid.<br />
-   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html</a></p>
-<p>2) <strong>Create a Python package:</strong> Inside your <code>src/</code>, make a new package for this week (any sensible name, e.g., <code>week3</code>).<br />
-   ↪ Guide: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html</a></p>
-<p><strong>Checkpoint C:</strong> Your workspace builds with <code>colcon</code> and your package appears in the build output.</p>
-<h2 id="part-d-ros2-talker-listener-demo">Part D — ROS2 Talker / Listener Demo</h2>
-<p>Use the <strong>publisher/subscriber (Python)</strong> tutorial as your primary reference:</p>
+<p><code>cat &gt; file &lt;&lt; 'EOF'</code> writes everything up to the closing <code>EOF</code> into that file.
+Open <code>startDocker.sh</code> in your editor and read it. It is just the commands you
+already ran in Week 2, saved so you do not have to retype them.</p>
+<p>Check both files landed where you expect:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ls<span class="w"> </span>~/startDocker.sh<span class="w"> </span>~/connectToDocker.sh
+</span></code></pre></div>
+<h3 id="c2-start-it">C2. Start it</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>bash<span class="w"> </span>startDocker.sh
+</span></code></pre></div>
+<p>Your prompt changes to show you are inside the container.</p>
+<div class="admonition warning">
+<p class="admonition-title">Start it once, connect many times</p>
+<p>You will need several terminals this week. Run <code>startDocker.sh</code> <strong>once</strong>.
+For every additional terminal, open a new one on your own machine and run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>bash<span class="w"> </span>connectToDocker.sh
+</span></code></pre></div>
+<p>Running <code>startDocker.sh</code> more than once creates separate containers that
+cannot see each other's topics, which produces confusing failures later. If
+you do it by accident, type <code>exit</code> in the extra one.</p>
+</div>
+<h3 id="c3-pre-flight-checks">C3. Pre-flight checks</h3>
+<p>Run these <strong>inside</strong> the container. All four must pass before you continue.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Run this</th>
+<th>You should see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ros2 topic list</code></td>
+<td><code>/parameter_events</code> and <code>/rosout</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>echo $AMENT_PREFIX_PATH</code></td>
+<td>a path containing <code>enme480_ws</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ros2 run turtlesim turtlesim_node</code></td>
+<td>a blue window with a turtle</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>rqt</code></td>
+<td>the rqt window opens</td>
+</tr>
+</tbody>
+</table>
+<p>Close the turtlesim window and press <code>Ctrl+C</code> in that terminal when you are
+done with check 3. Same for <code>rqt</code>.</p>
+<p>Check 2 confirms your workspace is being sourced automatically. Checks 3 and 4
+confirm that graphical programs inside the container can reach your screen,
+which is the thing most likely to be broken. If either window fails to appear,
+see <a href="#troubleshooting">Troubleshooting</a> at the bottom, and ask a TA.</p>
+<h2 id="part-d-get-the-week-3-package">Part D — Get the Week 3 package</h2>
+<p>We have made a package for you with the structure, dependencies and entry points
+already set up. Clone it into the course repo's <code>src</code> folder.</p>
+<p>Run this <strong>on your own machine, outside the container</strong>, in a new terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/src
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/enme480_week3.git
+</span></code></pre></div>
+<p>Then, <strong>inside the container</strong>, build and source the workspace:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</span></code></pre></div>
+<p>Check it worked:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2<span class="w"> </span>pkg<span class="w"> </span>executables<span class="w"> </span>enme480_week3
+</span></code></pre></div>
+<p>You should get three lines: <code>talker</code>, <code>listener_sum</code> and <code>turtle_circle</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Why the folders are different but the same</p>
+<p><code>~/ENME480_mrc/src</code> on your machine and <code>~/enme480_ws/src</code> inside the
+container are the same folder. Anything you put in one appears in the other.
+<strong>This is the only place your work survives.</strong> The container is deleted every
+time you exit it, so files you create anywhere else are gone.</p>
+<p>This also means you can edit these files in VS Code on your own machine and
+run them in the container, without copying anything back and forth.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><code>--symlink-install</code></p>
+<p>That flag means the build links to your Python files instead of copying
+them. You can edit a node and run it again without rebuilding. You only need
+to run <code>colcon build</code> again if you add a new file or change <code>setup.py</code>.</p>
+</div>
+<h2 id="part-e-read-and-run-the-talker">Part E — Read and run the talker</h2>
+<p>Open <code>~/ENME480_mrc/src/enme480_week3/enme480_week3/talker.py</code> in your editor
+and read it. It is about 40 lines and every one is commented. This is the
+file you will copy patterns from for the rest of the lab.</p>
+<p>Run it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>enme480_week3<span class="w"> </span>talker
+</span></code></pre></div>
+<p>It prints a counter, once a second.</p>
+<p>Leave it running, and in a <strong>second</strong> terminal (remember: <code>bash connectToDocker.sh</code>)
+look at what it is doing:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/numbers
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/numbers
+</span></code></pre></div>
+<p><code>ros2 topic list</code> shows every topic that exists right now. <code>echo</code> prints the
+messages going across one. <code>info</code> tells you the message type and how many nodes
+are publishing and subscribing to it.</p>
+<p><strong>Checkpoint:</strong> you can see <code>/numbers</code> in the topic list, and <code>echo</code> prints a
+number roughly once a second.</p>
+<p><strong>Read more:</strong> <a href="../../ros2-tutorials/understanding-topics/">Understanding topics</a>
+covers <code>list</code>, <code>echo</code>, <code>info</code> and <code>pub</code> properly, and shows how to draw the same
+picture with <code>rqt_graph</code>.</p>
+<h2 id="part-f-finish-listener_sumpy">Part F — Finish <code>listener_sum.py</code></h2>
+<p>Open <code>enme480_week3/listener_sum.py</code>. There are <strong>six TODOs</strong>.</p>
+<p>This node subscribes to <code>/numbers</code>, adds up everything it hears, and publishes
+the running total on <code>/sum_topic</code>. So it is a subscriber and a publisher at the
+same time, which is the one genuinely new idea this week.</p>
+<p>The pattern is:</p>
+<ol>
+<li>In <code>__init__</code>, create the subscription, create the publisher, set the total to 0.</li>
+<li>ROS calls <code>number_received()</code> for you, once per incoming message.</li>
+<li>Inside that function, update the total and publish it.</li>
+</ol>
+<p>Everything you need is either in the TODO comments or in <code>talker.py</code>.</p>
+<p><strong>Read more:</strong>
+<a href="../../ros2-tutorials/writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a>
+explains the talker and listener line by line. Note that it builds both as
+separate nodes; yours has to do both jobs in one.</p>
+<p>Test it with the talker running in one terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>enme480_week3<span class="w"> </span>listener_sum
+</span></code></pre></div>
+<p>and in a third terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/sum_topic
+</span></code></pre></div>
+<p><strong>Checkpoint:</strong> the totals climb 0, 1, 3, 6, 10, 15 and so on. If the talker has
+been running a while before you start the listener, your sum starts from
+whatever number it is up to, which is fine and expected.</p>
+<h2 id="part-g-finish-turtle_circlepy">Part G — Finish <code>turtle_circle.py</code></h2>
+<p>Open <code>enme480_week3/turtle_circle.py</code>. There are <strong>four TODOs</strong>.</p>
+<p>Start the simulator in one terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
+</span></code></pre></div>
+<p>Before writing anything, find out what the turtle listens to. In another
+terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>geometry_msgs/msg/Twist
+</span></code></pre></div>
+<p>The first shows you which topic carries velocity commands. The second shows you
+the six numbers inside a <code>Twist</code> message. Only two of them matter for a turtle
+on a flat screen.</p>
+<p>Then fill in the TODOs and run it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>enme480_week3<span class="w"> </span>turtle_circle
+</span></code></pre></div>
+<p><strong>Checkpoint:</strong> the turtle draws a clear circle and stays on screen. If it goes
+straight, your turning rate is zero. If it spins on the spot, your forward speed
+is zero. If it runs into a wall, your circle is too big: the radius is forward
+speed divided by turning rate.</p>
+<p>Finally, open <code>rqt</code> and have a look at what you built:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>rqt
+</span></code></pre></div>
+<p>From the menu, open <strong>Plugins → Introspection → Node Graph</strong>. It draws your
+nodes as boxes and your topics as arrows between them. Try <strong>Plugins → Topics →
+Topic Monitor</strong> as well.</p>
+<h2 id="further-reading">Further reading</h2>
+<p>You did not have to create the workspace or the package this week, because we
+gave them to you. You will want to know how that is done, and these are the
+official ROS 2 tutorials that explain it. Mirrored here, with a link to the
+original on each page.</p>
+<table>
+<thead>
+<tr>
+<th>Tutorial</th>
+<th>Why you would read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../ros2-tutorials/writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a></td>
+<td>Every line of a talker and a listener, explained</td>
+</tr>
+<tr>
+<td><a href="../../ros2-tutorials/understanding-topics/">Understanding topics</a></td>
+<td>The CLI tools you used in Parts E to G</td>
+</tr>
+<tr>
+<td><a href="../../ros2-tutorials/creating-a-package/">Creating a package</a></td>
+<td>What <code>package.xml</code> and <code>setup.py</code> actually do</td>
+</tr>
+<tr>
+<td><a href="../../ros2-tutorials/creating-a-workspace/">Creating a workspace</a></td>
+<td>Overlays, underlays, and why sourcing matters</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">One difference from our setup</p>
+<p>Those tutorials create a workspace at <code>~/ros2_ws</code>. <strong>Do not follow that
+part.</strong> Your workspace is <code>~/enme480_ws</code>, and it is the only location that
+survives the container shutting down. Read them for the concepts, not for
+the paths.</p>
+</div>
+<h2 id="deliverables">Deliverables</h2>
+<p>Submit <strong>one PDF</strong> with four screenshots, plus your two Python files.</p>
+<p>Screenshots:</p>
+<ol>
+<li>Your <code>listener_sum</code> terminal, showing the running total climbing.</li>
+<li><code>ros2 topic echo /sum_topic</code>, a few lines is plenty.</li>
+<li>The turtlesim window with a clear circular path drawn.</li>
+<li>rqt showing the <strong>Node Graph</strong> with your nodes and topics in it.</li>
+</ol>
+<p>One image can cover more than one of these if the windows are side by side.</p>
+<p>Files, submitted separately or as an appendix:</p>
 <ul>
-<li>Tutorial: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html</a></li>
+<li><code>listener_sum.py</code></li>
+<li><code>turtle_circle.py</code></li>
 </ul>
-<p><strong>Task C1 — Publisher (“talker”)</strong><br />
-Create a node that <strong>publishes numbers at a steady rate</strong> on a topic you choose (e.g., <code>/numbers</code>).<br />
-<em>(Use the tutorial to recall how to create a publisher node; adapt it to publish numbers rather than strings.)</em></p>
-<p><strong>Task C2 — Subscriber (“listener”)</strong><br />
-Create a node that <strong>subscribes</strong> to your numbers topic and <strong>maintains a cumulative sum</strong>. After each new message arrives, it should <strong>publish the running sum</strong> on a <strong>new topic</strong> (e.g., <code>/sum_topic</code>).<br />
-<em>(Re-use the subscriber pattern from the tutorial; add your own sum logic and a second publisher.)</em></p>
-<p><strong>Task C3 — Inspect with CLI</strong><br />
-Use the <strong>Understanding topics</strong> tutorial to: <strong>list topics</strong>, <strong>echo</strong> your sum topic, and <strong>show</strong> topic info (type, publishers/subscribers).<br />
-↪ <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html</a></p>
-<blockquote>
-<p><strong>Hints (conceptual, not solutions):</strong>
-- Topic names must <strong>match exactly</strong>; message types must be consistent.<br />
-- If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.<br />
-- Keep node/topic names short and meaningful.
-- Check the Message Type browser in rqt for information about what types to use and how to format the messages.
-- Use rqts Topic monitor to make sure messages are being properly published.
-- If rqt is missing these options under plugins, you may need to run
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rqt*
-</span></code></pre></div></p>
-</blockquote>
-<p><strong>Checkpoint D — Screenshots to capture:</strong><br />
-- Talker output (brief).<br />
-- Listener output showing a <strong>running sum</strong>.<br />
-- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of your sum topic.</p>
-<h2 id="part-e-turtlesim-drive-in-a-circle">Part E — Turtlesim (drive in a circle)</h2>
-<p>Read the <strong>turtlesim, ros2, and rqt</strong> tutorial first:<br />
-<a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html">docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html</a></p>
-<p><strong>Task D1 — Launch turtlesim</strong><br />
-Start the turtlesim simulator in one terminal (see tutorial).</p>
-<p><strong>Task D2 — Velocity publisher</strong><br />
-In your package, create a node that <strong>publishes velocity commands</strong> to turtlesim so the turtle moves in a <strong>circle</strong> (non-zero linear <span class="arithmatex">\(x\)</span> and angular <span class="arithmatex">\(z\)</span>).<br />
-<em>(You’ll find the correct topic name in the tutorial; use the CLI or rqt to explore message fields.)</em></p>
-<p><strong>Task D3 — Observe &amp; Inspect</strong><br />
-Use <code>ros2 topic list</code> / <code>ros2 topic echo</code> to confirm motion and pose updates; open <strong>rqt</strong> and view the <strong>Node Graph</strong> and <strong>Topic Monitor</strong>.<br />
-- rqt info: <a href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html">docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html</a></p>
-<p><strong>Checkpoint E — Screenshots to capture:</strong><br />
-- Turtlesim window with a <strong>clear circular path</strong>.<br />
-- Your velocity publisher terminal (brief output).<br />
-- <code>ros2 topic list</code> and a short <code>ros2 topic echo</code> of the pose topic.<br />
-- rqt with <strong>Node Graph</strong> / <strong>Topic Monitor</strong> visible.</p>
-<h2 id="deliverables-single-pdf-upload">Deliverables (single PDF upload)</h2>
-<p>Include <strong>concise</strong> screenshots (one image may show multiple windows):</p>
-<ul>
-<li><strong>Talker/Listener:</strong> talker output; listener output showing <strong>running sum</strong>; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of your sum topic.  </li>
-<li><strong>Turtlesim:</strong> turtlesim showing a <strong>circle</strong>; velocity publisher terminal; <code>ros2 topic list</code>; brief <code>ros2 topic echo</code> of the pose topic; rqt with Node Graph/Topic Monitor visible.  </li>
-<li>A terminal view of your <strong>package tree</strong> (folder/files) helps grading.</li>
-</ul>
-<p>Also submit the <strong>three Python files</strong> you created this week as separate attachments or in the PDF appendix (clearly named).</p>
-<hr />
-<h3 id="helpful-tips-for-the-turtlesim-velocity-publisher">Helpful tips for the turtlesim velocity publisher</h3>
-<ul>
-<li><strong>Topic to command motion</strong>: <code>/turtle1/cmd_vel</code>. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context.</li>
-<li><strong>Message type</strong>:</li>
-<li>Make edits to <code>package.xml</code> to include <code>geometry_msgs</code>
--<code>geometry_msgs/Twist</code> with two parts: <code>linear</code> and <code>angular</code>, each a 3-D vector (<code>x</code>, <code>y</code>, <code>z</code>). For a planar turtle,
-  you’ll typically set <strong><code>linear.x</code></strong> and <strong><code>angular.z</code></strong> only (m/s and rad/s).</li>
-<li>If you’re unsure of fields, ask ROS directly:
-  <code>bash
-  ros2 interface show geometry_msgs/msg/Twist</code></li>
-<li>The Message Type Viewer and Topic Monitor rqt plugins may be especially useful for debugging.</li>
-</ul>
+<p>You do not need to submit <code>talker.py</code>, since you did not change it.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong><code>Package 'enme480_week3' not found</code></strong></p>
+<p>The terminal you are in was opened before you built the package. Open a new one,
+or run <code>source ~/enme480_ws/install/setup.bash</code> again in the one you have. New
+terminals source the workspace for you automatically; a terminal that was
+already open does not know about anything built since.</p>
+<p><strong>No window appears for turtlesim or rqt</strong></p>
+<p>The container cannot reach your display. On WSL, this is usually the XAuthority
+problem covered in the <a href="../../ubuntu-setup/">Ubuntu Setup</a> troubleshooting
+section. Check that you started the container with the right compose file for
+your machine (NVIDIA or standard). If it still fails, ask a TA.</p>
+<p><strong>A node runs but nothing happens</strong></p>
+<p>Topic names and message types have to match exactly on both ends, and a mismatch
+is silent. Nothing crashes, the two nodes just never find each other. Use:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/your_topic_name
+</span></code></pre></div>
+<p><code>info</code> tells you the publisher and subscriber counts. If either is 0 when you
+expect 1, you have a name or type mismatch, or one of the nodes is not running.</p>
+<p><strong>Two nodes cannot see each other</strong></p>
+<p>You probably have more than one container running. Check with <code>docker ps</code> on
+your own machine. If there is more than one row, <code>exit</code> out of the extras and
+use <code>bash connectToDocker.sh</code> for additional terminals instead of
+<code>startDocker.sh</code>.</p>
+<p><strong>My edits do not seem to do anything</strong></p>
+<p>Check you are editing the file under <code>~/ENME480_mrc/src/enme480_week3/</code>, and
+that you saved it. If you added a new file or changed <code>setup.py</code>, you do need to
+<code>colcon build</code> again.</p>
+<p><strong><code>git status</code> in <code>ENME480_mrc</code> shows <code>src/enme480_week3</code> as untracked</strong></p>
+<p>That is normal. The Week 3 package is its own repository living inside the
+course one. Leave it alone.</p>
 
 
 

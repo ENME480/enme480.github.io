@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
+        <meta name="description" content="Mirrored copies of the official ROS 2 Humble beginner tutorials, for reference alongside the labs.">
       
       
       
-        <link rel="canonical" href="https://enme480.github.io/labs/week-07/">
+        <link rel="canonical" href="https://enme480.github.io/ros2-tutorials/">
       
       
-        <link rel="prev" href="../week-06/">
+        <link rel="prev" href="../git-basics/">
       
       
-        <link rel="next" href="../week-08/">
+        <link rel="next" href="creating-a-workspace/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Week 7 — No Lab - ENME480 — Introduction to Robotics</title>
+        <title>ROS 2 Tutorials - ENME480 — Introduction to Robotics</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../styles/theme.css">
+      <link rel="stylesheet" href="../styles/theme.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,17 +65,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Week 7 — No Lab - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
-<meta property="og:image" content="https://enme480.github.io/assets/images/social/labs/week-07.png" />
+<meta property="og:title" content="ROS 2 Tutorials - ENME480 — Introduction to Robotics" />
+<meta property="og:description" content="Mirrored copies of the official ROS 2 Humble beginner tutorials, for reference alongside the labs." />
+<meta property="og:image" content="https://enme480.github.io/assets/images/social/ros2-tutorials/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://enme480.github.io/labs/week-07/" />
+<meta property="og:url" content="https://enme480.github.io/ros2-tutorials/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Week 7 — No Lab - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
-<meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-07.png" />
+<meta property="twitter:title" content="ROS 2 Tutorials - ENME480 — Introduction to Robotics" />
+<meta property="twitter:description" content="Mirrored copies of the official ROS 2 Humble beginner tutorials, for reference alongside the labs." />
+<meta property="twitter:image" content="https://enme480.github.io/assets/images/social/ros2-tutorials/index.png" />
 </head>
   
   
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-07-make-up-office-hours" class="md-skip">
+        <a href="#ros-2-tutorials" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-header__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 7 — No Lab
+              ROS 2 Tutorials
             
           </span>
         </div>
@@ -256,7 +256,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-tabs__link">
         
   
   
@@ -292,13 +292,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../labs/" class="md-tabs__link">
           
   
   
@@ -318,7 +316,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../slides/" class="md-tabs__link">
+      <a href="../slides/" class="md-tabs__link">
         
   
   
@@ -339,7 +337,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ubuntu-setup/" class="md-tabs__link">
+        <a href="../ubuntu-setup/" class="md-tabs__link">
           
   
   
@@ -357,11 +355,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../ros2-tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -383,7 +383,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../resources/" class="md-tabs__link">
           
   
   
@@ -403,7 +403,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../help/" class="md-tabs__link">
+      <a href="../help/" class="md-tabs__link">
         
   
   
@@ -422,7 +422,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../site-map/" class="md-tabs__link">
+      <a href="../site-map/" class="md-tabs__link">
         
   
   
@@ -457,7 +457,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
+    <a href=".." title="ENME480 — Introduction to Robotics" class="md-nav__button md-logo" aria-label="ENME480 — Introduction to Robotics" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
@@ -487,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
+      <a href="../assets/docs/syllabus-fall2026.pdf" class="md-nav__link">
         
   
   
@@ -538,8 +538,6 @@
       
   
   
-    
-  
   
   
     
@@ -575,23 +573,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../labs/" class="md-nav__link ">
               
   
   
@@ -609,13 +604,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -635,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-01/" class="md-nav__link">
+      <a href="../labs/week-01/" class="md-nav__link">
         
   
   
@@ -663,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-02/" class="md-nav__link">
+      <a href="../labs/week-02/" class="md-nav__link">
         
   
   
@@ -691,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-03/" class="md-nav__link">
+      <a href="../labs/week-03/" class="md-nav__link">
         
   
   
@@ -721,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-04/" class="md-nav__link">
+      <a href="../labs/week-04/" class="md-nav__link">
         
   
   
@@ -749,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-05/" class="md-nav__link">
+      <a href="../labs/week-05/" class="md-nav__link">
         
   
   
@@ -777,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-06/" class="md-nav__link">
+      <a href="../labs/week-06/" class="md-nav__link">
         
   
   
@@ -802,19 +797,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../labs/week-07/" class="md-nav__link">
         
   
   
@@ -830,7 +816,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -843,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-08/" class="md-nav__link">
+      <a href="../labs/week-08/" class="md-nav__link">
         
   
   
@@ -871,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-09/" class="md-nav__link">
+      <a href="../labs/week-09/" class="md-nav__link">
         
   
   
@@ -899,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-12/" class="md-nav__link">
+      <a href="../labs/week-12/" class="md-nav__link">
         
   
   
@@ -927,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week-13/" class="md-nav__link">
+      <a href="../labs/week-13/" class="md-nav__link">
         
   
   
@@ -962,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slides/" class="md-nav__link">
+      <a href="../slides/" class="md-nav__link">
         
   
   
@@ -1055,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ubuntu-setup/" class="md-nav__link">
+      <a href="../ubuntu-setup/" class="md-nav__link">
         
   
   
@@ -1083,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros-setup/" class="md-nav__link">
+      <a href="../ros-setup/" class="md-nav__link">
         
   
   
@@ -1111,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gazebo-setup/" class="md-nav__link">
+      <a href="../gazebo-setup/" class="md-nav__link">
         
   
   
@@ -1139,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev-environment/" class="md-nav__link">
+      <a href="../dev-environment/" class="md-nav__link">
         
   
   
@@ -1167,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-basics/" class="md-nav__link">
+      <a href="../python-basics/" class="md-nav__link">
         
   
   
@@ -1195,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git-basics/" class="md-nav__link">
+      <a href="../git-basics/" class="md-nav__link">
         
   
   
@@ -1227,6 +1212,8 @@
       
   
   
+    
+  
   
   
     
@@ -1248,20 +1235,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ros2-tutorials/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1279,13 +1269,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1305,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2-tutorials/creating-a-workspace/" class="md-nav__link">
+      <a href="creating-a-workspace/" class="md-nav__link">
         
   
   
@@ -1333,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2-tutorials/creating-a-package/" class="md-nav__link">
+      <a href="creating-a-package/" class="md-nav__link">
         
   
   
@@ -1361,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2-tutorials/writing-a-publisher-subscriber/" class="md-nav__link">
+      <a href="writing-a-publisher-subscriber/" class="md-nav__link">
         
   
   
@@ -1389,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2-tutorials/understanding-topics/" class="md-nav__link">
+      <a href="understanding-topics/" class="md-nav__link">
         
   
   
@@ -1484,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   
@@ -1512,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kinematics-reference/" class="md-nav__link">
+      <a href="../kinematics-reference/" class="md-nav__link">
         
   
   
@@ -1540,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/docs/dh_table.pdf" class="md-nav__link">
+      <a href="../assets/docs/dh_table.pdf" class="md-nav__link">
         
   
   
@@ -1575,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/" class="md-nav__link">
+      <a href="../help/" class="md-nav__link">
         
   
   
@@ -1602,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../site-map/" class="md-nav__link">
+      <a href="../site-map/" class="md-nav__link">
         
   
   
@@ -1642,6 +1632,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The tutorials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licence-and-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Licence and attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1660,14 +1680,74 @@
   
 
 
-<h1 id="week-07-make-up-office-hours">Week 07 — Make-up / Office Hours</h1>
-<p>No scheduled lab; use time for catch-up and TA help.</p>
+<p class="eyebrow">ENME480 · Wiki</p>
+
+<h1 id="ros-2-tutorials">ROS 2 Tutorials</h1>
+<p>These are copies of the official ROS 2 Humble tutorials, reproduced word for
+word so you can read them without leaving the course site. They are the same
+pages the ROS documentation serves, and each one links back to its original.</p>
+<p>Read these to understand <strong>why</strong> things work the way they do. They are not the
+assignment. What you have to do for credit is on the
+<a href="../labs/week-03/">Week 3 lab page</a>, and the steps there are written for our
+Docker setup, which differs from the tutorials in a few places.</p>
+<div class="admonition warning">
+<p class="admonition-title">Where these differ from our setup</p>
+<p>The tutorials tell you to create a workspace at <code>~/ros2_ws</code>. <strong>Do not do
+that.</strong> Your workspace already exists at <code>~/enme480_ws</code>, and it is the only
+place your work survives when the container shuts down. See
+<a href="../labs/week-03/#part-d-get-the-week-3-package">Week 3, Part D</a>.</p>
+<p>They also have you create a package from scratch with <code>ros2 pkg create</code>. We
+have already done that for you in the
+<a href="https://github.com/ENME480/enme480_week3">enme480_week3</a> package, so you
+can skip straight to writing node code.</p>
+</div>
+<h2 id="the-tutorials">The tutorials</h2>
+<table>
+<thead>
+<tr>
+<th>Tutorial</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="creating-a-workspace/">Creating a workspace</a></td>
+<td>What a workspace is, overlays and underlays, sourcing, <code>colcon build</code></td>
+</tr>
+<tr>
+<td><a href="creating-a-package/">Creating your first ROS 2 package</a></td>
+<td>What a package is, <code>package.xml</code>, <code>setup.py</code>, entry points</td>
+</tr>
+<tr>
+<td><a href="writing-a-publisher-subscriber/">Writing a simple publisher and subscriber</a></td>
+<td>The talker/listener pattern in Python, line by line</td>
+</tr>
+<tr>
+<td><a href="understanding-topics/">Understanding topics</a></td>
+<td><code>ros2 topic list</code>, <code>echo</code>, <code>info</code>, <code>pub</code>, and <code>rqt_graph</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you only read one, read <strong>Writing a simple publisher and subscriber</strong>. It
+explains every line of the talker, which is the pattern both of your Week 3
+nodes are built from.</p>
+<h2 id="licence-and-attribution">Licence and attribution</h2>
+<p>The ROS 2 documentation is copyright Open Robotics and is licensed under
+<a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a>,
+which permits redistribution with attribution. These pages are unmodified copies
+retrieved on 15 September 2026, each carrying a link to its source.</p>
+<p>Upstream may have changed since. For the current version, follow the source link
+at the top of any of these pages, or start at
+<a href="https://docs.ros.org/en/humble/">docs.ros.org/en/humble</a>.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1699,7 +1779,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week-06/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 6 — FK Simulation, FK Lab 1.2">
+          <a href="../git-basics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Git Basics">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1709,20 +1789,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 6 — FK Simulation, FK Lab 1.2
+                Git Basics
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week-08/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 8 — Inverse Kinematics">
+          <a href="creating-a-workspace/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating a workspace">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 8 — Inverse Kinematics
+                Creating a workspace
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1786,20 +1866,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
       
-        <script src="../../javascripts/math.js"></script>
+        <script src="../javascripts/math.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="../../javascripts/tablesort.js"></script>
+        <script src="../javascripts/tablesort.js"></script>
       
     
   </body>
