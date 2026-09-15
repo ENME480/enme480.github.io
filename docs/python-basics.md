@@ -500,11 +500,11 @@ print(f"Trajectory: {trajectory}")
 
 After mastering Python basics:
 
-1. **Set up ROS 2**: See [ROS Setup Guide](ros-setup.md)
+1. **Get into the container**: See [ROS 2 in the Container](ros-setup.md)
 2. **Learn Gazebo**: See [Gazebo Setup](gazebo-setup.md)
 3. **Start Week 3 lab**: See [Week 3 Lab](labs/week-03.md)
 4. **Practice coding**: Work on exercises and small projects
 
-[ROS Setup](ros-setup.md){ .md-button .md-button--primary }
+[ROS 2 in the Container](ros-setup.md){ .md-button .md-button--primary }
 [Gazebo Setup](gazebo-setup.md){ .md-button }
 [Back to Resources](resources.md){ .md-button }

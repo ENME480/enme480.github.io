@@ -89,7 +89,7 @@ Cutoffs: A+ 97, A 94, A− 90 · B+ 87, B 84, B− 80 · C+ 77, C 74, C− 70 ·
 
 1. Read the [syllabus](assets/docs/syllabus-fall2026.pdf). It is the authority on grading, policies and the week-by-week schedule.
 2. Complete the [UR3e safety training](https://academy.universal-robots.com/free-e-learning/e-series-e-learning/e-series-core-track/). Robot lab access depends on it.
-3. Install Ubuntu and ROS 2 — see [Ubuntu Setup](ubuntu-setup.md) and [ROS Setup](ros-setup.md).
+3. Install Ubuntu and build the course Docker image — see [Ubuntu Setup](ubuntu-setup.md). ROS 2 comes with the image, you do not install it separately ([what that means](ros-setup.md)).
 4. Work through [Week 1](labs/week-01.md) before your first session.
 
 <p class="note-quiet">Not sure where something lives? The <a href="site-map.md">site map</a> lists every page on this site.</p>

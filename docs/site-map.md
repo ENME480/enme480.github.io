@@ -25,7 +25,7 @@ Do these in order. Later labs assume all of them are done.
 | Page | What is on it |
 |---|---|
 | [Ubuntu Setup](ubuntu-setup.md) | Installing Ubuntu 22.04 — dual boot, VM and WSL options |
-| [ROS Setup](ros-setup.md) | Installing ROS 2 Humble, sourcing, building a workspace |
+| [ROS 2 in the Container](ros-setup.md) | What the image already provides, checking it works, command reference |
 | [Gazebo Setup](gazebo-setup.md) | Simulator installation and the usual launch failures |
 | [Dev Environment](dev-environment.md) | VS Code against the course Docker image |
 | [Python Basics](python-basics.md) | The Python subset used in lab |

@@ -122,7 +122,7 @@ nav:
   - Slides: slides.md
   - Setup:
       - Ubuntu Setup: ubuntu-setup.md
-      - ROS Setup: ros-setup.md
+      - ROS 2 in the Container: ros-setup.md
       - Gazebo Setup: gazebo-setup.md
       - Dev Environment: dev-environment.md
       - Python Basics: python-basics.md

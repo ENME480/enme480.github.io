@@ -465,5 +465,5 @@ After setting up Gazebo:
 4. **Experiment with different worlds** and models
 
 [Python Basics](python-basics.md){ .md-button }
-[ROS Setup](ros-setup.md){ .md-button }
+[ROS 2 in the Container](ros-setup.md){ .md-button }
 [Back to Resources](resources.md){ .md-button }
