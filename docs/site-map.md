@@ -51,7 +51,7 @@ link to the source on each page.
 | 1 | [Week 1](labs/week-01.md) | Lab intro, safety, accounts |
 | 2 | [Week 2](labs/week-02.md) | RAL intro, Ubuntu and Python setup |
 | 3 | [Week 3](labs/week-03.md) | Python intro, ROS intro, Studio 1 |
-| 4 | [Week 4](labs/week-04.md) | Gazebo demo, Studio 2 |
+| 4 | [Week 4](labs/week-04.md) | Gazebo bring-up and commanding the UR3e; rotation matrices in Python |
 | 5 | [Week 5](labs/week-05.md) | UR3e intro, FK Lab 1.1 |
 | 6 | [Week 6](labs/week-06.md) | Forward kinematics simulation, FK Lab 1.2 |
 | 7 | [Week 7](labs/week-07.md) | No lab — makeup and office hours |

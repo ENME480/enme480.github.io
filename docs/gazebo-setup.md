@@ -28,7 +28,7 @@ Installed as part of the course image, nothing for you to add:
 | **Simulator** | Gazebo (GZ), launched as `ign gazebo` |
 | **ROS 2 bridge** | `ros_gz_bridge`, `ros_gz_image`, `ros_gz_sim` |
 | **Robot** | Universal Robots description and UR3e MoveIt config |
-| **Course packages** | `enme480_sim`, `ur3e_mrc_sim` (from the course repo) |
+| **Course packages** | `enme480_gazebo`, `ur3e_mrc_sim` (from the course repo) |
 
 ## Checking it runs
 
@@ -52,7 +52,7 @@ From [Week 6](labs/week-06.md) onward, in separate terminals or `tmux` panes:
 
 ```bash
 # the UR3e in Gazebo
-ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+ros2 launch enme480_gazebo enme480_ur3e_empty.launch.py
 
 # the simulated robot's control interface
 ros2 launch ur3e_mrc_sim ur3e_enme480.launch.py
