@@ -1,13 +1,21 @@
-document.addEventListener("DOMContentLoaded", function() {
-  if (typeof renderMathInElement !== "undefined") {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "$", right: "$", display: false},
-        {left: "\\[", right: "\\]", display: true},
-        {left: "\\(", right: "\\)", display: false}
-      ],
-      throwOnError: false
-    });
+window.MathJax = {
+  tex: {
+    inlineMath: [["\\(", "\\)"], ["$", "$"]],
+    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    ignoreHtmlClass: ".*|",
+    processHtmlClass: "arithmatex"
+  }
+};
+
+document$.subscribe(() => { 
+  if (typeof MathJax !== "undefined" && MathJax.startup) {
+    MathJax.startup.output.clearCache();
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typesetPromise();
   }
 });
