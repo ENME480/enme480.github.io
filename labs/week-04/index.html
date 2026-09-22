@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-04.png" />
-<meta name="site-build" content="ef79bb872938"></head>
+<meta name="site-build" content="0f84ab2fdff6"></head>
   
   
     
@@ -2302,8 +2302,7 @@ computed end effector position.</p>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[-0.524, -1.048, 1.396, -0.175, -1.571, -0.524]
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>[0.524, -1.222, 1.396, -0.175, -1.571, 0.175]
 </span></code></pre></div>
-<p><strong>Checkpoint D:</strong> the arm visibly moves to a different configuration for each,
-and <code>/joint_states</code> reports angles close to what you sent.</p>
+<p><strong>Checkpoint D:</strong> the arm visibly moves to a different configuration for each, and <code>/joint_states</code> reports angles close to what you sent. Note that the angles reported by ROS2 may not be the same as what you requested. This is fine, we will discuss why this is the case once we get to Kinematics labs. </p>
 <h2 id="studio-42-rotation-matrices-in-python">Studio 4.2 — Rotation matrices in Python</h2>
 <p>No ROS, no container needed. This one is about the maths you will use for the
 rest of the semester: a rotation matrix turns a vector expressed in one frame
