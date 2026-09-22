@@ -135,12 +135,22 @@ You need four terminals. Use `tmux` rather than juggling four
 Run one command per pane, **in this order**, waiting for each to settle before
 starting the next.
 
-**Pane 1 — the simulator.** Gazebo opens with the UR3e in an empty world, and
-RViz opens alongside it.
+**Pane 1 — the simulator.** Gazebo opens with the UR3e in an empty world.
 
 ```bash
-ros2 launch enme480_gazebo enme480_ur3e_empty.launch.py
+ros2 launch enme480_gazebo enme480_ur3e_empty.launch.py launch_rviz:=true
 ```
+
+!!! warning "`launch_rviz:=true` is not optional here"
+    That argument defaults to **false**, so without it you get Gazebo and no
+    RViz — and the deliverables for this lab need both. If you have already
+    launched without it, stop the pane with `Ctrl+C` and run it again with the
+    argument.
+
+RViz does not appear immediately. It is held back until the joint state
+broadcaster is up, so expect a few seconds of Gazebo on its own first. That is
+deliberate: starting RViz earlier would show a robot with no joint data and
+every link stacked at the origin.
 
 **Pane 2 — the MRC control layer.** This listens for your commands and drives
 the arm's controllers.
@@ -158,6 +168,40 @@ ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 
 **Checkpoint C:** Gazebo and RViz are both open showing a UR3e, and none of the
 three panes is printing errors.
+
+### What RViz is showing you
+
+Gazebo is the *physics simulation* — it is the robot. RViz is a *viewer* for
+what ROS believes is going on: the links, where TF says each frame is, and the
+joint positions coming back on `/joint_states`.
+
+They can disagree, and that disagreement is the useful part. If the arm moves in
+Gazebo but not in RViz, the robot moved and ROS was not told, which usually
+means a broken publisher rather than a broken robot.
+
+In the left-hand Displays panel you can toggle:
+
+| Display | What it shows |
+|---------|---------------|
+| **RobotModel** | the arm's links, drawn from the URDF |
+| **TF** | a set of axes at every frame, including each joint and the tool |
+| **Grid** | the ground plane, for scale |
+
+Turning **TF** on is worth doing now. Those axes are the frames you will be
+assigning DH parameters to in Week 6, and it is much easier to reason about them
+once you have watched them move.
+
+### Opening RViz separately
+
+If you close RViz, or want it in its own pane, you do not need to restart the
+simulator:
+
+```bash
+ros2 run rviz2 rviz2 -d $(ros2 pkg prefix enme480_description)/share/enme480_description/rviz/view_robot.rviz
+```
+
+Without `-d` and that config file you get an empty RViz and have to add the
+displays by hand.
 
 
 ### Part D — Move it
