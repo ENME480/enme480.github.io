@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Gazebo in this course - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="Gazebo ships with the course Docker image. What is in it, how to launch the course simulations, and how to drive the GUI." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/gazebo-setup.png" />
-<meta name="site-build" content="bbecf74a433a"></head>
+<meta name="site-build" content="d808cef5d2ac"></head>
   
   
     
@@ -720,10 +720,12 @@
         
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Week 4 — Gazebo Demo
+    Week 4 — Gazebo & Python
   
 
     
@@ -1954,7 +1956,7 @@ That is what every lab uses.</p>
 </tr>
 <tr>
 <td><strong>Course packages</strong></td>
-<td><code>enme480_sim</code>, <code>ur3e_mrc_sim</code> (from the course repo)</td>
+<td><code>enme480_gazebo</code>, <code>ur3e_mrc_sim</code> (from the course repo)</td>
 </tr>
 </tbody>
 </table>
@@ -1971,7 +1973,7 @@ confirm you started the container with the right compose file for your machine.<
 <p>You will not write your own world files. The labs use prepared launch files.
 From <a href="../labs/week-06/">Week 6</a> onward, in separate terminals or <code>tmux</code> panes:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># the UR3e in Gazebo</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_sim<span class="w"> </span>enme480_ur3e_sim.launch.py
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_gazebo<span class="w"> </span>enme480_ur3e_empty.launch.py
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># the simulated robot's control interface</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_mrc_sim<span class="w"> </span>ur3e_enme480.launch.py

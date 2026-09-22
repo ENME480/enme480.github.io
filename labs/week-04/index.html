@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project">
+        <meta name="description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python.">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Week 4 — Gazebo Demo - ENME480 — Introduction to Robotics</title>
+        <title>Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics</title>
       
     
     
@@ -65,18 +65,18 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Week 4 — Gazebo Demo - ENME480 — Introduction to Robotics" />
-<meta property="og:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="og:title" content="Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics" />
+<meta property="og:description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python." />
 <meta property="og:image" content="https://enme480.github.io/assets/images/social/labs/week-04.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://enme480.github.io/labs/week-04/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Week 4 — Gazebo Demo - ENME480 — Introduction to Robotics" />
-<meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
+<meta property="twitter:title" content="Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics" />
+<meta property="twitter:description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-04.png" />
-<meta name="site-build" content="bbecf74a433a"></head>
+<meta name="site-build" content="d808cef5d2ac"></head>
   
   
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-04-gazebo-demo-studio-2" class="md-skip">
+        <a href="#week-4-gazebo-python" class="md-skip">
           Skip to content
         </a>
       
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 4 — Gazebo Demo
+              Week 4 — Gazebo & Python
             
           </span>
         </div>
@@ -734,10 +734,12 @@
           
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Week 4 — Gazebo Demo
+    Week 4 — Gazebo & Python
   
 
     
@@ -752,10 +754,12 @@
         
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Week 4 — Gazebo Demo
+    Week 4 — Gazebo & Python
   
 
     
@@ -781,33 +785,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-handout-from-lab-code" class="md-nav__link">
+  <a href="#studio-41-gazebo-the-ur3e" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab handout (from Lab-Code)
+        Studio 4.1 — Gazebo &amp; the UR3e
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#week-4-studio-41-gazebo-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Week 4 - Studio 4.1 - Gazebo Demo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Week 4 - Studio 4.1 - Gazebo Demo">
+    <nav class="md-nav" aria-label="Studio 4.1 — Gazebo &amp; the UR3e">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#package-installation" class="md-nav__link">
+  <a href="#part-a-start-the-container-and-check-gazebo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Package Installation
+        Part A — Start the container and check Gazebo
       
     </span>
   </a>
@@ -815,10 +808,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-source-installation" class="md-nav__link">
+  <a href="#part-b-add-the-helper-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Source Installation
+        Part B — Add the helper package
       
     </span>
   </a>
@@ -826,38 +819,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-pre-configured-docker-container" class="md-nav__link">
+  <a href="#part-c-bring-up-the-ur3e" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Pre-configured Docker Container
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Pre-configured Docker Container">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-no-joint-trajcetory-controller-or-controller-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting - no joint trajcetory controller or controller interface
+        Part C — Bring up the UR3e
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#part-d-move-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Move it
+      
+    </span>
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-on-macs" class="md-nav__link">
+  <a href="#watch-it-report-back" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting on Macs
+        Watch it report back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-these-three-poses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run these three poses
       
     </span>
   </a>
@@ -870,22 +868,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-ur3-demo-on-gazebo" class="md-nav__link">
+  <a href="#studio-42-rotation-matrices-in-python" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running UR3 Demo on Gazebo
+        Studio 4.2 — Rotation matrices in Python
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running UR3 Demo on Gazebo">
+    <nav class="md-nav" aria-label="Studio 4.2 — Rotation matrices in Python">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-gazebo-does-not-open-up-waiting-for-controller" class="md-nav__link">
+  <a href="#get-the-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting - Gazebo does not open up; waiting for controller
+        Get the script
       
     </span>
   </a>
@@ -893,10 +891,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
+  <a href="#what-to-write" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assignment
+        What to write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run it
       
     </span>
   </a>
@@ -905,6 +914,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1814,33 +1845,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lab-handout-from-lab-code" class="md-nav__link">
+  <a href="#studio-41-gazebo-the-ur3e" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab handout (from Lab-Code)
+        Studio 4.1 — Gazebo &amp; the UR3e
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#week-4-studio-41-gazebo-demo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Week 4 - Studio 4.1 - Gazebo Demo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Week 4 - Studio 4.1 - Gazebo Demo">
+    <nav class="md-nav" aria-label="Studio 4.1 — Gazebo &amp; the UR3e">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#package-installation" class="md-nav__link">
+  <a href="#part-a-start-the-container-and-check-gazebo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Package Installation
+        Part A — Start the container and check Gazebo
       
     </span>
   </a>
@@ -1848,10 +1868,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-source-installation" class="md-nav__link">
+  <a href="#part-b-add-the-helper-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Source Installation
+        Part B — Add the helper package
       
     </span>
   </a>
@@ -1859,38 +1879,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-pre-configured-docker-container" class="md-nav__link">
+  <a href="#part-c-bring-up-the-ur3e" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Pre-configured Docker Container
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Pre-configured Docker Container">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-no-joint-trajcetory-controller-or-controller-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting - no joint trajcetory controller or controller interface
+        Part C — Bring up the UR3e
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#part-d-move-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Move it
+      
+    </span>
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-on-macs" class="md-nav__link">
+  <a href="#watch-it-report-back" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting on Macs
+        Watch it report back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-these-three-poses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run these three poses
       
     </span>
   </a>
@@ -1903,22 +1928,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-ur3-demo-on-gazebo" class="md-nav__link">
+  <a href="#studio-42-rotation-matrices-in-python" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running UR3 Demo on Gazebo
+        Studio 4.2 — Rotation matrices in Python
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Running UR3 Demo on Gazebo">
+    <nav class="md-nav" aria-label="Studio 4.2 — Rotation matrices in Python">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#troubleshooting-gazebo-does-not-open-up-waiting-for-controller" class="md-nav__link">
+  <a href="#get-the-script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting - Gazebo does not open up; waiting for controller
+        Get the script
       
     </span>
   </a>
@@ -1926,10 +1951,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
+  <a href="#what-to-write" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assignment
+        What to write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run it
       
     </span>
   </a>
@@ -1938,6 +1974,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1961,111 +2019,299 @@
   
 
 
-<h1 id="week-04-gazebo-demo-studio-2">Week 04 — Gazebo Demo (Studio 2)</h1>
-<!-- BEGIN:AUTO-INCLUDE-README -->
-<h2 id="lab-handout-from-lab-code">Lab handout (from Lab-Code)</h2>
-<p><a href="https://github.com/ENME480/Lab-Code/tree/main/Week%204%20-%20Gazebo%20%26%20Python">View this lab folder on GitHub</a></p>
-<h2 id="week-4-studio-41-gazebo-demo">Week 4 - Studio 4.1 - Gazebo Demo</h2>
-<p>The objective of this lab is to install the UR3e packages and have a working simulation of the robot in Gazebo.</p>
-<h3 id="package-installation">Package Installation</h3>
-<p>There are two methods to do this:</p>
-<h3 id="1-source-installation">1. Source Installation</h3>
-<p>Clone the following repositories in your workspace:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git
+<h1 id="week-4-gazebo-python">Week 4 — Gazebo &amp; Python</h1>
+<p>Two studios this week.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Studio 4.1</strong></td>
+<td>Confirm Gazebo works, bring up the UR3e, move it</td>
+</tr>
+<tr>
+<td><strong>Studio 4.2</strong></td>
+<td>Build rotation matrices in Python</td>
+</tr>
+</tbody>
+</table>
+<p>4.1 needs the container. 4.2 is a standalone script and does not touch ROS at
+all, so you can do it while the simulator is loading.</p>
+<p>The commands you send this week are the <strong>same ones that drive the real arm</strong> in
+Week 5. That is the point of the simulator: if it works here, it should work on
+the robot.</p>
+<p><strong>Time:</strong> about 30 minutes for 4.1 if your Week 3 setup still works, plus 30 for 4.2.</p>
+<div class="admonition note">
+<p class="admonition-title">Before you start</p>
+<p>You need a working Week 2 setup. If anything there errored and you scrolled
+past it, check now:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://enme480.github.io/assets/check_setup.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </span></code></pre></div>
-<p><strong>Build and source the workspace</strong></p>
-<h3 id="2-pre-configured-docker-container">2. Pre-configured Docker Container</h3>
-<p>Find the Dockerfile in <code>/Resources/Docker Container/humble_dockerfile.Dockerfile</code> and build and run the container. This is the preferred method but it can lead to issues with Gazebo (looking into a foolproof solution - will be updated this week)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>humble_image<span class="w"> </span>-f<span class="w"> </span>humble_dockerfile.Dockerfile<span class="w"> </span>.
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>humble_image
+<p>Every line must say <code>OK</code>. See
+<a href="../../ros-setup/">ROS 2 in the Container</a> for a refresher on how the pieces
+fit together.</p>
+</div>
+<details class="note">
+<summary>Only if something is out of date</summary>
+<p>Skip this unless a step below fails. Your setup from Week 3 should still
+work, and rebuilding the image takes 20 to 40 minutes for no reason.</p>
+<p>Come back here if <code>ign gazebo</code> will not start, or if a launch file in Part C
+reports <code>Package not found</code> even after a successful build.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
-<h4 id="troubleshooting-no-joint-trajcetory-controller-or-controller-interface">Troubleshooting - no joint trajcetory controller or controller interface</h4>
-<p>If you run into an issue with building packages due to missing a joint controller run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-joint-trajectory-controller
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-controller-interface
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-ur-*
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-control-*
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-ros2-control-*
+<p>If <code>git pull</code> reports a conflict on <code>humble-enme480_ur3e.Dockerfile</code>, keep
+<strong>your</strong> version of line 4 — Mac and VM users edited it — and take the
+incoming changes everywhere else. Do not discard your local changes to get
+past it.</p>
+<p>Then rebuild:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Standard (no NVIDIA GPU)</label><label for="__tabbed_1_2">NVIDIA GPU</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
-<h3 id="troubleshooting-on-macs">Troubleshooting on Macs</h3>
-<p>Gazebo doesn’t directly support ARM64 architecture. As a result, we need to manually compile and install it.</p>
-<p>Install necessary dependencies:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>ppa:dartsim
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libdart-dev<span class="w"> </span>libdart-utils-dev<span class="w"> </span>libdart-external-ikfast-dev<span class="w"> </span>libsdformat9-dev<span class="w"> </span>libfreeimage-dev<span class="w"> </span>libprotoc-dev<span class="w"> </span>libprotobuf-dev<span class="w"> </span>protobuf-compiler<span class="w"> </span>freeglut3-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libtinyxml-dev<span class="w"> </span>libtinyxml2-dev<span class="w"> </span>libtar-dev<span class="w"> </span>libtbb-dev<span class="w"> </span>libogre-1.9-dev<span class="w"> </span>libxml2-dev<span class="w"> </span>pkg-config<span class="w"> </span>qtbase5-dev<span class="w"> </span>libqwt-qt5-dev<span class="w"> </span>libltdl-dev<span class="w"> </span>libgts-dev<span class="w"> </span>libboost-thread-dev<span class="w"> </span>libboost-system-dev<span class="w"> </span>libboost-filesystem-dev<span class="w"> </span>libboost-program-options-dev<span class="w"> </span>libboost-regex-dev<span class="w"> </span>libboost-iostreams-dev<span class="w"> </span>libsimbody-dev<span class="w"> </span>libignition-common3-dev<span class="w"> </span>libignition-fuel-tools4-dev<span class="w"> </span>libignition-transport8-dev<span class="w"> </span>libignition-math6-dev<span class="w"> </span>libignition-msgs5-dev
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/docker
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">userid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="w"> </span><span class="nv">groupid</span><span class="o">=</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>humble-enme480_ur3e-nvidia-compose.yml<span class="w"> </span>build
 </span></code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="studio-41-gazebo-the-ur3e">Studio 4.1 — Gazebo &amp; the UR3e</h2>
+<h3 id="part-a-start-the-container-and-check-gazebo">Part A — Start the container and check Gazebo</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>bash<span class="w"> </span>startDocker.sh
+</span></code></pre></div>
+<p>Inside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ign<span class="w"> </span>gazebo
+</span></code></pre></div>
+<p>A window should open with a list of example worlds. That is the only check that
+matters at this stage. Close it again.</p>
+<p>If no window appears, the container cannot reach your display. That is the
+single most common failure and it is not a Gazebo problem — see
+<a href="../../gazebo-setup/">Gazebo in this course</a> and the troubleshooting section of
+<a href="../../ubuntu-setup/">Ubuntu Setup</a>.</p>
+<p><strong>Checkpoint A:</strong> <code>ign gazebo</code> opens a window.</p>
+<h3 id="part-b-add-the-helper-package">Part B — Add the helper package</h3>
+<p>One new package this week, which later labs also use. Run this <strong>on your own
+machine</strong>, outside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/ENME480_mrc/src
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/ur3e_enme480.git
+</span></code></pre></div>
+<p>If the folder already exists, you have it, move on.</p>
+<p>Then <strong>inside the container</strong>, build and source:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+</span></code></pre></div>
+<p><strong>Checkpoint B:</strong> <code>colcon build</code> finishes with no errors, and
+<code>ros2 pkg list | grep enme480</code> shows <code>enme480_gazebo</code> and <code>ur3e_enme480</code>.</p>
+<h3 id="part-c-bring-up-the-ur3e">Part C — Bring up the UR3e</h3>
+<p>You need four terminals. Use <code>tmux</code> rather than juggling four
+<code>connectToDocker.sh</code> windows:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start a session</td>
+<td><code>tmux</code></td>
+</tr>
+<tr>
+<td>Split horizontally</td>
+<td><code>Ctrl+A</code> then <code>b</code></td>
+</tr>
+<tr>
+<td>Split vertically</td>
+<td><code>Ctrl+A</code> then <code>v</code></td>
+</tr>
+<tr>
+<td>Move between panes</td>
+<td><code>Ctrl+A</code> then an arrow key</td>
+</tr>
+</tbody>
+</table>
+<p>Run one command per pane, <strong>in this order</strong>, waiting for each to settle before
+starting the next.</p>
+<p><strong>Pane 1 — the simulator.</strong> Gazebo opens with the UR3e in an empty world, and
+RViz opens alongside it.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_gazebo<span class="w"> </span>enme480_ur3e_empty.launch.py
+</span></code></pre></div>
+<p><strong>Pane 2 — the MRC control layer.</strong> This listens for your commands and drives
+the arm's controllers.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_mrc_sim<span class="w"> </span>ur3e_enme480.launch.py
+</span></code></pre></div>
+<p><strong>Pane 3 — the ENME480 layer.</strong> Publishes the end effector position you will use
+from Week 6 onward.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_enme480<span class="w"> </span>ur3e_sim_enme480.launch.py
+</span></code></pre></div>
+<p><strong>Checkpoint C:</strong> Gazebo and RViz are both open showing a UR3e, and none of the
+three panes is printing errors.</p>
+<h3 id="part-d-move-it">Part D — Move it</h3>
+<p>In pane 4, send the arm a set of joint angles:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3e/command<span class="w"> </span>ur3e_mrc_msgs/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [0, -1.57, -1.57, 0, 0, 0]</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="s2">v: 1.0</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="s2">a: 1.0</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="s2">io_0: false"</span>
+</span></code></pre></div>
+<p>The arm should move in Gazebo. Breaking that message down:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination</code></td>
+<td>six joint angles, <strong>in radians</strong>, one per joint</td>
+</tr>
+<tr>
+<td><code>v</code>, <code>a</code></td>
+<td>velocity and acceleration limits</td>
+</tr>
+<tr>
+<td><code>io_0</code></td>
+<td>laser pointer, only used on the real robot</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Radians, not degrees</p>
+<p><code>destination</code> is in <strong>radians</strong>. An entry like <code>90</code> is not 90 degrees, it is
+about 14 full rotations' worth of command. Sanity check every angle before
+you press enter. This habit matters in Week 5, when the same command moves a
+real arm near real people.</p>
+</div>
+<p><code>--once</code> publishes a single message and exits, rather than repeating forever.</p>
+<h3 id="watch-it-report-back">Watch it report back</h3>
+<p>In a spare pane:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/joint_states
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3/position
+</span></code></pre></div>
+<p><code>/joint_states</code> is what the joints are actually doing. <code>/ur3/position</code> is the
+computed end effector position.</p>
+<h3 id="run-these-three-poses">Run these three poses</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[0, -0.758, 0, 0.758, -1.571, 1.048]
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>[-0.524, -1.048, 1.396, -0.175, -1.571, -0.524]
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>[0.524, -1.222, 1.396, -0.175, -1.571, 0.175]
+</span></code></pre></div>
+<p><strong>Checkpoint D:</strong> the arm visibly moves to a different configuration for each,
+and <code>/joint_states</code> reports angles close to what you sent.</p>
+<h2 id="studio-42-rotation-matrices-in-python">Studio 4.2 — Rotation matrices in Python</h2>
+<p>No ROS, no container needed. This one is about the maths you will use for the
+rest of the semester: a rotation matrix turns a vector expressed in one frame
+into the same vector expressed in another, and chaining two of them applies both
+rotations in order.</p>
+<h3 id="get-the-script">Get the script</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://enme480.github.io/assets/studio_4_2.py
+</span></code></pre></div>
+<p>Or <a href="../../assets/studio_4_2.py">download it here</a>. It runs as-is — it just does
+nothing useful until you fill it in.</p>
+<p>You need Python 3 and NumPy. Both are already in the container. On your own
+machine, <code>pip install numpy</code> if <code>import numpy</code> fails.</p>
+<h3 id="what-to-write">What to write</h3>
+<p><strong>1. Finish <code>GetRotationMatrix(phi)</code></strong> so it returns a rotation about the z axis:</p>
+<div class="arithmatex">\[
+R(\phi) =
+\begin{bmatrix}
+\cos\phi &amp; -\sin\phi &amp; 0 \\
+\sin\phi &amp; \cos\phi &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">R has to be 3×3</p>
+<p>The stub starts with <code>R = np.zeros(3)</code>, which is a flat array of three
+zeros, not a matrix. Replace it. <code>np.zeros((3, 3))</code> — note the inner
+brackets — or build the array directly.</p>
+</div>
+<p><strong>2. Inside <code>Test()</code>, define the vector:</strong></p>
+<div class="arithmatex">\[
+v_1 =
+\begin{bmatrix}
+1 \\
+0.6 \\
+0.8
+\end{bmatrix}
+\]</div>
+<p><strong>3. Compute</strong> <span class="arithmatex">\(v_2 = R(\phi_2)\,R(\phi_1)\,v_1\)</span> with <code>np.matmul()</code>, using the
+<code>phi1</code> and <code>phi2</code> already defined in the script, and print <code>v2</code>.</p>
+<h3 id="run-it">Run it</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python<span class="w"> </span>studio_4_2.py
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Two sanity checks</p>
+<p>Rotation matrices preserve length, so <code>np.linalg.norm(v2)</code> must equal
+<code>np.linalg.norm(v1)</code>. And because both rotations are about z, the third
+component of <code>v2</code> should still be <code>0.8</code>.</p>
+<p>If either fails, your matrix is wrong — most likely a sign on one of the
+<code>sin</code> terms, or the multiplication order reversed.</p>
+</div>
+<p>Order matters: <span class="arithmatex">\(R_2 R_1 v_1\)</span> is not the same as <span class="arithmatex">\(R_1 R_2 v_1\)</span> in general,
+though for two rotations about the <em>same</em> axis it happens to be. That is worth
+noticing now, because it stops being true in Week 6.</p>
+<h2 id="deliverables">Deliverables</h2>
+<p>Submit <strong>one PDF</strong> to ELMS covering both studios.</p>
+<p><strong>Studio 4.1</strong></p>
 <ol>
-<li>
-<p>Clone the Gazebo source code from GitHub:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/Downloads/
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/osrf/gazebo
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Modify the line 647 of <code>SearchForStuff.cmake</code> in <code>Downloads/gazebo/cmake</code>. Change from 9.8 to 9.7 as the default libsdformat version of ubuntu22 is 9.7.</p>
-</li>
-<li>
-<p>Compile and install Gazebo:</p>
-</li>
+<li>Gazebo and RViz showing the UR3e in each of the <strong>three poses</strong> above, clearly labelled.</li>
+<li>The reported joint angles for each pose, from <code>ros2 topic echo /joint_states</code>.</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/Downloads/gazebo
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cmake<span class="w"> </span>../
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>make<span class="w"> </span>-j3
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
+<p>One screenshot per pose can cover both if the windows are side by side.</p>
+<p><strong>Studio 4.2</strong></p>
 <ol>
-<li>Add Gazebo to your environment path by <strong>modifying .bashrc</strong>*:</li>
+<li>Your finished <code>studio_4_2.py</code>.</li>
+<li>A screenshot of the terminal showing the value of <code>v2</code>.</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/lib:<span class="nv">$LD_LIBRARY_PATH</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
+<p>Keep the function names and structure of the provided script. Check the rubric
+on ELMS before submitting.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong><code>Package 'enme480_gazebo' not found</code></strong></p>
+<p>The terminal was opened before you built. Check the package is there, then
+rebuild and source:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ls<span class="w"> </span>~/ENME480_mrc/src
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
-<ol>
-<li>In your workspace, add the <code>gazebo_ros</code> package:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws/src
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-simulation/gazebo_ros_pkgs
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>gazebo_ros_pkgs
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>ros2
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws/src
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/ros-controls/gazebo_ros2_control
+<p>If <code>enme480_gazebo</code> is not listed by <code>ls</code> at all, your copy of the repo predates
+it. That is the one case where you do need the update block near the top of this
+page.</p>
+<p><strong>Gazebo opens but the arm never appears</strong></p>
+<p>Give it time; the first launch is slow while it loads meshes. If it is still
+empty after a minute, read pane 1 from the top. The real error is usually the
+first one, not the last.</p>
+<p><strong>The arm does not move when you publish</strong></p>
+<p>Check the command is reaching the control layer:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/ur3e/command
 </span></code></pre></div>
-<ol>
-<li><strong>Build and source your workspace</strong></li>
-</ol>
-<h2 id="running-ur3-demo-on-gazebo">Running UR3 Demo on Gazebo</h2>
-<p>Launch the UR3e in Gazebo</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_simulation_gazebo<span class="w"> </span>ur_sim_control.launch.py
-</span></code></pre></div>
-<p>It should open up two windows with UR3e arm in Gazebo &amp; RViz. </p>
-<h4 id="troubleshooting-gazebo-does-not-open-up-waiting-for-controller">Troubleshooting - Gazebo does not open up; waiting for controller</h4>
-<p>Run the following command in a seperate terminal before launching the previous command (in order to use this method, start and source 3 consoles, run this command, then the one above it then the last command on this page).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gazebo<span class="w"> </span>-s<span class="w"> </span>libgazebo_ros_init.so<span class="w"> </span>-s<span class="w"> </span>libgazebo_ros_factory.so<span class="w"> </span>myworld.world
-</span></code></pre></div>
-<p>To test if the simulation works, run the following command</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_robot_driver<span class="w"> </span>test_joint_trajectory_controller.launch.py
-</span></code></pre></div>
-This will keep moving the robot continously in multiple positions.</p>
-<h3 id="assignment">Assignment</h3>
-<p>Prepare a report containing relevant screenshots of:
-1. Screenshots of Gazebo &amp; RViz with the UR3 in 3 different positions
-2. Show the topics reporting back joint angles for each position</p>
-<!-- END:AUTO-INCLUDE-README -->
+<p>You want at least one publisher and one subscriber. If the subscriber count is
+0, pane 2 is not running or died on startup. A mismatched topic name produces no
+error at all, so check the name character by character.</p>
+<p><strong>Everything dies when I press Ctrl+C</strong></p>
+<p>That is expected. Shutting down a launch file kills the nodes it started, and
+some complain on the way out. Errors <em>during shutdown</em> are not a problem; errors
+<em>during startup</em> are.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

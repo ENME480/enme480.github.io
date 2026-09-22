@@ -72,7 +72,7 @@
 <meta property="twitter:title" content="Week 4 - Studio 4.1 - Gazebo Demo - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/_labcode/Week%204%20-%20Gazebo%20%26%20Python/Studio-4_1-Gazebo.png" />
-<meta name="site-build" content="bbecf74a433a"></head>
+<meta name="site-build" content="d808cef5d2ac"></head>
   
   
     
@@ -714,10 +714,12 @@
         
   
   
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+  
   <span class="md-ellipsis">
     
   
-    Week 4 — Gazebo Demo
+    Week 4 — Gazebo & Python
   
 
     
@@ -1621,75 +1623,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#package-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Package Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-source-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Source Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-pre-configured-docker-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Pre-configured Docker Container
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Pre-configured Docker Container">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting-no-joint-trajcetory-controller-or-controller-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting - no joint trajcetory controller or controller interface
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-on-macs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting on Macs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1709,99 +1642,12 @@
 
 
 <h1 id="week-4-studio-41-gazebo-demo">Week 4 - Studio 4.1 - Gazebo Demo</h1>
-<p>The objective of this lab is to install the UR3e packages and have a working simulation of the robot in Gazebo.</p>
-<h2 id="package-installation">Package Installation</h2>
-<p>There are two methods to do this:</p>
-<h2 id="1-source-installation">1. Source Installation</h2>
-<p>Clone the following repositories in your workspace:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git
-</span></code></pre></div>
-<p><strong>Build and source the workspace</strong></p>
-<h2 id="2-pre-configured-docker-container">2. Pre-configured Docker Container</h2>
-<p>Find the Dockerfile in <code>/Resources/Docker Container/humble_dockerfile.Dockerfile</code> and build and run the container. This is the preferred method but it can lead to issues with Gazebo (looking into a foolproof solution - will be updated this week)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>humble_image<span class="w"> </span>-f<span class="w"> </span>humble_dockerfile.Dockerfile<span class="w"> </span>.
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>humble_image
-</span></code></pre></div>
-<h3 id="troubleshooting-no-joint-trajcetory-controller-or-controller-interface">Troubleshooting - no joint trajcetory controller or controller interface</h3>
-<p>If you run into an issue with building packages due to missing a joint controller run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-joint-trajectory-controller
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-controller-interface
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-ur-*
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-control-*
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-ros2-control-*
-</span></code></pre></div>
-<h2 id="troubleshooting-on-macs">Troubleshooting on Macs</h2>
-<p>Gazebo doesn’t directly support ARM64 architecture. As a result, we need to manually compile and install it.</p>
-<p>Install necessary dependencies:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>ppa:dartsim
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libdart-dev<span class="w"> </span>libdart-utils-dev<span class="w"> </span>libdart-external-ikfast-dev<span class="w"> </span>libsdformat9-dev<span class="w"> </span>libfreeimage-dev<span class="w"> </span>libprotoc-dev<span class="w"> </span>libprotobuf-dev<span class="w"> </span>protobuf-compiler<span class="w"> </span>freeglut3-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libtinyxml-dev<span class="w"> </span>libtinyxml2-dev<span class="w"> </span>libtar-dev<span class="w"> </span>libtbb-dev<span class="w"> </span>libogre-1.9-dev<span class="w"> </span>libxml2-dev<span class="w"> </span>pkg-config<span class="w"> </span>qtbase5-dev<span class="w"> </span>libqwt-qt5-dev<span class="w"> </span>libltdl-dev<span class="w"> </span>libgts-dev<span class="w"> </span>libboost-thread-dev<span class="w"> </span>libboost-system-dev<span class="w"> </span>libboost-filesystem-dev<span class="w"> </span>libboost-program-options-dev<span class="w"> </span>libboost-regex-dev<span class="w"> </span>libboost-iostreams-dev<span class="w"> </span>libsimbody-dev<span class="w"> </span>libignition-common3-dev<span class="w"> </span>libignition-fuel-tools4-dev<span class="w"> </span>libignition-transport8-dev<span class="w"> </span>libignition-math6-dev<span class="w"> </span>libignition-msgs5-dev
-</span></code></pre></div>
-<ol>
-<li>
-<p>Clone the Gazebo source code from GitHub:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/Downloads/
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/osrf/gazebo
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Modify the line 647 of <code>SearchForStuff.cmake</code> in <code>Downloads/gazebo/cmake</code>. Change from 9.8 to 9.7 as the default libsdformat version of ubuntu22 is 9.7.</p>
-</li>
-<li>
-<p>Compile and install Gazebo:</p>
-</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/Downloads/gazebo
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cmake<span class="w"> </span>../
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>make<span class="w"> </span>-j3
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
-<ol>
-<li>Add Gazebo to your environment path by <strong>modifying .bashrc</strong>*:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/lib:<span class="nv">$LD_LIBRARY_PATH</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:<span class="nv">$PATH</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span>/usr/local/lib/pkgconfig:<span class="nv">$PKG_CONFIG_PATH</span>
-</span></code></pre></div>
-<ol>
-<li>In your workspace, add the <code>gazebo_ros</code> package:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws/src
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-simulation/gazebo_ros_pkgs
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>gazebo_ros_pkgs
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>ros2
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws/src
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>humble<span class="w"> </span>https://github.com/ros-controls/gazebo_ros2_control
-</span></code></pre></div>
-<ol>
-<li><strong>Build and source your workspace</strong></li>
-</ol>
-<h1 id="running-ur3-demo-on-gazebo">Running UR3 Demo on Gazebo</h1>
-<p>Launch the UR3e in Gazebo</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_simulation_gazebo<span class="w"> </span>ur_sim_control.launch.py
-</span></code></pre></div>
-<p>It should open up two windows with UR3e arm in Gazebo &amp; RViz. </p>
-<h3 id="troubleshooting-gazebo-does-not-open-up-waiting-for-controller">Troubleshooting - Gazebo does not open up; waiting for controller</h3>
-<p>Run the following command in a seperate terminal before launching the previous command (in order to use this method, start and source 3 consoles, run this command, then the one above it then the last command on this page).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gazebo<span class="w"> </span>-s<span class="w"> </span>libgazebo_ros_init.so<span class="w"> </span>-s<span class="w"> </span>libgazebo_ros_factory.so<span class="w"> </span>myworld.world
-</span></code></pre></div>
-<p>To test if the simulation works, run the following command</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur_robot_driver<span class="w"> </span>test_joint_trajectory_controller.launch.py
-</span></code></pre></div>
-This will keep moving the robot continously in multiple positions.</p>
-<h2 id="assignment">Assignment</h2>
-<p>Prepare a report containing relevant screenshots of:
-1. Screenshots of Gazebo &amp; RViz with the UR3 in 3 different positions
-2. Show the topics reporting back joint angles for each position</p>
+<p><strong>This handout has been replaced.</strong> The current Week 4 lab is at
+<a href="../../../labs/week-04/">Week 4 — Gazebo &amp; the UR3e Simulator</a>.</p>
+<p>The previous version of this page told you to build the UR drivers from source,
+and told Mac users to compile Gazebo Classic by hand. Neither is needed: the
+course Docker image already contains Gazebo and the UR3e packages, and Gazebo
+Classic is a different simulator from the one this course uses.</p>
 
 
 
