@@ -251,8 +251,7 @@ computed end effector position.
 [0.524, -1.222, 1.396, -0.175, -1.571, 0.175]
 ```
 
-**Checkpoint D:** the arm visibly moves to a different configuration for each,
-and `/joint_states` reports angles close to what you sent.
+**Checkpoint D:** the arm visibly moves to a different configuration for each, and `/joint_states` reports angles close to what you sent. Note that the angles reported by ROS2 may not be the same as what you requested. This is fine, we will discuss why this is the case once we get to Kinematics labs. 
 
 
 ## Studio 4.2 — Rotation matrices in Python
