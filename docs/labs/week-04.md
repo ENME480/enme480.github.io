@@ -1,21 +1,26 @@
 ---
-title: Week 4 — Gazebo & the UR3e Simulator
+title: Week 4 — Gazebo & Python
 icon: material/robot-industrial
-description: Bring up the UR3e in Gazebo and command it to move, using the same topic interface as the real arm.
+description: Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python.
 ---
 
-# Week 4 — Gazebo & the UR3e Simulator
+# Week 4 — Gazebo & Python
 
-The goal this week is narrow and practical: **confirm Gazebo works on your
-machine, bring up the UR3e, and move it.** No kinematics yet, no code to write.
-If you finish this lab you have a working simulator for the rest of the
-semester.
+Two studios this week.
+
+| | |
+|---|---|
+| **Studio 4.1** | Confirm Gazebo works, bring up the UR3e, move it |
+| **Studio 4.2** | Build rotation matrices in Python |
+
+4.1 needs the container. 4.2 is a standalone script and does not touch ROS at
+all, so you can do it while the simulator is loading.
 
 The commands you send this week are the **same ones that drive the real arm** in
 Week 5. That is the point of the simulator: if it works here, it should work on
 the robot.
 
-**Time:** about 30 minutes if your setup from Week 3 still works.
+**Time:** about 30 minutes for 4.1 if your Week 3 setup still works, plus 30 for 4.2.
 
 !!! note "Before you start"
     You need a working Week 2 setup. If anything there errored and you scrolled
@@ -65,7 +70,9 @@ the robot.
         ```
 
 
-## Part A — Start the container and check Gazebo
+## Studio 4.1 — Gazebo & the UR3e
+
+### Part A — Start the container and check Gazebo
 
 ```bash
 cd ~
@@ -89,7 +96,7 @@ single most common failure and it is not a Gazebo problem — see
 **Checkpoint A:** `ign gazebo` opens a window.
 
 
-## Part B — Add the helper package
+### Part B — Add the helper package
 
 One new package this week, which later labs also use. Run this **on your own
 machine**, outside the container:
@@ -113,7 +120,7 @@ source install/setup.bash
 `ros2 pkg list | grep enme480` shows `enme480_gazebo` and `ur3e_enme480`.
 
 
-## Part C — Bring up the UR3e
+### Part C — Bring up the UR3e
 
 You need four terminals. Use `tmux` rather than juggling four
 `connectToDocker.sh` windows:
@@ -153,7 +160,7 @@ ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 three panes is printing errors.
 
 
-## Part D — Move it
+### Part D — Move it
 
 In pane 4, send the arm a set of joint angles:
 
@@ -204,16 +211,93 @@ computed end effector position.
 and `/joint_states` reports angles close to what you sent.
 
 
+## Studio 4.2 — Rotation matrices in Python
+
+No ROS, no container needed. This one is about the maths you will use for the
+rest of the semester: a rotation matrix turns a vector expressed in one frame
+into the same vector expressed in another, and chaining two of them applies both
+rotations in order.
+
+### Get the script
+
+```bash
+curl -fsSLO https://enme480.github.io/assets/studio_4_2.py
+```
+
+Or [download it here](../assets/studio_4_2.py). It runs as-is — it just does
+nothing useful until you fill it in.
+
+You need Python 3 and NumPy. Both are already in the container. On your own
+machine, `pip install numpy` if `import numpy` fails.
+
+### What to write
+
+**1. Finish `GetRotationMatrix(phi)`** so it returns a rotation about the z axis:
+
+$$
+R(\phi) =
+\begin{bmatrix}
+\cos\phi & -\sin\phi & 0 \\
+\sin\phi & \cos\phi & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+!!! warning "R has to be 3×3"
+    The stub starts with `R = np.zeros(3)`, which is a flat array of three
+    zeros, not a matrix. Replace it. `np.zeros((3, 3))` — note the inner
+    brackets — or build the array directly.
+
+**2. Inside `Test()`, define the vector:**
+
+$$
+v_1 =
+\begin{bmatrix}
+1 \\
+0.6 \\
+0.8
+\end{bmatrix}
+$$
+
+**3. Compute** $v_2 = R(\phi_2)\,R(\phi_1)\,v_1$ with `np.matmul()`, using the
+`phi1` and `phi2` already defined in the script, and print `v2`.
+
+### Run it
+
+```bash
+python studio_4_2.py
+```
+
+!!! tip "Two sanity checks"
+    Rotation matrices preserve length, so `np.linalg.norm(v2)` must equal
+    `np.linalg.norm(v1)`. And because both rotations are about z, the third
+    component of `v2` should still be `0.8`.
+
+    If either fails, your matrix is wrong — most likely a sign on one of the
+    `sin` terms, or the multiplication order reversed.
+
+Order matters: $R_2 R_1 v_1$ is not the same as $R_1 R_2 v_1$ in general,
+though for two rotations about the *same* axis it happens to be. That is worth
+noticing now, because it stops being true in Week 6.
+
 ## Deliverables
 
-Submit **one PDF** with:
+Submit **one PDF** to ELMS covering both studios.
+
+**Studio 4.1**
 
 1. Gazebo and RViz showing the UR3e in each of the **three poses** above, clearly labelled.
 2. The reported joint angles for each pose, from `ros2 topic echo /joint_states`.
 
 One screenshot per pose can cover both if the windows are side by side.
 
-No code this week.
+**Studio 4.2**
+
+3. Your finished `studio_4_2.py`.
+4. A screenshot of the terminal showing the value of `v2`.
+
+Keep the function names and structure of the provided script. Check the rubric
+on ELMS before submitting.
 
 
 ## Troubleshooting
