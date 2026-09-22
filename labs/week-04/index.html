@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-04.png" />
-<meta name="site-build" content="8c611ffd8751"></head>
+<meta name="site-build" content="d8e476565eb9"></head>
   
   
     
@@ -823,6 +823,28 @@
     <span class="md-ellipsis">
       
         Part C — Bring up the UR3e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-rviz-is-showing-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What RViz is showing you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opening-rviz-separately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening RViz separately
       
     </span>
   </a>
@@ -1890,6 +1912,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#what-rviz-is-showing-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What RViz is showing you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opening-rviz-separately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opening RViz separately
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#part-d-move-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2144,10 +2188,20 @@ machine</strong>, outside the container:</p>
 </table>
 <p>Run one command per pane, <strong>in this order</strong>, waiting for each to settle before
 starting the next.</p>
-<p><strong>Pane 1 — the simulator.</strong> Gazebo opens with the UR3e in an empty world, and
-RViz opens alongside it.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_gazebo<span class="w"> </span>enme480_ur3e_empty.launch.py
+<p><strong>Pane 1 — the simulator.</strong> Gazebo opens with the UR3e in an empty world.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>enme480_gazebo<span class="w"> </span>enme480_ur3e_empty.launch.py<span class="w"> </span>launch_rviz:<span class="o">=</span><span class="nb">true</span>
 </span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>launch_rviz:=true</code> is not optional here</p>
+<p>That argument defaults to <strong>false</strong>, so without it you get Gazebo and no
+RViz — and the deliverables for this lab need both. If you have already
+launched without it, stop the pane with <code>Ctrl+C</code> and run it again with the
+argument.</p>
+</div>
+<p>RViz does not appear immediately. It is held back until the joint state
+broadcaster is up, so expect a few seconds of Gazebo on its own first. That is
+deliberate: starting RViz earlier would show a robot with no joint data and
+every link stacked at the origin.</p>
 <p><strong>Pane 2 — the MRC control layer.</strong> This listens for your commands and drives
 the arm's controllers.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ros2<span class="w"> </span>launch<span class="w"> </span>ur3e_mrc_sim<span class="w"> </span>ur3e_enme480.launch.py
@@ -2158,12 +2212,52 @@ from Week 6 onward.</p>
 </span></code></pre></div>
 <p><strong>Checkpoint C:</strong> Gazebo and RViz are both open showing a UR3e, and none of the
 three panes is printing errors.</p>
+<h3 id="what-rviz-is-showing-you">What RViz is showing you</h3>
+<p>Gazebo is the <em>physics simulation</em> — it is the robot. RViz is a <em>viewer</em> for
+what ROS believes is going on: the links, where TF says each frame is, and the
+joint positions coming back on <code>/joint_states</code>.</p>
+<p>They can disagree, and that disagreement is the useful part. If the arm moves in
+Gazebo but not in RViz, the robot moved and ROS was not told, which usually
+means a broken publisher rather than a broken robot.</p>
+<p>In the left-hand Displays panel you can toggle:</p>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RobotModel</strong></td>
+<td>the arm's links, drawn from the URDF</td>
+</tr>
+<tr>
+<td><strong>TF</strong></td>
+<td>a set of axes at every frame, including each joint and the tool</td>
+</tr>
+<tr>
+<td><strong>Grid</strong></td>
+<td>the ground plane, for scale</td>
+</tr>
+</tbody>
+</table>
+<p>Turning <strong>TF</strong> on is worth doing now. Those axes are the frames you will be
+assigning DH parameters to in Week 6, and it is much easier to reason about them
+once you have watched them move.</p>
+<h3 id="opening-rviz-separately">Opening RViz separately</h3>
+<p>If you close RViz, or want it in its own pane, you do not need to restart the
+simulator:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>rviz2<span class="w"> </span>rviz2<span class="w"> </span>-d<span class="w"> </span><span class="k">$(</span>ros2<span class="w"> </span>pkg<span class="w"> </span>prefix<span class="w"> </span>enme480_description<span class="k">)</span>/share/enme480_description/rviz/view_robot.rviz
+</span></code></pre></div>
+<p>Without <code>-d</code> and that config file you get an empty RViz and have to add the
+displays by hand.</p>
 <h3 id="part-d-move-it">Part D — Move it</h3>
 <p>In pane 4, send the arm a set of joint angles:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3e/command<span class="w"> </span>ur3e_mrc_msgs/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [0, -1.57, -1.57, 0, 0, 0]</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="s2">v: 1.0</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="s2">a: 1.0</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="s2">io_0: false"</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3e/command<span class="w"> </span>ur3e_mrc_msgs/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [0, -1.57, -1.57, 0, 0, 0]</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="s2">v: 1.0</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s2">a: 1.0</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s2">io_0: false"</span>
 </span></code></pre></div>
 <p>The arm should move in Gazebo. Breaking that message down:</p>
 <table>
@@ -2198,15 +2292,15 @@ real arm near real people.</p>
 <p><code>--once</code> publishes a single message and exits, rather than repeating forever.</p>
 <h3 id="watch-it-report-back">Watch it report back</h3>
 <p>In a spare pane:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/joint_states
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3/position
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/joint_states
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/ur3/position
 </span></code></pre></div>
 <p><code>/joint_states</code> is what the joints are actually doing. <code>/ur3/position</code> is the
 computed end effector position.</p>
 <h3 id="run-these-three-poses">Run these three poses</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[0, -0.758, 0, 0.758, -1.571, 1.048]
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>[-0.524, -1.048, 1.396, -0.175, -1.571, -0.524]
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>[0.524, -1.222, 1.396, -0.175, -1.571, 0.175]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[0, -0.758, 0, 0.758, -1.571, 1.048]
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[-0.524, -1.048, 1.396, -0.175, -1.571, -0.524]
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>[0.524, -1.222, 1.396, -0.175, -1.571, 0.175]
 </span></code></pre></div>
 <p><strong>Checkpoint D:</strong> the arm visibly moves to a different configuration for each,
 and <code>/joint_states</code> reports angles close to what you sent.</p>
@@ -2216,7 +2310,7 @@ rest of the semester: a rotation matrix turns a vector expressed in one frame
 into the same vector expressed in another, and chaining two of them applies both
 rotations in order.</p>
 <h3 id="get-the-script">Get the script</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://enme480.github.io/assets/studio_4_2.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://enme480.github.io/assets/studio_4_2.py
 </span></code></pre></div>
 <p>Or <a href="../../assets/studio_4_2.py">download it here</a>. It runs as-is — it just does
 nothing useful until you fill it in.</p>
@@ -2250,7 +2344,7 @@ v_1 =
 <p><strong>3. Compute</strong> $<span class="arithmatex">\(v_2 = R(\phi_2)\,R(\phi_1)\,v_1\)</span>$ with <code>np.matmul()</code>, using the
 <code>phi1</code> and <code>phi2</code> already defined in the script, and print <code>v2</code>.</p>
 <h3 id="run-it">Run it</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python<span class="w"> </span>studio_4_2.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>python<span class="w"> </span>studio_4_2.py
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Two sanity checks</p>
@@ -2282,8 +2376,8 @@ on ELMS before submitting.</p>
 <p><strong><code>Package 'enme480_gazebo' not found</code></strong></p>
 <p>The terminal was opened before you built. Check the package is there, then
 rebuild and source:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ls<span class="w"> </span>~/ENME480_mrc/src
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ls<span class="w"> </span>~/ENME480_mrc/src
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">cd</span><span class="w"> </span>~/enme480_ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
 </span></code></pre></div>
 <p>If <code>enme480_gazebo</code> is not listed by <code>ls</code> at all, your copy of the repo predates
 it. That is the one case where you do need the update block near the top of this
@@ -2294,7 +2388,7 @@ empty after a minute, read pane 1 from the top. The real error is usually the
 first one, not the last.</p>
 <p><strong>The arm does not move when you publish</strong></p>
 <p>Check the command is reaching the control layer:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/ur3e/command
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/ur3e/command
 </span></code></pre></div>
 <p>You want at least one publisher and one subscriber. If the subscriber count is
 0, pane 2 is not running or died on startup. A mismatched topic name produces no
