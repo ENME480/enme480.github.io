@@ -237,10 +237,10 @@ In a spare pane:
 
 ```bash
 ros2 topic echo /joint_states
-ros2 topic echo /ur3/position
+ros2 topic echo /ur3e/position
 ```
 
-`/joint_states` is what the joints are actually doing. `/ur3/position` is the
+`/joint_states` is what the joints are actually doing. `/ur3e/position` is the
 computed end effector position.
 
 ### Run these three poses
