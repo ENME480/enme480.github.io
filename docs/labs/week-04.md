@@ -169,6 +169,11 @@ ros2 launch ur3e_enme480 ur3e_sim_enme480.launch.py
 **Checkpoint C:** Gazebo and RViz are both open showing a UR3e, and none of the
 three panes is printing errors.
 
+#### How to stop scripts
+When running a script from the terminal, Ubuntu offers two ways to stop it. The first is pressing Ctrl+C (this is why you can't use that to copy things!). This keybind tells the program to attempt to gracefully exit and shut down and should be the first one you try. 
+
+If the script has crashed or frozen, the other option is Ctrl+\ which will instantly kill the process without giving it a chance to shut down. Use this sparingly, as it can prevent certain processes from fully shutting down, causing other issues.
+
 ### What RViz is showing you
 
 Gazebo is the *physics simulation* — it is the robot. RViz is a *viewer* for
