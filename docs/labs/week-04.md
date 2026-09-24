@@ -302,7 +302,7 @@ v_1 =
 \end{bmatrix}
 $$
 
-**3. Compute** $$v_2 = R(\phi_2)\,R(\phi_1)\,v_1$$ with `np.matmul()`, using the
+**3. Compute** $v_2 = R(\phi_2)\,R(\phi_1)\,v_1$ with `np.matmul()`, using the
 `phi1` and `phi2` already defined in the script, and print `v2`.
 
 ### Run it
