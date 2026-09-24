@@ -1,21 +1,12 @@
-window.MathJax = {
-  tex: {
-    inlineMath: [["\\(", "\\)"], ["$", "$"]],
-    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
-    processEscapes: true,
-    processEnvironments: true
-  },
-  options: {
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
-  }
-};
-
-document$.subscribe(() => { 
-  if (typeof MathJax !== "undefined" && MathJax.startup) {
-    MathJax.startup.output.clearCache();
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typesetPromise();
-  }
+document$.subscribe(({ body }) => {
+  if (typeof renderMathInElement === "undefined") return;
+  renderMathInElement(body, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "$", right: "$", display: false },
+      { left: "\\[", right: "\\]", display: true },
+      { left: "\\(", right: "\\)", display: false }
+    ],
+    throwOnError: false
+  });
 });
