@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 4 — Gazebo & Python - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="Studio 4.1 brings up the UR3e in Gazebo and moves it. Studio 4.2 builds rotation matrices in Python." />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-04.png" />
-<meta name="site-build" content="02293458de0e"></head>
+<meta name="site-build" content="10644ffe0e50"></head>
   
   
     
@@ -826,6 +826,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Part C — Bring up the UR3e">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-stop-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to stop scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1909,6 +1926,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Part C — Bring up the UR3e">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-stop-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to stop scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2212,6 +2246,9 @@ from Week 6 onward.</p>
 </span></code></pre></div>
 <p><strong>Checkpoint C:</strong> Gazebo and RViz are both open showing a UR3e, and none of the
 three panes is printing errors.</p>
+<h4 id="how-to-stop-scripts">How to stop scripts</h4>
+<p>When running a script from the terminal, Ubuntu offers two ways to stop it. The first is pressing Ctrl+C (this is why you can't use that to copy things!). This keybind tells the program to attempt to gracefully exit and shut down and should be the first one you try. </p>
+<p>If the script has crashed or frozen, the other option is Ctrl+\ which will instantly kill the process without giving it a chance to shut down. Use this sparingly, as it can prevent certain processes from fully shutting down, causing other issues.</p>
 <h3 id="what-rviz-is-showing-you">What RViz is showing you</h3>
 <p>Gazebo is the <em>physics simulation</em> — it is the robot. RViz is a <em>viewer</em> for
 what ROS believes is going on: the links, where TF says each frame is, and the
