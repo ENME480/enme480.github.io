@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 5 — UR3e Intro, FK Lab 1.1 - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-05.png" />
-<meta name="site-build" content="10644ffe0e50"></head>
+<meta name="site-build" content="b685dc004946"></head>
   
   
     
@@ -1953,9 +1953,9 @@
 <ol>
 <li>Now we are ready to begin publishing joint angles to the robot. To do this, run the command with angles on your datasheet.</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3/command<span class="w"> </span>ur3e_mrc/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [tht1, tht2, tht3, tht4, tht5, tht6] </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s2">v: 1.0 </span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s2">a: 1.0 </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/ur3/command<span class="w"> </span>ur3e_mrc/msg/CommandUR3e<span class="w"> </span><span class="s2">"destination: [tht1, tht2, tht3, tht4, tht5, tht6]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s2">v: 1.0</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s2">a: 1.0</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s2">io_0: false"</span>
 </span></code></pre></div>
 <p>This message contains a few parts:
@@ -1982,7 +1982,7 @@
 </ol>
 <h2 id="wrap-up-and-shutdown">Wrap Up and Shutdown</h2>
 <p>Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood.</p>
-<p>Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the mvoe is complete. <em>Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!</em></p>
+<p>Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the move is complete. <em>Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!</em></p>
 <h2 id="next-steps">Next Steps</h2>
 <p>In next weeks lab we will show you how to calculate the forward kinematics for our 6 DoF robot usng DH parameters and then how to simulate the Forward Kinematics using Gazebo. The goal of this weeks lab is to get data that you can validate during next weeks lab. If you'd like to get ahead, you can also being working out how to project the laser pointer down onto the table if you given a homogenous transform showing the position and orientation of the pointer.</p>
 <h2 id="submission">Submission</h2>
