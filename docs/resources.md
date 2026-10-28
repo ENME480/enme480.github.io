@@ -42,7 +42,7 @@ Work through these in order the first time. Everything after Week 1 assumes they
 
     Installing Humble, sourcing the environment, building a workspace.
 
-    [ROS Setup](ros-setup.md)
+    [ROS 2 in the Container](ros-setup.md)
 
 -   :material-cube-outline:{ .lg .middle } **Gazebo**
 

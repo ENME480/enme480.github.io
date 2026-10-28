@@ -1,188 +1,452 @@
 ---
 title: Week 3 — ROS 2 Basics (Python)
 icon: material/robot-industrial
-description: Create a ROS 2 workspace and package; implement a talker/listener; drive turtlesim; inspect with CLI and rqt.
+description: Verify your Week 2 setup, then write a ROS 2 subscriber that keeps a running sum and a publisher that drives turtlesim in a circle.
 ---
 
 # Week 3 · ROS 2 (Humble) with Python
 
-This week you’ll learn how ROS 2 is organized and practice the core ideas you’ll use all semester: **workspaces**, **packages**, **publish/subscribe**, and a tiny sim (**turtlesim**). The steps below point you to the **official Humble tutorials**—follow them carefully.
+This week you write your first two ROS 2 nodes.
+
+The point of this lab is **not** to learn all of ROS 2. It is to get comfortable
+with the loop you will use for the rest of the semester: a workspace, a package
+inside it, Python files inside that, build, source, run. The ROS concepts you
+need (publishers, subscribers, topics, messages) show up along the way.
+
+We have given you the package already built and wired up. You fill in ten lines
+across two files.
+
+**Time:** about 2 hours. Parts A to D are setup and should take 30 minutes.
+
+!!! tip "Reference reading"
+    The official ROS 2 tutorials explain the ideas behind all of this in much
+    more depth. They are mirrored on this site so you can read them alongside
+    the lab: [ROS 2 Tutorials](../ros2-tutorials/index.md).
+
+    The one worth reading before Part F is
+    [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md),
+    which walks through every line of a talker node.
+
+!!! note "Where this picks up from"
+    You should have finished the [Ubuntu Setup](../ubuntu-setup.md) guide in
+    Week 2, up to and including the "Tests for Week 2" section. Part A checks
+    that. If any of it fails, fix that before going further, and ask a TA if you
+    are stuck.
 
 
-## Part A - Setup
+## Part A — Check your Week 2 setup
 
-First, we'll show you how to make shortcut commands to launch your Docker image. The commands you need to run will vary depending on wether or not you are using the Nvidia container.
+Run these on your own machine, **outside** Docker.
 
-For people **not** using the Nvidia container, run:
+| # | Run this | You should see |
+|---|----------|----------------|
+| 1 | `ls ~/ENME480_mrc` | folders including `docker`, `src`, `config` |
+| 2 | `docker --version` | a version number, not "command not found" |
+| 3 | `docker images` | a row whose name contains `enme480_ur3e` |
+
+If check 1 fails, you never cloned the course repo. If check 3 fails, you never
+built the image. Both are in the [Ubuntu Setup](../ubuntu-setup.md) guide under
+"ENME480 Docker Installation".
+
+Then run the full dependency check:
+
 ```bash
-echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
-
-echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+curl -fsSL https://enme480.github.io/assets/check_setup.sh | bash
 ```
 
-For people who **are** using the Nvidia container, run:
-```bash
-echo -e "#"'!'"/bin/bash\nexport userid=$(id -u) groupid=$(id -g)\ncd ~/ENME480_mrc/docker\ndocker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker" > startDocker.sh
+Every line must say `OK` before you go on. It tests everything Week 2 was
+supposed to install — build tools, Python, Docker, Compose, your group
+membership — and reads only, changing nothing. You can
+[read it first](../assets/check_setup.sh).
 
-echo -e "#"'!'"/bin/bash\ncontainer="'$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)'"\necho Found running container "'$container'". Connecting...\ndocker exec -ti "'$container'" bash" > connectToDocker.sh
+!!! warning "Do this even if Week 2 seemed fine"
+    `apt` does not stop when one command fails. It is completely normal to have
+    a broken install and not know, because the error scrolled past hundreds of
+    lines ago. If anything reports `FAIL`, the
+    [Repair section](../ubuntu-setup.md#repair-fixing-a-partly-broken-install)
+    fixes the common causes.
+
+
+## Part B — Update the container
+
+The course image has been updated since Week 2 to include `rqt`, which you need
+this week. Pull the changes and rebuild.
+
+```bash
+cd ~/ENME480_mrc
+git pull
 ```
 
-These commands will create two bash files (essentially just lists of other commands) that will allow you to launch the Docker container with:
+Then rebuild the image:
+
+=== "Standard (no NVIDIA GPU)"
+
+    ```bash
+    cd ~/ENME480_mrc/docker
+    userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-compose.yml build
+    ```
+
+=== "NVIDIA GPU"
+
+    ```bash
+    cd ~/ENME480_mrc/docker
+    userid=$(id -u) groupid=$(id -g) docker compose -f humble-enme480_ur3e-nvidia-compose.yml build
+    ```
+
+!!! note "This takes a while — start it and read on"
+    Expect this to run for **20 to 40 minutes**. The updated image changes an
+    early step, so Docker has to redo most of the build rather than reusing
+    what it cached in Week 2.
+
+    Start it now and read
+    [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md)
+    while it runs. You will need it for Part F. Do not close the terminal.
+
+Use the same one of these two tabs for the whole lab. If you did the NVIDIA
+step in Week 2, you are on the NVIDIA tab. Otherwise you are on the standard
+tab.
+
+
+## Part C — Start the container
+
+### C1. Make two shortcut scripts
+
+Typing the full `docker compose` command every time gets old fast. These two
+small scripts do it for you. Run this once, from your home folder:
+
+=== "Standard (no NVIDIA GPU)"
+
+    ```bash
+    cd ~
+    cat > startDocker.sh << 'EOF'
+    #!/bin/bash
+    export userid=$(id -u) groupid=$(id -g)
+    cd ~/ENME480_mrc/docker
+    docker compose -f humble-enme480_ur3e-compose.yml run --rm enme480_ur3e-docker
+    EOF
+    ```
+
+=== "NVIDIA GPU"
+
+    ```bash
+    cd ~
+    cat > startDocker.sh << 'EOF'
+    #!/bin/bash
+    export userid=$(id -u) groupid=$(id -g)
+    cd ~/ENME480_mrc/docker
+    docker compose -f humble-enme480_ur3e-nvidia-compose.yml run --rm enme480_ur3e-docker
+    EOF
+    ```
+
+Then, for everyone:
+
 ```bash
+cd ~
+cat > connectToDocker.sh << 'EOF'
+#!/bin/bash
+container=$(docker ps | grep docker-enme480_ur3e-docker-run | cut -b 1-12)
+echo "Found running container $container. Connecting..."
+docker exec -ti "$container" bash
+EOF
+```
+
+`cat > file << 'EOF'` writes everything up to the closing `EOF` into that file.
+Open `startDocker.sh` in your editor and read it. It is just the commands you
+already ran in Week 2, saved so you do not have to retype them.
+
+Check both files landed where you expect:
+
+```bash
+ls ~/startDocker.sh ~/connectToDocker.sh
+```
+
+### C2. Start it
+
+```bash
+cd ~
 bash startDocker.sh
 ```
 
-And connect to it from another terminal with:
+Your prompt changes to show you are inside the container.
+
+!!! warning "Start it once, connect many times"
+    You will need several terminals this week. Run `startDocker.sh` **once**.
+    For every additional terminal, open a new one on your own machine and run:
+
+    ```bash
+    cd ~
+    bash connectToDocker.sh
+    ```
+
+    Running `startDocker.sh` more than once creates separate containers that
+    cannot see each other's topics, which produces confusing failures later. If
+    you do it by accident, type `exit` in the extra one.
+
+### C3. Pre-flight checks
+
+Run these **inside** the container. All four must pass before you continue.
+
+| # | Run this | You should see |
+|---|----------|----------------|
+| 1 | `ros2 topic list` | `/parameter_events` and `/rosout` |
+| 2 | `echo $AMENT_PREFIX_PATH` | a path containing `enme480_ws` |
+| 3 | `ros2 run turtlesim turtlesim_node` | a blue window with a turtle |
+| 4 | `rqt` | the rqt window opens |
+
+Close the turtlesim window and press `Ctrl+C` in that terminal when you are
+done with check 3. Same for `rqt`.
+
+Check 2 confirms your workspace is being sourced automatically. Checks 3 and 4
+confirm that graphical programs inside the container can reach your screen,
+which is the thing most likely to be broken. If either window fails to appear,
+see [Troubleshooting](#troubleshooting) at the bottom, and ask a TA.
+
+
+## Part D — Get the Week 3 package
+
+We have made a package for you with the structure, dependencies and entry points
+already set up. Clone it into the course repo's `src` folder.
+
+Run this **on your own machine, outside the container**, in a new terminal:
+
 ```bash
-bash connectToDocker.sh
+cd ~/ENME480_mrc/src
+git clone https://github.com/ENME480/enme480_week3.git
 ```
-Provided you are in the folder where these files are. Do not run the start command multiple times, this will spawn multiple docker isntances which will cause unpredicatble resutls when running other scripts for this class. If multiple Docker instances are created, just close out of them with the exit command. *Make sure that you are running the correct commands for your system. Running the wrong ones likely will not work.*
 
-**IMPORTANT:** This the following folders will be linked (outside the docker --> inside the docker)
+Then, **inside the container**, build and source the workspace:
 
+```bash
+cd ~/enme480_ws
+colcon build --symlink-install
+source install/setup.bash
 ```
-ENME480_mrc/src --> enme480_ws/src
-ENME480_mrc/config --> enme480_ws/config
+
+Check it worked:
+
+```bash
+ros2 pkg executables enme480_week3
 ```
-This is where you should place any files you want to keep when the docker shuts down (i.e. assignment code). Any changes made to files in these folders in the docker will be reflected outside the docker and vice versa.
-(Credit to Benjamin Ruby for the original version of the script)
+
+You should get three lines: `talker`, `listener_sum` and `turtle_circle`.
+
+!!! note "Why the folders are different but the same"
+    `~/ENME480_mrc/src` on your machine and `~/enme480_ws/src` inside the
+    container are the same folder. Anything you put in one appears in the other.
+    **This is the only place your work survives.** The container is deleted every
+    time you exit it, so files you create anywhere else are gone.
+
+    This also means you can edit these files in VS Code on your own machine and
+    run them in the container, without copying anything back and forth.
+
+!!! note "`--symlink-install`"
+    That flag means the build links to your Python files instead of copying
+    them. You can edit a node and run it again without rebuilding. You only need
+    to run `colcon build` again if you add a new file or change `setup.py`.
 
 
-## Part B — Pre-flight check (5–10 min)
+## Part E — Read and run the talker
 
-<!-- 1) Create a folder for this course (e.g., `~/enme480_ws`) to keep things tidy. -->
-1) Using the commands from above, open your Docker image contianing ROS
-2) Open a new terminal and verify ROS 2 is available (e.g., `ros2 --version` or `ros2 --help`).  
+Open `~/ENME480_mrc/src/enme480_week3/enme480_week3/talker.py` in your editor
+and read it. It is about 40 lines and every one is commented. This is the
+file you will copy patterns from for the rest of the lab.
+
+Run it:
+
+```bash
+ros2 run enme480_week3 talker
+```
+
+It prints a counter, once a second.
+
+Leave it running, and in a **second** terminal (remember: `bash connectToDocker.sh`)
+look at what it is doing:
+
 ```bash
 ros2 topic list
+ros2 topic echo /numbers
+ros2 topic info /numbers
 ```
-It will show you a list of topics, most likely `/rosout` and `/parameter_events`
 
-3) Try opening up Gazebo
+`ros2 topic list` shows every topic that exists right now. `echo` prints the
+messages going across one. `info` tells you the message type and how many nodes
+are publishing and subscribing to it.
+
+**Checkpoint:** you can see `/numbers` in the topic list, and `echo` prints a
+number roughly once a second.
+
+**Read more:** [Understanding topics](../ros2-tutorials/understanding-topics.md)
+covers `list`, `echo`, `info` and `pub` properly, and shows how to draw the same
+picture with `rqt_graph`.
+
+
+## Part F — Finish `listener_sum.py`
+
+Open `enme480_week3/listener_sum.py`. There are **six TODOs**.
+
+This node subscribes to `/numbers`, adds up everything it hears, and publishes
+the running total on `/sum_topic`. So it is a subscriber and a publisher at the
+same time, which is the one genuinely new idea this week.
+
+The pattern is:
+
+1. In `__init__`, create the subscription, create the publisher, set the total to 0.
+2. ROS calls `number_received()` for you, once per incoming message.
+3. Inside that function, update the total and publish it.
+
+Everything you need is either in the TODO comments or in `talker.py`.
+
+**Read more:**
+[Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md)
+explains the talker and listener line by line. Note that it builds both as
+separate nodes; yours has to do both jobs in one.
+
+Test it with the talker running in one terminal:
+
 ```bash
-ign gazebo
+ros2 run enme480_week3 listener_sum
 ```
-It should open up a window with examples to different test environments
 
-4) Try opening up `rqt`
+and in a third terminal:
+
+```bash
+ros2 topic echo /sum_topic
+```
+
+**Checkpoint:** the totals climb 0, 1, 3, 6, 10, 15 and so on. If the talker has
+been running a while before you start the listener, your sum starts from
+whatever number it is up to, which is fine and expected.
+
+
+## Part G — Finish `turtle_circle.py`
+
+Open `enme480_week3/turtle_circle.py`. There are **four TODOs**.
+
+Start the simulator in one terminal:
+
+```bash
+ros2 run turtlesim turtlesim_node
+```
+
+Before writing anything, find out what the turtle listens to. In another
+terminal:
+
+```bash
+ros2 topic list
+ros2 interface show geometry_msgs/msg/Twist
+```
+
+The first shows you which topic carries velocity commands. The second shows you
+the six numbers inside a `Twist` message. Only two of them matter for a turtle
+on a flat screen.
+
+Then fill in the TODOs and run it:
+
+```bash
+ros2 run enme480_week3 turtle_circle
+```
+
+**Checkpoint:** the turtle draws a clear circle and stays on screen. If it goes
+straight, your turning rate is zero. If it spins on the spot, your forward speed
+is zero. If it runs into a wall, your circle is too big: the radius is forward
+speed divided by turning rate.
+
+Finally, open `rqt` and have a look at what you built:
+
 ```bash
 rqt
 ```
-If `rqt` does not open up anything or throws an error, install any required extenstions
+
+From the menu, open **Plugins → Introspection → Node Graph**. It draws your
+nodes as boxes and your topics as arrows between them. Try **Plugins → Topics →
+Topic Monitor** as well.
+
+
+## Further reading
+
+You did not have to create the workspace or the package this week, because we
+gave them to you. You will want to know how that is done, and these are the
+official ROS 2 tutorials that explain it. Mirrored here, with a link to the
+original on each page.
+
+| Tutorial | Why you would read it |
+|----------|----------------------|
+| [Writing a simple publisher and subscriber](../ros2-tutorials/writing-a-publisher-subscriber.md) | Every line of a talker and a listener, explained |
+| [Understanding topics](../ros2-tutorials/understanding-topics.md) | The CLI tools you used in Parts E to G |
+| [Creating a package](../ros2-tutorials/creating-a-package.md) | What `package.xml` and `setup.py` actually do |
+| [Creating a workspace](../ros2-tutorials/creating-a-workspace.md) | Overlays, underlays, and why sourcing matters |
+
+!!! warning "One difference from our setup"
+    Those tutorials create a workspace at `~/ros2_ws`. **Do not follow that
+    part.** Your workspace is `~/enme480_ws`, and it is the only location that
+    survives the container shutting down. Read them for the concepts, not for
+    the paths.
+
+
+## Deliverables
+
+Submit **one PDF** with four screenshots, plus your two Python files.
+
+Screenshots:
+
+1. Your `listener_sum` terminal, showing the running total climbing.
+2. `ros2 topic echo /sum_topic`, a few lines is plenty.
+3. The turtlesim window with a clear circular path drawn.
+4. rqt showing the **Node Graph** with your nodes and topics in it.
+
+One image can cover more than one of these if the windows are side by side.
+
+Files, submitted separately or as an appendix:
+
+- `listener_sum.py`
+- `turtle_circle.py`
+
+You do not need to submit `talker.py`, since you did not change it.
+
+
+## Troubleshooting
+
+**`Package 'enme480_week3' not found`**
+
+The terminal you are in was opened before you built the package. Open a new one,
+or run `source ~/enme480_ws/install/setup.bash` again in the one you have. New
+terminals source the workspace for you automatically; a terminal that was
+already open does not know about anything built since.
+
+**No window appears for turtlesim or rqt**
+
+The container cannot reach your display. On WSL, this is usually the XAuthority
+problem covered in the [Ubuntu Setup](../ubuntu-setup.md) troubleshooting
+section. Check that you started the container with the right compose file for
+your machine (NVIDIA or standard). If it still fails, ask a TA.
+
+**A node runs but nothing happens**
+
+Topic names and message types have to match exactly on both ends, and a mismatch
+is silent. Nothing crashes, the two nodes just never find each other. Use:
+
 ```bash
-sudo apt install ros-humble-rqt*
-```
-or try reopening it with
-```bash
-rqt --force-discover
-```
-<!--
-### Troubleshooting
-
-During any of these steps if your display doesn't open up, follow the follwoing steps
-
-4) Create a symlink into the docker container by opening a new terminal (while leaving the container open) and running:
-
-```bash
-docker exec <HIT TAB> ln -s ~/<NAME OF THE FOLDER YOU JUST MADE> ~/<NAME YOU WANT THE FOLDER TO HAVE INSIDE DOCKER> 
-```
-This will cause the folder you just created to appear inside the docker image, letting you work inside of it without deleting your work when the container closes. This is called a *symbolic link*. We will provide instrucitons on how to make this permanent soon, but for the time being you will need to rerun this command each time you restart the container.-->
-
-
-**Checkpoint B (no submission yet):** You can run the above commands without any errors. This ensures ROS is fully installed and operational.
-
-
-## Part C — Workspace & package (setup only)
-
-Follow the **official Humble tutorials** step-by-step (do not copy solution code from elsewhere):
-
-1) **Create a workspace:** Use the **Create a workspace** guide and build once so the structure is valid.  
-   ↪ Guide: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
-
-2) **Create a Python package:** Inside your `src/`, make a new package for this week (any sensible name, e.g., `week3`).  
-   ↪ Guide: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html)
-
-**Checkpoint C:** Your workspace builds with `colcon` and your package appears in the build output.
-
-
-## Part D — ROS2 Talker / Listener Demo
-
-Use the **publisher/subscriber (Python)** tutorial as your primary reference:
-
-- Tutorial: [docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
-
-**Task C1 — Publisher (“talker”)**  
-Create a node that **publishes numbers at a steady rate** on a topic you choose (e.g., `/numbers`).  
-*(Use the tutorial to recall how to create a publisher node; adapt it to publish numbers rather than strings.)*
-
-**Task C2 — Subscriber (“listener”)**  
-Create a node that **subscribes** to your numbers topic and **maintains a cumulative sum**. After each new message arrives, it should **publish the running sum** on a **new topic** (e.g., `/sum_topic`).  
-*(Re-use the subscriber pattern from the tutorial; add your own sum logic and a second publisher.)*
-
-**Task C3 — Inspect with CLI**  
-Use the **Understanding topics** tutorial to: **list topics**, **echo** your sum topic, and **show** topic info (type, publishers/subscribers).  
-↪ [docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
-
-> **Hints (conceptual, not solutions):**
-> - Topic names must **match exactly**; message types must be consistent.  
-> - If a terminal shows “no publisher/subscriber”, confirm both nodes are running and your workspace is sourced.  
-> - Keep node/topic names short and meaningful.
-> - Check the Message Type browser in rqt for information about what types to use and how to format the messages.
-> - Use rqts Topic monitor to make sure messages are being properly published.
-> - If rqt is missing these options under plugins, you may need to run
-```bash
-sudo apt install ros-humble-rqt*
+ros2 topic list
+ros2 topic info /your_topic_name
 ```
 
-**Checkpoint D — Screenshots to capture:**  
-- Talker output (brief).  
-- Listener output showing a **running sum**.  
-- `ros2 topic list` and a short `ros2 topic echo` of your sum topic.
+`info` tells you the publisher and subscriber counts. If either is 0 when you
+expect 1, you have a name or type mismatch, or one of the nodes is not running.
 
+**Two nodes cannot see each other**
 
-## Part E — Turtlesim (drive in a circle)
+You probably have more than one container running. Check with `docker ps` on
+your own machine. If there is more than one row, `exit` out of the extras and
+use `bash connectToDocker.sh` for additional terminals instead of
+`startDocker.sh`.
 
-Read the **turtlesim, ros2, and rqt** tutorial first:  
-[docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html)
+**My edits do not seem to do anything**
 
-**Task D1 — Launch turtlesim**  
-Start the turtlesim simulator in one terminal (see tutorial).
+Check you are editing the file under `~/ENME480_mrc/src/enme480_week3/`, and
+that you saved it. If you added a new file or changed `setup.py`, you do need to
+`colcon build` again.
 
-**Task D2 — Velocity publisher**  
-In your package, create a node that **publishes velocity commands** to turtlesim so the turtle moves in a **circle** (non-zero linear \(x\) and angular \(z\)).  
-*(You’ll find the correct topic name in the tutorial; use the CLI or rqt to explore message fields.)*
+**`git status` in `ENME480_mrc` shows `src/enme480_week3` as untracked**
 
-**Task D3 — Observe & Inspect**  
-Use `ros2 topic list` / `ros2 topic echo` to confirm motion and pose updates; open **rqt** and view the **Node Graph** and **Topic Monitor**.  
-- rqt info: [docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html](https://docs.ros.org/en/humble/Concepts/Intermediate/About-RQt.html)
-
-**Checkpoint E — Screenshots to capture:**  
-- Turtlesim window with a **clear circular path**.  
-- Your velocity publisher terminal (brief output).  
-- `ros2 topic list` and a short `ros2 topic echo` of the pose topic.  
-- rqt with **Node Graph** / **Topic Monitor** visible.
-
-
-## Deliverables (single PDF upload)
-
-Include **concise** screenshots (one image may show multiple windows):
-
-- **Talker/Listener:** talker output; listener output showing **running sum**; `ros2 topic list`; brief `ros2 topic echo` of your sum topic.  
-- **Turtlesim:** turtlesim showing a **circle**; velocity publisher terminal; `ros2 topic list`; brief `ros2 topic echo` of the pose topic; rqt with Node Graph/Topic Monitor visible.  
-- A terminal view of your **package tree** (folder/files) helps grading.
-
-Also submit the **three Python files** you created this week as separate attachments or in the PDF appendix (clearly named).
-
----
-
-### Helpful tips for the turtlesim velocity publisher
-
-- **Topic to command motion**: `/turtle1/cmd_vel`. That’s the velocity command topic turtlesim listens to. See the turtlesim tutorial for context.
-- **Message type**:
-- Make edits to `package.xml` to include `geometry_msgs`
--`geometry_msgs/Twist` with two parts: `linear` and `angular`, each a 3-D vector (`x`, `y`, `z`). For a planar turtle,
-  you’ll typically set **`linear.x`** and **`angular.z`** only (m/s and rad/s).
-- If you’re unsure of fields, ask ROS directly:
-  ```bash
-  ros2 interface show geometry_msgs/msg/Twist```
-- The Message Type Viewer and Topic Monitor rqt plugins may be especially useful for debugging.
+That is normal. The Week 3 package is its own repository living inside the
+course one. Leave it alone.

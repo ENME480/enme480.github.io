@@ -46,9 +46,9 @@ The teaching pendant also has an E-Stop button on its face. *If the robot ever m
 1. Now we are ready to begin publishing joint angles to the robot. To do this, run the command with angles on your datasheet.
 
 ```bash
-ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6] 
-v: 1.0 
-a: 1.0 
+ros2 topic pub --once /ur3/command ur3e_mrc/msg/CommandUR3e "destination: [tht1, tht2, tht3, tht4, tht5, tht6]
+v: 1.0
+a: 1.0
 io_0: false"
 ```
 
@@ -76,7 +76,7 @@ From within the docker. Your laser should now be on, so make sure the robot only
 
 Once you are done you can use any time you have left to redo some of what we showed during the prior lab with listing topics and using RQT to see how the robot works under the hood.
 
-Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the mvoe is complete. *Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!*
+Before leaving, rehome the robot by going to the "Move" screen and clicking the "Home" button in the bottom middle of the screen. You will then need to hold down the "Move to new position" button until the robot is fully in position, at which point the screen will change to confirm the move is complete. *Make sure that you fully shut the robot down and close all temrinals on the computer before you leave!*
 
 
 ## Next Steps

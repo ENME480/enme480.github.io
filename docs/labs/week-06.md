@@ -95,14 +95,6 @@ bash connectToDocker.sh
 
 ### Step 3: Build the workspace
 
-#### Preliminary instllations
-
-```bash
-sudo apt update
-sudo apt install ros-humble-tf-transformations
-sudo apt install ros-humble-rqt*
-```
-
 Now, we build the workspace for the simulation
 
 ```bash
@@ -129,7 +121,7 @@ Now we will test if the simulation environment is working
 
 * **Terminal/Pane 1:** Launch MRC UR3e Gazebo simulation in one of the `tmux` panes:
     ```
-    ros2 launch enme480_sim enme480_ur3e_sim.launch.py
+    ros2 launch enme480_gazebo enme480_ur3e_empty.launch.py launch_rviz:=true
     ```
 * **Terminal/Pane 2:** Launch MRC UR3e sim control package in a different `tmux` pane:
     ```
@@ -159,7 +151,7 @@ This is the robot in its zero configuration. Your DH Table should correspond to 
 
 ![offset](../assets/fk/zeropoint.png)
 
-A top down view of the offset for the corner point. The thickness of the base plate is `z=10mm`.
+A top down view of the offset for the corner point. The base plate of the robot gives it a `z=10mm` offset *above* the table.
 
 ![tool](../assets/fk/tool.png)
 

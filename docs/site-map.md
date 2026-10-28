@@ -25,11 +25,24 @@ Do these in order. Later labs assume all of them are done.
 | Page | What is on it |
 |---|---|
 | [Ubuntu Setup](ubuntu-setup.md) | Installing Ubuntu 22.04 — dual boot, VM and WSL options |
-| [ROS Setup](ros-setup.md) | Installing ROS 2 Humble, sourcing, building a workspace |
+| [ROS 2 in the Container](ros-setup.md) | What the image already provides, checking it works, command reference |
 | [Gazebo Setup](gazebo-setup.md) | Simulator installation and the usual launch failures |
 | [Dev Environment](dev-environment.md) | VS Code against the course Docker image |
 | [Python Basics](python-basics.md) | The Python subset used in lab |
 | [Git Basics](git-basics.md) | Cloning lab code, branching, recovering from mistakes |
+
+## ROS 2 tutorials
+
+Mirrors of the official ROS 2 Humble tutorials, reproduced under CC BY 4.0 with a
+link to the source on each page.
+
+| Page | What it covers |
+|---|---|
+| [Overview](ros2-tutorials/index.md) | Index, and where these differ from our Docker setup |
+| [Creating a workspace](ros2-tutorials/creating-a-workspace.md) | Overlays, underlays, sourcing, `colcon build` |
+| [Creating a package](ros2-tutorials/creating-a-package.md) | `package.xml`, `setup.py`, entry points |
+| [Publisher and subscriber](ros2-tutorials/writing-a-publisher-subscriber.md) | The talker/listener pattern in Python |
+| [Understanding topics](ros2-tutorials/understanding-topics.md) | `ros2 topic` CLI and `rqt_graph` |
 
 ## Weekly labs
 
@@ -38,7 +51,7 @@ Do these in order. Later labs assume all of them are done.
 | 1 | [Week 1](labs/week-01.md) | Lab intro, safety, accounts |
 | 2 | [Week 2](labs/week-02.md) | RAL intro, Ubuntu and Python setup |
 | 3 | [Week 3](labs/week-03.md) | Python intro, ROS intro, Studio 1 |
-| 4 | [Week 4](labs/week-04.md) | Gazebo demo, Studio 2 |
+| 4 | [Week 4](labs/week-04.md) | Gazebo bring-up and commanding the UR3e; rotation matrices in Python |
 | 5 | [Week 5](labs/week-05.md) | UR3e intro, FK Lab 1.1 |
 | 6 | [Week 6](labs/week-06.md) | Forward kinematics simulation, FK Lab 1.2 |
 | 7 | [Week 7](labs/week-07.md) | No lab — makeup and office hours |
