@@ -129,7 +129,7 @@ nav:
       - Git Basics: git-basics.md
   - Resources:
       - Overview: resources.md
-      - Kinematics Reference: kinematics-reference.md
+      #- Kinematics Reference: kinematics-reference.md
       - UR3e DH Table: assets/docs/dh_table.pdf
   - Help: help.md
   - Site Map: site-map.md
