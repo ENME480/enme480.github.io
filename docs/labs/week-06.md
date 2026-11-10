@@ -173,6 +173,13 @@ Tips:
     - This means that, counting the base frame (0) and the end effector frame (E) you should have minimum 8 DH frames.
 - Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.
 
+#### Check your frame assignments
+
+Enter your table below (one row per frame, including any fixed frames) and compare the 3D plot to the zero-configuration photo above. Use each joint's slider to sweep it away from zero and confirm that its frame's **z-axis** lines up with the blue cap it represents — that's the single most common DH mistake, and it's much easier to catch here than three steps into your FK derivation.
+
+<iframe src="../../assets/tools/dh-visualizer.html" width="100%" height="760" style="border:1px solid #d9dde3; border-radius:8px;" loading="lazy" title="DH Parameter Visualizer"></iframe>
+
+[Open the DH Visualizer in a new tab](../assets/tools/dh-visualizer.html){ .md-button }
 
 ### Step 6: Create a publisher script to move the arm
 
