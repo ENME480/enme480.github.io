@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 6 — FK Simulation, FK Lab 1.2 - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-06.png" />
-<meta name="site-build" content="db4516187082"></head>
+<meta name="site-build" content="97cfe1a59821"></head>
   
   
     
@@ -924,6 +924,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Solve the UR3e DH Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-your-frame-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check your frame assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1910,6 +1927,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 5: Solve the UR3e DH Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-your-frame-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check your frame assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2139,6 +2173,11 @@
 </li>
 <li>Your code should be a funciton which takes in a list of angles (free DH parameters) and returns the transform between the base and end effector.</li>
 </ul>
+<h4 id="check-your-frame-assignments">Check your frame assignments</h4>
+<p>Enter your table below (one row per frame, including any fixed frames) and compare the 3D plot to the zero-configuration photo above. Use each joint's slider to sweep it away from zero and confirm that its frame's <strong>z-axis</strong> lines up with the blue cap it represents — that's the single most common DH mistake, and it's much easier to catch here than three steps into your FK derivation.</p>
+<iframe src="../../assets/tools/dh-visualizer.html" width="100%" height="760" style="border:1px solid #d9dde3; border-radius:8px;" loading="lazy" title="DH Parameter Visualizer"></iframe>
+
+<p><a class="md-button" href="../../assets/tools/dh-visualizer.html">Open the DH Visualizer in a new tab</a></p>
 <h3 id="step-6-create-a-publisher-script-to-move-the-arm">Step 6: Create a publisher script to move the arm</h3>
 <p>Here, you need to write a publisher script to:</p>
 <ul>
@@ -2371,7 +2410,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.tabs.link", "navigation.indexes", "navigation.footer", "content.tooltips", "toc.follow", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
       
