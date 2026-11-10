@@ -5,7 +5,7 @@
 - Run your IK script on the UR3e Robot
 
 ## Files
-Data Collection Sheet: [pdf](../assets/docs/fk_datasheet.pdf), [docx](../assets/docs/fk_datasheet.docx)
+Data Collection Sheet: [pdf](../assets/docs/ik_datasheet.pdf), [docx](../assets/docs/ik_datasheet.docx)
 
 
 ## Procedure
