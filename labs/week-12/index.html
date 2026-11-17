@@ -76,7 +76,7 @@
 <meta property="twitter:title" content="Week 12 — Camera Lab - ENME480 — Introduction to Robotics" />
 <meta property="twitter:description" content="ENME480 at the University of Maryland, Fall 2026 — kinematics, dynamics and ROS 2 on UR3e arms, with a vision-guided final project" />
 <meta property="twitter:image" content="https://enme480.github.io/assets/images/social/labs/week-12.png" />
-<meta name="site-build" content="97cfe1a59821"></head>
+<meta name="site-build" content="5d2e37d7b355"></head>
   
   
     
@@ -996,17 +996,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restore-the-package-to-original-form-and-pull-the-latest-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore the package to original form and pull the latest version
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#docker-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1853,17 +1842,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restore-the-package-to-original-form-and-pull-the-latest-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore the package to original form and pull the latest version
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#docker-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2023,10 +2001,16 @@
 <p>For the camera lab, you just need to edit <code>get_perspective_warping_with_aruco.py</code> and <code>aruco_detection_test.py</code>  only.</p>
 <h2 id="procedure-for-setup-in-ral">Procedure for Setup in RAL</h2>
 <p>Please follow the following steps before you start editing the scripts on RAL machines</p>
-<h3 id="restore-the-package-to-original-form-and-pull-the-latest-version">Restore the package to original form and pull the latest version</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_mrc/src/enme480_project
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>pull
+<p>Some lab machines do not have the package yet. Check with <code>ls ~/rosPackages/ENME480_mrc/src</code>. If <code>enme480_project</code> is not in the list, clone it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~/rosPackages/ENME480_mrc/src
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ENME480/enme480_project.git
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">### Restore the package to original form and pull the latest version</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sb">```</span>bash
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">cd</span><span class="w"> </span>rosPackages/ENME480_mrc/src/enme480_project
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>git<span class="w"> </span>checkout<span class="w"> </span>.
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>pull
 </span></code></pre></div>
 <h3 id="docker-initialization">Docker Initialization</h3>
 <ul>
