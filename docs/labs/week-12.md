@@ -36,6 +36,12 @@ For the camera lab, you just need to edit `get_perspective_warping_with_aruco.py
 
 Please follow the following steps before you start editing the scripts on RAL machines
 
+Some lab machines do not have the package yet. Check with `ls ~/rosPackages/ENME480_mrc/src`. If `enme480_project` is not in the list, clone it:
+
+```bash
+cd ~/rosPackages/ENME480_mrc/src
+git clone https://github.com/ENME480/enme480_project.git
+
 ### Restore the package to original form and pull the latest version
 
 ```bash
