@@ -41,6 +41,7 @@ Some lab machines do not have the package yet. Check with `ls ~/rosPackages/ENME
 ```bash
 cd ~/rosPackages/ENME480_mrc/src
 git clone https://github.com/ENME480/enme480_project.git
+```
 
 ### Restore the package to original form and pull the latest version
 
